@@ -14,6 +14,11 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
       link.download = filename;
       link.href = canvas.toDataURL('image/png');
       link.click();
+    },
+    getBase64Image: () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return null;
+      return canvas.toDataURL('image/png');
     }
   }));
 
@@ -45,12 +50,13 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
     // Load all images first before clearing canvas to avoid flickering
     const drawLayers = async () => {
       try {
-        const loadedImages = [];
-        for (const layer of sortedLayers) {
-          if (!layer || !layer.src) continue;
-          const img = await loadImage(layer.src);
-          loadedImages.push(img);
-        }
+        // Load all images in parallel for maximum speed
+        const imagePromises = sortedLayers.map(layer => {
+          if (!layer || !layer.src) return Promise.resolve(null);
+          return loadImage(layer.src);
+        });
+        
+        const loadedImages = await Promise.all(imagePromises);
 
         if (!isActive) return;
 
@@ -62,6 +68,8 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
         for (let i = 0; i < loadedImages.length; i++) {
           const img = loadedImages[i];
           const layerInfo = sortedLayers[i];
+          
+          if (!img) continue; // Bỏ qua nếu không tải được ảnh
 
           const hasColor = layerInfo.color && layerInfo.color !== '#ffffff' && layerInfo.color.toLowerCase() !== '#fff';
           let finalColor = layerInfo.color;
@@ -99,6 +107,8 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
           }
 
           let imgToDraw = img;
+          let drawSx = sX;
+          let drawSy = sY;
 
           if (hasColor || (!isSpritesheet && layerInfo.category === 'arms' && extractedSkinColor)) {
             const off = document.createElement('canvas');
@@ -118,6 +128,8 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
             octx.drawImage(img, sX, sY, sW, sH, 0, 0, sW, sH);
 
             imgToDraw = off;
+            drawSx = 0;
+            drawSy = 0;
           }
 
           // ===== Advanced Transform Logic =====
@@ -162,13 +174,13 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
             // Vẽ ảnh sao cho điểm Neo (pX, pY) trùng với điểm hiện tại
             ctx.drawImage(
               imgToDraw,
-              sX, sY, sW, sH,
+              drawSx, drawSy, sW, sH,
               -pX * monsterScale, -pY * monsterScale,
               sW * monsterScale, sH * monsterScale
             );
           } else {
             // Logic mặc định cho Pixel character (căn giữa hoàn toàn)
-            ctx.drawImage(imgToDraw, sX, sY, sW, sH, dx, dy, dw, dh);
+            ctx.drawImage(imgToDraw, drawSx, drawSy, sW, sH, dx, dy, dw, dh);
           }
 
           ctx.restore();

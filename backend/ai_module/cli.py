@@ -171,6 +171,19 @@ def main() -> None:
         "asset JSON, ready for a web frontend to preview/slice without filesystem access.",
     )
 
+    p_anim_img = sub.add_parser("animate-image", help="Auto-describe a reference image and generate an animation tilesheet")
+    p_anim_img.add_argument("image_path", help="Input reference image")
+    p_anim_img.add_argument("--subject", default=None, help="Explicit subject description (skips auto-captioning)")
+    p_anim_img.add_argument("--frames", type=int, default=10)
+    p_anim_img.add_argument("--action", default="running")
+    p_anim_img.add_argument("--style", default="pixel_art", choices=STYLE_CHOICES)
+    p_anim_img.add_argument("--frame-width", type=int, default=64)
+    p_anim_img.add_argument("--frame-height", type=int, default=64)
+    p_anim_img.add_argument("--seed", type=int, default=-1)
+    p_anim_img.add_argument("--slice", action="store_true")
+    p_anim_img.add_argument("--out", default="output")
+    p_anim_img.add_argument("--web-json", action="store_true")
+
     p_tset = sub.add_parser(
         "tileset",
         help="Generate a grid-packed tileset (GameMaker/Tiled-ready sheet + JSON layout)",
@@ -259,6 +272,17 @@ def main() -> None:
         )
     elif args.command == "tilesheet":
         asset = studio.generate_tilesheet(
+            subject=args.subject,
+            frames=args.frames,
+            style=args.style,
+            seed=args.seed,
+            slice_frames=args.slice,
+            frame_size=(args.frame_width, args.frame_height),
+            action=args.action,
+        )
+    elif args.command == "animate-image":
+        asset = studio.generate_tilesheet_from_image(
+            image_path=args.image_path,
             subject=args.subject,
             frames=args.frames,
             style=args.style,

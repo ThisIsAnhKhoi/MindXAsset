@@ -370,9 +370,9 @@ class PollinationsProvider:
         base_url: str = POLLINATIONS_BASE_URL,
         timeout: int = 90,
         retries: int = 3,
-        private: bool = True,
+        private: bool = False,
         enhance: bool = False,
-        nologo: bool = True,
+        nologo: bool = False,
     ):
         self.api_key = api_key
         self.model = model
@@ -959,6 +959,50 @@ class GameAssetStudio:
         )
         if caption.warnings:
             asset.warnings = caption.warnings + asset.warnings
+        return asset
+
+    def generate_tilesheet_from_image(
+        self,
+        image_path: str | Path,
+        subject: str | None = None,
+        frames: int = 10,
+        style: str = "pixel_art",
+        seed: int = -1,
+        slice_frames: bool = False,
+        filename: str | None = None,
+        frame_size: tuple[int, int] = (64, 64),
+        action: str = "running",
+        instruction: str | None = None,
+    ) -> GeneratedAsset:
+        """Reference-image -> prompt -> animation sheet pipeline."""
+        source = Path(image_path)
+        caption_warnings = []
+        caption_desc = ""
+        
+        if not subject:
+            caption = self.describe_reference_image(source, instruction=instruction)
+            subject = caption.description or source.stem.replace("_", " ").replace("-", " ")
+            caption_desc = caption.description
+            caption_warnings = caption.warnings
+
+        asset = self.generate_tilesheet(
+            subject=subject,
+            frames=frames,
+            style=style,
+            seed=seed,
+            slice_frames=slice_frames,
+            filename=filename or f"anim_from_{source.stem}",
+            frame_size=frame_size,
+            action=action,
+        )
+
+        asset.prompt = (
+            f"[reference image: {source.name}] "
+            f"{'auto-caption: ' + repr(caption_desc) + ' ' if caption_desc else ''}"
+            f"-> animation prompt: {asset.prompt}"
+        )
+        if caption_warnings:
+            asset.warnings = caption_warnings + asset.warnings
         return asset
 
     def generate_tilesheet(

@@ -207,6 +207,8 @@ const CharacterBuilder = () => {
   const handleGenerate = async () => {
     setIsGenerating(true);
 
+    const base64Image = canvasPreviewRef.current?.getBase64Image();
+
     const formOutput = {
       name: characterName,
       config: selections,
@@ -214,7 +216,8 @@ const CharacterBuilder = () => {
       action: selections.action,
       export_format: 'spritesheet',
       resolution: '512x512',
-      transparent: transparentBg
+      transparent: transparentBg,
+      base64_image: base64Image
     };
 
     try {
@@ -227,7 +230,7 @@ const CharacterBuilder = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Lỗi server');
 
-      setImageResult(data.imageUrl);
+      setImageResult(data.image); // data.image returns the Base64 generated image
       setShowPreviewModal(true);
       toast.success("Tạo hoạt ảnh AI thành công!");
     } catch (error) {

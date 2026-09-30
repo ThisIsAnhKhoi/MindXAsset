@@ -337,30 +337,48 @@ app.post('/api/generate-image', (req, res) => {
   runPythonCLI(res, args);
 });
 
-// New Endpoint for Character Customizer (Phase 1 Mock / Forwarder)
+// New Endpoint for Character Customizer
 app.post('/api/generate-custom-character', (req, res) => {
-  const { config, action, export_format, resolution } = req.body;
+  const { config, action, base64_image } = req.body;
   
-  if (!config || !config.base_id) {
-    return res.status(400).json({ error: 'Missing character config' });
+  if (!base64_image) {
+    return res.status(400).json({ error: 'Không nhận được dữ liệu ảnh từ Frontend' });
   }
 
-  console.log("Nhận yêu cầu xuất Form Output:", req.body);
+  console.log("Nhận yêu cầu xuất AI Animation cho:", action);
   
-  // TO DO cho AI Team: 
-  // Thay thế block mock này bằng code gọi Python Model thực tế nhận JSON payload.
-  // Hiện tại tạm thời giả lập độ trễ AI 2s và trả về ảnh placeholder hoặc gọi AI sinh ảnh chung chung.
-  
-  const targetSubject = `A pixel art character with ${config.hair_id}, ${config.outfit_id}, performing ${action} action`;
-  
-  const args = [
-    'sprite', targetSubject,
-    '--size', 'sprite_medium',
-    '--style', 'pixel_art',
-    '--out', baseOutputDir
-  ];
-  
-  runPythonCLI(res, args);
+  try {
+    // Tách phần header (data:image/png;base64,) ra khỏi nội dung
+    const base64Data = base64_image.replace(/^data:image\/\w+;base64,/, "");
+    const buffer = Buffer.from(base64Data, 'base64');
+    
+    // Lưu tạm file vào ổ đĩa để Python có thể đọc
+    const tempFileName = `temp_char_${Date.now()}.png`;
+    const tempFilePath = path.join(uploadDir, tempFileName);
+    
+    fs.writeFileSync(tempFilePath, buffer);
+    
+    // Lấy mô tả chi tiết từ config để làm Prompt cho AI thay vì bắt AI tự nhìn ảnh (tiết kiệm API/tránh lỗi 402)
+    const characterFeatures = Object.values(config)
+      .filter(val => val && typeof val === 'string' && val.trim() !== '' && val !== 'idle' && val !== 'run' && val !== 'attack')
+      .map(val => val.replace(/_/g, ' '))
+      .join(', ');
+      
+    const targetSubject = `A pixel art character with ${characterFeatures || 'default features'}, performing ${action || 'running'} action`;
+
+    // Gọi Python AI CLI
+    const args = [
+      'animate-image', tempFilePath,
+      '--subject', targetSubject,
+      '--action', action || 'running',
+      '--out', baseOutputDir
+    ];
+    
+    runPythonCLI(res, args, tempFilePath);
+  } catch (err) {
+    console.error('Lỗi khi lưu ảnh tạm:', err);
+    return res.status(500).json({ error: 'Lỗi server khi xử lý ảnh Base64' });
+  }
 });
 
 
