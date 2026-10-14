@@ -17,6 +17,13 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
+
+# Ensure UTF-8 output across Windows pipes and terminals (prevent charmap encoding errors)
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 
 try:
     from dotenv import load_dotenv
@@ -224,6 +231,24 @@ def main() -> None:
         "asset JSON, ready for a web frontend to preview/slice without filesystem access.",
     )
 
+    p_grid = sub.add_parser(
+        "grid-spritesheet",
+        help="Generate a multi-action grid sprite sheet (e.g. 5 cols x 3 rows = 15 frames) in a single AI call",
+    )
+    p_grid.add_argument("subject", help="Character description, e.g. 'knight warrior with golden crown'")
+    p_grid.add_argument("--columns", type=int, default=5, help="Number of columns (default 5)")
+    p_grid.add_argument("--rows", type=int, default=3, help="Number of rows (default 3)")
+    p_grid.add_argument("--style", default="pixel_art", choices=STYLE_CHOICES)
+    p_grid.add_argument("--seed", type=int, default=-1)
+    p_grid.add_argument("--slice", action="store_true", help="Also save each sliced frame separately")
+    p_grid.add_argument("--transparent", action="store_true", help="Remove white background")
+    p_grid.add_argument("--out", default="output")
+    p_grid.add_argument(
+        "--web-json",
+        action="store_true",
+        help="Print {'image': base64 data URI, 'metadata': {...}} for frontend preview.",
+    )
+
     args = parser.parse_args()
     studio = GameAssetStudio(
         api_key=os.getenv("POLLINATIONS_API_KEY", ""),
@@ -308,6 +333,16 @@ def main() -> None:
             spacing=args.spacing,
             transparent_bg=args.transparent,
             slice_tiles=args.slice,
+        )
+    elif args.command == "grid-spritesheet":
+        asset = studio.generate_grid_spritesheet(
+            subject=args.subject,
+            columns=args.columns,
+            rows=args.rows,
+            style=args.style,
+            seed=args.seed,
+            slice_frames=args.slice,
+            transparent_bg=args.transparent,
         )
     else:
         parser.error(f"Unknown command: {args.command}")

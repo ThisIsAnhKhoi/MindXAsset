@@ -1,5 +1,37 @@
 [
   {
+    "id": "1791991593943",
+    "prompt": "Full complete 2D game character sprite sheet matrix of Data Wizard with bases 018, eyes 002, hairs 041, tops 018, hats 015, glasses 008, ears 008, tails 003, items 027, cloaks 001, beards 009, hairadds 003, makeup 003, arranged in a strict 5 columns by 3 rows grid matrix (15 frames total) on clean plain white background, Row 1: idle breathing and walking cycle animation poses facing right, Row 2: combat attack slash and shield block defend poses, Row 3: hit hurt recoil damage and victory cheer poses. Every single frame features the EXACT SAME identical character with matching outfit, equipment, colors, and proportions. Neatly organized sprite sheet, equal cell spacing, no overlap, isolated on white background, pixel art, 8-bit, retro game style, crisp hard pixels, no anti-aliasing, master game asset",
+    "style": "pixel_art",
+    "type": "sprite_sheet",
+    "image_url": "http://localhost:5000/output/spritesheets/grid_spritesheet_data_wizard_with_bases_018__eyes_002__hairs_041__tops_018__hats.png",
+    "created_at": "2026-10-14T15:26:33.943Z"
+  },
+  {
+    "id": "1791991394022",
+    "prompt": "Full complete 2D game character sprite sheet matrix of Data Wizard with bases 018, eyes 002, hairs 041, tops 018, hats 015, glasses 008, ears 008, tails 003, items 027, cloaks 001, beards 009, hairadds 003, makeup 003, arranged in a strict 5 columns by 3 rows grid matrix (15 frames total) on clean plain white background, Row 1: idle breathing and walking cycle animation poses facing right, Row 2: combat attack slash and shield block defend poses, Row 3: hit hurt recoil damage and victory cheer poses. Every single frame features the EXACT SAME identical character with matching outfit, equipment, colors, and proportions. Neatly organized sprite sheet, equal cell spacing, no overlap, isolated on white background, pixel art, 8-bit, retro game style, crisp hard pixels, no anti-aliasing, master game asset",
+    "style": "pixel_art",
+    "type": "sprite_sheet",
+    "image_url": "http://localhost:5000/output/spritesheets/grid_spritesheet_data_wizard_with_bases_018__eyes_002__hairs_041__tops_018__hats.png",
+    "created_at": "2026-10-14T15:23:14.022Z"
+  },
+  {
+    "id": "1791990045477",
+    "prompt": "[reference image: temp_char_1791989936851.png] -> animation prompt: A pixel art character with bases 012, eyes 011, hairs 004, tops 058, hats 003, glasses 003, ears 012, tails 003, items 030, cloaks 002, beards 001, hairadds 004, makeup none, performing run action, run, 10 frames, pixel_art",
+    "style": "Pixel Art",
+    "type": "sprite_sheet",
+    "image_url": "http://localhost:5000/output/tilesheets/anim_from_temp_char_1791989936851.png",
+    "created_at": "2026-10-14T15:00:45.477Z"
+  },
+  {
+    "id": "1791989927963",
+    "prompt": "Hello kitty, front facing, full body, single centered object, isolated, transparent background if possible, game sprite, 2D cartoon, flat colors, thick outlines, bright palette, game asset, clean silhouette, no scenery",
+    "style": "cartoon",
+    "type": "sprite",
+    "image_url": "http://localhost:5000/output/sprites/sprite_hello_kitty_64x64.png",
+    "created_at": "2026-10-14T14:58:47.963Z"
+  },
+  {
     "id": "1791989665553",
     "prompt": "magic potion bottle, pure pixel art game asset, 8-bit retro, limited color palette, hard pixel edges, no gradients, clean silhouette, classic NES/SNES style",
     "style": "Pixel Art",

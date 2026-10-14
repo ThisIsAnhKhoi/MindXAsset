@@ -185,6 +185,7 @@ class GeneratedAsset:
     has_alpha: bool
     frames: list[FrameMetadata] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    actions: list[dict[str, Any]] = field(default_factory=list)
 
     @property
     def path(self) -> Path:
@@ -200,7 +201,7 @@ class GeneratedAsset:
 
         Works for a single static sprite (1 frame, layout 'single'), a multi-frame
         horizontal sheet like `generate_tilesheet` (layout 'horizontal'), and a
-        multi-row grid like `generate_tileset` (layout 'grid').
+        multi-row grid like `generate_tileset` or `generate_grid_spritesheet` (layout 'grid').
         """
         mime = f"image/{self.format.lower()}" if self.format else "image/png"
         image_bytes = self.path.read_bytes()
@@ -210,9 +211,6 @@ class GeneratedAsset:
             total_frames = len(self.frames)
             frame_width = self.frames[0].w
             frame_height = self.frames[0].h
-            # Derive the real grid shape from each frame's (x, y) instead of assuming
-            # a single row, so this also works for grid layouts like generate_tileset
-            # (multiple rows), not just the always-1-row generate_tilesheet output.
             distinct_rows = sorted({f.y for f in self.frames})
             distinct_cols = sorted({f.x for f in self.frames})
             rows = len(distinct_rows)
@@ -226,16 +224,20 @@ class GeneratedAsset:
             columns = 1
             rows = 1
 
+        payload_meta = {
+            "total_frames": total_frames,
+            "layout_format": layout_format,
+            "frame_width": frame_width,
+            "frame_height": frame_height,
+            "columns": columns,
+            "rows": rows,
+        }
+        if self.actions:
+            payload_meta["actions"] = self.actions
+
         return {
             "image": data_uri,
-            "metadata": {
-                "total_frames": total_frames,
-                "layout_format": layout_format,
-                "frame_width": frame_width,
-                "frame_height": frame_height,
-                "columns": columns,
-                "rows": rows,
-            },
+            "metadata": payload_meta,
         }
 
     def __fspath__(self) -> str:
@@ -347,6 +349,25 @@ class PromptOptimizer:
         return (
             f"{subject}, pure pixel art game asset, 8-bit retro, limited color palette, "
             f"hard pixel edges, no gradients, clean silhouette, classic NES/SNES style"
+        )
+
+    @staticmethod
+    def build_grid_spritesheet_prompt(
+        subject: str,
+        style: str = "pixel_art",
+        columns: int = 5,
+        rows: int = 3,
+    ) -> str:
+        style_tag = PromptOptimizer.STYLE_TAGS.get(style, style)
+        return (
+            f"Full complete 2D game character sprite sheet matrix of {subject}, "
+            f"arranged in a strict {columns} columns by {rows} rows grid matrix ({columns * rows} frames total) on clean plain white background. "
+            f"There is exactly ONE single character centered in each cell ({columns * rows} individual character figures in total, no multiple characters inside one cell). "
+            f"Row 1: idle breathing and walking cycle animation poses facing right. "
+            f"Row 2: combat attack slash and shield block defend poses. "
+            f"Row 3: hit hurt recoil damage and victory cheer poses. "
+            f"Every single frame features the EXACT SAME identical character with matching outfit, equipment, colors, and proportions. "
+            f"Neatly organized sprite sheet, equal cell spacing, no overlap, isolated on white background, {style_tag}, master game asset"
         )
 
     @staticmethod
@@ -1251,6 +1272,96 @@ class GameAssetStudio:
             has_alpha=True,
             frames=tile_meta,
             warnings=warnings,
+        )
+
+    def generate_grid_spritesheet(
+        self,
+        subject: str,
+        columns: int = 5,
+        rows: int = 3,
+        style: str = "pixel_art",
+        seed: int = -1,
+        slice_frames: bool = False,
+        filename: str | None = None,
+        width: int = 1024,
+        height: int = 640,
+        transparent_bg: bool = False,
+    ) -> GeneratedAsset:
+        """Generate a complete multi-action character sprite sheet matrix in a single AI call.
+
+        Arranged as columns x rows (e.g. 5x3 = 15 frames) with identical character styling,
+        uniform lighting, and grouped action rows (idle/walk, attack/defend, hurt/status).
+        """
+        if columns < 1 or rows < 1:
+            raise ValueError("columns and rows must be >= 1")
+
+        prompt = PromptOptimizer.build_grid_spritesheet_prompt(subject, style=style, columns=columns, rows=rows)
+        result = self.gen.generate_with_metadata(
+            prompt,
+            width=width,
+            height=height,
+            seed=seed,
+            negative_prompt=PromptOptimizer.get_negative_prompt("sprite_sheet"),
+        )
+
+        img = result.image
+        if transparent_bg:
+            img = self.proc.remove_background(img)
+
+        out_name = self._safe_name(filename or f"grid_spritesheet_{subject}_{columns}x{rows}")
+        path = self.out / "spritesheets" / f"{out_name}.png"
+        self.proc.save(img, path)
+
+        cell_w = img.width // columns
+        cell_h = img.height // rows
+        total_frames = columns * rows
+        frame_meta: list[FrameMetadata] = []
+
+        for r in range(rows):
+            for c in range(columns):
+                idx = r * columns + c
+                x = c * cell_w
+                y = r * cell_h
+                frame_path: Path | None = None
+                if slice_frames:
+                    cell_crop = img.crop((x, y, x + cell_w, y + cell_h))
+                    frame_path = self.out / "spritesheets" / out_name / f"frame_{idx:02d}.png"
+                    self.proc.save(cell_crop, frame_path)
+                frame_meta.append(
+                    FrameMetadata(
+                        index=idx,
+                        x=x,
+                        y=y,
+                        w=cell_w,
+                        h=cell_h,
+                        file_path=str(frame_path) if frame_path else None,
+                        name=f"frame_{idx:02d}_r{r}_c{c}",
+                    )
+                )
+
+        actions = [
+            {"id": "idle_walk", "name": "Đứng & Đi bộ (Hàng 1)", "row": 0, "start_frame": 0, "end_frame": columns - 1},
+            {"id": "attack_defend", "name": "Tấn công & Thủ (Hàng 2)", "row": 1, "start_frame": columns, "end_frame": 2 * columns - 1},
+            {"id": "hurt_status", "name": "Bị thương & Trạng thái (Hàng 3)", "row": 2, "start_frame": 2 * columns, "end_frame": total_frames - 1},
+            {"id": "all", "name": "Toàn bộ khung hình (15 Khung)", "row": -1, "start_frame": 0, "end_frame": total_frames - 1},
+        ]
+
+        has_alpha = img.mode == "RGBA" and img.getextrema()[3][0] < 255
+        return GeneratedAsset(
+            asset_id=str(uuid.uuid4()),
+            asset_type="sprite_sheet",
+            prompt=prompt,
+            provider=result.provider,
+            model=result.model,
+            seed=result.seed,
+            width=img.width,
+            height=img.height,
+            format="png",
+            file_path=str(path),
+            has_alpha=has_alpha,
+            frames=frame_meta,
+            warnings=result.warnings,
+            actions=actions,
         )
 
     @staticmethod

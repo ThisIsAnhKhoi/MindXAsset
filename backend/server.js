@@ -109,7 +109,7 @@ const runPythonCLI = (res, args, cleanupPath = null) => {
     [pythonScript, ...args],
     {
       maxBuffer: 1024 * 1024 * 50,
-      env: { ...process.env },
+      env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
       cwd: path.join(__dirname, 'ai_module')
     },
     (error, stdout, stderr) => {
@@ -177,7 +177,8 @@ const runPythonCLI = (res, args, cleanupPath = null) => {
         frame_height: frameHeight,
         columns: cols,
         rows: rows,
-        frames: data.frames || []
+        frames: data.frames || [],
+        actions: data.actions || []
       };
 
       const resolvedStyle = args.includes('--style') ? args[args.indexOf('--style') + 1] : 'Pixel Art';
@@ -387,6 +388,37 @@ app.post('/api/generate-custom-character', (req, res) => {
     console.error('Lỗi khi lưu ảnh tạm:', err);
     return res.status(500).json({ error: 'Lỗi server khi xử lý ảnh Base64' });
   }
+});
+
+// Endpoint Tạo Trọn Bộ Sprite Sheet 5x3 (15 Khung hình đa hành động)
+app.post('/api/generate-full-spritesheet', (req, res) => {
+  const { characterName, config, style, seed } = req.body;
+
+  let characterFeatures = '';
+  if (config && typeof config === 'object') {
+    characterFeatures = Object.values(config)
+      .filter(val => val && typeof val === 'string' && val.trim() !== '' && val !== 'idle' && val !== 'run' && val !== 'attack')
+      .map(val => val.replace(/_/g, ' '))
+      .join(', ');
+  }
+
+  const charSubject = characterName && characterName.trim() ? characterName.trim() : 'game hero character';
+  const combinedSubject = characterFeatures 
+    ? `${charSubject} with ${characterFeatures}`
+    : charSubject;
+
+  const safeSeed = (seed ?? -1).toString();
+  const args = [
+    'grid-spritesheet', combinedSubject,
+    '--columns', '5',
+    '--rows', '3',
+    '--style', getStyleMap(style || 'Pixel Art'),
+    '--seed', safeSeed,
+    '--slice',
+    '--out', baseOutputDir
+  ];
+
+  runPythonCLI(res, args);
 });
 
 

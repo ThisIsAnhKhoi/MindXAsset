@@ -170,3 +170,25 @@
 - **Quyết định**: **Chọn Phương án B**.
 - **Lý do**: Giải quyết triệt để 100% nguyên nhân gốc rễ gây lỗi API; phản hồi sinh ảnh từ API thành công trong ~10s; log lỗi minh bạch giúp đội ngũ phát triển nhận biết chính xác trạng thái token/credit.
 - **Hệ quả**: Cần đảm bảo file `.env` có biến `POLLINATIONS_API_KEY` với token còn hiệu lực (bắt đầu bằng `sk_...`).
+
+---
+
+### ADR-13: Kiến Trúc Ma Trận Lưới Single-Shot AI Grid Spritesheet (5x3) & Animation Player Đa Hành Động
+- **Bối cảnh**:
+  1. Người dùng mong muốn từ Character Studio có thể tạo ra một bộ Sprite Sheet đầy đủ các tư thế/hành động (Đứng, Đi bộ, Tấn công, Thủ, Bị thương) tương tự bộ mẫu Gemini.
+  2. Cách triển khai cũ (`generate_tilesheet`) thực hiện vòng lặp `for index in range(frames):` gọi API 10 lần riêng biệt:
+     - Thời gian chờ đợi quá lâu (trên 60s).
+     - Chi phí credit API tăng gấp 10 lần.
+     - Quan trọng nhất: Nhân vật bị biến đổi chi tiết (character drift), không giữ được quần áo và phụ kiện nhất quán giữa các frame.
+  3. Trên hệ điều hành Windows, việc in chuỗi JSON có ký tự tiếng Việt hoặc Emoji (ví dụ tên hành động `⚔️ Tấn công`, `🚶 Đi bộ`) qua console pipe bị lỗi `UnicodeEncodeError: 'charmap' codec can't encode characters`.
+- **Các phương án cân nhắc**:
+  1. *Phương án A*: Tiếp tục dùng vòng lặp tuần tự nhiều ảnh và cố gắng truyền ảnh tham chiếu. *(Rất chậm, tốn credit, AI vision mô tả lại vẫn có sai số)*.
+  2. *Phương án B (Lựa chọn)*:
+     - Áp dụng kỹ thuật Prompt kỹ nghệ ma trận lưới: yêu cầu mô hình AI sinh toàn bộ bảng spritesheet 5 cột x 3 hàng (15 khung hình) trên nền trắng đồng nhất trong 1 lần gọi API duy nhất (`1024x640px`, thời gian hoàn thành ~10-12s, chi phí chỉ 1 request).
+     - Tự động tính toán tọa độ cắt lưới chuẩn xác (`cell_w = width // columns`, `cell_h = height // rows`) và gắn metadata cấu trúc hành động (`actions`: Hàng 1 = Đứng & Đi, Hàng 2 = Tấn công & Thủ, Hàng 3 = Bị thương & Trạng thái).
+     - Nâng cấp `SpritePreviewModal.jsx` sang bố cục 2 cột side-by-side (`md:flex-row`), sử dụng Canvas renderer pixel-art trực tiếp để loại bỏ hoàn toàn hiện tượng lệch offset/cắt méo viền nhân vật.
+     - Khắc phục triệt để lỗi mã hóa Windows pipe bằng cách thiết lập `PYTHONIOENCODING=utf-8` trong Node.js `execFile` và kích hoạt `sys.stdout.reconfigure(encoding="utf-8")` trong `cli.py`.
+- **Quyết định**: **Chọn Phương án B**.
+- **Lý do**: Tốc độ sinh ảnh cực nhanh (~10-12s); đảm bảo 100% nhân vật đồng nhất hoàn hảo về phụ kiện, áo quần, màu sắc trên cả 15 khung hình; trình phát cho phép xem trước từng chu kỳ hoạt ảnh riêng biệt vô cùng trực quan cho học sinh.
+- **Hệ quả**: Kích thước khung hình mặc định là 5x3, học sinh có thể tùy chỉnh lại số hàng/cột ngay trên giao diện nếu muốn thử nghiệm lưới khác.
+

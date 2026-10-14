@@ -261,3 +261,40 @@ Giải quyết tình trạng frame bị che, chồng lấn và các item phụ k
 ### 4. Cách báo cáo kết quả
 - Chụp ảnh màn hình kiểm thử giao diện `studio_perfect_viewport_fit.png` và `hats_category_zoom.png`.
 - Ghi nhận vào `docs/DECISIONS.md` (ADR-11) và `docs/DEVELOPMENT_PLAN.md`.
+
+---
+
+## TASK-10: Tạo Trọn Bộ Sprite Sheet Ma Trận Lưới (Grid AI 5x3) & Nâng Cấp Trình Phát Animation Đa Hành Động
+
+### 1. Mục tiêu
+Cho phép học sinh tạo ra một bộ sprite sheet nhân vật đa hành động hoàn chỉnh (15 khung hình: Đứng/Đi bộ, Tấn công/Thủ, Bị thương/Trạng thái) chỉ với 1 cú click chuột trong Character Studio; tự động cắt lưới và phát hoạt ảnh mượt mà theo từng nhóm hành động hoặc toàn bộ khung hình.
+
+### 2. Các tệp liên quan
+- `backend/ai_module/asset_generator.py`
+- `backend/ai_module/cli.py`
+- `backend/server.js`
+- `frontend/src/components/SpritePreviewModal.jsx`
+- `frontend/src/pages/CharacterBuilder/CharacterBuilder.jsx`
+
+### 3. Tiêu chí chấp nhận (Acceptance Criteria)
+1. **Sinh ma trận lưới Single-Shot qua AI**:
+   - Sử dụng một lần gọi API duy nhất sinh toàn bộ ma trận lưới 5 cột x 3 hàng (`1024x640px`) thay vì lặp nhiều lần (tiết kiệm 10x chi phí/thời gian, thời gian hoàn tất ~10-12s).
+   - Đảm bảo tính nhất quán 100% về trang phục, trang bị, màu sắc và tỷ lệ nhân vật giữa cả 15 khung hình.
+2. **Backend & Metadata Đa Hành Động**:
+   - Bổ sung lệnh CLI `grid-spritesheet` và endpoint `POST /api/generate-full-spritesheet`.
+   - Trả về cấu trúc `metadata.actions` phân định ranh giới khung cho từng hàng:
+     - Hàng 1 (Khung 0..4): Đứng & Đi bộ.
+     - Hàng 2 (Khung 5..9): Tấn công & Phòng thủ.
+     - Hàng 3 (Khung 10..14): Bị thương & Trạng thái.
+     - Toàn bộ (Khung 0..14): 15 khung hình.
+3. **Trình phát Animation Đa Hành Động (SpritePreviewModal)**:
+   - Bố cục 2 cột side-by-side chuẩn màn hình ngang (`md:flex-row`).
+   - Cột trái: Lưới cắt 5x3 với số thứ tự 1..15, highlight hàng đang phát và ô khung hình hiện tại; hỗ trợ click trực tiếp vào ô để nhảy tới khung hình đó.
+   - Cột phải: Bộ tab lọc nhóm hành động, màn hình Canvas render pixel-art không méo/không cắt xén nhân vật, nút điều khiển Step `⏮️`, Play/Pause `⏯️`, `⏭️`, thanh trượt FPS (1-30 FPS).
+   - Nút tải về: Tải toàn bộ Sprite Sheet PNG hoặc Tải khung hình đang chọn (Frame PNG).
+4. **Tích hợp Character Studio**:
+   - Nút `✨ Tạo Trọn Bộ Sprite Sheet (Grid AI)` nổi bật với gradient vàng-cam-đỏ và hiệu ứng loading spinner khi sinh ảnh.
+
+### 4. Cách báo cáo kết quả
+- Chụp ảnh màn hình kiểm thử `modal_side_by_side_verified_1791991573277.png`.
+- Ghi nhận chi tiết vào `docs/DECISIONS.md` (ADR-13).

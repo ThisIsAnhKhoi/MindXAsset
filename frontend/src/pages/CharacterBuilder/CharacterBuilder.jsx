@@ -158,6 +158,8 @@ const CharacterBuilder = () => {
   const [colors, setColors] = useState({});
 
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isGeneratingSheet, setIsGeneratingSheet] = useState(false);
+  const [previewMetadata, setPreviewMetadata] = useState(null);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [imageResult, setImageResult] = useState(null);
 
@@ -288,6 +290,7 @@ const CharacterBuilder = () => {
       if (!res.ok) throw new Error(data.error || 'Lỗi server');
 
       setImageResult(data.image); // data.image returns the Base64 generated image
+      setPreviewMetadata(data.metadata || null);
       setShowPreviewModal(true);
       toast.success("Tạo hoạt ảnh AI thành công!");
     } catch (error) {
@@ -295,6 +298,37 @@ const CharacterBuilder = () => {
       toast.error(`Có lỗi xảy ra: ${error.message}`);
     } finally {
       setIsGenerating(false);
+    }
+  };
+
+  // Tạo trọn bộ Sprite Sheet 5x3 (15 Khung hình đa hành động)
+  const handleGenerateFullSpritesheet = async () => {
+    setIsGeneratingSheet(true);
+
+    try {
+      const res = await fetch('http://localhost:5000/api/generate-full-spritesheet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          characterName: characterName || 'MindX Hero Character',
+          config: selections,
+          colors: colors,
+          style: 'Pixel Art',
+        })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Lỗi server');
+
+      setImageResult(data.image);
+      setPreviewMetadata(data.metadata || null);
+      setShowPreviewModal(true);
+      toast.success("Tạo trọn bộ Sprite Sheet (15 Khung hình) thành công!");
+    } catch (error) {
+      console.error(error);
+      toast.error(`Có lỗi xảy ra: ${error.message}`);
+    } finally {
+      setIsGeneratingSheet(false);
     }
   };
 
@@ -426,30 +460,58 @@ const CharacterBuilder = () => {
                 </button>
               </div>
 
-              {/* Nút Xuất Hoạt Ảnh (AI Generator) */}
+              {/* Nút Tạo Trọn Bộ Sprite Sheet 5x3 (15 Khung AI Grid Matrix) */}
               <button
                 type="button"
-                onClick={handleGenerate}
-                disabled={isGenerating}
+                onClick={handleGenerateFullSpritesheet}
+                disabled={isGeneratingSheet || isGenerating}
                 className={`
-                  w-full py-2.5 px-4 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-2xs cursor-pointer
-                  ${isGenerating
-                    ? 'bg-red-300 text-white cursor-not-allowed'
-                    : 'bg-red-600 hover:bg-red-700 text-white hover:shadow-md'
+                  w-full py-2.5 px-3 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer
+                  ${isGeneratingSheet
+                    ? 'bg-amber-300 text-white cursor-not-allowed'
+                    : 'bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white hover:shadow-md'
                   }
                 `}
               >
-                {isGenerating ? (
+                {isGeneratingSheet ? (
                   <>
                     <svg className="animate-spin h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    Đang xuất qua AI...
+                    Đang tạo Trọn Bộ Sprite Sheet (Grid AI)...
                   </>
                 ) : (
                   <>
-                    <span>⚡</span> Xuất Hoạt Ảnh (AI Generator)
+                    <span className="text-sm">✨</span> Tạo Trọn Bộ Sprite Sheet (Grid AI)
+                  </>
+                )}
+              </button>
+
+              {/* Nút Xuất Hoạt Ảnh Đơn (AI Generator) */}
+              <button
+                type="button"
+                onClick={handleGenerate}
+                disabled={isGenerating || isGeneratingSheet}
+                className={`
+                  w-full py-2 px-3 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-2xs cursor-pointer border
+                  ${isGenerating
+                    ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                    : 'bg-white hover:bg-gray-50 text-gray-700 border-gray-300 hover:border-gray-400'
+                  }
+                `}
+              >
+                {isGenerating ? (
+                  <>
+                    <svg className="animate-spin h-3.5 w-3.5 text-gray-600" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Đang xuất hoạt ảnh 1 động tác...
+                  </>
+                ) : (
+                  <>
+                    <span>⚡</span> Xuất Hoạt Ảnh 1 Động Tác (10 Frames)
                   </>
                 )}
               </button>
@@ -478,6 +540,7 @@ const CharacterBuilder = () => {
         isOpen={showPreviewModal}
         onClose={() => setShowPreviewModal(false)}
         imageUrl={imageResult}
+        metadata={previewMetadata}
         actionName={selections.action}
       />
     </div>
