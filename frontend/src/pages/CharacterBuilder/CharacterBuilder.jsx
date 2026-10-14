@@ -85,18 +85,20 @@ const CharacterBuilder = () => {
     action: 'idle'
   });
 
-  // Reset selections when changing model
-  useEffect(() => {
+  // Chuyển đổi Model trực tiếp trong handler tránh cascading render
+  const handleModelChange = (newModelId) => {
+    setCurrentModelId(newModelId);
+    const targetModel = CHARACTER_MODELS.find(m => m.id === newModelId) || CHARACTER_MODELS[0];
     const newSelections = { action: 'idle' };
-    currentModel.categories.forEach(cat => {
-      const options = currentModel.config[cat.id] || [];
+    targetModel.categories.forEach(cat => {
+      const options = targetModel.config[cat.id] || [];
       if (options.length > 0) {
         newSelections[cat.id] = options[0].id;
       }
     });
     setSelections(newSelections);
-    setActiveCategory(currentModel.categories[0].id);
-  }, [currentModelId]);
+    setActiveCategory(targetModel.categories[0].id);
+  };
 
   // 1. Tải trước toàn bộ ảnh trong danh mục đang chọn (Category Preloading)
   useEffect(() => {
@@ -150,7 +152,7 @@ const CharacterBuilder = () => {
         setTimeout(runIdlePreload, 250);
       }
     }
-  }, [currentModelId]);
+  }, [currentModelId, currentModel.config]);
 
   // Bảng màu cho từng bộ phận (Color Modulation)
   const [colors, setColors] = useState({});
@@ -297,33 +299,35 @@ const CharacterBuilder = () => {
   };
 
   return (
-    <div className="flex-1 bg-[#F8F9FA] py-8 px-4 sm:px-8 font-sans border-t border-gray-200">
-      <div className="max-w-6xl mx-auto flex flex-col gap-6">
+    <div className="flex-1 bg-[#F8F9FA] py-3 px-4 sm:px-6 font-sans border-t border-gray-200">
+      <div className="max-w-6xl mx-auto flex flex-col gap-3">
 
-        {/* Banner Tiêu đề */}
-        <div className="text-center mb-2">
-          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 font-sans tracking-tight">
-            CHARACTER STUDIO
-          </h1>
-          <p className="text-sm text-gray-500 font-sans mt-2">
-            Xây dựng nhân vật Pixel Art hoàn chỉnh với Custom Layering & Nhuộm màu động
-          </p>
+        {/* Banner Tiêu đề thu gọn thanh lịch */}
+        <div className="flex items-center justify-between pb-2 border-b border-gray-200 shrink-0">
+          <div>
+            <h1 className="text-xl sm:text-2xl font-black text-gray-900 font-sans tracking-tight flex items-center gap-2">
+              <span className="text-red-600">⚡</span> CHARACTER STUDIO
+            </h1>
+            <p className="text-xs text-gray-500 font-sans mt-0.5">
+              Xây dựng nhân vật Pixel Art hoàn chỉnh với Custom Layering & Nhuộm màu động
+            </p>
+          </div>
         </div>
 
-        {/* Bố cục 3 CỘT chuẩn */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+        {/* Bố cục 3 CỘT chuẩn Studio - Đồng bộ chiều cao 560px, triệt tiêu đè lấn */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
 
-          {/* CỘT 1: Danh mục chọn nhanh (Trái) */}
-          <div className="md:col-span-3 flex flex-col gap-4">
-            {/* Chọn Model Nhân vật */}
-            <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-              <h2 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+          {/* CỘT 1: Sidebar Danh mục Điều Hướng (Hợp nhất 1 Card duy nhất) */}
+          <div className="md:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[560px] overflow-hidden">
+            {/* Header Thẻ: Chọn Model */}
+            <div className="p-3.5 border-b border-gray-100 bg-gray-50/60 shrink-0">
+              <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1.5 font-sans">
                 Loại Nhân Vật
-              </h2>
+              </label>
               <select
                 value={currentModelId}
-                onChange={(e) => setCurrentModelId(e.target.value)}
-                className="w-full bg-red-50 text-red-700 font-bold border border-red-200 py-2.5 px-3 rounded-lg font-sans text-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-shadow"
+                onChange={(e) => handleModelChange(e.target.value)}
+                className="w-full bg-white text-red-700 font-bold border border-red-200 py-2 px-3 rounded-xl font-sans text-xs focus:outline-none focus:ring-2 focus:ring-red-500 shadow-2xs"
               >
                 {CHARACTER_MODELS.map(model => (
                   <option key={model.id} value={model.id}>{model.name}</option>
@@ -331,10 +335,11 @@ const CharacterBuilder = () => {
               </select>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-              <h2 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
-                Bộ Phận
-              </h2>
+            {/* Thân Thẻ: Danh sách Bộ phận (Cuộn nội bộ bên trong) */}
+            <div className="flex-1 p-3 overflow-y-auto custom-scrollbar flex flex-col">
+              <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 block font-sans shrink-0">
+                Bộ Phận ({currentModel.categories.length})
+              </span>
               <CategoryMenu
                 categories={currentModel.categories}
                 activeCategory={activeCategory}
@@ -342,16 +347,16 @@ const CharacterBuilder = () => {
               />
             </div>
 
-            {/* Chế độ động tác (Action Pose) */}
+            {/* Đáy Thẻ: Động tác Action (Gắn liền ở chân, không bị rơi rụng hay che khuất) */}
             {currentModel.isSpritesheet && (
-              <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                <label className="text-xs font-bold uppercase tracking-widest block mb-2 text-gray-500">
+              <div className="p-3 border-t border-gray-100 bg-gray-50/80 shrink-0">
+                <label className="text-[11px] font-bold uppercase tracking-wider block mb-1.5 text-gray-500 font-sans">
                   Động tác (Action)
                 </label>
                 <select
                   value={selections.action}
                   onChange={(e) => handleSelectOption('action', e.target.value)}
-                  className="w-full bg-gray-50 border border-gray-300 text-gray-800 py-2.5 px-3 rounded-lg font-sans text-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-shadow"
+                  className="w-full bg-white border border-gray-300 text-gray-800 py-1.5 px-3 rounded-lg font-sans text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-red-500"
                 >
                   <option value="idle">Đứng im (Idle)</option>
                   <option value="run">Chạy (Run)</option>
@@ -361,24 +366,35 @@ const CharacterBuilder = () => {
             )}
           </div>
 
-          {/* CỘT 2: Khung xem trước nhân vật (Giữa) */}
-          <div className="md:col-span-5 flex flex-col gap-4">
-            <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm w-full flex flex-col items-center">
-
-              {/* Công tắc Xóa nền */}
-              <div className="w-full flex justify-end mb-3">
-                <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={transparentBg}
-                    onChange={(e) => setTransparentBg(e.target.checked)}
-                    className="w-4 h-4 text-red-600 rounded border-gray-300 focus:ring-red-500"
-                  />
-                  Xóa phông nền (Transparent)
-                </label>
+          {/* CỘT 2: Khung Xem Trước Canvas Studio (Hợp nhất 1 Card duy nhất có Toolbar) */}
+          <div className="md:col-span-5 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between p-4 h-[560px] overflow-hidden">
+            {/* Top Bar: Đặt tên nhân vật & Toggle Xóa nền */}
+            <div className="flex items-center justify-between pb-2.5 border-b border-gray-100 shrink-0">
+              <div className="flex items-center gap-1.5 flex-1 mr-2 overflow-hidden">
+                <span className="text-gray-400 text-xs shrink-0">✏️</span>
+                <input
+                  type="text"
+                  value={characterName}
+                  onChange={(e) => setCharacterName(e.target.value)}
+                  className="text-base font-bold font-sans text-gray-800 border-b border-transparent hover:border-gray-300 focus:border-red-500 focus:outline-none py-0.5 px-1 bg-transparent truncate w-full"
+                  placeholder="Nhập tên nhân vật..."
+                />
               </div>
 
-              {/* Canvas Preview */}
+              {/* Checkbox Xóa nền được đặt gọn gàng ở góc */}
+              <label className="flex items-center gap-1.5 cursor-pointer text-xs font-medium text-gray-600 hover:text-gray-900 shrink-0 select-none">
+                <input
+                  type="checkbox"
+                  checked={transparentBg}
+                  onChange={(e) => setTransparentBg(e.target.checked)}
+                  className="w-3.5 h-3.5 text-red-600 rounded border-gray-300 focus:ring-red-500"
+                />
+                Xóa nền
+              </label>
+            </div>
+
+            {/* Vùng Canvas Preview trung tâm */}
+            <div className="flex-1 flex items-center justify-center my-1.5 overflow-hidden">
               <CanvasPreview
                 ref={canvasPreviewRef}
                 layers={activeLayers}
@@ -388,68 +404,60 @@ const CharacterBuilder = () => {
                 frameSize={currentModel.frameSize}
                 isSpritesheet={currentModel.isSpritesheet}
               />
+            </div>
 
-              {/* Tên nhân vật */}
-              <div className="mt-5 w-full flex justify-center">
-                <input
-                  type="text"
-                  value={characterName}
-                  onChange={(e) => setCharacterName(e.target.value)}
-                  className="text-2xl font-black font-sans text-gray-800 text-center border-b-2 border-transparent hover:border-gray-300 focus:border-red-500 focus:outline-none transition-all py-1 w-4/5 bg-transparent"
-                  placeholder="Nhập tên..."
-                />
+            {/* Bottom Toolbar: Gộp toàn bộ nút hành động vào chân Card liền mạch */}
+            <div className="pt-2.5 border-t border-gray-100 flex flex-col gap-2 shrink-0">
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={handleRandomize}
+                  className="py-2 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-sans font-bold text-xs uppercase tracking-wider rounded-xl border border-gray-200 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
+                >
+                  <span className="text-sm">🎲</span> Ngẫu nhiên
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleDownloadPNG}
+                  className="py-2 px-3 bg-gray-800 hover:bg-gray-900 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <span className="text-sm">⬇️</span> Lưu ảnh PNG
+                </button>
               </div>
-            </div>
 
-            {/* Các nút hành động (Row) */}
-            <div className="grid grid-cols-2 gap-3 w-full">
-              {/* Nút RANDOMIZE */}
+              {/* Nút Xuất Hoạt Ảnh (AI Generator) */}
               <button
-                onClick={handleRandomize}
-                className="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-sans font-bold text-sm uppercase tracking-wider rounded-xl border border-gray-300 shadow-sm hover:shadow transition-all flex items-center justify-center gap-2"
+                type="button"
+                onClick={handleGenerate}
+                disabled={isGenerating}
+                className={`
+                  w-full py-2.5 px-4 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-2xs cursor-pointer
+                  ${isGenerating
+                    ? 'bg-red-300 text-white cursor-not-allowed'
+                    : 'bg-red-600 hover:bg-red-700 text-white hover:shadow-md'
+                  }
+                `}
               >
-                <span className="text-lg">🎲</span> Ngẫu nhiên
-              </button>
-
-              {/* Nút Download PNG */}
-              <button
-                onClick={handleDownloadPNG}
-                className="w-full py-3 bg-gray-800 hover:bg-gray-900 text-white font-sans font-bold text-sm uppercase tracking-wider rounded-xl shadow-sm hover:shadow transition-all flex items-center justify-center gap-2"
-              >
-                <span className="text-lg">⬇️</span> Lưu ảnh PNG
+                {isGenerating ? (
+                  <>
+                    <svg className="animate-spin h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Đang xuất qua AI...
+                  </>
+                ) : (
+                  <>
+                    <span>⚡</span> Xuất Hoạt Ảnh (AI Generator)
+                  </>
+                )}
               </button>
             </div>
-
-            {/* Nút Xuất Sprite / Tạo AI */}
-            <button
-              onClick={handleGenerate}
-              disabled={isGenerating}
-              className={`
-                w-full py-3.5 px-6 font-sans font-bold text-base uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm
-                ${isGenerating
-                  ? 'bg-red-300 text-white cursor-not-allowed'
-                  : 'bg-red-600 hover:bg-red-700 text-white hover:shadow-md'
-                }
-              `}
-            >
-              {isGenerating ? (
-                <>
-                  <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  Đang xuất qua AI...
-                </>
-              ) : (
-                <>
-                  <span>⚡</span> Xuất Hoạt Ảnh (AI Generator)
-                </>
-              )}
-            </button>
           </div>
 
           {/* CỘT 3: Tùy biến chi tiết Kiểu dáng & Màu sắc (Phải) */}
-          <div className="md:col-span-4 h-full">
+          <div className="md:col-span-4 h-[560px]">
             <CustomizerInspector
               activeCategory={activeCategory}
               selections={selections}

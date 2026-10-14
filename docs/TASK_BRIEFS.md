@@ -229,3 +229,35 @@ Xóa bỏ hoàn toàn độ trễ mạng khi đổi kiểu dáng/bộ phận tro
 
 ### 4. Cách báo cáo kết quả
 - Đo lường thời gian phản hồi trước và sau khi tối ưu trong `docs/baseline/BASELINE-20261014.md`.
+
+---
+
+## TASK-09: Tinh Chỉnh Bố Cục Studio Đồng Bộ Chiều Cao 560px & Phóng To Tiêu Cự (Focal Zoom) Thumbnail
+
+### 1. Mục tiêu
+Giải quyết tình trạng frame bị che, chồng lấn và các item phụ kiện nhỏ (mũ/vương miện, mắt, kính) bị teo nhỏ thành chấm li ti trong ô xem trước của Character Studio; đưa toàn bộ Studio về kích thước hoàn hảo trong 1 màn hình.
+
+### 2. Các tệp liên quan
+- `frontend/src/pages/CharacterBuilder/CharacterBuilder.jsx`
+- `frontend/src/pages/CharacterBuilder/CustomizerInspector.jsx`
+- `frontend/src/pages/CharacterBuilder/CanvasPreview.jsx`
+- `frontend/src/components/layout/Header.jsx`
+
+### 3. Tiêu chí chấp nhận (Acceptance Criteria)
+1. **Focal Zoom theo danh mục**:
+   - `hats`: Zoom 2.8x (`bgSize: 269px 358px`, `bgPosition: -110px 4px`), vương miện và nón hiển thị to, rõ nét, chiếm phần lớn ô xem trước.
+   - `eyes`, `glasses`, `makeup`: Zoom 3.2x (`bgSize: 307px 410px`, `bgPosition: -130px -21px`), đôi mắt và gọng kính hiển thị phóng đại ở trung tâm.
+   - `beards`, `mouth`: Zoom 2.8x (`bgPosition: -110px -26px`).
+   - `hairs`, `hairadds`, `ears`: Zoom 2.2x (`bgPosition: -82px 2px`).
+   - `tops`, `clothes`: Zoom 1.9x (`bgPosition: -67px -14px`).
+2. **Lưới và Huy hiệu**:
+   - Chuyển sang lưới 3 cột (`grid-cols-3 gap-2.5`) với khung thumbnail 48x48px (`w-12 h-12`).
+   - Huy hiệu tích chọn `✓` dời lên góc trên bên phải, không che lấp chi tiết đồ họa.
+3. **Bố cục 1 màn hình (Single-Screen Viewport Fit)**:
+   - Cột 1 (Sidebar), Cột 2 (Canvas Studio) và Cột 3 (Customizer Inspector) đều có chiều cao cố định đồng nhất `h-[560px]`.
+   - Header thu gọn `py-3`, thanh công cụ trên (Tên + Xóa nền) gắn vào Header Card 2, thanh hành động (Ngẫu nhiên, Lưu PNG, Xuất AI) gắn vào Footer Card 2.
+   - Toàn bộ giao diện Studio hiển thị trọn vẹn trên màn hình 1080p / 1536x776 mà không xuất hiện thanh cuộn dọc ngoài của trang (`body scroll`).
+
+### 4. Cách báo cáo kết quả
+- Chụp ảnh màn hình kiểm thử giao diện `studio_perfect_viewport_fit.png` và `hats_category_zoom.png`.
+- Ghi nhận vào `docs/DECISIONS.md` (ADR-11) và `docs/DEVELOPMENT_PLAN.md`.

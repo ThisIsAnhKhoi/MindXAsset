@@ -20,6 +20,7 @@
 | **ADR-08** | Chuẩn hóa bản quyền tài sản đồ họa tập trung vào Kenney Monster Pack (CC0) | **ĐÃ DUYỆT** | Asset Licensing & IP |
 | **ADR-09** | Tiêu chí nghiệm thu phiên bản MVP phát hành được (Release Definition) | **ĐÃ DUYỆT** | Product Release Criteria |
 | **ADR-10** | Xử lý SPA Routing trên Vercel & Chiến lược Preloading Asset Đồ Họa | **ĐÃ DUYỆT** | Frontend & Deployment |
+| **ADR-11** | Cấu Trúc Bố Cục Studio Đồng Bộ 560px & Focal Zoom Thumbnail Cắt Trống Pipoya | **ĐÃ DUYỆT** | UI/UX & Component Architecture |
 
 ---
 
@@ -131,3 +132,20 @@
 - **Quyết định**: **Chọn Phương án B**.
 - **Lý do**: Giải quyết triệt để 100% lỗi 404 mà vẫn giữ URL chuẩn SEO; mang lại trải nghiệm lắp ráp nhân vật mượt mà, trực quan và tức thì (0ms latency từ memory/disk cache).
 - **Hệ quả**: Cần kiểm thử lại trên môi trường build Vercel và đo đạc kích thước bộ nhớ đệm `imageCache`.
+
+---
+
+### ADR-11: Cấu Trúc Bố Cục Studio Đồng Bộ 560px & Focal Zoom Thumbnail Cắt Trống Pipoya
+- **Bối cảnh**:
+  1. Các icon phụ kiện nhỏ (mũ/vương miện, mắt, kính, râu) trong spritesheet Pipoya (`96x128px`) chỉ nằm ở một góc rất nhỏ của frame `32x32px`, phần lớn còn lại là không gian trong suốt. Khi render không phóng to, chúng trông như những chấm li ti không rõ đường nét.
+  2. Bố cục 3 cột của Character Studio trước đây có chiều cao cọc cạch không đồng đều; các nút bấm thao tác (Ngẫu nhiên, Lưu PNG, Xuất AI) nằm lộn xộn bên dưới canvas, đẩy chiều cao trang lên `890px`, gây tràn khung nhìn và thanh cuộn dọc không mong muốn trên màn hình tiêu chuẩn (`1536x776` / 1080p).
+  3. Badge dấu tích `✓` nằm giữa ô đè lên hình vẽ chi tiết của item.
+- **Các phương án cân nhắc**:
+  1. *Phương án A*: Cắt thủ công hàng trăm file PNG nhỏ từ spritesheet bằng Photoshop/GIMP. *(Tốn rất nhiều thời gian, làm nặng dung lượng repository)*.
+  2. *Phương án B (Lựa chọn)*:
+     - Xây dựng thuật toán tiêu cự thông minh `getCategorySpriteStyle` phóng to theo danh mục (Zoom 2.8x cho mũ, 3.2x cho mắt/kính, 2.2x cho tóc, 1.9x cho áo) và dịch chuyển tọa độ chính xác vào vùng chi tiết.
+     - Đồng bộ hóa chiều cao 3 cột thành các thẻ Card độc lập chuẩn `h-[560px]`, tích hợp thanh tiêu đề (tên + xóa nền) vào Header thẻ và thanh nút hành động vào Footer thẻ.
+     - Đổi lưới xem trước sang 3 cột (`grid-cols-3 gap-2.5`), chuyển badge `✓` lên góc trên bên phải, thu gọn bảng màu khi không có màu gợi ý.
+- **Quyết định**: **Chọn Phương án B**.
+- **Lý do**: Không cần phát sinh thêm asset tệp tĩnh nào; toàn bộ Character Studio nằm vừa vặn 100% trong một màn hình làm việc (single screen desktop viewport) không cần cuộn trang; người dùng nhìn thấy rõ nét từng chiếc vương miện, gọng kính và đôi mắt với trải nghiệm hiện đại chuẩn Studio.
+- **Hệ quả**: Nếu bổ sung danh mục bộ phận mới, cần khai báo cấu hình zoom tương ứng trong `getCategorySpriteStyle`.

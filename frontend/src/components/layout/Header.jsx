@@ -4,7 +4,7 @@ const Header = () => {
   const location = useLocation();
   
   return (
-    <header className="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-50 flex justify-between items-center shadow-sm">
+    <header className="bg-white border-b border-gray-200 px-8 py-3 sticky top-0 z-50 flex justify-between items-center shadow-xs">
       <div className="flex items-center gap-3">
         <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition">
           <img 

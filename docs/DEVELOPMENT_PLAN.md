@@ -48,8 +48,9 @@
   - Task 2.3: Bổ sung Middleware xác thực dữ liệu đầu vào với `Zod` cho các endpoint backend (Cỡ S).
   - Task 2.4: Cài đặt `express-rate-limit` chống spam API tạo ảnh (Cỡ S).
   - Task 2.5: Cấu hình Code Splitting (`React.lazy()`) cho frontend để đưa bundle JS về < 500 kB (Cỡ S).
-  - Task 2.6: Cấu hình `vercel.json` SPA Fallback (giải quyết triệt để lỗi 404 khi reload trang con) (Cỡ S, `TASK-06`).
-  - Task 2.7: Bổ sung Preview Thumbnail trực quan cho các ô chọn option và cơ chế nạp trước ảnh ngầm (Cỡ M, `TASK-07`, `TASK-08`).
+  - Task 2.6: Cấu hình `vercel.json` SPA Fallback (giải quyết triệt để lỗi 404 khi reload trang con) (Cỡ S, `TASK-06`) - **[HOÀN THÀNH]**.
+  - Task 2.7: Bổ sung Preview Thumbnail trực quan cho các ô chọn option và cơ chế nạp trước ảnh ngầm (Cỡ M, `TASK-07`, `TASK-08`) - **[HOÀN THÀNH]**.
+  - Task 2.8: Tinh chỉnh bố cục Character Studio đồng bộ chiều cao 560px & Focal Zoom thumbnail cắt trống (Cỡ S, `TASK-09`, `ADR-11`) - **[HOÀN THÀNH]**.
 - **Phạm vi KHÔNG LÀM**: Chưa làm hệ thống đăng nhập tài khoản.
 - **Tiêu chí thoát đo lường được**:
   - Không còn đọc/ghi trực tiếp vào file `gallery.json`.

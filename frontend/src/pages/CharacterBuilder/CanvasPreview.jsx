@@ -177,11 +177,11 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
     return () => {
       isActive = false; // Cleanup to prevent race conditions
     };
-  }, [layers, width, height]);
+  }, [layers, width, height, frameSize, isSpritesheet]);
 
   // Determine aspect ratio: spritesheet=square, portrait(64x96)=9:16, monster(256x256)=square
   const isSquareContent = frameSize >= 128 || isSpritesheet;
-  const aspectClass = isSquareContent ? 'aspect-square max-w-[380px]' : 'aspect-[9/16] max-w-[280px]';
+  const aspectClass = isSquareContent ? 'aspect-square max-w-[330px] max-h-[330px]' : 'aspect-[9/16] max-w-[240px] max-h-[370px]';
 
   return (
     <div className={`relative border-4 border-gray-200 rounded-xl shadow-lg flex flex-col items-center justify-center overflow-hidden w-full transition-colors duration-300 ${aspectClass} ${transparentBg ? 'bg-transparent' : 'bg-gray-50'}`}>
