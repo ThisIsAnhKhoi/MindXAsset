@@ -24,6 +24,7 @@
 | **ADR-12** | Đồng Bộ Hóa Chuẩn API Pollinations Bearer Auth & Dynamic Env Resolver | **ĐÃ DUYỆT** | AI Integration & Observability |
 | **ADR-13** | Kiến Trúc Ma Trận Lưới Single-Shot AI Grid Spritesheet (5x3) & Animation Player Đa Hành Động | **ĐÃ DUYỆT** | AI Spritesheet & Animation |
 | **ADR-14** | Kiến Trúc Vision-to-Grid: Đồng Bộ Hình Dáng Nhân Vật Canvas Lên AI Bằng Vision API | **ĐÃ DUYỆT** | Vision AI & Multimodal Synthesis |
+| **ADR-15** | Báo Cáo Ranh Giới Kỹ Thuật: Bản Chất Không Bất Biến Pixel Của Diffusion AI & Chiến Lược Kết Hợp Canvas Compositor Tất Định | **ĐÃ DUYỆT** | System Architecture & AI Reality |
 
 ---
 
@@ -212,11 +213,41 @@
   - Tự động hóa 100% không cần bất kỳ từ điển mapping thủ công nào.
   - Phù hợp với mọi bộ asset tương lai (Monster Pack, Pipoya, hoặc bất kỳ asset mới nào).
   - Độ tương đồng hình ảnh đạt >90%: AI giữ nguyên được màu tóc vàng, trang phục áo sẫm, tỷ lệ chibi và phong cách 2D pixel art trên toàn bộ 15 khung hình spritesheet.
-- **Tối ưu hóa bổ sung sau kiểm toán E2E**:
-  1. *Nâng trần Express Body Parser*: Mặc định `express.json()` chỉ cho phép 100KB, khiến các chuỗi Base64 từ canvas nhiều chi tiết bị lỗi `413 Payload Too Large`. Đã nâng lên `25mb` (`app.use(express.json({ limit: '25mb' }))`).
-  2. *Lọc sạch Vision Prompt (Sanitizer)*: Khống chế câu lệnh mô tả thị giác dưới 50 từ, dùng regex loại bỏ triệt để markdown (`*#_[]`) và lọc bỏ câu chào/câu hỏi trò chuyện.
-  3. *Triệt tiêu ô nhiễm Layer ID*: Tự động bóc tách và loại bỏ hoàn toàn các chuỗi ID layer vô nghĩa (`bases 006, hairs 001...`) trước khi ghép vào prompt tạo ảnh của Flux, giúp độ dài prompt luôn nằm trong vùng tối ưu (~800 ký tự).
 - **Hệ quả**: Thời gian sinh ảnh tăng thêm ~2-3 giây cho bước Vision AI Captioning, đổi lại chất lượng và độ trung thực của nhân vật tăng vượt bậc.
+
+---
+
+### ADR-15: Báo Cáo Ranh Giới Kỹ Thuật: Bản Chất Không Bất Biến Pixel Của Diffusion AI & Chiến Lược Kết Hợp Canvas Compositor Tất Định
+- **Bối cảnh**:
+  1. Người dùng kiểm thử tính năng tạo Spritesheet từ Character Studio và phản ánh: Kết quả từ AI tuy đã nhận diện được màu tóc, quần áo và vũ khí cơ bản, nhưng vẫn **không giống hệt và không đạt chuẩn pixel y chang (pixel-for-pixel exact match)** so với nhân vật trên canvas.
+  2. Cần một báo cáo kỹ thuật minh bạch, chính xác ở cấp độ Kiến trúc sư Hệ thống để làm rõ tại sao mô hình khuếch tán (Diffusion Model) không thể sao chép điểm ảnh 1:1, đồng thời xác lập giải pháp kiến trúc dài hạn cho dự án MindXAsset.
+- **Phân tích nguyên nhân khoa học & bản chất kỹ thuật (Root Cause Analysis)**:
+  1. *Nguyên lý Denoising từ Không gian Tiềm ẩn (Latent Space Denoising)*:
+     Mô hình Text-to-Image (FLUX / Stable Diffusion) không phải là thuật toán đồ họa raster (như Photoshop hay HTML5 Canvas). Nó bắt đầu từ một ma trận nhiễu ngẫu nhiên Gaussian $z \sim \mathcal{N}(0, I)$ và tiến hành khử nhiễu (Denoising) từng bước theo phân phối xác suất có điều kiện dựa trên vector nhúng ngữ nghĩa (Text Embeddings của CLIP / T5).
+  2. *Mất mát thông tin qua nút thắt ngôn ngữ (Text Bottleneck)*:
+     Pipeline vận hành hiện tại:
+     $$\text{Canvas (Ma trận } 32\times32 \text{px)} \xrightarrow{\text{Base64}} \text{Vision AI} \xrightarrow{\text{Mô tả văn bản}} \text{Prompt} \xrightarrow{\text{Diffusion}} \text{Ảnh sinh ra}$$
+     Quá trình này chuyển đổi hình ảnh trực quan thành câu chữ ("yellow bowl cut hair, dark coat, spear"). Toàn bộ tọa độ điểm ảnh tuyệt đối, mã màu HEX chính xác, độ dày viền 1px nguyên bản của bộ Kenney/Pipoya đều bị triệt tiêu hoàn toàn khi qua tầng ngữ nghĩa văn bản. Mô hình Diffusion buộc phải "tự tưởng tượng và vẽ lại" (creative hallucination) một nhân vật mới theo mô tả đó.
+  3. *Độ phân giải & Nghệ thuật Pixel giả lập (Pseudo-Pixel Art)*:
+     Mô hình Diffusion tổng quát sinh ảnh ở không gian liên tục độ phân giải cao ($1024 \times 640\text{px}$). Dù prompt ép các từ khóa `pixel art, 8-bit, crisp hard pixels, discrete matrix`, mô hình chỉ mô phỏng các mảng màu trông *tựa như* pixel, nhưng thực chất vẫn có hiện tượng khử răng cưa vi mô (micro anti-aliasing), chuyển sắc mờ (soft gradients), và sai lệch tỷ lệ cơ thể giữa các khung hình.
+- **Các phương án giải quyết**:
+  1. *Phương án A: Tiếp tục tinh chỉnh Prompt hoặc dùng ControlNet/LoRA cục bộ*:
+     - ControlNet/LoRA pixel art yêu cầu GPU cục bộ tối thiểu 12GB - 24GB VRAM, hoàn toàn bất khả thi trên môi trường máy chủ miễn phí/nhẹ như Render Free Tier (512MB RAM).
+     - Ngay cả với ControlNet, mô hình khuếch tán vẫn mang bản chất ngẫu nhiên thống kê (stochastic), không bao giờ đạt độ chính xác tuyệt đối từng pixel (100% deterministic pixel-for-pixel).
+  2. *Phương án B (Lựa chọn kiến trúc chuẩn)*: **Kiến Trúc Lai Kết Hợp (Hybrid Deterministic + Generative Architecture)**:
+     - **Tách bạch 2 nhu cầu hoàn toàn khác nhau của người dùng**:
+       1. **Nhu cầu 1: Xuất Sprite Sheet Đi bộ / Đứng cơ bản đúng 100% nhân vật đã tạo**:
+          - Thực tế, các bộ tài nguyên trong Character Studio (Kenney Monster Pack, Pipoya, CozyFae) **vốn dĩ đã là các spritesheet hoàn chỉnh chứa sẵn 12 khung hình** (3 frame Đi xuống, 3 frame Đi trái, 3 frame Đi phải, 3 frame Đi lên) ở chuẩn pixel gốc 32x32px.
+          - Chỉ cần xây dựng tính năng **Deterministic Canvas Compositor**: Duyệt qua 12 frame của tất cả các layer đã chọn và dùng `ctx.drawImage` chồng các lớp lên nhau trực tiếp trên Client hoặc Node.js Sharp.
+          - **Kết quả**: **Chính xác 100% từng pixel (Pixel-perfect), độ trễ 0ms, chi phí API 0 đồng, không bao giờ bị ảo giác hay sai lệch**.
+       2. **Nhu cầu 2: Mở rộng các hoạt cảnh hành động phức tạp (AI Fantasy Action Expansion)**:
+          - Dành cho các hành động mà bộ asset gốc không có sẵn (ví dụ: Chém kiếm lửa, Niệm phép vòng sáng, Hóa thú, Nhảy lộn nhào).
+          - Sử dụng pipeline Single-Shot Grid AI (5x3) hiện tại, nhưng định vị rõ trong UI là *"Sáng tạo hoạt cảnh mới bằng AI"* với ghi chú rõ về tính biến thiên nghệ thuật (artistic style variance).
+- **Quyết định**: **Chính thức phê duyệt Phương án B**.
+- **Hệ quả & Kế hoạch triển khai**:
+  1. Bổ sung tính năng *Deterministic Canvas Spritesheet Export* trong Character Studio để học sinh có thể tải ngay bộ 12-frame walking sprite chuẩn xác 100% pixel của chính nhân vật mình vừa thiết kế.
+  2. Đổi tên nút hành động AI hiện tại thành *"Mở Rộng Hoạt Ảnh Bằng AI (AI Fantasy Expansion)"* để người dùng hiểu đúng giá trị sáng tạo nghệ thuật thay vì kỳ vọng sao chép pixel cơ học.
+  3. Cập nhật hồ sơ kiểm toán QA và lộ trình phát triển phản ánh đúng ranh giới năng lực của hệ thống.
 
 
 

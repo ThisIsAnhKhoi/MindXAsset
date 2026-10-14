@@ -7,19 +7,27 @@ Tất cả các thay đổi đáng chú ý của dự án **MindXAsset** đượ
 ## [Chưa phát hành - Unreleased]
 
 ### Đã hoàn thành (Completed)
-- **Tạo Trọn Bộ Sprite Sheet 5x3 Ma Trận Lưới (Single-Shot Grid AI)**:
+- **Tạo Trọn Bộ Sprite Sheet 5x3 Ma Trận Lưới (Single-Shot Grid AI - ADR-13)**:
   - Sinh trọn vẹn 15 khung hình 3 hàng x 5 cột đa hành động (Đứng, Đi, Tấn công, Thủ, Bị thương) trong 1 lần gọi API duy nhất (~10s).
   - Tích hợp trình phát đa hành động `SpritePreviewModal.jsx` với Canvas Pixel-Art Renderer không bị biến dạng tỷ lệ.
-- **Tích hợp Pipeline Vision-to-Grid (Canvas Image -> Vision AI -> Spritesheet)**:
+- **Tích hợp Pipeline Vision-to-Grid & Tối Ưu Hóa Bộ Xử Lý (ADR-14)**:
   - Trích xuất ảnh Canvas Base64 từ xưởng thiết kế nhân vật gửi trực tiếp lên Backend.
-  - Tự động dùng AI Vision Captioning phân tích tóc, quần áo, phụ kiện và tỷ lệ chibi, khắc phục 100% tình trạng nhân vật AI bị sai khác ("hallucination").
+  - Tự động dùng AI Vision Captioning phân tích tóc, quần áo, phụ kiện và tỷ lệ chibi, khắc phục tình trạng AI hallucination.
+  - Nâng trần Express body parser lên 25MB (`7365b9c`), loại bỏ lỗi ngầm `413 Payload Too Large`.
+  - Tự động làm sạch prompt bằng regex, khống chế mô tả thị giác dưới 50 từ và triệt tiêu chuỗi ID layer nội bộ.
+  - Cấu hình Anti-Hallucination negative prompt (`6f426a4`) chặn áo choàng, khiên, kính râm để giữ chuẩn nhân vật chính diện.
+- **Báo Cáo Ranh Giới Kỹ Thuật AI Pixel Fidelity & Kiến Trúc Lai (ADR-15)**:
+  - Phân tích nguyên nhân mô hình Diffusion không thể đạt 100% pixel-for-pixel exact match do mất mát qua tầng ngữ nghĩa văn bản.
+  - Phê duyệt kiến trúc lai: phát triển Deterministic Canvas Compositor (tận dụng 12 frame có sẵn của asset pack Pipoya/Kenney để đạt 100% pixel-perfect) song song với Creative AI Expansion.
+  - Cập nhật điểm tiến độ toàn diện lên **58.5%** trong `PROJECT_STATUS.md` và `QA_REPORT.md`.
 - **Chuẩn hóa kiến trúc kho mã theo tiêu chuẩn quốc tế**:
   - Gom toàn bộ 37 tệp rải rác ở thư mục gốc (biên bản họp, báo cáo docx, pdf, script test nháp) vào `docs/archive/` và `docs/wireframes/`.
   - Giữ thư mục gốc tinh gọn với 8 tệp chuẩn mã nguồn mở: `README.md`, `README.en.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSE`, `.env.example`, `.gitignore`.
   - Thiết lập trung tâm tài liệu kỹ thuật [`docs/README.md`](docs/README.md) quản lý toàn bộ hệ thống hồ sơ kiểm toán.
-  - Ban hành bộ 8 tài liệu kỹ thuật chuẩn mực: `SPEC.md`, `PROJECT_STATUS.md` (56.0%), `QA_REPORT.md` (Conditional GO), `TEST_PLAN.md` (40 test case), `DEVELOPMENT_PLAN.md`, `DECISIONS.md` (ADR-01 - ADR-14), `TASK_BRIEFS.md`, `ARCHITECTURE.md`.
+  - Ban hành bộ 8 tài liệu kỹ thuật chuẩn mực: `SPEC.md`, `PROJECT_STATUS.md` (58.5%), `QA_REPORT.md` (Conditional GO), `TEST_PLAN.md` (40 test case), `DEVELOPMENT_PLAN.md`, `DECISIONS.md` (ADR-01 - ADR-15), `TASK_BRIEFS.md`, `ARCHITECTURE.md`.
 
 ### Kế hoạch tiếp theo (Planned)
+- Bổ sung nút xuất spritesheet tất định *Deterministic Canvas Compositor* (100% pixel exact match, 0ms) trong Character Studio (`ADR-15`).
 - Triển khai di chuyển dữ liệu từ `gallery.json` sang cơ sở dữ liệu SQLite (`ADR-02`, `TSK-01`).
 - Sửa lỗi `react-hooks/set-state-in-effect` tại `CharacterBuilder.jsx:96` (`TSK-03`).
 - Nâng cấp các thư viện npm chứa lỗ hổng bảo mật nghiêm trọng (`proxy-addr`, `cross-spawn`) (`TSK-04`).

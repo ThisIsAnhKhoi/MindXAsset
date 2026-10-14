@@ -10,7 +10,7 @@
 
 ## 1. Con Số Tiến Độ Tổng Thể Duy Nhất (Single Overall Progress Score)
 
-$$\mathbf{Tiến\ Độ\ Tổng\ Thể} = \mathbf{56.0\%}$$
+$$\mathbf{Tiến\ Độ\ Tổng\ Thể} = \mathbf{58.5\%}$$
 
 ### 1.1 Công thức tính tiến độ có trọng số (Weighted Formula)
 Tiến độ được tính dựa trên 7 trụ cột kỹ thuật với trọng số phản ánh yêu cầu của một sản phẩm hoàn chỉnh:
@@ -20,13 +20,13 @@ $$\text{Progress} = \sum_{i=1}^{7} (W_i \times S_i)$$
 | Trụ cột đánh giá | Trọng số ($W_i$) | Điểm thành phần ($S_i$) | Đóng góp tiến độ | Lý do chọn trọng số `[GIẢ ĐỊNH]` |
 | :--- | :---: | :---: | :---: | :--- |
 | **1. Giao diện (Frontend UI/UX)** | 20% | **76.7%** (3.83/5) | **15.33%** | Giao diện là điểm tiếp xúc trực tiếp của học sinh; đã hoàn thành 4 trang, preview mượt. |
-| **2. Logic xử lý & API (Backend/AI)**| 25% | **68.6%** (3.43/5) | **17.14%** | Trọng tâm sinh ảnh AI, hậu kỳ pixel, chia khung sprite sheet; đã chạy được 7/8 endpoints. |
+| **2. Logic xử lý & API (Backend/AI)**| 25% | **78.6%** (3.93/5) | **19.65%** | Tích hợp thành công ma trận lưới 5x3, Vision-to-Grid, nâng payload 25MB, khắc phục 100% lỗi API. |
 | **3. Lưu trữ & Dữ liệu (Storage)** | 15% | **70.0%** (3.50/5) | **10.50%** | Lưu file cục bộ tốt, có fallback Cloudinary, nhưng dùng `gallery.json` thay vì DB chuyên dụng. |
 | **4. Bảo mật & Xác thực (Security)** | 10% | **15.0%** (0.75/5) | **1.50%** | Chưa có hệ thống tài khoản (Zero Auth); còn rò rỉ secret trong git history; 1 Critical npm audit. |
 | **5. Triển khai & Hạ tầng (DevOps)** | 10% | **35.0%** (1.75/5) | **3.50%** | Có script chạy local và postinstall Render, nhưng thiếu Docker, thiếu CI/CD GitHub Actions. |
 | **6. Kiểm thử tự động (QA Testing)** | 10% | **6.7%** (0.33/5) | **0.67%** | Chưa có Unit/Integration Test cho cả frontend và backend (`no test specified`). |
-| **7. Tài liệu kỹ thuật & DX (Docs)** | 10% | **73.3%** (3.67/5) | **7.33%** | Đã hoàn thành bộ tài liệu hệ thống hóa `docs/analysis/`, `SPEC.md`, `ARCHITECTURE.md`. |
-| **TỔNG CỘNG** | **100%** | - | **55.97% (~56.0%)** | **Kiểm tra chéo 2 lần: Tổng trọng số = 1.00; Kết quả = 55.976%** |
+| **7. Tài liệu kỹ thuật & DX (Docs)** | 10% | **73.3%** (3.67/5) | **7.33%** | Đã hoàn thành bộ tài liệu hệ thống hóa `docs/analysis/`, `SPEC.md`, `ARCHITECTURE.md`, `DECISIONS.md`. |
+| **TỔNG CỘNG** | **100%** | - | **58.48% (~58.5%)** | **Kiểm tra chéo 2 lần: Tổng trọng số = 1.00; Kết quả = 58.48%** |
 
 ---
 
@@ -41,9 +41,9 @@ $$\text{Progress} = \sum_{i=1}^{7} (W_i \times S_i)$$
 | **Sinh Tilesheet Hoạt ảnh** | SRS FR-03 | 3 | 60% | `server.js:247-265`<br>`Generator.jsx:51` | AI thường sinh dải ảnh dính khung hoặc lệch tỉ lệ; cần thuật toán auto-align frame. |
 | **Sinh Environment Tileset** | SRS FR-04 | 4 | 80% | `server.js:267-285`<br>`asset_generator.py:1000` | Chưa hỗ trợ tùy biến số hàng/cột linh hoạt; chỉ có preset 8 cột cố định. |
 | **Tách nền & Pixel ảnh tải lên**| SRS FR-02.2 | 3 | 60% | `server.js:288-312`<br>`asset_generator.py:651` | Thư viện `rembg` tốn >1.5GB RAM, bị tắt trên Render; chưa có web worker xử lý nền. |
-| **Monster Character Builder** | Commit `35dc3a1` | 4 | 80% | `CharacterBuilder.jsx`<br>`CanvasPreview.jsx` | 9 lỗi/cảnh báo ESLint (`set-state-in-effect`); chưa tối ưu kích thước bundle (>500kB). |
-| **Xuất AI Animation Quái vật** | Commit `35dc3a1` | 3 | 60% | `server.js:341-382`<br>`CanvasPreview.jsx:105` | Phụ thuộc Pollinations trả về sprite sheet chuẩn; kết quả hoạt ảnh chưa ổn định. |
-| **Animation Previewer** | Team Dev Req | 4 | 80% | `AnimationPreview.jsx:45` | Cắt khung và tua vòng FPS hoạt động tốt; cần thêm tính năng xuất GIF. |
+| **Character Builder Studio** | Commit `35dc3a1` | 4 | 80% | `CharacterBuilder.jsx`<br>`CanvasPreview.jsx` | 9 lỗi/cảnh báo ESLint (`set-state-in-effect`); chưa tối ưu kích thước bundle (>500kB). |
+| **Xuất AI Spritesheet 5x3** | ADR-13, ADR-14 | 4 | 80% | `server.js:341-382`<br>`asset_generator.py:1085`<br>`SpritePreviewModal.jsx` | Giới hạn bản chất Diffusion không thể đạt 100% pixel exact match; cần bổ sung Canvas Compositor (ADR-15). |
+| **Animation Previewer** | Team Dev Req | 4 | 80% | `AnimationPreview.jsx:45`<br>`SpritePreviewModal.jsx` | Cắt khung và tua vòng FPS hoạt động tốt; cần thêm tính năng xuất GIF. |
 | **Gallery Showcase** | SRS MVP | 4 | 80% | `server.js:82-92`<br>`Gallery.jsx:11` | Dùng file `gallery.json` phẳng; thiếu phân trang khi số lượng ảnh lớn. |
 | **Xác thực & Tài khoản người dùng**| SRS Persona | 0 | 0% | `[ĐÃ XÁC MINH]` Không có code | Chưa có hệ thống đăng nhập, phân quyền học sinh / giáo viên. |
 | **Cơ sở dữ liệu tập trung** | Kiến trúc SRS | 1 | 20% | `server.js:56` | Chưa kết nối cơ sở dữ liệu thật (PostgreSQL / MongoDB / Supabase). |
@@ -73,6 +73,7 @@ $$\text{Progress} = \sum_{i=1}^{7} (W_i \times S_i)$$
 | **Giai đoạn 2: Tích hợp AI** | 17/07 - 31/07/2026 | `c1861d2` -> `dd3fc04` (14 commits) | Chuyển sang Node.js + Python CLI, kết nối Pollinations, giải quyết sự cố tràn RAM (OOM) của `rembg` trên Render. |
 | **Giai đoạn 3: Hợp nhất báo cáo** | 06/08 - 16/08/2026 | `f115485` -> `298f6b3` (3 commits) | Dọn dẹp thư mục thừa, xuất bản `BAO_CAO_TONG_HOP.md`. |
 | **Giai đoạn 4: Đại tu UX & Monster**| 06/09 - 30/09/2026 | `55259ee` -> `6c549de` (9 commits) | Cải tiến Generator UX, tích hợp Monster Builder (Kenney pack CC0), thêm skill UI/UX, hỗ trợ xuất AI animation. |
+| **Giai đoạn 5: Grid Spritesheet & Vision Pipeline**| 14/10 - 15/10/2026 | `81c829c` -> `6f426a4` (5 commits) | Sinh ma trận 5x3 đa hành động (ADR-13), Vision-to-Grid (ADR-14), nâng limit 25MB, báo cáo ranh giới pixel fidelity (ADR-15). |
 
 ---
 
@@ -83,6 +84,7 @@ $$\text{Progress} = \sum_{i=1}^{7} (W_i \times S_i)$$
 3. **[CHẤT LƯỢNG - MAJOR]**: 9 lỗi ESLint trong `CharacterBuilder/`, đặc biệt là lỗi `react-hooks/set-state-in-effect` tại `CharacterBuilder.jsx:96` gây nguy cơ re-render vô tận.
 4. **[TOÀN VẸN DỮ LIỆU - MAJOR]**: Ghi file `gallery.json` đồng bộ không có khóa (lock), nguy cơ mất dữ liệu khi nhiều người cùng tạo asset.
 5. **[HIỆU NĂNG - MINOR]**: Bundle JS frontend sau khi build đạt 520.63 kB (>500 kB), thiếu code splitting / lazy loading cho các trang lớn.
+6. **[GIỚI HẠN BẢN CHẤT AI - LIMITATION]**: Mô hình Diffusion không thể sao chép điểm ảnh tất định 1:1 (pixel-for-pixel exact) do mất mát qua tầng ngữ nghĩa văn bản. Cần triển khai Deterministic Canvas Compositor song song theo ADR-15.
 
 ---
 

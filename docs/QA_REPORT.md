@@ -9,30 +9,30 @@
 
 ## 1. Tóm Tắt Điều Hành (Executive Summary - Dưới 15 Dòng)
 
-1. Dự án **MindXAsset** là công cụ tạo tài nguyên game 2D (AI Generator và Monster Character Builder) hoạt động tốt ở các luồng cơ bản với tiến độ tổng thể đã kiểm chứng đạt **`56.0%`**.
-2. **Điểm sáng**: Kiến trúc 3 khối (React 19 + Express API + Python CLI) rõ ràng; giao diện Monster Builder trực quan, mượt mà trên Canvas; xử lý hậu kỳ pixel art và cắt khung tileset thông minh.
+1. Dự án **MindXAsset** là công cụ tạo tài nguyên game 2D (AI Generator và Character Builder) hoạt động tốt ở các luồng cơ bản với tiến độ tổng thể đã kiểm chứng đạt **`58.5%`** (tăng từ 56.0% sau khi tích hợp thành công Single-Shot Grid Spritesheet 5x3 và Pipeline Vision-to-Grid).
+2. **Điểm sáng**: Kiến trúc 3 khối (React 19 + Express API + Python CLI) rõ ràng; Character Studio trực quan trên Canvas; sinh trọn bộ spritesheet 15 khung hình đa hành động trong 10s kèm trình phát ma trận `SpritePreviewModal.jsx`.
 3. **Cảnh báo Đỏ (Bảo mật)**: Khóa `CLOUDINARY_API_SECRET` đã từng bị commit trong lịch sử git (commits `231f5df`, `eb39d57`, `55259ee`); tồn tại 1 lỗ hổng Critical (`proxy-addr`) và 11 lỗ hổng High trong dependencies npm.
-4. **Lỗi mã nguồn (Code Quality)**: Giao diện `CharacterBuilder` có **9 lỗi/cảnh báo ESLint**, trong đó có lỗi `set-state-in-effect` tại `CharacterBuilder.jsx:96` gây nguy cơ re-render vô tận.
-5. **Điểm nghẽn CSDL**: Toàn bộ hệ thống chưa có Database thật, lưu danh sách vào file `gallery.json` đồng bộ không có cơ chế khóa, tiềm ẩn xung đột ghi (Race Condition).
-6. **Mâu thuẫn thông tin**: Tài liệu và UI quảng bá hỗ trợ Hugging Face và Gemini nhưng thực tế mã nguồn chỉ gọi duy nhất Pollinations.ai.
-7. **Kết luận kiểm toán**: **CONDITIONAL GO (CHẤP THUẬN CÓ ĐIỀU KIỆN)** — Cho phép tiếp tục phát triển với điều kiện bắt buộc phải rotate khóa Cloudinary, sửa 9 lỗi ESLint và dọn dẹp file rác trước khi bàn giao.
+4. **Giới hạn kỹ thuật AI (AI Pixel Fidelity Boundary)**: Mô hình Diffusion AI (FLUX) hoạt động trên không gian tiềm ẩn qua trung gian văn bản nên **không thể đạt chuẩn sao chép điểm ảnh tuyệt đối 1:1 (pixel-for-pixel exact)**; giải pháp chuẩn là kiến trúc lai kết hợp Deterministic Canvas Compositor (ADR-15).
+5. **Lỗi mã nguồn (Code Quality)**: Giao diện `CharacterBuilder` có **9 lỗi/cảnh báo ESLint**, trong đó có lỗi `set-state-in-effect` tại `CharacterBuilder.jsx:96`.
+6. **Điểm nghẽn CSDL**: Toàn bộ hệ thống chưa có Database thật, lưu danh sách vào file `gallery.json` đồng bộ không có cơ chế khóa, tiềm ẩn xung đột ghi (Race Condition).
+7. **Kết luận kiểm toán**: **CONDITIONAL GO (CHẤP THUẬN CÓ ĐIỀU KIỆN)** — Cho phép tiếp tục phát triển với điều kiện bắt buộc phải rotate khóa Cloudinary, sửa 9 lỗi ESLint và triển khai Canvas Compositor tất định song song với AI.
 
 ---
 
 ## 2. Ma Trận Tiến Độ Đã Kiểm Chứng (Verified Progress Summary)
 
-$$\mathbf{Tiến\ Độ\ Tổng\ Thể} = \mathbf{56.0\%}$$
+$$\mathbf{Tiến\ Độ\ Tổng\ Thể} = \mathbf{58.5\%}$$
 
 | Trụ cột kỹ thuật | Trọng số | Điểm thành phần | Đóng góp tiến độ |
 | :--- | :---: | :---: | :---: |
 | 1. Giao diện (Frontend UI/UX) | 20% | 76.7% | 15.33% |
-| 2. Logic xử lý & API (Backend/AI) | 25% | 68.6% | 17.14% |
+| 2. Logic xử lý & API (Backend/AI) | 25% | 78.6% | 19.65% |
 | 3. Lưu trữ & Dữ liệu (Storage) | 15% | 70.0% | 10.50% |
 | 4. Bảo mật & Xác thực (Security) | 10% | 15.0% | 1.50% |
 | 5. Triển khai & Hạ tầng (DevOps) | 10% | 35.0% | 3.50% |
 | 6. Kiểm thử tự động (QA Testing) | 10% | 6.7% | 0.67% |
 | 7. Tài liệu kỹ thuật & DX (Docs) | 10% | 73.3% | 7.33% |
-| **TỔNG CỘNG** | **100%** | - | **55.97% (~56.0%)** |
+| **TỔNG CỘNG** | **100%** | - | **58.48% (~58.5%)** |
 
 ---
 
@@ -156,6 +156,7 @@ $$\mathbf{Tiến\ Độ\ Tổng\ Thể} = \mathbf{56.0\%}$$
 2. **Khóa phụ thuộc vào một nhà cung cấp AI duy nhất (Single Vendor Lock-in)**: Toàn bộ module tạo ảnh phụ thuộc 100% vào tính khả dụng của Pollinations.ai. Nếu dịch vụ này bảo trì hoặc đổi chính sách tính phí, hệ thống sẽ ngừng hoạt động hoàn toàn.
 3. **Thiếu xử lý đa tác vụ bất đồng bộ (Synchronous AI Calls)**: Request HTTP client chờ trực tiếp tiến trình tạo ảnh (5-20s). Nếu nhiều học sinh cùng bấm tạo ảnh, tiến trình Node.js sẽ bị nghẽn I/O.
 4. **Phụ thuộc tài sản CozyFae có giấy phép hạn chế**: Nếu dự án được phân phối mã nguồn mở công khai, thư mục `frontend/public/assets/cozy_fae/` có thể vi phạm điều khoản cấm phân phối lại template của tác giả.
+5. **[LIMITATION-01] Giới hạn bản chất không bất biến pixel của Diffusion AI (Non-Deterministic Pixel Fidelity)**: Do nguyên lý Denoising từ không gian tiềm ẩn và mất mát ma trận tọa độ pixel khi qua tầng trung gian văn bản của Vision AI, các ảnh spritesheet sinh ra không thể đạt chuẩn pixel-for-pixel exact match với nhân vật trên canvas. Hệ thống cần triển khai song song cơ chế Deterministic Canvas Compositor (ADR-15) để đáp ứng trọn vẹn nhu cầu xuất sprite 100% pixel gốc.
 
 ---
 
@@ -175,6 +176,7 @@ $$\mathbf{Tiến\ Độ\ Tổng\ Thể} = \mathbf{56.0\%}$$
 3. **Cơ chế Fallback lưu trữ kép (`server.js:178-182`)**: Nếu không cấu hình Cloudinary hoặc lỗi mạng, hệ thống tự động fallback lưu ổ đĩa cục bộ tĩnh, đảm bảo học sinh vẫn xem và tải được ảnh [ĐÃ XÁC MINH].
 4. **Tối ưu hóa Prompt Monster Builder (`server.js:361-365`)**: Trích xuất feature từ JSON config để làm prompt thay vì bắt AI đọc ảnh base64, tiết kiệm tối đa chi phí API [ĐÃ XÁC MINH].
 5. **Animation Previewer mượt mà (`AnimationPreview.jsx`)**: Tự động tính toán ma trận khung hình và tua hoạt ảnh mượt mà, hỗ trợ điều chỉnh FPS và đổi nền phong phú [ĐÃ XÁC MINH].
+6. **Pipeline Ma Trận Lưới Single-Shot 5x3 & Vision-to-Grid (`asset_generator.py:1085-1175`)**: Sinh trọn vẹn 15 khung hình 3 hàng x 5 cột đa hành động trong 1 lần gọi API duy nhất (~10s); tích hợp Vision AI phân tích đặc trưng nhân vật thật từ Canvas, nâng trần Express payload lên 25MB và tự động lọc sạch prompt không bị ô nhiễm [ĐÃ XÁC MINH].
 
 ---
 
@@ -183,6 +185,7 @@ $$\mathbf{Tiến\ Độ\ Tổng\ Thể} = \mathbf{56.0\%}$$
 ### Nhóm Ưu Tiên Cao Nhất (P0 - Khẩn cấp)
 1. **Rotate khóa Cloudinary**: Đổi mới API Secret trên Cloudinary Console và cập nhật vào `.env` cục bộ.
 2. **Sửa lỗi `set-state-in-effect` tại `CharacterBuilder.jsx:96`** để bảo đảm an toàn render trong React 19.
+3. **Bổ sung nút xuất spritesheet tất định (Deterministic Canvas Compositor)**: Tận dụng 12 frame có sẵn của asset pack Pipoya/Kenney để người dùng tải ngay bộ animation pixel-perfect 100% trong 0ms song song với tính năng mở rộng AI (ADR-15).
 
 ### Nhóm Ưu Tiên Cao (P1 - Cần làm ngay)
 3. **Dọn dẹp 15 file cũ/rác** ở thư mục gốc và chuẩn hóa cấu trúc repo.

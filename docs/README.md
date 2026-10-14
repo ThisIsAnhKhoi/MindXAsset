@@ -9,11 +9,11 @@ Chào mừng bạn đến với trung tâm tài liệu kỹ thuật của dự �
 ```
 docs/
 ├── 📋 SPEC.md                   # Đặc tả hiện trạng hệ thống (As-built vs As-intended)
-├── 📊 PROJECT_STATUS.md         # Báo cáo tiến độ 56.0% có kiểm chứng & lịch sử git
+├── 📊 PROJECT_STATUS.md         # Báo cáo tiến độ 58.5% có kiểm chứng & lịch sử git
 ├── 🛡 QA_REPORT.md              # Báo cáo kiểm toán chất lượng toàn diện (Conditional GO)
 ├── 🧪 TEST_PLAN.md              # Kế hoạch kiểm thử & 40 test case ưu tiên cao
 ├── 🗺 DEVELOPMENT_PLAN.md       # Lộ trình 4 giai đoạn nâng cấp lên 95%
-├── ⚖️ DECISIONS.md              # 9 hồ sơ quyết định kiến trúc (ADR-01 đến ADR-09)
+├── ⚖️ DECISIONS.md              # 15 hồ sơ quyết định kiến trúc (ADR-01 đến ADR-15)
 ├── 📝 TASK_BRIEFS.md            # 5 bản giao việc chi tiết cho các phiên làm việc
 ├── 📖 ARCHITECTURE.md           # Sổ tay kiến trúc 5 phút cho người mới
 ├── 🔍 GLOSSARY.md               # Từ điển thuật ngữ nghiệp vụ chuẩn hóa
