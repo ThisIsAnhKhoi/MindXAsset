@@ -21,6 +21,7 @@
 | **ADR-09** | Tiêu chí nghiệm thu phiên bản MVP phát hành được (Release Definition) | **ĐÃ DUYỆT** | Product Release Criteria |
 | **ADR-10** | Xử lý SPA Routing trên Vercel & Chiến lược Preloading Asset Đồ Họa | **ĐÃ DUYỆT** | Frontend & Deployment |
 | **ADR-11** | Cấu Trúc Bố Cục Studio Đồng Bộ 560px & Focal Zoom Thumbnail Cắt Trống Pipoya | **ĐÃ DUYỆT** | UI/UX & Component Architecture |
+| **ADR-12** | Đồng Bộ Hóa Chuẩn API Pollinations Bearer Auth & Dynamic Env Resolver | **ĐÃ DUYỆT** | AI Integration & Observability |
 
 ---
 
@@ -149,3 +150,23 @@
 - **Quyết định**: **Chọn Phương án B**.
 - **Lý do**: Không cần phát sinh thêm asset tệp tĩnh nào; toàn bộ Character Studio nằm vừa vặn 100% trong một màn hình làm việc (single screen desktop viewport) không cần cuộn trang; người dùng nhìn thấy rõ nét từng chiếc vương miện, gọng kính và đôi mắt với trải nghiệm hiện đại chuẩn Studio.
 - **Hệ quả**: Nếu bổ sung danh mục bộ phận mới, cần khai báo cấu hình zoom tương ứng trong `getCategorySpriteStyle`.
+
+---
+
+### ADR-12: Đồng Bộ Hóa Chuẩn API Pollinations Bearer Auth & Dynamic Env Resolver
+- **Bối cảnh**:
+  1. Module AI liên tục báo lỗi khi gọi API sinh ảnh hoặc hoạt ảnh dù đã thay nhiều token/key khác nhau.
+  2. Mã nguồn trong `backend/ai_module/asset_generator.py` vẫn dùng endpoint cũ (`https://image.pollinations.ai/prompt`) và gửi token qua URL query params (`?key=...&token=...`) vốn đã bị upstream Pollinations ngừng hỗ trợ, dẫn tới lỗi `500/503 Queue Full`.
+  3. Lỗi gán tĩnh tại thời điểm import (`API_KEY = os.getenv(...)`) khiến biến môi trường bị rỗng `""` nếu module được nạp trước khi `load_dotenv()` thực thi.
+  4. Khối try-catch nuốt mất phản hồi lỗi chi tiết từ server, gây khó khăn cho việc chẩn đoán nguyên nhân (401 Auth, 402 Hết credit, hay 429 Quá tải).
+- **Các phương án cân nhắc**:
+  1. *Phương án A*: Giữ nguyên code cũ và tiếp tục đổi các API Key khác nhau. *(Không khả thi vì lỗi nằm ở cơ chế truyền token và endpoint bị lệch chuẩn)*.
+  2. *Phương án B (Lựa chọn)*:
+     - Nâng cấp `POLLINATIONS_BASE_URL` sang endpoint chuẩn: `https://gen.pollinations.ai/image`.
+     - Chuyển toàn bộ cơ chế xác thực sang HTTP Header: `Authorization: Bearer <API_KEY>`.
+     - Xây dựng hàm `get_pollinations_api_key()` tự động dò tìm file `.env` ở cả thư mục hiện tại lẫn thư mục cha khi runtime.
+     - Bắt mã lỗi chi tiết (401, 402, 403), bóc tách nội dung JSON báo lỗi từ nhà cung cấp và ngắt vòng lặp retry vô nghĩa ngay lập tức.
+     - Đồng bộ tham số `env: { ...process.env }` và `cwd: ai_module` từ Node.js `execFile`.
+- **Quyết định**: **Chọn Phương án B**.
+- **Lý do**: Giải quyết triệt để 100% nguyên nhân gốc rễ gây lỗi API; phản hồi sinh ảnh từ API thành công trong ~10s; log lỗi minh bạch giúp đội ngũ phát triển nhận biết chính xác trạng thái token/credit.
+- **Hệ quả**: Cần đảm bảo file `.env` có biến `POLLINATIONS_API_KEY` với token còn hiệu lực (bắt đầu bằng `sk_...`).

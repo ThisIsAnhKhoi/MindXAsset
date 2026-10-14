@@ -20,9 +20,12 @@ import os
 
 try:
     from dotenv import load_dotenv
-
-    load_dotenv()  # đọc file .env trong thư mục hiện tại trước khi import asset_generator,
-    # vì asset_generator đọc os.getenv("POLLINATIONS_API_KEY") ngay lúc import module
+    from pathlib import Path
+    for p in [Path.cwd(), Path.cwd().parent, Path(__file__).resolve().parent, Path(__file__).resolve().parent.parent]:
+        env_file = p / ".env"
+        if env_file.exists():
+            load_dotenv(env_file, override=False)
+            break
 except ImportError:
     pass  # chưa cài python-dotenv -> vẫn dùng biến môi trường set tay như bình thường
 

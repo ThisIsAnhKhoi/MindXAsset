@@ -103,11 +103,19 @@ const runPythonCLI = (res, args, cleanupPath = null) => {
     const linuxVenvPath = path.join(__dirname, 'ai_module', 'venv', 'bin', 'python');
     pythonExecutable = fs.existsSync(linuxVenvPath) ? linuxVenvPath : 'python3';
   }
-  
-  execFile(pythonExecutable, [pythonScript, ...args], { maxBuffer: 1024 * 1024 * 50 }, (error, stdout, stderr) => {
-    if (cleanupPath) {
-      fs.unlink(cleanupPath, () => {});
-    }
+
+  execFile(
+    pythonExecutable,
+    [pythonScript, ...args],
+    {
+      maxBuffer: 1024 * 1024 * 50,
+      env: { ...process.env },
+      cwd: path.join(__dirname, 'ai_module')
+    },
+    (error, stdout, stderr) => {
+      if (cleanupPath) {
+        fs.unlink(cleanupPath, () => {});
+      }
     
     if (error) {
       const errText = stderr || error.message || '';

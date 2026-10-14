@@ -28,9 +28,25 @@ import requests
 from PIL import Image, ImageOps, UnidentifiedImageError
 
 
-POLLINATIONS_BASE_URL = "https://image.pollinations.ai/prompt"
+POLLINATIONS_BASE_URL = "https://gen.pollinations.ai/image"
 POLLINATIONS_TEXT_URL = "https://gen.pollinations.ai/v1/chat/completions"
-API_KEY = os.getenv("POLLINATIONS_API_KEY", "")
+
+
+def get_pollinations_api_key() -> str:
+    """Dynamically resolve POLLINATIONS_API_KEY from environment or nearby .env files."""
+    try:
+        from dotenv import load_dotenv
+        for p in [Path.cwd(), Path.cwd().parent, Path(__file__).resolve().parent, Path(__file__).resolve().parent.parent]:
+            env_file = p / ".env"
+            if env_file.exists():
+                load_dotenv(env_file, override=False)
+                break
+    except ImportError:
+        pass
+    return os.getenv("POLLINATIONS_API_KEY", "").strip()
+
+
+API_KEY = get_pollinations_api_key()
 OUTPUT_DIR = Path("output")
 
 DEFAULT_CHARACTER_CAPTION_INSTRUCTION = (
@@ -374,7 +390,7 @@ class PollinationsProvider:
         enhance: bool = False,
         nologo: bool = False,
     ):
-        self.api_key = api_key
+        self.api_key = (api_key or "").strip() or get_pollinations_api_key()
         self.model = model
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
@@ -403,20 +419,27 @@ class PollinationsProvider:
             "width": width,
             "height": height,
             "seed": actual_seed,
-            "nologo": str(self.nologo).lower(),
-            "private": str(self.private).lower(),
-            "enhance": str(self.enhance).lower(),
         }
-        if self.api_key:
-            # Pollinations deployments have used both key/token naming; sending both is harmless for GET params.
-            params["key"] = self.api_key
-            params["token"] = self.api_key
+        effective_key = (self.api_key or "").strip() or get_pollinations_api_key()
+        headers: dict[str, str] = {}
+        if effective_key:
+            headers["Authorization"] = f"Bearer {effective_key}"
 
         last_error: Exception | None = None
         for attempt in range(1, self.retries + 1):
             try:
-                response = requests.get(url, params=params, timeout=self.timeout)
-                response.raise_for_status()
+                response = requests.get(url, params=params, headers=headers, timeout=self.timeout)
+                if response.status_code != 200:
+                    err_msg = ""
+                    try:
+                        err_json = response.json()
+                        err_msg = err_json.get("error", {}).get("message") or err_json.get("message") or str(err_json)
+                    except Exception:
+                        err_msg = response.text[:300]
+
+                    if response.status_code in (401, 402, 403):
+                        raise RuntimeError(f"Pollinations API [{response.status_code} Error]: {err_msg}")
+                    response.raise_for_status()
 
                 content_type = response.headers.get("content-type", "")
                 if "image" not in content_type.lower():
@@ -438,10 +461,12 @@ class PollinationsProvider:
                 )
             except (requests.RequestException, UnidentifiedImageError, RuntimeError) as exc:
                 last_error = exc
+                if "401 Error" in str(exc) or "402 Error" in str(exc) or "403 Error" in str(exc):
+                    break
                 if attempt < self.retries:
                     time.sleep(2 * attempt)
 
-        raise RuntimeError(f"Cannot generate image after {self.retries} attempts: {last_error}") from last_error
+        raise RuntimeError(f"Cannot generate image after {attempt} attempts: {last_error}") from last_error
 
 
 class PollinationsCaptioner:
@@ -453,13 +478,13 @@ class PollinationsCaptioner:
 
     def __init__(
         self,
-        api_key: str = API_KEY,
+        api_key: str | None = None,
         model: str = "openai",
         base_url: str = POLLINATIONS_TEXT_URL,
         timeout: int = 60,
         retries: int = 3,
     ):
-        self.api_key = api_key
+        self.api_key = (api_key or "").strip() or get_pollinations_api_key()
         self.model = model
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
@@ -485,9 +510,10 @@ class PollinationsCaptioner:
                 }
             ],
         }
+        effective_key = (self.api_key or "").strip() or get_pollinations_api_key()
         headers = {"Content-Type": "application/json"}
-        if self.api_key:
-            headers["Authorization"] = f"Bearer {self.api_key}"
+        if effective_key:
+            headers["Authorization"] = f"Bearer {effective_key}"
 
         last_error: Exception | None = None
         for attempt in range(1, self.retries + 1):

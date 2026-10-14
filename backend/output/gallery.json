@@ -1,5 +1,13 @@
 [
   {
+    "id": "1791989665553",
+    "prompt": "magic potion bottle, pure pixel art game asset, 8-bit retro, limited color palette, hard pixel edges, no gradients, clean silhouette, classic NES/SNES style",
+    "style": "Pixel Art",
+    "type": "pixel_art",
+    "image_url": "http://localhost:5000/output/pixel_art/pixel_magic_potion_bottle_icon.png",
+    "created_at": "2026-10-14T14:54:25.553Z"
+  },
+  {
     "id": "1788711175471",
     "prompt": "Test character prompt, pure pixel art game asset, 8-bit retro, limited color palette, hard pixel edges, no gradients, clean silhouette, classic NES/SNES style",
     "style": "Pixel Art",
