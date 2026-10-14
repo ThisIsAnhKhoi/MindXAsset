@@ -1026,11 +1026,28 @@ class GameAssetStudio:
         caption_warnings = []
         caption_desc = ""
         
-        if not subject:
-            caption = self.describe_reference_image(source, instruction=instruction)
-            subject = caption.description or source.stem.replace("_", " ").replace("-", " ")
-            caption_desc = caption.description
+        # If subject is missing or is just a noisy raw layer ID string, run vision captioning
+        needs_caption = not subject or "with bases" in str(subject).lower() or "bases " in str(subject).lower()
+        if needs_caption:
+            concise_inst = instruction or (
+                "In one concise sentence under 50 words, without any markdown, bullets or intros, "
+                "describe this 2D chibi pixel art character: hair style and color, glasses or head accessories, "
+                "clothing style and colors, weapons or items held, and chibi body proportions."
+            )
+            caption = self.describe_reference_image(source, instruction=concise_inst)
+            raw_desc = (caption.description or "").strip()
+            cleaned = re.sub(r"[*#_`~\[\]>]", "", raw_desc)
+            lines = [l.strip() for l in cleaned.splitlines() if l.strip()]
+            filtered = [l for l in lines if not l.lower().startswith(("if you", "tell me", "here is", "sure,", "note:"))]
+            caption_desc = re.sub(r"\s+", " ", " ".join(filtered)).strip()
             caption_warnings = caption.warnings
+
+            clean_name = str(subject or "")
+            if "with bases" in clean_name.lower():
+                clean_name = clean_name.split("with bases")[0].strip()
+            elif "bases " in clean_name.lower():
+                clean_name = ""
+            subject = f"{clean_name}: {caption_desc}" if (clean_name and caption_desc) else (caption_desc or source.stem.replace("_", " ").replace("-", " "))
 
         asset = self.generate_tilesheet(
             subject=subject,
@@ -1379,29 +1396,47 @@ class GameAssetStudio:
         transparent_bg: bool = False,
         instruction: str | None = None,
     ) -> GeneratedAsset:
-        """Reference-image -> vision caption -> single-shot grid spritesheet pipeline."""
+        """Reference-image -> concise vision caption -> single-shot grid spritesheet pipeline."""
         source = Path(image_path)
         caption_warnings: list[str] = []
         caption_desc = ""
 
+        concise_instruction = (
+            instruction
+            or (
+                "In one concise sentence under 50 words, without any markdown, bullets or intros, "
+                "describe this 2D chibi pixel art character: hair style and color, glasses or head accessories, "
+                "clothing style and colors, weapons or items held, and chibi body proportions."
+            )
+        )
+
         try:
             caption = self.describe_reference_image(
                 source,
-                instruction=instruction
-                or (
-                    "Describe this 2D pixel art character for generating a game animation sprite sheet. "
-                    "Specifically detail: hair style and color, head accessories, facial traits, skin tone, "
-                    "clothing style and colors, belts or scarves, weapons or items held, and chibi body proportions. "
-                    "Keep it purely descriptive so an image AI can reproduce this exact same character."
-                ),
+                instruction=concise_instruction,
             )
-            caption_desc = caption.description
+            raw_desc = (caption.description or "").strip()
+            # Remove any markdown formatting (headers, bold, italics, bullets)
+            cleaned = re.sub(r"[*#_`~\[\]>]", "", raw_desc)
+            # Remove conversational sentences (e.g. 'If you want...', 'Here is...')
+            lines = [line.strip() for line in cleaned.splitlines() if line.strip()]
+            filtered_lines = [
+                l for l in lines 
+                if not l.lower().startswith(("if you", "tell me", "here is", "sure,", "note:", "character:"))
+            ]
+            caption_desc = re.sub(r"\s+", " ", " ".join(filtered_lines)).strip()
             caption_warnings = caption.warnings
         except Exception as exc:
             caption_warnings.append(f"Vision captioning failed ({exc}); falling back to text description.")
 
         if caption_desc:
-            effective_subject = f"{caption_desc}. {subject}" if subject else caption_desc
+            clean_name = subject or ""
+            # Strip out internal raw layer IDs (e.g. 'bases 006, hairs 001') to avoid prompt pollution
+            if "with bases" in clean_name.lower():
+                clean_name = clean_name.split("with bases")[0].strip()
+            elif "bases " in clean_name.lower():
+                clean_name = ""
+            effective_subject = f"{clean_name}: {caption_desc}" if clean_name else caption_desc
         else:
             effective_subject = subject or source.stem.replace("_", " ").replace("-", " ")
 

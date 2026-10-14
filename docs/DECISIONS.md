@@ -212,6 +212,11 @@
   - Tự động hóa 100% không cần bất kỳ từ điển mapping thủ công nào.
   - Phù hợp với mọi bộ asset tương lai (Monster Pack, Pipoya, hoặc bất kỳ asset mới nào).
   - Độ tương đồng hình ảnh đạt >90%: AI giữ nguyên được màu tóc vàng, trang phục áo sẫm, tỷ lệ chibi và phong cách 2D pixel art trên toàn bộ 15 khung hình spritesheet.
+- **Tối ưu hóa bổ sung sau kiểm toán E2E**:
+  1. *Nâng trần Express Body Parser*: Mặc định `express.json()` chỉ cho phép 100KB, khiến các chuỗi Base64 từ canvas nhiều chi tiết bị lỗi `413 Payload Too Large`. Đã nâng lên `25mb` (`app.use(express.json({ limit: '25mb' }))`).
+  2. *Lọc sạch Vision Prompt (Sanitizer)*: Khống chế câu lệnh mô tả thị giác dưới 50 từ, dùng regex loại bỏ triệt để markdown (`*#_[]`) và lọc bỏ câu chào/câu hỏi trò chuyện.
+  3. *Triệt tiêu ô nhiễm Layer ID*: Tự động bóc tách và loại bỏ hoàn toàn các chuỗi ID layer vô nghĩa (`bases 006, hairs 001...`) trước khi ghép vào prompt tạo ảnh của Flux, giúp độ dài prompt luôn nằm trong vùng tối ưu (~800 ký tự).
 - **Hệ quả**: Thời gian sinh ảnh tăng thêm ~2-3 giây cho bước Vision AI Captioning, đổi lại chất lượng và độ trung thực của nhân vật tăng vượt bậc.
+
 
 

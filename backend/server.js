@@ -10,7 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '25mb' }));
+app.use(express.urlencoded({ limit: '25mb', extended: true }));
 
 // Ensure uploads and output directories exist
 const uploadDir = path.join(__dirname, 'uploads');
@@ -346,9 +347,9 @@ app.post('/api/generate-image', (req, res) => {
   runPythonCLI(res, args);
 });
 
-// New Endpoint for Character Customizer
+// Endpoint Xuất Hoạt Ảnh 1 Động Tác từ ảnh Canvas & Vision AI
 app.post('/api/generate-custom-character', (req, res) => {
-  const { config, action, base64_image } = req.body;
+  const { name, action, base64_image } = req.body;
   
   if (!base64_image) {
     return res.status(400).json({ error: 'Không nhận được dữ liệu ảnh từ Frontend' });
@@ -357,31 +358,22 @@ app.post('/api/generate-custom-character', (req, res) => {
   console.log("Nhận yêu cầu xuất AI Animation cho:", action);
   
   try {
-    // Tách phần header (data:image/png;base64,) ra khỏi nội dung
     const base64Data = base64_image.replace(/^data:image\/\w+;base64,/, "");
     const buffer = Buffer.from(base64Data, 'base64');
     
-    // Lưu tạm file vào ổ đĩa để Python có thể đọc
     const tempFileName = `temp_char_${Date.now()}.png`;
     const tempFilePath = path.join(uploadDir, tempFileName);
-    
     fs.writeFileSync(tempFilePath, buffer);
     
-    // Lấy mô tả chi tiết từ config để làm Prompt cho AI thay vì bắt AI tự nhìn ảnh (tiết kiệm API/tránh lỗi 402)
-    const characterFeatures = Object.values(config)
-      .filter(val => val && typeof val === 'string' && val.trim() !== '' && val !== 'idle' && val !== 'run' && val !== 'attack')
-      .map(val => val.replace(/_/g, ' '))
-      .join(', ');
-      
-    const targetSubject = `A pixel art character with ${characterFeatures || 'default features'}, performing ${action || 'running'} action`;
-
-    // Gọi Python AI CLI
+    // Gọi Python AI CLI animate-image trực tiếp từ ảnh Canvas thật
     const args = [
       'animate-image', tempFilePath,
-      '--subject', targetSubject,
       '--action', action || 'running',
       '--out', baseOutputDir
     ];
+    if (name && name.trim()) {
+      args.push('--subject', name.trim());
+    }
     
     runPythonCLI(res, args, tempFilePath);
   } catch (err) {
@@ -402,14 +394,14 @@ app.post('/api/generate-full-spritesheet', (req, res) => {
       .join(', ');
   }
 
-  const charSubject = characterName && characterName.trim() ? characterName.trim() : 'game hero character';
-  const combinedSubject = characterFeatures 
-    ? `${charSubject} with ${characterFeatures}`
-    : charSubject;
+  const cleanName = characterName && characterName.trim() ? characterName.trim() : '';
+  const fallbackSubject = characterFeatures 
+    ? `${cleanName || 'game hero character'} with ${characterFeatures}`
+    : (cleanName || 'game hero character');
 
   const safeSeed = (seed ?? -1).toString();
 
-  // If frontend passed the rendered canvas image, use vision-guided generation
+  // If frontend passed the rendered canvas image, use vision-guided generation without layer ID pollution
   if (base64_image) {
     try {
       const base64Data = base64_image.replace(/^data:image\/\w+;base64,/, '');
@@ -427,8 +419,8 @@ app.post('/api/generate-full-spritesheet', (req, res) => {
         '--slice',
         '--out', baseOutputDir
       ];
-      if (combinedSubject) {
-        args.push('--subject', combinedSubject);
+      if (cleanName) {
+        args.push('--subject', cleanName);
       }
 
       return runPythonCLI(res, args, tempFilePath);
@@ -440,7 +432,7 @@ app.post('/api/generate-full-spritesheet', (req, res) => {
 
   // Fallback if no image provided
   const args = [
-    'grid-spritesheet', combinedSubject,
+    'grid-spritesheet', fallbackSubject,
     '--columns', '5',
     '--rows', '3',
     '--style', getStyleMap(style || 'Pixel Art'),
