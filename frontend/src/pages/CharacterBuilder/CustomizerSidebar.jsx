@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { assetConfig } from './assets_config';
 
 const CustomizerSidebar = ({ selections, onSelect }) => {

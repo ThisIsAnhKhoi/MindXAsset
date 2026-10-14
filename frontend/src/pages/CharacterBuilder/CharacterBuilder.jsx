@@ -1,11 +1,12 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import CanvasPreview from './CanvasPreview';
 import CategoryMenu from './CategoryMenu';
 import CustomizerInspector from './CustomizerInspector';
-import { assetConfig, colorPalettes, getLayerSource } from './assets_config';
+import { assetConfig, getLayerSource } from './assets_config';
 import { monsterConfig, getMonsterLayers } from './monster_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
+import { preloadImages } from './assetCache';
 
 const CHARACTER_MODELS = [
   {
@@ -95,6 +96,60 @@ const CharacterBuilder = () => {
     });
     setSelections(newSelections);
     setActiveCategory(currentModel.categories[0].id);
+  }, [currentModelId]);
+
+  // 1. Tải trước toàn bộ ảnh trong danh mục đang chọn (Category Preloading)
+  useEffect(() => {
+    const options = (currentModel.config || {})[activeCategory] || [];
+    const urls = options.map(opt => {
+      if (opt.src) return opt.src;
+      if (opt.layers && opt.layers[0]?.src) return opt.layers[0].src;
+      return null;
+    }).filter(Boolean);
+
+    if (urls.length > 0) {
+      preloadImages(urls);
+    }
+  }, [activeCategory, currentModel]);
+
+  // 2. Nạp trước ngầm toàn bộ tài sản của model khi rảnh rỗi (Idle Background Preloader)
+  useEffect(() => {
+    const runIdlePreload = () => {
+      const allUrls = [];
+      Object.values(currentModel.config || {}).forEach(opts => {
+        if (Array.isArray(opts)) {
+          opts.forEach(opt => {
+            const src = opt.src || opt.layers?.[0]?.src;
+            if (src) allUrls.push(src);
+          });
+        }
+      });
+
+      // Chia nhỏ thành từng batch 20 ảnh để không làm nghẽn băng thông
+      let index = 0;
+      const batchSize = 20;
+      const loadNextBatch = () => {
+        if (index >= allUrls.length) return;
+        const batch = allUrls.slice(index, index + batchSize);
+        index += batchSize;
+        preloadImages(batch).then(() => {
+          if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+            window.requestIdleCallback(loadNextBatch);
+          } else {
+            setTimeout(loadNextBatch, 80);
+          }
+        });
+      };
+      loadNextBatch();
+    };
+
+    if (typeof window !== 'undefined') {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(runIdlePreload);
+      } else {
+        setTimeout(runIdlePreload, 250);
+      }
+    }
   }, [currentModelId]);
 
   // Bảng màu cho từng bộ phận (Color Modulation)
@@ -402,6 +457,7 @@ const CharacterBuilder = () => {
               onSelectOption={handleSelectOption}
               onSelectColor={handleSelectColor}
               currentConfig={currentModel.config}
+              isSpritesheet={currentModel.isSpritesheet}
             />
           </div>
 

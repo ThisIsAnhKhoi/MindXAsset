@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CategoryMenu = ({ categories = [], activeCategory, onSelectCategory }) => {
   return (
     <div className="flex flex-col gap-2.5 w-full overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">

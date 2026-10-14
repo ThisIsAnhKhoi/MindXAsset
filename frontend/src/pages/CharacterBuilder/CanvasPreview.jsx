@@ -1,7 +1,5 @@
-import React, { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
-
-// Global cache for images to prevent flickering on re-renders
-const imageCache = new Map();
+import { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
+import { preloadImage } from './assetCache';
 
 const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transparentBg = false, frameSize = 32, isSpritesheet = true }, ref) => {
   const canvasRef = useRef(null);
@@ -22,22 +20,6 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
     }
   }));
 
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      if (imageCache.has(src)) {
-        return resolve(imageCache.get(src));
-      }
-      const img = new Image();
-      img.crossOrigin = 'anonymous'; // Cho phép tải ảnh từ Cloudinary/CORS
-      img.onload = () => {
-        imageCache.set(src, img);
-        resolve(img);
-      };
-      img.onerror = reject;
-      img.src = src;
-    });
-  };
-
   useEffect(() => {
     let isActive = true;
     const canvas = canvasRef.current;
@@ -53,7 +35,7 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
         // Load all images in parallel for maximum speed
         const imagePromises = sortedLayers.map(layer => {
           if (!layer || !layer.src) return Promise.resolve(null);
-          return loadImage(layer.src);
+          return preloadImage(layer.src);
         });
         
         const loadedImages = await Promise.all(imagePromises);

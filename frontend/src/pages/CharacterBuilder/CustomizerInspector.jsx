@@ -1,4 +1,3 @@
-import React from 'react';
 import { colorPalettes } from './assets_config';
 
 const CustomizerInspector = ({
@@ -25,36 +24,77 @@ const CustomizerInspector = ({
         </span>
       </div>
 
-      {/* Danh sách Item Styles / Kiểu dáng (Ô vuông chọn) */}
+      {/* Danh sách Item Styles / Kiểu dáng (Ô vuông chọn có Thumbnail Preview) */}
       <div>
         <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 font-sans">
-          1. Chọn kiểu dáng:
+          1. Chọn kiểu dáng (Xem trước):
         </label>
-        <div className="grid grid-cols-4 gap-2.5 overflow-y-auto max-h-[320px] pr-2 custom-scrollbar">
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5 overflow-y-auto max-h-[340px] pr-1.5 custom-scrollbar">
           {currentOptions.map((opt) => {
             const isSelected = selections[activeCategory] === opt.id;
+            const isNone = opt.id.endsWith('_none');
+            const spriteSrc = opt.layers && opt.layers.length > 0 ? opt.layers[0].src : null;
+
             return (
               <button
                 key={opt.id}
+                type="button"
                 onClick={() => onSelectOption(activeCategory, opt.id)}
                 className={`
-                  aspect-square rounded-lg border-2 flex flex-col items-center justify-center p-1 transition-all
+                  relative aspect-square rounded-xl border-2 flex flex-col items-center justify-between p-1.5 transition-all duration-150 group cursor-pointer
                   ${
                     isSelected
-                      ? 'border-red-500 bg-red-50 shadow-sm ring-2 ring-red-200'
-                      : 'border-gray-200 bg-white hover:bg-gray-50 hover:border-red-300'
+                      ? 'border-red-500 bg-red-50 shadow-md ring-2 ring-red-300 scale-[1.03]'
+                      : 'border-gray-200 bg-white hover:bg-gray-50 hover:border-red-300 hover:shadow-sm'
                   }
                 `}
                 title={opt.name}
               >
-                {opt.id.endsWith('_none') ? (
-                  <span className="text-sm font-bold text-gray-400">∅</span>
-                ) : (
-                  <div className={`w-8 h-8 rounded flex items-center justify-center font-bold text-xs ${isSelected ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-600'}`}>
-                    ✦
+                {/* Checkmark badge cho item được chọn */}
+                {isSelected && (
+                  <div className="absolute top-1 right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center shadow z-10">
+                    <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
                   </div>
                 )}
-                <span className={`text-[10px] font-sans truncate w-full text-center mt-1 ${isSelected ? 'font-bold text-red-700' : 'text-gray-500'}`}>
+
+                {/* Khung ảnh Thumbnail Preview */}
+                <div className="w-11 h-11 rounded-lg bg-gray-50/80 border border-gray-100 flex items-center justify-center p-0.5 overflow-hidden transition-transform group-hover:scale-105">
+                  {isNone ? (
+                    <div className="flex flex-col items-center justify-center text-gray-400">
+                      <span className="text-xl font-bold leading-none">∅</span>
+                    </div>
+                  ) : opt.src ? (
+                    /* Dành cho Monster Builder (Ảnh đơn PNG) */
+                    <img
+                      src={opt.src}
+                      alt={opt.name}
+                      loading="lazy"
+                      className="w-full h-full object-contain pointer-events-none"
+                      style={{ imageRendering: 'pixelated' }}
+                    />
+                  ) : spriteSrc ? (
+                    /* Dành cho RPG Pipoya (Cắt frame đứng im đầu tiên 32x32 của Spritesheet) */
+                    <div
+                      className="w-8 h-8 pointer-events-none"
+                      style={{
+                        backgroundImage: `url(${spriteSrc})`,
+                        backgroundPosition: '-32px 0px',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '96px 128px',
+                        imageRendering: 'pixelated'
+                      }}
+                    />
+                  ) : (
+                    <div className={`w-6 h-6 rounded flex items-center justify-center font-bold text-xs ${isSelected ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-600'}`}>
+                      ✦
+                    </div>
+                  )}
+                </div>
+
+                {/* Nhãn tên bên dưới */}
+                <span className={`text-[10px] font-sans truncate w-full text-center leading-tight ${isSelected ? 'font-bold text-red-700' : 'text-gray-500 group-hover:text-gray-800'}`}>
                   {opt.name.replace(/(Không mặc|Trọc|Không có|Chân trần)/g, 'Trống')}
                 </span>
               </button>
