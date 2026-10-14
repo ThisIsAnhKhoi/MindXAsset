@@ -360,14 +360,15 @@ class PromptOptimizer:
     ) -> str:
         style_tag = PromptOptimizer.STYLE_TAGS.get(style, style)
         return (
-            f"Full complete 2D game character sprite sheet matrix of {subject}, "
+            f"A complete 2D game sprite sheet matrix of {subject}, "
             f"arranged in a strict {columns} columns by {rows} rows grid matrix ({columns * rows} frames total) on clean plain white background. "
-            f"There is exactly ONE single character centered in each cell ({columns * rows} individual character figures in total, no multiple characters inside one cell). "
-            f"Row 1: idle breathing and walking cycle animation poses facing right. "
-            f"Row 2: combat attack slash and shield block defend poses. "
-            f"Row 3: hit hurt recoil damage and victory cheer poses. "
-            f"Every single frame features the EXACT SAME identical character with matching outfit, equipment, colors, and proportions. "
-            f"Neatly organized sprite sheet, equal cell spacing, no overlap, isolated on white background, {style_tag}, master game asset"
+            f"Every single cell contains exactly ONE single centered full-body character, front-facing view, with equal spacing. "
+            f"Row 1: front-facing idle breathing and walking animation steps. "
+            f"Row 2: front-facing combat ready and attack action motions using the same held equipment. "
+            f"Row 3: front-facing hit damage recoil, stunned, and victory cheer poses. "
+            f"Every single frame features the EXACT SAME identical character with the exact same headwear, eyewear, clothing, colors, and weapons. "
+            f"Do not add extra hoods, capes, or shields unless specifically described. "
+            f"Isolated on clean white background, {style_tag}, master retro game asset"
         )
 
     @staticmethod
@@ -386,7 +387,7 @@ class PromptOptimizer:
         extras = {
             "background": ", characters, people, HUD, UI elements",
             "sprite": ", background scenery, multiple objects, multiple poses",
-            "sprite_sheet": ", merged frames, uneven spacing, different character scale",
+            "sprite_sheet": ", hood, cloak, assassin, shield, sunglasses, merged frames, uneven spacing, different character scale, smooth gradients, 3d render, vector illustration, cropped closeups, multiple characters in one cell",
             "tile": (
                 ", multiple tiles, full tileset, sprite sheet, grid lines, ruler, "
                 "perspective, isometric, drop shadow, background scenery, frame border"
@@ -1030,9 +1031,10 @@ class GameAssetStudio:
         needs_caption = not subject or "with bases" in str(subject).lower() or "bases " in str(subject).lower()
         if needs_caption:
             concise_inst = instruction or (
-                "In one concise sentence under 50 words, without any markdown, bullets or intros, "
-                "describe this 2D chibi pixel art character: hair style and color, glasses or head accessories, "
-                "clothing style and colors, weapons or items held, and chibi body proportions."
+                "Analyze this 2D pixel art character sprite closely. In one dense sentence under 50 words (no markdown, no bullets, no intros), "
+                "state its exact gear: headwear (helmet, hat, hair, or earmuffs), eyewear (goggles, visor, or glasses and their exact color), "
+                "clothing (coat, suit, shirt, tie, or armor and their exact colors), held weapon or item at hand/side (spear, sword, staff, or none), "
+                "and front-facing retro pixel art style."
             )
             caption = self.describe_reference_image(source, instruction=concise_inst)
             raw_desc = (caption.description or "").strip()
@@ -1404,9 +1406,10 @@ class GameAssetStudio:
         concise_instruction = (
             instruction
             or (
-                "In one concise sentence under 50 words, without any markdown, bullets or intros, "
-                "describe this 2D chibi pixel art character: hair style and color, glasses or head accessories, "
-                "clothing style and colors, weapons or items held, and chibi body proportions."
+                "Analyze this 2D pixel art character sprite closely. In one dense sentence under 50 words (no markdown, no bullets, no intros), "
+                "state its exact gear: headwear (helmet, hat, hair, or earmuffs), eyewear (goggles, visor, or glasses and their exact color), "
+                "clothing (coat, suit, shirt, tie, or armor and their exact colors), held weapon or item at hand/side (spear, sword, staff, or none), "
+                "and front-facing retro pixel art style."
             )
         )
 
