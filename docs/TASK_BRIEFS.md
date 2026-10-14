@@ -135,3 +135,97 @@ Thiết lập hạ tầng kiểm thử tự động cho dự án, viết 10 test
 ### 4. Cách báo cáo kết quả
 - Nâng độ phủ kiểm thử từ 0% lên >= 25% trong `PROJECT_STATUS.md`.
 - Cập nhật tiến độ trụ cột Kiểm thử từ 6.7% lên 35.0%.
+
+---
+
+## TASK-06: Khắc Phục Lỗi 404 SPA Client-side Routing Trên Vercel
+
+### 1. Mục tiêu
+Giải quyết dứt điểm lỗi `404: NOT_FOUND` khi reload hoặc truy cập trực tiếp các route con (`/character-builder`, `/generator`, `/gallery`) trên môi trường triển khai Vercel.
+
+### 2. Các tệp liên quan
+- `frontend/vercel.json` (tạo mới)
+- `vercel.json` (thư mục gốc, dự phòng cấu hình monorepo)
+
+### 3. Tiêu chí chấp nhận (Acceptance Criteria)
+1. Tạo tệp `frontend/vercel.json` với cấu hình rewrites:
+   ```json
+   {
+     "rewrites": [
+       { "source": "/(.*)", "destination": "/index.html" }
+     ],
+     "headers": [
+       {
+         "source": "/assets/(.*)",
+         "headers": [
+           { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+         ]
+       }
+     ]
+   }
+   ```
+2. Đảm bảo lệnh `npm run build` ở frontend tạo ra thư mục `dist/` sạch sẽ.
+3. Reload trên bất kỳ URL nào tại link deploy Vercel đều tự động render đúng trang thay vì báo lỗi 404.
+
+### 4. Cách báo cáo kết quả
+- Ghi nhận trạng thái hoàn thành vào `CHANGELOG.md` và `docs/analysis/PROGRESS_LOG.md`.
+
+---
+
+## TASK-07: Hiển Thị Ảnh Xem Trước (Thumbnail Preview) Cho Các Ô Tùy Chọn Character Studio
+
+### 1. Mục tiêu
+Thay thế biểu tượng dấu sao thô sơ `✦` tại các ô vuông chọn kiểu dáng bằng hình ảnh thu nhỏ thực tế của từng bộ phận nhân vật, giúp người dùng dễ dàng lựa chọn.
+
+### 2. Các tệp liên quan
+- `frontend/src/pages/CharacterBuilder/CustomizerInspector.jsx`
+- `frontend/src/pages/CharacterBuilder/monster_config.js`
+- `frontend/src/pages/CharacterBuilder/assets_config.js`
+
+### 3. Tiêu chí chấp nhận (Acceptance Criteria)
+1. **Với Monster Builder**:
+   - Mỗi ô tùy chọn render thẻ `<img>` trỏ đến `opt.src` tương ứng.
+   - Hiển thị căn giữa, giữ tỷ lệ khung hình (`object-contain`), kích hoạt `imageRendering: pixelated`.
+2. **Với Pipoya RPG Model**:
+   - Với các bộ phận dạng spritesheet, trích xuất hoặc render frame đầu tiên (32x32px) sử dụng CSS background clipping hoặc canvas thumbnail thu nhỏ.
+3. **Với ô Trống (`_none`)**:
+   - Giữ ký hiệu gạch chéo `∅` hoặc icon trực quan với nhãn "Trống".
+4. **Trải nghiệm tương tác**:
+   - Ô đang chọn có viền đỏ nổi bật, checkbox tích xanh góc trên hoặc bóng đổ active.
+   - Thêm nhãn tooltip hiển thị tên đầy đủ của bộ phận khi rê chuột.
+
+### 4. Cách báo cáo kết quả
+- Chụp ảnh minh chứng giao diện mới.
+- Cập nhật tài liệu `docs/SPEC.md` và `docs/PROJECT_STATUS.md`.
+
+---
+
+## TASK-08: Tối Ưu Nạp Trước (Preload) Asset & Bộ Nhớ Đệm Tránh Giật Lag Canvas
+
+### 1. Mục tiêu
+Xóa bỏ hoàn toàn độ trễ mạng khi đổi kiểu dáng/bộ phận trong Character Studio bằng cách nạp trước ảnh vào bộ nhớ đệm (`imageCache`).
+
+### 2. Các tệp liên quan
+- `frontend/src/pages/CharacterBuilder/CanvasPreview.jsx`
+- `frontend/src/pages/CharacterBuilder/CharacterBuilder.jsx`
+
+### 3. Tiêu chí chấp nhận (Acceptance Criteria)
+1. **Nạp trước theo danh mục (Category Preloading)**:
+   - Khi người dùng bấm chọn một Tab danh mục (ví dụ "Arms" hoặc "Eyes"), hệ thống kích hoạt hàm nạp ngầm toàn bộ ảnh của danh mục đó:
+     ```js
+     options.forEach(opt => {
+       const src = opt.src || opt.layers?.[0]?.src;
+       if (src && !imageCache.has(src)) {
+         const img = new Image();
+         img.src = src;
+         img.onload = () => imageCache.set(src, img);
+       }
+     });
+     ```
+2. **Nạp trước lúc rảnh rỗi (Idle Preloading)**:
+   - Khi Component `CharacterBuilder` vừa mount xong, sử dụng `requestIdleCallback` nạp trước toàn bộ các bộ phận của bộ trang phục mặc định và các bộ phận thông dụng nhất.
+3. **Hiệu năng Canvas**:
+   - Khi người dùng click chọn bất kỳ option nào đã được nạp trước, canvas cập nhật ngay lập tức (< 16ms, 60fps) mà không cần chờ đợi mạng.
+
+### 4. Cách báo cáo kết quả
+- Đo lường thời gian phản hồi trước và sau khi tối ưu trong `docs/baseline/BASELINE-20261014.md`.

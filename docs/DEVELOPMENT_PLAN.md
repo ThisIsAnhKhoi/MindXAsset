@@ -40,20 +40,24 @@
 
 ---
 
-### Giai Đoạn 2: Củng cố CSDL & Độ bền bỉ API (Database & Robustness)
-- **Mục tiêu**: Chuyển đổi từ file `gallery.json` sang cơ sở dữ liệu SQLite, bổ sung xác thực dữ liệu đầu vào và rate-limiting.
+### Giai Đoạn 2: Củng cố CSDL & Tối ưu Trải nghiệm (Database & UX Robustness)
+- **Mục tiêu**: Chuyển đổi từ file `gallery.json` sang cơ sở dữ liệu SQLite, bổ sung xác thực dữ liệu đầu vào, rate-limiting, đồng thời khắc phục lỗi 404 Vercel và tối ưu hiển thị/nạp trước asset.
 - **Phạm vi LÀM**:
   - Task 2.1: Tích hợp thư viện SQLite (`better-sqlite3`) và tạo bảng `assets` (Cỡ M, phụ thuộc Task 1.2).
   - Task 2.2: Viết script migration chuyển toàn bộ dữ liệu từ `gallery.json` vào SQLite (Cỡ S).
   - Task 2.3: Bổ sung Middleware xác thực dữ liệu đầu vào với `Zod` cho các endpoint backend (Cỡ S).
   - Task 2.4: Cài đặt `express-rate-limit` chống spam API tạo ảnh (Cỡ S).
   - Task 2.5: Cấu hình Code Splitting (`React.lazy()`) cho frontend để đưa bundle JS về < 500 kB (Cỡ S).
+  - Task 2.6: Cấu hình `vercel.json` SPA Fallback (giải quyết triệt để lỗi 404 khi reload trang con) (Cỡ S, `TASK-06`).
+  - Task 2.7: Bổ sung Preview Thumbnail trực quan cho các ô chọn option và cơ chế nạp trước ảnh ngầm (Cỡ M, `TASK-07`, `TASK-08`).
 - **Phạm vi KHÔNG LÀM**: Chưa làm hệ thống đăng nhập tài khoản.
 - **Tiêu chí thoát đo lường được**:
   - Không còn đọc/ghi trực tiếp vào file `gallery.json`.
   - 10 request tạo ảnh đồng thời được lưu vào SQLite an toàn không mất dữ liệu.
+  - Reload trên bất kỳ đường dẫn nào (`/character-builder`, `/generator`, `/gallery`) trên Vercel đều render đúng trang (0 lỗi 404).
+  - Các ô chọn kiểu dáng hiển thị thumbnail đồ họa thật; độ trễ đổi bộ phận < 16ms (0ms tải mạng nhờ preloading).
   - Bundle frontend `dist/assets/*.js` có kích thước < 450 kB.
-- **Điểm Demo**: Chạy script bắn 10 request song song và kiểm tra số bản ghi trong bảng SQLite.
+- **Điểm Demo**: Chạy script bắn 10 request song song vào SQLite; demo reload trang con trên link deploy và chuyển đổi bộ phận nhân vật không gián đoạn.
 
 ---
 

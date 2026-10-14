@@ -19,6 +19,7 @@
 | **ADR-07** | Chiến lược triển khai PaaS trên Render và kiểm soát bộ nhớ | **ĐÃ DUYỆT** | DevOps & Deployment |
 | **ADR-08** | Chuẩn hóa bản quyền tài sản đồ họa tập trung vào Kenney Monster Pack (CC0) | **ĐÃ DUYỆT** | Asset Licensing & IP |
 | **ADR-09** | Tiêu chí nghiệm thu phiên bản MVP phát hành được (Release Definition) | **ĐÃ DUYỆT** | Product Release Criteria |
+| **ADR-10** | Xử lý SPA Routing trên Vercel & Chiến lược Preloading Asset Đồ Họa | **ĐÃ DUYỆT** | Frontend & Deployment |
 
 ---
 
@@ -112,3 +113,21 @@
   3. Lệnh `npm run lint` ở frontend đạt 0 errors.
   4. Lệnh `npm run build` thành công không văng lỗi.
   5. Có tài liệu `README.md` chuyên nghiệp hướng dẫn cài đặt và chạy thử thành công từ một thư mục mới.
+
+---
+
+### ADR-10: Xử lý SPA Routing trên Vercel & Chiến lược Preloading Asset Đồ Họa
+- **Bối cảnh**:
+  1. Khi triển khai Frontend (React Router SPA) lên Vercel, tải trang chủ `/` bình thường nhưng reload/truy cập trực tiếp các route con (`/character-builder`, `/generator`, `/gallery`) bị lỗi `404: NOT_FOUND` do thiếu cơ chế SPA Fallback.
+  2. Tại giao diện Character Studio (`CustomizerInspector.jsx`), các ô tùy chọn bộ phận nhân vật chỉ hiển thị biểu tượng thô sơ `✦` hoặc `∅`, không có ảnh xem trước (thumbnail).
+  3. Cơ chế nạp ảnh hiện tại là lười biếng (Lazy Load theo từng click), khiến canvas bị độ trễ và chớp nháy khi người dùng đổi trang phục/bộ phận.
+- **Các phương án cân nhắc**:
+  1. *Phương án A*: Chuyển đổi React Router sang `HashRouter` (`/#/character-builder`). *(Nhược điểm: URL xấu, ảnh hưởng SEO và chia sẻ liên kết)*.
+  2. *Phương án B (Lựa chọn)*:
+     - Tạo tệp cấu hình `vercel.json` định tuyến toàn bộ URL `/(.*)` về `/index.html`.
+     - Cấu hình Vercel HTTP Headers `Cache-Control: public, max-age=31536000, immutable` cho thư mục tĩnh `/assets/`.
+     - Bổ sung Thumbnail trực quan trong `CustomizerInspector` (Monster dùng ảnh PNG thu nhỏ, Pipoya dùng CSS sprite clip frame 1).
+     - Triển khai cơ chế Preloading song song theo Category và Idle Caching trong `CanvasPreview`.
+- **Quyết định**: **Chọn Phương án B**.
+- **Lý do**: Giải quyết triệt để 100% lỗi 404 mà vẫn giữ URL chuẩn SEO; mang lại trải nghiệm lắp ráp nhân vật mượt mà, trực quan và tức thì (0ms latency từ memory/disk cache).
+- **Hệ quả**: Cần kiểm thử lại trên môi trường build Vercel và đo đạc kích thước bộ nhớ đệm `imageCache`.
