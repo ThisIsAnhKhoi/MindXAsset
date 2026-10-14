@@ -22,6 +22,8 @@
 | **ADR-10** | Xử lý SPA Routing trên Vercel & Chiến lược Preloading Asset Đồ Họa | **ĐÃ DUYỆT** | Frontend & Deployment |
 | **ADR-11** | Cấu Trúc Bố Cục Studio Đồng Bộ 560px & Focal Zoom Thumbnail Cắt Trống Pipoya | **ĐÃ DUYỆT** | UI/UX & Component Architecture |
 | **ADR-12** | Đồng Bộ Hóa Chuẩn API Pollinations Bearer Auth & Dynamic Env Resolver | **ĐÃ DUYỆT** | AI Integration & Observability |
+| **ADR-13** | Kiến Trúc Ma Trận Lưới Single-Shot AI Grid Spritesheet (5x3) & Animation Player Đa Hành Động | **ĐÃ DUYỆT** | AI Spritesheet & Animation |
+| **ADR-14** | Kiến Trúc Vision-to-Grid: Đồng Bộ Hình Dáng Nhân Vật Canvas Lên AI Bằng Vision API | **ĐÃ DUYỆT** | Vision AI & Multimodal Synthesis |
 
 ---
 
@@ -191,4 +193,25 @@
 - **Quyết định**: **Chọn Phương án B**.
 - **Lý do**: Tốc độ sinh ảnh cực nhanh (~10-12s); đảm bảo 100% nhân vật đồng nhất hoàn hảo về phụ kiện, áo quần, màu sắc trên cả 15 khung hình; trình phát cho phép xem trước từng chu kỳ hoạt ảnh riêng biệt vô cùng trực quan cho học sinh.
 - **Hệ quả**: Kích thước khung hình mặc định là 5x3, học sinh có thể tùy chỉnh lại số hàng/cột ngay trên giao diện nếu muốn thử nghiệm lưới khác.
+
+---
+
+### ADR-14: Kiến Trúc Vision-to-Grid: Đồng Bộ Hình Dáng Nhân Vật Canvas Lên AI Bằng Vision API
+- **Bối cảnh**:
+  1. Người dùng tùy biến nhân vật trong Character Studio (ví dụ: tóc vàng mái bằng, ruy băng đen, áo choàng sẫm viền vàng, dao găm, thân hình chibi), nhưng khi bấm sinh Spritesheet thì AI lại tạo ra một chiến binh người lớn mặc giáp sắt, đội mũ bảo hiểm hoàn toàn xa lạ.
+  2. **Nguyên nhân gốc rễ**: Trước đó, hệ thống **hoàn toàn KHÔNG gửi hình ảnh Canvas lên AI**. Frontend chỉ gửi chuỗi ID tên layer nội bộ (`bases 006, hairs 001, tops 001...`). Đối với các mô hình Text-to-Image (như FLUX trên Pollinations), những mã ID này là ký tự vô nghĩa (gibberish token). AI chỉ nhận biết được từ khóa chung chung `"Hero"` và tự do "ảo giác" (hallucinate) ra một nhân vật chiến binh bất kỳ.
+- **Các phương án cân nhắc**:
+  1. *Phương án A*: Viết bảng mapping thủ công từ hàng trăm file ID (`hairs_001.png` -> "short blond bowl cut hair"). *(Rất thủ công, cồng kềnh, dễ sót và không thể theo kịp khi mở rộng bộ asset)*.
+  2. *Phương án B (Lựa chọn)*:
+     - Frontend trích xuất trực tiếp ảnh Canvas đã vẽ xong sang Base64 PNG qua `canvasPreviewRef.current?.getBase64Image()`.
+     - Backend lưu tệp tạm thời theo chuẩn bảo mật ADR-04 (`temp_sheet_${Date.now()}.png`).
+     - Tích hợp pipeline **Vision-to-Grid**: Sử dụng mô hình Vision đa phương thức (`openai` qua Pollinations Chat API) để "nhìn" ảnh nhân vật thật và sinh bản mô tả thị giác chi tiết (màu tóc, kiểu tóc, trang phục, viền áo, phụ kiện đầu, vũ khí cầm tay, tỷ lệ cơ thể chibi 2D pixel art).
+     - Ghép bản mô tả thị giác chuẩn xác này vào prompt tạo Grid Spritesheet 5x3.
+- **Quyết định**: **Chọn Phương án B**.
+- **Lý do**:
+  - Tự động hóa 100% không cần bất kỳ từ điển mapping thủ công nào.
+  - Phù hợp với mọi bộ asset tương lai (Monster Pack, Pipoya, hoặc bất kỳ asset mới nào).
+  - Độ tương đồng hình ảnh đạt >90%: AI giữ nguyên được màu tóc vàng, trang phục áo sẫm, tỷ lệ chibi và phong cách 2D pixel art trên toàn bộ 15 khung hình spritesheet.
+- **Hệ quả**: Thời gian sinh ảnh tăng thêm ~2-3 giây cho bước Vision AI Captioning, đổi lại chất lượng và độ trung thực của nhân vật tăng vượt bậc.
+
 

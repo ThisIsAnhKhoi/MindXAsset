@@ -249,6 +249,25 @@ def main() -> None:
         help="Print {'image': base64 data URI, 'metadata': {...}} for frontend preview.",
     )
 
+    p_grid_img = sub.add_parser(
+        "grid-spritesheet-from-image",
+        help="Auto-describe a reference character image and generate a matching multi-action grid sprite sheet",
+    )
+    p_grid_img.add_argument("image_path", help="Path to character reference image (e.g. rendered from canvas)")
+    p_grid_img.add_argument("--subject", default=None, help="Optional extra prompt details to combine with vision caption")
+    p_grid_img.add_argument("--columns", type=int, default=5, help="Number of columns (default 5)")
+    p_grid_img.add_argument("--rows", type=int, default=3, help="Number of rows (default 3)")
+    p_grid_img.add_argument("--style", default="pixel_art", choices=STYLE_CHOICES)
+    p_grid_img.add_argument("--seed", type=int, default=-1)
+    p_grid_img.add_argument("--slice", action="store_true", help="Also save each sliced frame separately")
+    p_grid_img.add_argument("--transparent", action="store_true", help="Remove white background")
+    p_grid_img.add_argument("--out", default="output")
+    p_grid_img.add_argument(
+        "--web-json",
+        action="store_true",
+        help="Print {'image': base64 data URI, 'metadata': {...}} for frontend preview.",
+    )
+
     args = parser.parse_args()
     studio = GameAssetStudio(
         api_key=os.getenv("POLLINATIONS_API_KEY", ""),
@@ -336,6 +355,17 @@ def main() -> None:
         )
     elif args.command == "grid-spritesheet":
         asset = studio.generate_grid_spritesheet(
+            subject=args.subject,
+            columns=args.columns,
+            rows=args.rows,
+            style=args.style,
+            seed=args.seed,
+            slice_frames=args.slice,
+            transparent_bg=args.transparent,
+        )
+    elif args.command == "grid-spritesheet-from-image":
+        asset = studio.generate_grid_spritesheet_from_image(
+            image_path=args.image_path,
             subject=args.subject,
             columns=args.columns,
             rows=args.rows,

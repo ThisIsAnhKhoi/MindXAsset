@@ -1364,6 +1364,69 @@ class GameAssetStudio:
             actions=actions,
         )
 
+    def generate_grid_spritesheet_from_image(
+        self,
+        image_path: str | Path,
+        subject: str | None = None,
+        columns: int = 5,
+        rows: int = 3,
+        style: str = "pixel_art",
+        seed: int = -1,
+        slice_frames: bool = False,
+        filename: str | None = None,
+        width: int = 1024,
+        height: int = 640,
+        transparent_bg: bool = False,
+        instruction: str | None = None,
+    ) -> GeneratedAsset:
+        """Reference-image -> vision caption -> single-shot grid spritesheet pipeline."""
+        source = Path(image_path)
+        caption_warnings: list[str] = []
+        caption_desc = ""
+
+        try:
+            caption = self.describe_reference_image(
+                source,
+                instruction=instruction
+                or (
+                    "Describe this 2D pixel art character for generating a game animation sprite sheet. "
+                    "Specifically detail: hair style and color, head accessories, facial traits, skin tone, "
+                    "clothing style and colors, belts or scarves, weapons or items held, and chibi body proportions. "
+                    "Keep it purely descriptive so an image AI can reproduce this exact same character."
+                ),
+            )
+            caption_desc = caption.description
+            caption_warnings = caption.warnings
+        except Exception as exc:
+            caption_warnings.append(f"Vision captioning failed ({exc}); falling back to text description.")
+
+        if caption_desc:
+            effective_subject = f"{caption_desc}. {subject}" if subject else caption_desc
+        else:
+            effective_subject = subject or source.stem.replace("_", " ").replace("-", " ")
+
+        asset = self.generate_grid_spritesheet(
+            subject=effective_subject,
+            columns=columns,
+            rows=rows,
+            style=style,
+            seed=seed,
+            slice_frames=slice_frames,
+            filename=filename or f"grid_from_{source.stem}",
+            width=width,
+            height=height,
+            transparent_bg=transparent_bg,
+        )
+
+        asset.prompt = (
+            f"[reference image: {source.name}] "
+            f"{'vision: ' + repr(caption_desc) + ' ' if caption_desc else ''}"
+            f"-> grid spritesheet: {asset.prompt}"
+        )
+        if caption_warnings:
+            asset.warnings = caption_warnings + asset.warnings
+        return asset
+
     @staticmethod
     def _validate_size_key(size_key: str, allowed: set[str], label: str) -> None:
         if size_key not in allowed:

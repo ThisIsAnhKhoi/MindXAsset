@@ -301,9 +301,11 @@ const CharacterBuilder = () => {
     }
   };
 
-  // Tạo trọn bộ Sprite Sheet 5x3 (15 Khung hình đa hành động)
+  // Tạo trọn bộ Sprite Sheet 5x3 (15 Khung hình đa hành động từ Canvas & Vision AI)
   const handleGenerateFullSpritesheet = async () => {
     setIsGeneratingSheet(true);
+
+    const base64Image = canvasPreviewRef.current?.getBase64Image();
 
     try {
       const res = await fetch('http://localhost:5000/api/generate-full-spritesheet', {
@@ -314,6 +316,7 @@ const CharacterBuilder = () => {
           config: selections,
           colors: colors,
           style: 'Pixel Art',
+          base64_image: base64Image
         })
       });
 

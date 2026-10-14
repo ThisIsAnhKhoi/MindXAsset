@@ -390,9 +390,9 @@ app.post('/api/generate-custom-character', (req, res) => {
   }
 });
 
-// Endpoint Tạo Trọn Bộ Sprite Sheet 5x3 (15 Khung hình đa hành động)
+// Endpoint Tạo Trọn Bộ Sprite Sheet 5x3 (15 Khung hình đa hành động từ ảnh Canvas & Vision AI)
 app.post('/api/generate-full-spritesheet', (req, res) => {
-  const { characterName, config, style, seed } = req.body;
+  const { characterName, config, style, seed, base64_image } = req.body;
 
   let characterFeatures = '';
   if (config && typeof config === 'object') {
@@ -408,6 +408,37 @@ app.post('/api/generate-full-spritesheet', (req, res) => {
     : charSubject;
 
   const safeSeed = (seed ?? -1).toString();
+
+  // If frontend passed the rendered canvas image, use vision-guided generation
+  if (base64_image) {
+    try {
+      const base64Data = base64_image.replace(/^data:image\/\w+;base64,/, '');
+      const buffer = Buffer.from(base64Data, 'base64');
+      const tempFileName = `temp_sheet_${Date.now()}.png`;
+      const tempFilePath = path.join(uploadDir, tempFileName);
+      fs.writeFileSync(tempFilePath, buffer);
+
+      const args = [
+        'grid-spritesheet-from-image', tempFilePath,
+        '--columns', '5',
+        '--rows', '3',
+        '--style', getStyleMap(style || 'Pixel Art'),
+        '--seed', safeSeed,
+        '--slice',
+        '--out', baseOutputDir
+      ];
+      if (combinedSubject) {
+        args.push('--subject', combinedSubject);
+      }
+
+      return runPythonCLI(res, args, tempFilePath);
+    } catch (err) {
+      console.error('Lỗi khi lưu ảnh tạm spritesheet:', err);
+      // Fallback to text prompt below
+    }
+  }
+
+  // Fallback if no image provided
   const args = [
     'grid-spritesheet', combinedSubject,
     '--columns', '5',

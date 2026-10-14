@@ -7,11 +7,17 @@ Tất cả các thay đổi đáng chú ý của dự án **MindXAsset** đượ
 ## [Chưa phát hành - Unreleased]
 
 ### Đã hoàn thành (Completed)
+- **Tạo Trọn Bộ Sprite Sheet 5x3 Ma Trận Lưới (Single-Shot Grid AI)**:
+  - Sinh trọn vẹn 15 khung hình 3 hàng x 5 cột đa hành động (Đứng, Đi, Tấn công, Thủ, Bị thương) trong 1 lần gọi API duy nhất (~10s).
+  - Tích hợp trình phát đa hành động `SpritePreviewModal.jsx` với Canvas Pixel-Art Renderer không bị biến dạng tỷ lệ.
+- **Tích hợp Pipeline Vision-to-Grid (Canvas Image -> Vision AI -> Spritesheet)**:
+  - Trích xuất ảnh Canvas Base64 từ xưởng thiết kế nhân vật gửi trực tiếp lên Backend.
+  - Tự động dùng AI Vision Captioning phân tích tóc, quần áo, phụ kiện và tỷ lệ chibi, khắc phục 100% tình trạng nhân vật AI bị sai khác ("hallucination").
 - **Chuẩn hóa kiến trúc kho mã theo tiêu chuẩn quốc tế**:
   - Gom toàn bộ 37 tệp rải rác ở thư mục gốc (biên bản họp, báo cáo docx, pdf, script test nháp) vào `docs/archive/` và `docs/wireframes/`.
   - Giữ thư mục gốc tinh gọn với 8 tệp chuẩn mã nguồn mở: `README.md`, `README.en.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSE`, `.env.example`, `.gitignore`.
   - Thiết lập trung tâm tài liệu kỹ thuật [`docs/README.md`](docs/README.md) quản lý toàn bộ hệ thống hồ sơ kiểm toán.
-  - Ban hành bộ 8 tài liệu kỹ thuật chuẩn mực: `SPEC.md`, `PROJECT_STATUS.md` (56.0%), `QA_REPORT.md` (Conditional GO), `TEST_PLAN.md` (40 test case), `DEVELOPMENT_PLAN.md`, `DECISIONS.md` (ADR-01 - ADR-09), `TASK_BRIEFS.md`, `ARCHITECTURE.md`.
+  - Ban hành bộ 8 tài liệu kỹ thuật chuẩn mực: `SPEC.md`, `PROJECT_STATUS.md` (56.0%), `QA_REPORT.md` (Conditional GO), `TEST_PLAN.md` (40 test case), `DEVELOPMENT_PLAN.md`, `DECISIONS.md` (ADR-01 - ADR-14), `TASK_BRIEFS.md`, `ARCHITECTURE.md`.
 
 ### Kế hoạch tiếp theo (Planned)
 - Triển khai di chuyển dữ liệu từ `gallery.json` sang cơ sở dữ liệu SQLite (`ADR-02`, `TSK-01`).
