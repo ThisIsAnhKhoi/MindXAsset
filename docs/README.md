@@ -13,7 +13,7 @@ docs/
 ├── 🛡 QA_REPORT.md              # Báo cáo kiểm toán chất lượng toàn diện (Conditional GO)
 ├── 🧪 TEST_PLAN.md              # Kế hoạch kiểm thử & 40 test case ưu tiên cao
 ├── 🗺 DEVELOPMENT_PLAN.md       # Lộ trình 4 giai đoạn nâng cấp lên 95%
-├── ⚖️ DECISIONS.md              # 15 hồ sơ quyết định kiến trúc (ADR-01 đến ADR-15)
+├── ⚖️ DECISIONS.md              # 16 hồ sơ quyết định kiến trúc (ADR-01 đến ADR-16)
 ├── 📝 TASK_BRIEFS.md            # 5 bản giao việc chi tiết cho các phiên làm việc
 ├── 📖 ARCHITECTURE.md           # Sổ tay kiến trúc 5 phút cho người mới
 ├── 🔍 GLOSSARY.md               # Từ điển thuật ngữ nghiệp vụ chuẩn hóa

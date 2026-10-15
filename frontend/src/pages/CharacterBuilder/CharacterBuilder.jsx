@@ -6,6 +6,7 @@ import CustomizerInspector from './CustomizerInspector';
 import { assetConfig, getLayerSource } from './assets_config';
 import { monsterConfig, getMonsterLayers } from './monster_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
+import InlineSpritesheetStudio from '../../components/InlineSpritesheetStudio';
 import { preloadImages } from './assetCache';
 import { getApiBaseUrl } from '../../config/api';
 
@@ -538,6 +539,12 @@ const CharacterBuilder = () => {
           </div>
 
         </div>
+
+        {/* Xưởng Xem Trước Hoạt Ảnh & Tách Lưới Sprite Sheet Tích Hợp Trực Tiếp (Always Visible) */}
+        <InlineSpritesheetStudio
+          initialImageUrl={imageResult}
+          onCaptureFromCanvas={() => canvasPreviewRef.current?.getBase64Image()}
+        />
 
       </div>
 

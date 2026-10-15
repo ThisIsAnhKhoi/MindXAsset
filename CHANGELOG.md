@@ -20,11 +20,15 @@ Tất cả các thay đổi đáng chú ý của dự án **MindXAsset** đượ
   - Phân tích nguyên nhân mô hình Diffusion không thể đạt 100% pixel-for-pixel exact match do mất mát qua tầng ngữ nghĩa văn bản.
   - Phê duyệt kiến trúc lai: phát triển Deterministic Canvas Compositor (tận dụng 12 frame có sẵn của asset pack Pipoya/Kenney để đạt 100% pixel-perfect) song song với Creative AI Expansion.
   - Cập nhật điểm tiến độ toàn diện lên **58.5%** trong `PROJECT_STATUS.md` và `QA_REPORT.md`.
+- **Xưởng Tách Lưới & Xem Trước Hoạt Ảnh Thường Trực Tại Character Studio (ADR-16)**:
+  - Bổ sung thành phần nhúng trực tiếp `InlineSpritesheetStudio.jsx` nằm ngay bên dưới 3 cột tùy biến nhân vật, không cần bấm tạo ảnh AI mới hiện ra.
+  - Cho phép người dùng tự do tải lên bất kỳ ảnh Sprite Sheet nào từ máy tính (kéo thả hoặc chọn file), nạp nhân vật vừa tạo trên Canvas Studio, hoặc thử nghiệm 1-click với ảnh mẫu RPG Walk 4 hướng (8 cột x 4 hàng).
+  - Trực quan hóa ma trận lưới với từng ô số tương tác (click để xem khung riêng lẻ) và trình phát hoạt cảnh Canvas pixel-art sắc nét với tùy biến FPS và 5 chế độ nền.
 - **Chuẩn hóa kiến trúc kho mã theo tiêu chuẩn quốc tế**:
   - Gom toàn bộ 37 tệp rải rác ở thư mục gốc (biên bản họp, báo cáo docx, pdf, script test nháp) vào `docs/archive/` và `docs/wireframes/`.
   - Giữ thư mục gốc tinh gọn với 8 tệp chuẩn mã nguồn mở: `README.md`, `README.en.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSE`, `.env.example`, `.gitignore`.
   - Thiết lập trung tâm tài liệu kỹ thuật [`docs/README.md`](docs/README.md) quản lý toàn bộ hệ thống hồ sơ kiểm toán.
-  - Ban hành bộ 8 tài liệu kỹ thuật chuẩn mực: `SPEC.md`, `PROJECT_STATUS.md` (58.5%), `QA_REPORT.md` (Conditional GO), `TEST_PLAN.md` (40 test case), `DEVELOPMENT_PLAN.md`, `DECISIONS.md` (ADR-01 - ADR-15), `TASK_BRIEFS.md`, `ARCHITECTURE.md`.
+  - Ban hành bộ 8 tài liệu kỹ thuật chuẩn mực: `SPEC.md`, `PROJECT_STATUS.md` (58.5%), `QA_REPORT.md` (Conditional GO), `TEST_PLAN.md` (40 test case), `DEVELOPMENT_PLAN.md`, `DECISIONS.md` (ADR-01 - ADR-16), `TASK_BRIEFS.md`, `ARCHITECTURE.md`.
 
 ### Kế hoạch tiếp theo (Planned)
 - Bổ sung nút xuất spritesheet tất định *Deterministic Canvas Compositor* (100% pixel exact match, 0ms) trong Character Studio (`ADR-15`).

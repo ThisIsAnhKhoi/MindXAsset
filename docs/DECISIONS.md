@@ -25,6 +25,7 @@
 | **ADR-13** | Kiến Trúc Ma Trận Lưới Single-Shot AI Grid Spritesheet (5x3) & Animation Player Đa Hành Động | **ĐÃ DUYỆT** | AI Spritesheet & Animation |
 | **ADR-14** | Kiến Trúc Vision-to-Grid: Đồng Bộ Hình Dáng Nhân Vật Canvas Lên AI Bằng Vision API | **ĐÃ DUYỆT** | Vision AI & Multimodal Synthesis |
 | **ADR-15** | Báo Cáo Ranh Giới Kỹ Thuật: Bản Chất Không Bất Biến Pixel Của Diffusion AI & Chiến Lược Kết Hợp Canvas Compositor Tất Định | **ĐÃ DUYỆT** | System Architecture & AI Reality |
+| **ADR-16** | Tích Hợp Xưởng Tách Lưới & Xem Trước Hoạt Ảnh Trực Tiếp Tại Character Studio (Permanent Inline Spritesheet Studio) | **ĐÃ DUYỆT** | UI/UX & Spritesheet Animation |
 
 ---
 
@@ -248,6 +249,28 @@
   1. Bổ sung tính năng *Deterministic Canvas Spritesheet Export* trong Character Studio để học sinh có thể tải ngay bộ 12-frame walking sprite chuẩn xác 100% pixel của chính nhân vật mình vừa thiết kế.
   2. Đổi tên nút hành động AI hiện tại thành *"Mở Rộng Hoạt Ảnh Bằng AI (AI Fantasy Expansion)"* để người dùng hiểu đúng giá trị sáng tạo nghệ thuật thay vì kỳ vọng sao chép pixel cơ học.
   3. Cập nhật hồ sơ kiểm toán QA và lộ trình phát triển phản ánh đúng ranh giới năng lực của hệ thống.
+
+---
+
+### ADR-16: Tích Hợp Xưởng Tách Lưới & Xem Trước Hoạt Ảnh Trực Tiếp Tại Character Studio (Permanent Inline Spritesheet Studio)
+- **Bối cảnh**:
+  1. Người dùng phản ánh trải nghiệm: Việc xem trước hoạt cảnh spritesheet trước đây bị bó hẹp trong cửa sổ Pop-up Modal và chỉ xuất hiện khi người dùng nhấn nút tạo ảnh AI ("GEN grid").
+  2. Người dùng mong muốn một khu vực xem trước hoạt ảnh thường trực (*permanent inline section*), nằm ngay bên dưới 3 cột tùy biến của Character Studio, cho phép:
+     - Tự do tải lên bất kỳ tệp ảnh Sprite Sheet nào từ máy tính (kéo thả hoặc chọn file).
+     - Không cần phải gọi API tạo ảnh AI mới xem được hoạt cảnh.
+     - Tùy chỉnh linh hoạt kích thước ma trận lưới (như lưới 8 cột x 4 hàng RPG 4 hướng, 5x3 AI Grid, 3x4 Pipoya, 4x4...).
+     - Xem trực quan ma trận lưới với từng ô số tương tác và tua vòng hoạt ảnh động tác sắc nét chuẩn pixel art.
+     - Nạp tức thì nhân vật đang lắp ghép trên Canvas hoặc ảnh mẫu RPG 8x4 có sẵn.
+- **Quyết định**:
+  1. Phát triển thành phần `InlineSpritesheetStudio.jsx` với kiến trúc 2 cột side-by-side:
+     - Cột trái: Trực quan hóa ma trận lưới với lớp phủ SVG/CSS, cho phép click vào bất kỳ ô số nào để nhảy frame trực tiếp.
+     - Cột phải: Trình phát hoạt ảnh Canvas chuẩn Pixel-Art không nhòe (`imageSmoothingEnabled = false`), hỗ trợ chọn phát riêng từng hàng động tác (Hàng 1 Đi xuống, Hàng 2 Đi trái, Hàng 3 Đi lên, Hàng 4 Đi phải...), thanh tua FPS (1 - 24 FPS) và 5 chế độ nền (Caro, Đen, Trắng, Green screen, RPG).
+  2. Tích hợp trực tiếp vào chân trang `CharacterBuilder.jsx` bên dưới 3 cột Card Studio.
+  3. Cung cấp sẵn tệp mẫu `sample_spritesheet_8x4.png` theo đúng định dạng ảnh 8 cột x 4 hàng của người dùng để thử nghiệm 1-click.
+- **Lý do**:
+  - Tối ưu hóa tối đa trải nghiệm người dùng (UX): Người dùng có thể sử dụng Character Studio như một bộ công cụ kiểm thử Sprite Sheet chuyên nghiệp cho mọi tài nguyên game của họ mà không bị phụ thuộc vào API AI.
+  - Tốc độ phản hồi tức thì (0ms latency), không phát sinh chi phí hay credit mạng.
+- **Hệ quả**: Bổ sung asset tĩnh `sample_spritesheet_8x4.png` vào thư mục `frontend/public/assets/`.
 
 
 
