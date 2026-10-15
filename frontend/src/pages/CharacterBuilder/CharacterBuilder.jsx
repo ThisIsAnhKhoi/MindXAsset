@@ -7,6 +7,7 @@ import { assetConfig, getLayerSource } from './assets_config';
 import { monsterConfig, getMonsterLayers } from './monster_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
 import { preloadImages } from './assetCache';
+import { getApiBaseUrl } from '../../config/api';
 
 const CHARACTER_MODELS = [
   {
@@ -280,7 +281,8 @@ const CharacterBuilder = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:5000/api/generate-custom-character', {
+      const baseUrl = getApiBaseUrl();
+      const res = await fetch(`${baseUrl}/api/generate-custom-character`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formOutput)
@@ -308,7 +310,8 @@ const CharacterBuilder = () => {
     const base64Image = canvasPreviewRef.current?.getBase64Image();
 
     try {
-      const res = await fetch('http://localhost:5000/api/generate-full-spritesheet', {
+      const baseUrl = getApiBaseUrl();
+      const res = await fetch(`${baseUrl}/api/generate-full-spritesheet`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
