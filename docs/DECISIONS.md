@@ -272,5 +272,32 @@
   - Tốc độ phản hồi tức thì (0ms latency), không phát sinh chi phí hay credit mạng.
 - **Hệ quả**: Bổ sung asset tĩnh `sample_spritesheet_8x4.png` vào thư mục `frontend/public/assets/`.
 
+---
+
+### ADR-17: Nâng Cấp Toàn Diện Spritesheet Studio: Chuẩn Hóa Tọa Độ Lưới, Khung Nhìn Fit-to-View và Neo Chân Tiếp Đất (Ground Anchor)
+- **Bối cảnh**:
+  1. Người dùng phản hồi về các lỗi hiển thị nghiêm trọng tại `InlineSpritesheetStudio`:
+     - Tấm Spritesheet bên trái không hiển thị trọn vẹn: Bị ép kích thước gốc 1024px bên trong container hẹp, chỉ hiển thị 40% diện tích, yêu cầu cuộn ngang dọc khó chịu.
+     - Mất đồng bộ thị giác giữa bên trái và bên phải: Bên ma trận bị cuộn xuống hàng 2-3 (nhân vật quay sang trái/quay lưng), trong khi sân khấu preview bên phải lại đang phát hoạt ảnh hàng 1 (mặt trước).
+     - Tỉ lệ cắt lát bị lem biên (bleed): Tệp mẫu cũ có kích thước lẻ $1024 \times 571\text{px}$, dẫn đến chiều cao hàng $142.75\text{px}$. Khi làm tròn subpixel trên canvas, các hàng bị lẹm đầu và chân của hàng bên cạnh.
+     - Lớp CSS Grid bị co cụm sai lệch so với ảnh thật do xung đột `max-w-full` và `max-w-none`.
+- **Giải pháp & Quyết định Kiến trúc**:
+  1. **Cơ chế Khung nhìn Linh hoạt (Fit-to-View Mode)**:
+     - Mặc định: Chế độ `Vừa khung` (`max-w-full max-h-[380px] w-auto h-auto object-contain`). Toàn bộ tấm Spritesheet (cả 32 ô hoặc 15 ô) lập tức hiển thị trọn vẹn 100% trong tầm mắt, triệt tiêu hoàn toàn hiện tượng tràn khung và thanh cuộn.
+     - Bổ sung bộ chuyển đổi chế độ xem tiện ích: `[ Vừa khung ]` (mặc định), `[ 1:1 Gốc ]` (soi độ phân giải thật), `[ 2× Zoom ]` (phóng to pixel art nhỏ).
+     - Khóa chặt lớp lưới SVG/CSS bao quanh đúng 100% bounding box thực tế của ảnh.
+  2. **Đồng bộ Tuyệt đối 1-1 giữa Ma trận và Hoạt cảnh**:
+     - Ô sáng vàng (Active Frame) trên ma trận nhấp nháy chuyển động theo thời gian thực tương ứng 1-1 với khung hình đang vẽ trên Canvas bên phải.
+     - Khi ở chế độ 1:1 hoặc 2x, tích hợp cơ chế `scrollIntoView` mượt mà để ô đang chạy luôn nằm trong tầm nhìn.
+  3. **Bộ Tinh chỉnh Tọa độ & Lề Viền Nâng cao (Calibration Drawer)**:
+     - Bổ sung ngăn tinh chỉnh thu gọn (`⚙ Tinh chỉnh tọa độ`) cho phép bù trừ lề (`Margin Top/Left/Right/Bottom`) và khoảng cách ô (`Gap X/Y`) dành cho các tấm ảnh AI có viền đen/xám/trắng thừa.
+     - Bổ sung cơ chế **Neo tiếp đất (Ground Anchor: Bottom-Center)**: Chân nhân vật luôn đứng vững trên đường đáy sân khấu với bóng đổ tiếp đất tự nhiên (`ctx.ellipse`), loại bỏ hoàn toàn hiện tượng nhấp nhô rung lắc của khung hình.
+  4. **Chuẩn hóa Tệp Ảnh Mẫu**:
+     - Chuẩn hóa tệp `sample_spritesheet_8x4.png` thành định dạng chuẩn 16:9 **$1024 \times 576\text{px}$** với kích thước mỗi ô nguyên vẹn chính xác **$128 \times 144\text{px}$**.
+- **Kết quả & Xác minh**:
+  - Đã kiểm thử tự động bằng `browser_subagent` trên trình duyệt thật tại `http://localhost:5173/character-builder`.
+  - Toàn bộ 32 khung hình hiển thị hoàn mỹ không tì vết, hoạt ảnh bước đi 4 hướng mượt mà, chân tiếp đất vững chắc, vạch lưới bám sát từng ô nhân vật.
+
+
 
 

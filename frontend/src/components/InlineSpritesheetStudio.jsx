@@ -4,28 +4,44 @@ import { toast } from 'react-toastify';
 /**
  * InlineSpritesheetStudio
  * Bộ công cụ kiểm thử & tách lưới Sprite Sheet chuẩn Studio Game 2D.
- * Thiết kế khoa học, tối giản, sang trọng, loại bỏ hoàn toàn các yếu tố thừa thãi.
+ * Thiết kế khoa học, tối giản, sang trọng, độ chính xác pixel tuyệt đối (100% Zero-Bleed).
  */
 export default function InlineSpritesheetStudio({
   initialImageUrl = null,
   onCaptureFromCanvas = null
 }) {
-  // Nguồn ảnh
-  const [imageUrl, setImageUrl] = useState(initialImageUrl || '/assets/sample_spritesheet_8x4.png');
+  // ── 1. NGUỒN ẢNH & THÔNG SỐ ──
+  const [imageUrl, setImageUrl] = useState(initialImageUrl || '/assets/sample_spritesheet_8x4.png?v=2');
   const [imgSize, setImgSize] = useState({ width: 0, height: 0 });
   const [fileName, setFileName] = useState('sample_spritesheet_8x4.png');
 
-  // Kích thước ma trận lưới
+  // ── 2. CẤU HÌNH MA TRẬN LƯỚI ──
   const [columns, setColumns] = useState(8);
   const [rows, setRows] = useState(4);
 
-  // Trạng thái tua hoạt ảnh
+  // ── 3. BỘ ĐIỀU KHIỂN CHẾ ĐỘ XEM (VIEW MODES) ──
+  // 'fit': Vừa khít 100% khung nhìn (Mặc định - giải quyết triệt để lỗi tràn khung)
+  // '1x': Kích thước gốc 1:1
+  // '2x': Phóng to 200% soi pixel siêu nhỏ
+  const [zoomMode, setZoomMode] = useState('fit');
+
+  // ── 4. BỘ TINH CHỈNH TỌA ĐỘ NÂNG CAO (CALIBRATION) ──
+  const [showCalibration, setShowCalibration] = useState(false);
+  const [marginTop, setMarginTop] = useState(0);
+  const [marginLeft, setMarginLeft] = useState(0);
+  const [marginRight, setMarginRight] = useState(0);
+  const [marginBottom, setMarginBottom] = useState(0);
+  const [gapX, setGapX] = useState(0);
+  const [gapY, setGapY] = useState(0);
+  const [groundAnchor, setGroundAnchor] = useState(true); // Neo chân tiếp đất (chống trôi nhấp nhô)
+
+  // ── 5. TRẠNG THÁI TUA HOẠT ẢNH ──
   const [fps, setFps] = useState(8);
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [selectedActionId, setSelectedActionId] = useState('row_0');
 
-  // Bộ màu nền Studio (Tối giản dạng Color Swatches)
+  // ── 6. BỘ MÀU NỀN STUDIO ──
   const BACKGROUNDS = [
     {
       id: 'transparent',
@@ -44,11 +60,13 @@ export default function InlineSpritesheetStudio({
   ];
   const [previewBg, setPreviewBg] = useState(BACKGROUNDS[0]);
 
-  // Tham chiếu DOM
+  // ── 7. THAM CHIẾU DOM ──
   const fileInputRef = useRef(null);
   const canvasRef = useRef(null);
   const imgRef = useRef(null);
   const dropZoneRef = useRef(null);
+  const activeCellRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   // Đồng bộ ảnh mới từ props ngoài (khi AI vừa sinh xong ảnh)
   useEffect(() => {
@@ -57,6 +75,7 @@ export default function InlineSpritesheetStudio({
       setFileName('ai_generated_spritesheet.png');
       setColumns(5);
       setRows(3);
+      setZoomMode('fit');
     }
   }, [initialImageUrl]);
 
@@ -89,6 +108,7 @@ export default function InlineSpritesheetStudio({
     reader.onload = (e) => {
       setImageUrl(e.target.result);
       setFileName(file.name);
+      setZoomMode('fit');
       toast.success(`Đã nạp spritesheet: ${file.name}`);
     };
     reader.readAsDataURL(file);
@@ -135,6 +155,19 @@ export default function InlineSpritesheetStudio({
     setSelectedActionId('row_0');
     if (name) toast.info(`Đã áp dụng cấu hình: ${name} (${c}×${r})`);
   };
+
+  // Tính toán động kích thước mỗi ô sau khi trừ lề bù trừ
+  const cellWidth = useMemo(() => {
+    if (!imgSize.width || columns <= 0) return 0;
+    const usable = imgSize.width - (marginLeft + marginRight) - (columns - 1) * gapX;
+    return Math.max(1, usable / columns);
+  }, [imgSize.width, columns, marginLeft, marginRight, gapX]);
+
+  const cellHeight = useMemo(() => {
+    if (!imgSize.height || rows <= 0) return 0;
+    const usable = imgSize.height - (marginTop + marginBottom) - (rows - 1) * gapY;
+    return Math.max(1, usable / rows);
+  }, [imgSize.height, rows, marginTop, marginBottom, gapY]);
 
   // Tính toán động các nhóm hành động theo hàng
   const actions = useMemo(() => {
@@ -215,15 +248,22 @@ export default function InlineSpritesheetStudio({
     return () => clearInterval(interval);
   }, [isPlaying, currentAction, fps]);
 
-  // Kích thước từng khung hình tính toán
-  const frameWidth = imgSize.width > 0 && columns > 0 ? imgSize.width / columns : 0;
-  const frameHeight = imgSize.height > 0 && rows > 0 ? imgSize.height / rows : 0;
+  // Tự động cuộn ô active vào tầm nhìn khi ở chế độ phóng to 1x / 2x
+  useEffect(() => {
+    if (zoomMode !== 'fit' && activeCellRef.current) {
+      activeCellRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest'
+      });
+    }
+  }, [currentFrame, zoomMode]);
 
-  // Vẽ frame hiện tại lên Canvas với tỷ lệ sắc nét chuẩn Pixel Art
+  // Vẽ frame hiện tại lên Canvas với tỷ lệ sắc nét chuẩn Pixel Art (Zero Bleed & Ground Anchor)
   useEffect(() => {
     const canvas = canvasRef.current;
     const img = imgRef.current;
-    if (!canvas || !img || !imgSize.width || columns <= 0 || rows <= 0) return;
+    if (!canvas || !img || !imgSize.width || columns <= 0 || rows <= 0 || cellWidth <= 0 || cellHeight <= 0) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -233,15 +273,18 @@ export default function InlineSpritesheetStudio({
 
     const col = currentFrame % columns;
     const row = Math.floor(currentFrame / columns);
-    const sw = imgSize.width / columns;
-    const sh = imgSize.height / rows;
-    const sx = col * sw;
-    const sy = row * sh;
 
-    const aspect = sw / sh;
-    const padding = 12;
+    // Tọa độ cắt lát trên ảnh gốc chính xác từng pixel
+    const sx = marginLeft + col * (cellWidth + gapX);
+    const sy = marginTop + row * (cellHeight + gapY);
+    const sw = cellWidth;
+    const sh = cellHeight;
+
+    // Giữ tỷ lệ khung hình chuẩn
+    const padding = 16;
     const targetW = canvas.width - padding * 2;
     const targetH = canvas.height - padding * 2;
+    const aspect = sw / sh;
 
     let dw = targetW;
     let dh = targetH;
@@ -252,10 +295,46 @@ export default function InlineSpritesheetStudio({
     }
 
     const dx = Math.round((canvas.width - dw) / 2);
-    const dy = Math.round((canvas.height - dh) / 2);
+    let dy;
+    if (groundAnchor) {
+      // Neo tiếp đất: Chân nhân vật luôn đứng vững trên đường đáy sân khấu
+      dy = Math.round(canvas.height - padding - dh);
+    } else {
+      // Căn giữa tâm
+      dy = Math.round((canvas.height - dh) / 2);
+    }
 
+    // Vẽ bóng tiếp đất nếu bật groundAnchor
+    if (groundAnchor) {
+      ctx.save();
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+      ctx.beginPath();
+      const shadowW = dw * 0.55;
+      const shadowH = Math.max(4, dh * 0.08);
+      const shadowX = dx + (dw - shadowW) / 2;
+      const shadowY = dy + dh - shadowH / 2;
+      ctx.ellipse(shadowX + shadowW / 2, shadowY + shadowH / 2, shadowW / 2, shadowH / 2, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Vẽ nhân vật sắc nét
     ctx.drawImage(img, sx, sy, sw, sh, dx, dy, Math.round(dw), Math.round(dh));
-  }, [currentFrame, columns, rows, imgSize]);
+  }, [
+    currentFrame,
+    columns,
+    rows,
+    imgSize,
+    cellWidth,
+    cellHeight,
+    marginLeft,
+    marginRight,
+    marginTop,
+    marginBottom,
+    gapX,
+    gapY,
+    groundAnchor
+  ]);
 
   // Điều khiển bước khung
   const handlePrevFrame = () => {
@@ -283,22 +362,20 @@ export default function InlineSpritesheetStudio({
 
   // Tải khung đơn
   const handleDownloadCurrentFrame = () => {
-    if (!imageUrl || !imgRef.current || !frameWidth || !frameHeight) return;
+    if (!imageUrl || !imgRef.current || !cellWidth || !cellHeight) return;
     const canvas = document.createElement('canvas');
-    canvas.width = Math.max(1, Math.round(frameWidth));
-    canvas.height = Math.max(1, Math.round(frameHeight));
+    canvas.width = Math.max(1, Math.round(cellWidth));
+    canvas.height = Math.max(1, Math.round(cellHeight));
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     ctx.imageSmoothingEnabled = false;
 
     const col = currentFrame % columns;
     const row = Math.floor(currentFrame / columns);
-    const sx = col * (imgSize.width / columns);
-    const sy = row * (imgSize.height / rows);
-    const sw = imgSize.width / columns;
-    const sh = imgSize.height / rows;
+    const sx = marginLeft + col * (cellWidth + gapX);
+    const sy = marginTop + row * (cellHeight + gapY);
 
-    ctx.drawImage(imgRef.current, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(imgRef.current, sx, sy, cellWidth, cellHeight, 0, 0, canvas.width, canvas.height);
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
     link.download = `frame_${currentFrame + 1}.png`;
@@ -317,11 +394,24 @@ export default function InlineSpritesheetStudio({
         setFileName('character_studio_capture.png');
         setColumns(1);
         setRows(1);
+        setZoomMode('fit');
         toast.success('Đã nạp nhân vật từ Studio!');
       } else {
         toast.info('Chưa có dữ liệu từ Canvas Studio.');
       }
     }
+  };
+
+  // Đặt lại căn chỉnh lề về 0
+  const handleResetCalibration = () => {
+    setMarginTop(0);
+    setMarginLeft(0);
+    setMarginRight(0);
+    setMarginBottom(0);
+    setGapX(0);
+    setGapY(0);
+    setGroundAnchor(true);
+    toast.info('Đã đặt lại thông số căn chỉnh lề');
   };
 
   return (
@@ -354,12 +444,12 @@ export default function InlineSpritesheetStudio({
               <span>•</span>
               <span>{imgSize.width}×{imgSize.height}px</span>
               <span>•</span>
-              <span className="text-slate-700 font-semibold">{Math.round(frameWidth)}×{Math.round(frameHeight)}px/cell</span>
+              <span className="text-slate-700 font-semibold">{Math.round(cellWidth)}×{Math.round(cellHeight)}px/cell</span>
             </div>
           </div>
         </div>
 
-        {/* Nhóm thao tác Nạp Nguồn Ảnh (Clean, Minimal Buttons) */}
+        {/* Nhóm thao tác Nạp Nguồn Ảnh */}
         <div className="flex items-center gap-2 shrink-0">
           <input
             ref={fileInputRef}
@@ -402,8 +492,10 @@ export default function InlineSpritesheetStudio({
           <button
             type="button"
             onClick={() => {
-              setImageUrl('/assets/sample_spritesheet_8x4.png');
+              setImageUrl('/assets/sample_spritesheet_8x4.png?v=2');
               setFileName('sample_spritesheet_8x4.png');
+              setZoomMode('fit');
+              handleResetCalibration();
               applyPreset(8, 4, 'Mẫu RPG 4 Hướng');
             }}
             className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs transition-all"
@@ -417,10 +509,10 @@ export default function InlineSpritesheetStudio({
 
       </div>
 
-      {/* ── 2. SUB-TOOLBAR: CẤU HÌNH MA TRẬN LƯỚI (Segmented Controls) ── */}
+      {/* ── 2. SUB-TOOLBAR: CẤU HÌNH MA TRẬN LƯỚI & NÚT TINH CHỈNH ── */}
       <div className="px-5 py-2.5 bg-white border-b border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs font-sans">
         
-        {/* Preset Lưới thông dụng (Segmented Pills) */}
+        {/* Preset Lưới thông dụng */}
         <div className="flex items-center gap-1.5">
           <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">
             Lưới mẫu:
@@ -450,8 +542,8 @@ export default function InlineSpritesheetStudio({
           </div>
         </div>
 
-        {/* Tùy chỉnh số Cột & Hàng (Compact Numeric Stepper) */}
-        <div className="flex items-center gap-4">
+        {/* Tùy chỉnh Cột & Hàng + Nút Mở Tinh chỉnh Nâng cao */}
+        <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="text-slate-500 font-medium text-[11px]">Cột:</span>
             <input
@@ -484,20 +576,117 @@ export default function InlineSpritesheetStudio({
 
           <span className="text-slate-300">|</span>
 
-          <span className="text-[11px] text-slate-400 italic">
-            * Kéo thả hoặc dán ảnh (Ctrl+V) trực tiếp vào bảng
-          </span>
+          {/* Nút bật/tắt ngăn tinh chỉnh nâng cao */}
+          <button
+            type="button"
+            onClick={() => setShowCalibration(!showCalibration)}
+            className={`
+              px-2.5 py-1 rounded-lg text-xs font-medium cursor-pointer transition-all flex items-center gap-1.5
+              ${showCalibration 
+                ? 'bg-slate-900 text-white shadow-2xs' 
+                : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700 border border-slate-200'
+              }
+            `}
+          >
+            <span>⚙</span>
+            <span>Tinh chỉnh tọa độ</span>
+            <span className="text-[10px] opacity-70">{showCalibration ? '▲' : '▼'}</span>
+          </button>
         </div>
 
       </div>
+
+      {/* ── 2.1. NGĂN TINH CHỈNH TỌA ĐỘ NÂNG CAO (Collapsible Calibration Drawer) ── */}
+      {showCalibration && (
+        <div className="px-5 py-3 bg-slate-50 border-b border-slate-200 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 text-xs font-sans items-center animate-fadeIn">
+          <div>
+            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề trên (px)</label>
+            <input
+              type="number"
+              value={marginTop}
+              onChange={(e) => setMarginTop(parseInt(e.target.value) || 0)}
+              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+            />
+          </div>
+          <div>
+            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề trái (px)</label>
+            <input
+              type="number"
+              value={marginLeft}
+              onChange={(e) => setMarginLeft(parseInt(e.target.value) || 0)}
+              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+            />
+          </div>
+          <div>
+            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề phải (px)</label>
+            <input
+              type="number"
+              value={marginRight}
+              onChange={(e) => setMarginRight(parseInt(e.target.value) || 0)}
+              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+            />
+          </div>
+          <div>
+            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề dưới (px)</label>
+            <input
+              type="number"
+              value={marginBottom}
+              onChange={(e) => setMarginBottom(parseInt(e.target.value) || 0)}
+              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+            />
+          </div>
+          <div>
+            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Khoảng cách X (px)</label>
+            <input
+              type="number"
+              value={gapX}
+              onChange={(e) => setGapX(parseInt(e.target.value) || 0)}
+              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+            />
+          </div>
+          <div>
+            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Khoảng cách Y (px)</label>
+            <input
+              type="number"
+              value={gapY}
+              onChange={(e) => setGapY(parseInt(e.target.value) || 0)}
+              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+            />
+          </div>
+          <div className="flex flex-col justify-end">
+            <span className="block text-[10px] font-mono font-semibold text-slate-500 uppercase mb-1">Căn tiếp đất</span>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => setGroundAnchor(!groundAnchor)}
+                className={`
+                  px-2 py-1 rounded text-[11px] font-semibold cursor-pointer border transition-all flex-1 text-center
+                  ${groundAnchor ? 'bg-emerald-600 text-white border-emerald-700' : 'bg-white text-slate-700 border-slate-300'}
+                `}
+                title="Căn đáy chân tiếp đất giúp nhân vật không bị nhấp nhô khi hoạt họa"
+              >
+                {groundAnchor ? '⚓ Đáy chân' : '🎯 Giữa tâm'}
+              </button>
+              <button
+                type="button"
+                onClick={handleResetCalibration}
+                className="px-2 py-1 bg-white hover:bg-slate-100 text-slate-600 border border-slate-300 rounded text-[11px] cursor-pointer"
+                title="Khôi phục mặc định"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── 3. KHUNG NHÌN ĐÔI CÂN XỨNG (DUAL VIEWPORTS: 7 CỘT LƯỚI - 5 CỘT STAGE) ── */}
       <div className="p-4 sm:p-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch bg-slate-50/30">
         
         {/* CỘT TRÁI (7 Phần): Bàn Soi Ma Trận (Sheet Matrix Viewport) */}
-        <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col h-[460px] overflow-hidden">
+        <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col h-[500px] overflow-hidden">
           
-          {/* Header Bàn soi */}
+          {/* Header Bàn soi + Bộ chuyển chế độ xem */}
           <div className="px-3.5 py-2.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs shrink-0">
             <span className="font-bold text-slate-700 tracking-tight flex items-center gap-1.5 font-sans">
               <svg className="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -505,72 +694,124 @@ export default function InlineSpritesheetStudio({
               </svg>
               MA TRẬN LƯỚI ({columns * rows} Ô)
             </span>
-            <span className="text-[11px] text-slate-400 font-sans">
-              Click vào ô bất kỳ để dừng & soi chi tiết
-            </span>
+
+            {/* Bộ điều khiển Chế độ xem: Vừa khung (Mặc định) | 1:1 Gốc | 2× Zoom */}
+            <div className="flex items-center gap-1 bg-white p-0.5 rounded-lg border border-slate-200 shadow-2xs">
+              {[
+                { id: 'fit', label: 'Vừa khung', icon: '⤢' },
+                { id: '1x', label: '1:1 Gốc', icon: '1×' },
+                { id: '2x', label: '2× Zoom', icon: '2×' }
+              ].map((m) => (
+                <button
+                  key={m.id}
+                  type="button"
+                  onClick={() => setZoomMode(m.id)}
+                  className={`
+                    px-2 py-0.5 rounded text-[11px] font-sans font-semibold cursor-pointer transition-all flex items-center gap-1
+                    ${zoomMode === m.id
+                      ? 'bg-slate-900 text-white shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                    }
+                  `}
+                >
+                  <span className="text-[10px] opacity-80">{m.icon}</span>
+                  <span>{m.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Vùng hiển thị cuộn mượt Spritesheet Matrix */}
-          <div className="flex-1 p-3 overflow-auto custom-scrollbar flex items-center justify-center bg-slate-900/5 select-none relative">
+          {/* Vùng hiển thị Spritesheet Matrix (Chuẩn xác 100% không cắt xén ở chế độ Fit) */}
+          <div 
+            ref={scrollContainerRef}
+            className={`
+              flex-1 p-3 custom-scrollbar flex items-center justify-center bg-slate-900/5 select-none relative
+              ${zoomMode === 'fit' ? 'overflow-hidden' : 'overflow-auto'}
+            `}
+          >
             {imageUrl ? (
-              <div className="relative inline-block max-w-full">
-                {/* Ảnh Spritesheet gốc */}
-                <img
-                  src={imageUrl}
-                  alt="Spritesheet Matrix"
-                  className="max-w-none block pixelated"
-                  style={{
-                    imageRendering: 'pixelated',
-                    width: imgSize.width ? `${imgSize.width}px` : 'auto',
-                    height: imgSize.height ? `${imgSize.height}px` : 'auto'
-                  }}
-                />
+              <div
+                className="relative flex items-center justify-center transition-all"
+                style={
+                  zoomMode === 'fit'
+                    ? { maxWidth: '100%', maxHeight: '100%' }
+                    : zoomMode === '1x'
+                    ? { width: `${imgSize.width}px`, height: `${imgSize.height}px`, minWidth: `${imgSize.width}px` }
+                    : { width: `${imgSize.width * 2}px`, height: `${imgSize.height * 2}px`, minWidth: `${imgSize.width * 2}px` }
+                }
+              >
+                <div className="relative inline-block leading-none">
+                  {/* Ảnh Spritesheet gốc */}
+                  <img
+                    src={imageUrl}
+                    alt="Spritesheet Matrix"
+                    className={`block pixelated pointer-events-none select-none ${
+                      zoomMode === 'fit' ? 'max-w-full max-h-[380px] w-auto h-auto' : 'w-full h-full'
+                    }`}
+                    style={{
+                      imageRendering: 'pixelated',
+                    }}
+                  />
 
-                {/* Lưới Ma Trận SVG/CSS */}
-                <div
-                  className="absolute inset-0 grid pointer-events-auto"
-                  style={{
-                    gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-                    gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`
-                  }}
-                >
-                  {Array.from({ length: columns * rows }).map((_, idx) => {
-                    const isCurrent = idx === currentFrame;
-                    const start = currentAction.start_frame;
-                    const end = currentAction.end_frame;
-                    const isInAction = idx >= start && idx <= end;
+                  {/* Lưới Ma Trận SVG/CSS: Inset bọc chính xác 100% theo img */}
+                  <div
+                    className="absolute inset-0 grid pointer-events-auto"
+                    style={{
+                      gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+                      gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`,
+                      paddingTop: `${marginTop}px`,
+                      paddingBottom: `${marginBottom}px`,
+                      paddingLeft: `${marginLeft}px`,
+                      paddingRight: `${marginRight}px`,
+                      columnGap: `${gapX}px`,
+                      rowGap: `${gapY}px`
+                    }}
+                  >
+                    {Array.from({ length: columns * rows }).map((_, idx) => {
+                      const isCurrent = idx === currentFrame;
+                      const start = currentAction.start_frame;
+                      const end = currentAction.end_frame;
+                      const isInAction = idx >= start && idx <= end;
 
-                    return (
-                      <div
-                        key={idx}
-                        onClick={() => {
-                          setCurrentFrame(idx);
-                          setIsPlaying(false);
-                        }}
-                        className={`
-                          relative border transition-all cursor-pointer flex items-start justify-start p-1
-                          ${isCurrent 
-                            ? 'border-amber-400 bg-amber-400/20 ring-2 ring-amber-400 ring-inset z-20' 
-                            : isInAction 
-                              ? 'border-red-400/30 bg-red-500/5 hover:bg-red-500/15 z-10' 
-                              : 'border-slate-300/40 bg-black/5 hover:bg-white/20'
-                          }
-                        `}
-                        title={`Khung #${idx + 1}`}
-                      >
-                        <span className={`
-                          text-[9px] font-mono font-bold px-1 py-0.5 rounded shadow-2xs select-none
-                          ${isCurrent ? 'bg-amber-500 text-white' : 'bg-slate-900/70 text-white/90'}
-                        `}>
-                          {idx + 1}
-                        </span>
-                      </div>
-                    );
-                  })}
+                      return (
+                        <div
+                          key={idx}
+                          ref={isCurrent ? activeCellRef : null}
+                          onClick={() => {
+                            setCurrentFrame(idx);
+                            setIsPlaying(false);
+                            // Tự động chuyển hàng hành động khớp với ô vừa chọn
+                            const rowOfCell = Math.floor(idx / columns);
+                            const matchingAction = actions.find((a) => a.row === rowOfCell);
+                            if (matchingAction && selectedActionId !== matchingAction.id && selectedActionId !== 'all') {
+                              setSelectedActionId(matchingAction.id);
+                            }
+                          }}
+                          className={`
+                            relative border transition-all cursor-pointer flex items-start justify-start p-0.5
+                            ${isCurrent 
+                              ? 'border-amber-400 bg-amber-400/25 ring-2 ring-amber-400 ring-inset z-20 shadow-xs' 
+                              : isInAction 
+                                ? 'border-red-400/40 bg-red-500/10 hover:bg-red-500/20 z-10' 
+                                : 'border-slate-300/40 bg-black/5 hover:bg-white/30'
+                            }
+                          `}
+                          title={`Khung #${idx + 1}`}
+                        >
+                          <span className={`
+                            text-[9px] font-mono font-bold px-1 py-0.2 rounded select-none leading-tight
+                            ${isCurrent ? 'bg-amber-500 text-white shadow-2xs' : 'bg-slate-900/70 text-white/90'}
+                          `}>
+                            {idx + 1}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             ) : (
-              <div className="text-center text-slate-400 text-xs">
+              <div className="text-center text-slate-400 text-xs font-sans">
                 Chưa có dữ liệu Spritesheet
               </div>
             )}
@@ -578,14 +819,14 @@ export default function InlineSpritesheetStudio({
 
           {/* Footer Bàn soi: Trạng thái khung hiện tại */}
           <div className="px-3.5 py-2 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-[11px] font-mono text-slate-500 shrink-0">
-            <span>Tọa độ ô: Cột {(currentFrame % columns) + 1} • Hàng {Math.floor(currentFrame / columns) + 1}</span>
+            <span>Tọa độ: Cột {(currentFrame % columns) + 1} • Hàng {Math.floor(currentFrame / columns) + 1}</span>
             <span className="font-semibold text-slate-700">Khung #{currentFrame + 1} / {columns * rows}</span>
           </div>
 
         </div>
 
         {/* CỘT PHẢI (5 Phần): Sân Khấu Hoạt Cảnh (Animation Stage Viewport) */}
-        <div className="lg:col-span-5 bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col h-[460px] overflow-hidden justify-between">
+        <div className="lg:col-span-5 bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col h-[500px] overflow-hidden justify-between">
           
           {/* Header Sân khấu: Nhóm hành động (Horizontal Chips Bar) */}
           <div className="p-3 bg-slate-50 border-b border-slate-200 shrink-0 flex flex-col gap-2">
@@ -653,15 +894,15 @@ export default function InlineSpritesheetStudio({
             {/* Canvas Stage */}
             <div
               className={`
-                w-full h-full max-h-[220px] rounded-xl border border-slate-200/80 flex items-center justify-center overflow-hidden transition-all shadow-inner
+                w-full h-full max-h-[250px] rounded-xl border border-slate-200/80 flex items-center justify-center overflow-hidden transition-all shadow-inner
                 ${previewBg.className}
               `}
               style={previewBg.style || {}}
             >
               <canvas
                 ref={canvasRef}
-                width={200}
-                height={200}
+                width={240}
+                height={240}
                 className="max-w-full max-h-full block pixelated"
                 style={{ imageRendering: 'pixelated' }}
               />
@@ -713,7 +954,7 @@ export default function InlineSpritesheetStudio({
               </div>
             </div>
 
-            {/* Slider điều chỉnh FPS mượt mà */}
+            {/* Slider điều chỉnh FPS */}
             <input
               type="range"
               min="1"
