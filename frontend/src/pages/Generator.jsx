@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import SpritePreviewModal from '../components/SpritePreviewModal';
 import AnimationPreview from '../components/AnimationPreview';
 import { toast } from 'react-toastify';
+import { getApiBaseUrl } from '../config/api';
 
 /* ── Helper: format seconds → "Xm Ys" ── */
 const formatDuration = (totalSeconds) => {
@@ -118,7 +119,7 @@ const Generator = () => {
     const startTime = Date.now();
 
     try {
-      const baseUrl = import.meta.env.VITE_API_BASE_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000' : 'https://mindxasset.onrender.com');
+      const baseUrl = getApiBaseUrl();
       let endpoint = '';
       let bodyData = null;
       let formData = null;

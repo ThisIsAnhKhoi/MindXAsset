@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { getApiBaseUrl } from '../config/api';
 
 const Gallery = () => {
   const [items, setItems] = useState([]);
@@ -10,7 +11,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchGallery = async () => {
       try {
-        const baseUrl = import.meta.env.VITE_API_BASE_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000' : 'https://mindxasset.onrender.com');
+        const baseUrl = getApiBaseUrl();
         const res = await axios.get(`${baseUrl}/api/gallery`);
         setItems(res.data);
       } catch (err) {
