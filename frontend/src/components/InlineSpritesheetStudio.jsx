@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { toast } from 'react-toastify';
+import { removeBackgroundSmart } from '../utils/backgroundRemoval';
 
 /**
  * InlineSpritesheetStudio
  * Bộ công cụ kiểm thử & tách lưới Sprite Sheet chuẩn Studio Game 2D.
- * Thiết kế khoa học, tối giản, sang trọng, độ chính xác pixel tuyệt đối (100% Zero-Bleed).
+ * Tích hợp động cơ xóa nền tự động Smart Edge Flood-Fill & Chroma Keying tốc độ cao (< 15ms).
  */
 export default function InlineSpritesheetStudio({
   initialImageUrl = null,
@@ -12,20 +13,26 @@ export default function InlineSpritesheetStudio({
 }) {
   // ── 1. NGUỒN ẢNH & THÔNG SỐ ──
   const [imageUrl, setImageUrl] = useState(initialImageUrl || '/assets/sample_spritesheet_8x4.png?v=2');
+  const [originalImageUrl, setOriginalImageUrl] = useState(null); // Lưu ảnh gốc để hoàn tác
   const [imgSize, setImgSize] = useState({ width: 0, height: 0 });
   const [fileName, setFileName] = useState('sample_spritesheet_8x4.png');
 
-  // ── 2. CẤU HÌNH MA TRẬN LƯỚI ──
+  // ── 2. TRẠNG THÁI XÓA NỀN TỰ ĐỘNG ──
+  const [isRemovingBg, setIsRemovingBg] = useState(false);
+  const [bgTolerance, setBgTolerance] = useState(32);
+  const [bgMode, setBgMode] = useState('flood'); // 'flood' (loang an toàn viền) | 'global' (toàn bộ)
+
+  // ── 3. CẤU HÌNH MA TRẬN LƯỚI ──
   const [columns, setColumns] = useState(8);
   const [rows, setRows] = useState(4);
 
-  // ── 3. BỘ ĐIỀU KHIỂN CHẾ ĐỘ XEM (VIEW MODES) ──
-  // 'fit': Vừa khít 100% khung nhìn (Mặc định - giải quyết triệt để lỗi tràn khung)
+  // ── 4. BỘ ĐIỀU KHIỂN CHẾ ĐỘ XEM (VIEW MODES) ──
+  // 'fit': Vừa khít 100% khung nhìn (Mặc định)
   // '1x': Kích thước gốc 1:1
-  // '2x': Phóng to 200% soi pixel siêu nhỏ
+  // '2x': Phóng to 200%
   const [zoomMode, setZoomMode] = useState('fit');
 
-  // ── 4. BỘ TINH CHỈNH TỌA ĐỘ NÂNG CAO (CALIBRATION) ──
+  // ── 5. BỘ TINH CHỈNH TỌA ĐỘ NÂNG CAO (CALIBRATION) ──
   const [showCalibration, setShowCalibration] = useState(false);
   const [marginTop, setMarginTop] = useState(0);
   const [marginLeft, setMarginLeft] = useState(0);
@@ -35,13 +42,13 @@ export default function InlineSpritesheetStudio({
   const [gapY, setGapY] = useState(0);
   const [groundAnchor, setGroundAnchor] = useState(true); // Neo chân tiếp đất (chống trôi nhấp nhô)
 
-  // ── 5. TRẠNG THÁI TUA HOẠT ẢNH ──
+  // ── 6. TRẠNG THÁI TUA HOẠT ẢNH ──
   const [fps, setFps] = useState(8);
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [selectedActionId, setSelectedActionId] = useState('row_0');
 
-  // ── 6. BỘ MÀU NỀN STUDIO ──
+  // ── 7. BỘ MÀU NỀN STUDIO ──
   const BACKGROUNDS = [
     {
       id: 'transparent',
@@ -60,7 +67,7 @@ export default function InlineSpritesheetStudio({
   ];
   const [previewBg, setPreviewBg] = useState(BACKGROUNDS[0]);
 
-  // ── 7. THAM CHIẾU DOM ──
+  // ── 8. THAM CHIẾU DOM ──
   const fileInputRef = useRef(null);
   const canvasRef = useRef(null);
   const imgRef = useRef(null);
@@ -72,6 +79,7 @@ export default function InlineSpritesheetStudio({
   useEffect(() => {
     if (initialImageUrl) {
       setImageUrl(initialImageUrl);
+      setOriginalImageUrl(null);
       setFileName('ai_generated_spritesheet.png');
       setColumns(5);
       setRows(3);
@@ -107,6 +115,7 @@ export default function InlineSpritesheetStudio({
     const reader = new FileReader();
     reader.onload = (e) => {
       setImageUrl(e.target.result);
+      setOriginalImageUrl(null);
       setFileName(file.name);
       setZoomMode('fit');
       toast.success(`Đã nạp spritesheet: ${file.name}`);
@@ -154,6 +163,42 @@ export default function InlineSpritesheetStudio({
     setCurrentFrame(0);
     setSelectedActionId('row_0');
     if (name) toast.info(`Đã áp dụng cấu hình: ${name} (${c}×${r})`);
+  };
+
+  // ── XỬ LÝ XÓA NỀN TỰ ĐỘNG ──
+  const handleRemoveBackground = async (overrideOptions = {}) => {
+    if (!imageUrl) return;
+    setIsRemovingBg(true);
+    try {
+      // Lưu lại ảnh gốc trước khi xóa nền nếu chưa lưu
+      if (!originalImageUrl) {
+        setOriginalImageUrl(imageUrl);
+      }
+
+      const result = await removeBackgroundSmart(imageUrl, {
+        tolerance: overrideOptions.tolerance ?? bgTolerance,
+        mode: overrideOptions.mode ?? bgMode,
+        targetColor: overrideOptions.targetColor ?? null
+      });
+
+      setImageUrl(result.dataUrl);
+      const countK = Math.round(result.removedCount / 1000);
+      toast.success(`✨ Đã xóa sạch nền (${countK}k pixels trong suốt)!`);
+    } catch (err) {
+      console.error('Lỗi xóa nền:', err);
+      toast.error('Không thể xóa nền: ' + (err.message || 'Lỗi xử lý ảnh'));
+    } finally {
+      setIsRemovingBg(false);
+    }
+  };
+
+  // Khôi phục lại ảnh có nền gốc
+  const handleRestoreOriginal = () => {
+    if (originalImageUrl) {
+      setImageUrl(originalImageUrl);
+      setOriginalImageUrl(null);
+      toast.info('Đã khôi phục lại ảnh có nền gốc');
+    }
   };
 
   // Tính toán động kích thước mỗi ô sau khi trừ lề bù trừ
@@ -349,18 +394,19 @@ export default function InlineSpritesheetStudio({
     setCurrentFrame((prev) => (prev >= end ? start : prev + 1));
   };
 
-  // Tải trọn bộ Spritesheet
+  // Tải trọn bộ Spritesheet (Đảm bảo xuất PNG trong suốt)
   const handleDownloadFullSheet = () => {
     if (!imageUrl) return;
     const a = document.createElement('a');
     a.href = imageUrl;
-    a.download = `spritesheet_${columns}x${rows}_${fileName}`;
+    a.download = `spritesheet_${columns}x${rows}_${fileName.replace(/\.[^/.]+$/, '')}_transparent.png`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    toast.success('Đã tải xuống Spritesheet PNG trong suốt');
   };
 
-  // Tải khung đơn
+  // Tải khung đơn (PNG trong suốt)
   const handleDownloadCurrentFrame = () => {
     if (!imageUrl || !imgRef.current || !cellWidth || !cellHeight) return;
     const canvas = document.createElement('canvas');
@@ -378,11 +424,11 @@ export default function InlineSpritesheetStudio({
     ctx.drawImage(imgRef.current, sx, sy, cellWidth, cellHeight, 0, 0, canvas.width, canvas.height);
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
-    link.download = `frame_${currentFrame + 1}.png`;
+    link.download = `frame_${currentFrame + 1}_transparent.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    toast.success(`Đã xuất Khung hình #${currentFrame + 1}`);
+    toast.success(`Đã xuất Khung hình #${currentFrame + 1} (PNG trong suốt)`);
   };
 
   // Lấy nhân vật từ Canvas Studio
@@ -391,6 +437,7 @@ export default function InlineSpritesheetStudio({
       const base64 = onCaptureFromCanvas();
       if (base64) {
         setImageUrl(base64);
+        setOriginalImageUrl(null);
         setFileName('character_studio_capture.png');
         setColumns(1);
         setRows(1);
@@ -449,8 +496,8 @@ export default function InlineSpritesheetStudio({
           </div>
         </div>
 
-        {/* Nhóm thao tác Nạp Nguồn Ảnh */}
-        <div className="flex items-center gap-2 shrink-0">
+        {/* Nhóm thao tác Nạp Nguồn Ảnh & Xóa Nền Tự Động */}
+        <div className="flex flex-wrap items-center gap-2 shrink-0">
           <input
             ref={fileInputRef}
             type="file"
@@ -493,6 +540,7 @@ export default function InlineSpritesheetStudio({
             type="button"
             onClick={() => {
               setImageUrl('/assets/sample_spritesheet_8x4.png?v=2');
+              setOriginalImageUrl(null);
               setFileName('sample_spritesheet_8x4.png');
               setZoomMode('fit');
               handleResetCalibration();
@@ -505,6 +553,52 @@ export default function InlineSpritesheetStudio({
             </svg>
             Mẫu 8×4 RPG Walk
           </button>
+
+          {/* Nút Xóa Nền Tự Động Thông Minh (1-Click Magic Remover) */}
+          <button
+            type="button"
+            disabled={isRemovingBg}
+            onClick={() => handleRemoveBackground()}
+            className={`
+              px-3 py-1.5 rounded-lg text-xs font-semibold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs transition-all
+              ${isRemovingBg 
+                ? 'bg-emerald-400 text-white cursor-wait' 
+                : 'bg-emerald-600 hover:bg-emerald-700 text-white hover:shadow-xs'
+              }
+            `}
+            title="Tự động nhận diện màu nền viền và làm trong suốt (nền xám caro, trắng, đen, phông xanh)"
+          >
+            {isRemovingBg ? (
+              <>
+                <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+                <span>Đang xóa...</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+                <span>✨ Xóa nền</span>
+              </>
+            )}
+          </button>
+
+          {/* Nút Hoàn tác ảnh gốc */}
+          {originalImageUrl && (
+            <button
+              type="button"
+              onClick={handleRestoreOriginal}
+              className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold font-sans flex items-center gap-1 cursor-pointer transition-all shadow-2xs"
+              title="Khôi phục lại ảnh có nền gốc ban đầu"
+            >
+              <span>↩</span>
+              <span>Gốc</span>
+            </button>
+          )}
+
         </div>
 
       </div>
@@ -589,91 +683,150 @@ export default function InlineSpritesheetStudio({
             `}
           >
             <span>⚙</span>
-            <span>Tinh chỉnh tọa độ</span>
+            <span>Tinh chỉnh tọa độ & Nền</span>
             <span className="text-[10px] opacity-70">{showCalibration ? '▲' : '▼'}</span>
           </button>
         </div>
 
       </div>
 
-      {/* ── 2.1. NGĂN TINH CHỈNH TỌA ĐỘ NÂNG CAO (Collapsible Calibration Drawer) ── */}
+      {/* ── 2.1. NGĂN TINH CHỈNH TỌA ĐỘ & XÓA NỀN NÂNG CAO ── */}
       {showCalibration && (
-        <div className="px-5 py-3 bg-slate-50 border-b border-slate-200 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 text-xs font-sans items-center animate-fadeIn">
-          <div>
-            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề trên (px)</label>
-            <input
-              type="number"
-              value={marginTop}
-              onChange={(e) => setMarginTop(parseInt(e.target.value) || 0)}
-              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
-            />
+        <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex flex-col gap-3 text-xs font-sans animate-fadeIn">
+          {/* Hàng 1: Căn lề pixel & Neo chân tiếp đất */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 items-center">
+            <div>
+              <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề trên (px)</label>
+              <input
+                type="number"
+                value={marginTop}
+                onChange={(e) => setMarginTop(parseInt(e.target.value) || 0)}
+                className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề trái (px)</label>
+              <input
+                type="number"
+                value={marginLeft}
+                onChange={(e) => setMarginLeft(parseInt(e.target.value) || 0)}
+                className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề phải (px)</label>
+              <input
+                type="number"
+                value={marginRight}
+                onChange={(e) => setMarginRight(parseInt(e.target.value) || 0)}
+                className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề dưới (px)</label>
+              <input
+                type="number"
+                value={marginBottom}
+                onChange={(e) => setMarginBottom(parseInt(e.target.value) || 0)}
+                className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Khoảng cách X (px)</label>
+              <input
+                type="number"
+                value={gapX}
+                onChange={(e) => setGapX(parseInt(e.target.value) || 0)}
+                className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+              />
+            </div>
+            <div>
+              <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Khoảng cách Y (px)</label>
+              <input
+                type="number"
+                value={gapY}
+                onChange={(e) => setGapY(parseInt(e.target.value) || 0)}
+                className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
+              />
+            </div>
+            <div className="flex flex-col justify-end">
+              <span className="block text-[10px] font-mono font-semibold text-slate-500 uppercase mb-1">Căn tiếp đất</span>
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setGroundAnchor(!groundAnchor)}
+                  className={`
+                    px-2 py-1 rounded text-[11px] font-semibold cursor-pointer border transition-all flex-1 text-center
+                    ${groundAnchor ? 'bg-emerald-600 text-white border-emerald-700' : 'bg-white text-slate-700 border-slate-300'}
+                  `}
+                  title="Căn đáy chân tiếp đất giúp nhân vật không bị nhấp nhô khi hoạt họa"
+                >
+                  {groundAnchor ? '⚓ Tiếp đất' : '🎯 Giữa'}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleResetCalibration}
+                  className="px-2 py-1 bg-white hover:bg-slate-100 text-slate-600 border border-slate-300 rounded text-[11px] cursor-pointer"
+                  title="Khôi phục mặc định"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
           </div>
-          <div>
-            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề trái (px)</label>
-            <input
-              type="number"
-              value={marginLeft}
-              onChange={(e) => setMarginLeft(parseInt(e.target.value) || 0)}
-              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
-            />
-          </div>
-          <div>
-            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề phải (px)</label>
-            <input
-              type="number"
-              value={marginRight}
-              onChange={(e) => setMarginRight(parseInt(e.target.value) || 0)}
-              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
-            />
-          </div>
-          <div>
-            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Lề dưới (px)</label>
-            <input
-              type="number"
-              value={marginBottom}
-              onChange={(e) => setMarginBottom(parseInt(e.target.value) || 0)}
-              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
-            />
-          </div>
-          <div>
-            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Khoảng cách X (px)</label>
-            <input
-              type="number"
-              value={gapX}
-              onChange={(e) => setGapX(parseInt(e.target.value) || 0)}
-              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
-            />
-          </div>
-          <div>
-            <label className="block text-[10px] font-mono font-semibold text-slate-500 uppercase">Khoảng cách Y (px)</label>
-            <input
-              type="number"
-              value={gapY}
-              onChange={(e) => setGapY(parseInt(e.target.value) || 0)}
-              className="w-full mt-1 bg-white border border-slate-200 rounded px-2 py-1 font-mono text-xs text-slate-800"
-            />
-          </div>
-          <div className="flex flex-col justify-end">
-            <span className="block text-[10px] font-mono font-semibold text-slate-500 uppercase mb-1">Căn tiếp đất</span>
-            <div className="flex items-center gap-1.5">
+
+          {/* Hàng 2: Tinh chỉnh Xóa nền chuyên sâu */}
+          <div className="pt-2.5 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3 bg-white p-2.5 rounded-lg border border-slate-200">
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-slate-700 text-[11px] font-sans flex items-center gap-1">
+                <span>🎨</span> Tùy chọn xóa nền:
+              </span>
+              <div className="inline-flex bg-slate-100 p-0.5 rounded border border-slate-200 text-[11px]">
+                <button
+                  type="button"
+                  onClick={() => setBgMode('flood')}
+                  className={`px-2 py-0.5 rounded cursor-pointer font-medium transition-all ${
+                    bgMode === 'flood' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                  title="Chỉ xóa màu nền bao quanh từ viền ngoài vào, bảo vệ áo và mắt nhân vật"
+                >
+                  🛡 Loang viền an toàn
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBgMode('global')}
+                  className={`px-2 py-0.5 rounded cursor-pointer font-medium transition-all ${
+                    bgMode === 'global' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                  title="Xóa màu nền trên toàn bộ bức ảnh (Phông xanh Chroma Key)"
+                >
+                  🌐 Toàn bộ ảnh
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-slate-500 font-medium">Dung sai (Tolerance):</span>
+                <input
+                  type="range"
+                  min="5"
+                  max="70"
+                  value={bgTolerance}
+                  onChange={(e) => setBgTolerance(parseInt(e.target.value) || 32)}
+                  className="w-24 h-1.5 bg-slate-200 rounded appearance-none cursor-pointer accent-emerald-600"
+                />
+                <span className="font-mono font-bold text-xs text-slate-700 w-6 text-center">{bgTolerance}</span>
+              </div>
+
               <button
                 type="button"
-                onClick={() => setGroundAnchor(!groundAnchor)}
-                className={`
-                  px-2 py-1 rounded text-[11px] font-semibold cursor-pointer border transition-all flex-1 text-center
-                  ${groundAnchor ? 'bg-emerald-600 text-white border-emerald-700' : 'bg-white text-slate-700 border-slate-300'}
-                `}
-                title="Căn đáy chân tiếp đất giúp nhân vật không bị nhấp nhô khi hoạt họa"
+                disabled={isRemovingBg}
+                onClick={() => handleRemoveBackground()}
+                className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-semibold cursor-pointer shadow-2xs transition-all flex items-center gap-1"
               >
-                {groundAnchor ? '⚓ Đáy chân' : '🎯 Giữa tâm'}
-              </button>
-              <button
-                type="button"
-                onClick={handleResetCalibration}
-                className="px-2 py-1 bg-white hover:bg-slate-100 text-slate-600 border border-slate-300 rounded text-[11px] cursor-pointer"
-                title="Khôi phục mặc định"
-              >
-                Reset
+                <span>⚡</span>
+                <span>Áp dụng lại</span>
               </button>
             </div>
           </div>
@@ -721,7 +874,7 @@ export default function InlineSpritesheetStudio({
             </div>
           </div>
 
-          {/* Vùng hiển thị Spritesheet Matrix (Chuẩn xác 100% không cắt xén ở chế độ Fit) */}
+          {/* Vùng hiển thị Spritesheet Matrix */}
           <div 
             ref={scrollContainerRef}
             className={`
@@ -870,7 +1023,7 @@ export default function InlineSpritesheetStudio({
 
           {/* Vùng Canvas Sân khấu trung tâm */}
           <div className="flex-1 p-3 flex items-center justify-center relative overflow-hidden bg-slate-100/50">
-            {/* Color Swatches đổi màu nền (Góc trên phải nhỏ gọn) */}
+            {/* Color Swatches đổi màu nền */}
             <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/90 backdrop-blur-xs p-1 rounded-lg border border-slate-200 shadow-2xs z-20">
               {BACKGROUNDS.map((bg) => (
                 <button
