@@ -1,97 +1,119 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { toast } from 'react-toastify';
 
 /**
  * InlineSpritesheetStudio
- * Xưởng xem trước & cắt lưới Sprite Sheet tích hợp trực tiếp bên dưới Character Studio.
- * Cho phép tải ảnh lên từ máy tính, kéo thả, hoặc nạp ảnh từ Canvas nhân vật / AI.
+ * Bộ công cụ kiểm thử & tách lưới Sprite Sheet chuẩn Studio Game 2D.
+ * Thiết kế khoa học, tối giản, sang trọng, loại bỏ hoàn toàn các yếu tố thừa thãi.
  */
 export default function InlineSpritesheetStudio({
   initialImageUrl = null,
   onCaptureFromCanvas = null
 }) {
-  // Image Source
+  // Nguồn ảnh
   const [imageUrl, setImageUrl] = useState(initialImageUrl || '/assets/sample_spritesheet_8x4.png');
   const [imgSize, setImgSize] = useState({ width: 0, height: 0 });
+  const [fileName, setFileName] = useState('sample_spritesheet_8x4.png');
 
-  // Grid Dimensions
+  // Kích thước ma trận lưới
   const [columns, setColumns] = useState(8);
   const [rows, setRows] = useState(4);
 
-  // Playback State
+  // Trạng thái tua hoạt ảnh
   const [fps, setFps] = useState(8);
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [selectedActionId, setSelectedActionId] = useState('row_0');
 
-  // Background Options
+  // Bộ màu nền Studio (Tối giản dạng Color Swatches)
   const BACKGROUNDS = [
     {
       id: 'transparent',
-      name: 'Trong suốt (Caro)',
-      className: 'bg-gray-100 bg-[length:16px_16px] bg-[linear-gradient(45deg,#e5e7eb_25%,transparent_25%,transparent_75%,#e5e7eb_75%,#e5e7eb),linear-gradient(45deg,#e5e7eb_25%,transparent_25%,transparent_75%,#e5e7eb_75%,#e5e7eb)] bg-[position:0_0,8px_8px]'
+      label: 'Caro',
+      className: 'bg-slate-100 bg-[length:14px_14px] bg-[linear-gradient(45deg,#cbd5e1_25%,transparent_25%,transparent_75%,#cbd5e1_75%,#cbd5e1),linear-gradient(45deg,#cbd5e1_25%,transparent_25%,transparent_75%,#cbd5e1_75%,#cbd5e1)] bg-[position:0_0,7px_7px]'
     },
-    { id: 'black', name: 'Nền đen', className: 'bg-gray-950 text-white' },
-    { id: 'white', name: 'Nền trắng', className: 'bg-white' },
-    { id: 'green', name: 'Màn xanh lá', className: 'bg-[#00b140]' },
+    { id: 'dark', label: 'Tối', className: 'bg-slate-900' },
+    { id: 'light', label: 'Sáng', className: 'bg-white' },
+    { id: 'chroma', label: 'Xanh', className: 'bg-[#00b140]' },
     {
-      id: 'forest',
-      name: 'Bối cảnh RPG',
+      id: 'rpg',
+      label: 'RPG',
       className: 'bg-cover bg-center',
       style: { backgroundImage: 'url("https://img.freepik.com/free-vector/pixel-art-rural-landscape_24908-61882.jpg")' }
     }
   ];
   const [previewBg, setPreviewBg] = useState(BACKGROUNDS[0]);
 
-  // DOM References
+  // Tham chiếu DOM
   const fileInputRef = useRef(null);
   const canvasRef = useRef(null);
   const imgRef = useRef(null);
+  const dropZoneRef = useRef(null);
 
-  // Sync when parent provides new image (e.g. from AI generator)
+  // Đồng bộ ảnh mới từ props ngoài (khi AI vừa sinh xong ảnh)
   useEffect(() => {
     if (initialImageUrl) {
       setImageUrl(initialImageUrl);
-      // Auto-adjust default columns/rows if it's 5x3 AI sheet
+      setFileName('ai_generated_spritesheet.png');
       setColumns(5);
       setRows(3);
     }
   }, [initialImageUrl]);
 
-  // Measure natural dimensions whenever imageUrl changes
+  // Đo đạc khổ ảnh thực tế khi ảnh thay đổi
   useEffect(() => {
     if (!imageUrl) return;
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = () => {
       imgRef.current = img;
-      const w = img.naturalWidth || img.width;
-      const h = img.naturalHeight || img.height;
-      setImgSize({ width: w, height: h });
+      setImgSize({
+        width: img.naturalWidth || img.width,
+        height: img.naturalHeight || img.height
+      });
       setCurrentFrame(0);
     };
     img.onerror = () => {
-      // Fallback
-      console.warn('Không thể nạp ảnh:', imageUrl);
+      console.warn('Không thể nạp spritesheet:', imageUrl);
     };
     img.src = imageUrl;
   }, [imageUrl]);
 
-  // Handle Local File Upload
-  const handleFileUpload = (file) => {
-    if (!file) return;
-    if (!file.type.startsWith('image/')) {
-      toast.error('Vui lòng chọn tệp hình ảnh (PNG, JPG, WebP)!');
+  // Xử lý nạp file từ người dùng
+  const handleLoadFile = useCallback((file) => {
+    if (!file || !file.type.startsWith('image/')) {
+      toast.error('Vui lòng chọn tệp định dạng ảnh (PNG, JPG, WebP)!');
       return;
     }
     const reader = new FileReader();
     reader.onload = (e) => {
       setImageUrl(e.target.result);
-      toast.success(`Đã tải lên tệp: ${file.name}`);
+      setFileName(file.name);
+      toast.success(`Đã nạp spritesheet: ${file.name}`);
     };
     reader.readAsDataURL(file);
-  };
+  }, []);
 
+  // Lắng nghe Paste ảnh từ Clipboard (Ctrl + V)
+  useEffect(() => {
+    const handlePaste = (e) => {
+      const items = e.clipboardData?.items;
+      if (!items) return;
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') !== -1) {
+          const file = items[i].getAsFile();
+          if (file) {
+            handleLoadFile(file);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener('paste', handlePaste);
+    return () => window.removeEventListener('paste', handlePaste);
+  }, [handleLoadFile]);
+
+  // Kéo thả file
   const handleDragOver = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -101,47 +123,55 @@ export default function InlineSpritesheetStudio({
     e.preventDefault();
     e.stopPropagation();
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      handleFileUpload(e.dataTransfer.files[0]);
+      handleLoadFile(e.dataTransfer.files[0]);
     }
   };
 
-  // Quick Presets
-  const applyPreset = (c, r) => {
+  // Cài đặt nhanh Preset lưới
+  const applyPreset = (c, r, name = '') => {
     setColumns(c);
     setRows(r);
     setCurrentFrame(0);
     setSelectedActionId('row_0');
+    if (name) toast.info(`Đã áp dụng cấu hình: ${name} (${c}×${r})`);
   };
 
-  // Derive animation action groups dynamically based on rows
+  // Tính toán động các nhóm hành động theo hàng
   const actions = useMemo(() => {
     const total = Math.max(1, columns * rows);
     if (rows <= 1) {
-      return [{ id: 'all', name: `Toàn bộ (${total} Khung)`, start_frame: 0, end_frame: total - 1 }];
+      return [{ id: 'all', label: `Toàn bộ (${total})`, start_frame: 0, end_frame: total - 1 }];
     }
 
     const list = [];
     const rNames4 = [
-      '⬇️ Hàng 1: Đi xuống (Mặt trước)',
-      '⬅️ Hàng 2: Đi sang trái (Nghiêng trái)',
-      '⬆️ Hàng 3: Đi lên (Lưng / Sau)',
-      '➡️ Hàng 4: Đi sang phải (Nghiêng phải)'
+      { label: 'Mặt trước (Xuống)', icon: '⬇' },
+      { label: 'Nghiêng trái', icon: '⬅' },
+      { label: 'Phía sau (Lên)', icon: '⬆' },
+      { label: 'Nghiêng phải', icon: '➡' }
     ];
 
     const rNames3 = [
-      '🚶 Hàng 1: Đứng & Đi bộ',
-      '⚔️ Hàng 2: Tấn công & Thủ',
-      '💥 Hàng 3: Bị thương & Trạng thái'
+      { label: 'Đứng & Đi', icon: '🚶' },
+      { label: 'Tấn công & Thủ', icon: '⚔' },
+      { label: 'Bị thương', icon: '💥' }
     ];
 
     for (let r = 0; r < rows; r++) {
-      let name = `Hàng ${r + 1} (${r * columns + 1} - ${(r + 1) * columns})`;
-      if (rows === 4 && rNames4[r]) name = rNames4[r];
-      else if (rows === 3 && rNames3[r]) name = rNames3[r];
+      let label = `Hàng ${r + 1}`;
+      let icon = '•';
+      if (rows === 4 && rNames4[r]) {
+        label = rNames4[r].label;
+        icon = rNames4[r].icon;
+      } else if (rows === 3 && rNames3[r]) {
+        label = rNames3[r].label;
+        icon = rNames3[r].icon;
+      }
 
       list.push({
         id: `row_${r}`,
-        name: name,
+        label,
+        icon,
         row: r,
         start_frame: r * columns,
         end_frame: Math.min((r + 1) * columns - 1, total - 1)
@@ -150,7 +180,8 @@ export default function InlineSpritesheetStudio({
 
     list.push({
       id: 'all',
-      name: `🔄 Toàn bộ khung hình (${total} Khung)`,
+      label: 'Tất cả',
+      icon: '🔄',
       row: -1,
       start_frame: 0,
       end_frame: total - 1
@@ -159,14 +190,14 @@ export default function InlineSpritesheetStudio({
     return list;
   }, [columns, rows]);
 
-  // Selected action object
-  const currentAction = actions.find(a => a.id === selectedActionId) || actions[0] || {
+  // Hành động hiện tại
+  const currentAction = actions.find((a) => a.id === selectedActionId) || actions[0] || {
     id: 'all',
     start_frame: 0,
     end_frame: Math.max(0, columns * rows - 1)
   };
 
-  // Animation Playback Loop
+  // Vòng lặp tua hoạt ảnh
   useEffect(() => {
     let interval;
     const start = currentAction.start_frame;
@@ -184,10 +215,11 @@ export default function InlineSpritesheetStudio({
     return () => clearInterval(interval);
   }, [isPlaying, currentAction, fps]);
 
+  // Kích thước từng khung hình tính toán
   const frameWidth = imgSize.width > 0 && columns > 0 ? imgSize.width / columns : 0;
   const frameHeight = imgSize.height > 0 && rows > 0 ? imgSize.height / rows : 0;
 
-  // Render current frame to canvas using integer pixel art math
+  // Vẽ frame hiện tại lên Canvas với tỷ lệ sắc nét chuẩn Pixel Art
   useEffect(() => {
     const canvas = canvasRef.current;
     const img = imgRef.current;
@@ -207,7 +239,7 @@ export default function InlineSpritesheetStudio({
     const sy = row * sh;
 
     const aspect = sw / sh;
-    const padding = 16;
+    const padding = 12;
     const targetW = canvas.width - padding * 2;
     const targetH = canvas.height - padding * 2;
 
@@ -225,31 +257,31 @@ export default function InlineSpritesheetStudio({
     ctx.drawImage(img, sx, sy, sw, sh, dx, dy, Math.round(dw), Math.round(dh));
   }, [currentFrame, columns, rows, imgSize]);
 
-  // Stepping controls
+  // Điều khiển bước khung
   const handlePrevFrame = () => {
     const start = currentAction.start_frame;
     const end = currentAction.end_frame;
-    setCurrentFrame(prev => (prev <= start ? end : prev - 1));
+    setCurrentFrame((prev) => (prev <= start ? end : prev - 1));
   };
 
   const handleNextFrame = () => {
     const start = currentAction.start_frame;
     const end = currentAction.end_frame;
-    setCurrentFrame(prev => (prev >= end ? start : prev + 1));
+    setCurrentFrame((prev) => (prev >= end ? start : prev + 1));
   };
 
-  // Download whole spritesheet PNG
+  // Tải trọn bộ Spritesheet
   const handleDownloadFullSheet = () => {
     if (!imageUrl) return;
     const a = document.createElement('a');
     a.href = imageUrl;
-    a.download = `spritesheet_${columns}x${rows}.png`;
+    a.download = `spritesheet_${columns}x${rows}_${fileName}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
   };
 
-  // Download single sliced frame
+  // Tải khung đơn
   const handleDownloadCurrentFrame = () => {
     if (!imageUrl || !imgRef.current || !frameWidth || !frameHeight) return;
     const canvas = document.createElement('canvas');
@@ -273,46 +305,62 @@ export default function InlineSpritesheetStudio({
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    toast.success(`Đã tải xuống Khung hình #${currentFrame + 1}`);
+    toast.success(`Đã xuất Khung hình #${currentFrame + 1}`);
   };
 
-  // Load current assembled character from Studio Canvas
+  // Lấy nhân vật từ Canvas Studio
   const handleLoadFromStudio = () => {
     if (typeof onCaptureFromCanvas === 'function') {
       const base64 = onCaptureFromCanvas();
       if (base64) {
         setImageUrl(base64);
+        setFileName('character_studio_capture.png');
         setColumns(1);
         setRows(1);
-        toast.success("Đã nạp nhân vật trực tiếp từ Character Studio!");
+        toast.success('Đã nạp nhân vật từ Studio!');
       } else {
-        toast.info("Chưa có dữ liệu từ Canvas. Vui lòng thử lại!");
+        toast.info('Chưa có dữ liệu từ Canvas Studio.');
       }
     }
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 sm:p-5 mt-4 transition-all">
+    <div 
+      ref={dropZoneRef}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden mt-4 transition-all"
+    >
       
-      {/* ── Tiêu đề & Thanh Thao Tác Nạp Nhanh ── */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-gray-100">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="p-1.5 bg-red-100 text-red-600 rounded-lg text-sm font-bold">🎬</span>
-            <h2 className="text-base sm:text-lg font-black text-gray-900 tracking-tight font-sans uppercase">
-              XƯỞNG TÁCH LƯỚI & XEM TRƯỚC SPRITE SHEET (INLINE PREVIEW)
-            </h2>
-            <span className="text-[11px] font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full">
-              Sẵn sàng 24/7
-            </span>
+      {/* ── 1. STUDIO MASTER TOOLBAR (Hợp nhất 1 thanh điều hướng sang trọng) ── */}
+      <div className="px-5 py-3.5 bg-slate-50/70 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-3">
+        
+        {/* Tên công cụ & Thông số kỹ thuật */}
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-xl bg-slate-900 text-white flex items-center justify-center font-mono font-bold text-xs shadow-2xs">
+            2D
           </div>
-          <p className="text-xs text-gray-500 mt-0.5 font-sans">
-            Tải lên bất kỳ ảnh Sprite Sheet nào từ máy tính hoặc nạp từ Character Studio để tự động cắt khung và tua hoạt cảnh ngay lập tức.
-          </p>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-sm font-bold text-slate-900 font-sans tracking-tight uppercase">
+                SPRITESHEET STUDIO & INSPECTOR
+              </h2>
+              <span className="text-[11px] font-mono text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded-md">
+                {columns}×{rows} Lưới
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-[11px] text-slate-500 font-mono mt-0.5">
+              <span className="truncate max-w-[200px]" title={fileName}>{fileName}</span>
+              <span>•</span>
+              <span>{imgSize.width}×{imgSize.height}px</span>
+              <span>•</span>
+              <span className="text-slate-700 font-semibold">{Math.round(frameWidth)}×{Math.round(frameHeight)}px/cell</span>
+            </div>
+          </div>
         </div>
 
-        {/* Nút thao tác nhanh nguồn ảnh */}
-        <div className="flex flex-wrap items-center gap-2 shrink-0">
+        {/* Nhóm thao tác Nạp Nguồn Ảnh (Clean, Minimal Buttons) */}
+        <div className="flex items-center gap-2 shrink-0">
           <input
             ref={fileInputRef}
             type="file"
@@ -320,7 +368,7 @@ export default function InlineSpritesheetStudio({
             className="hidden"
             onChange={(e) => {
               if (e.target.files && e.target.files[0]) {
-                handleFileUpload(e.target.files[0]);
+                handleLoadFile(e.target.files[0]);
               }
             }}
           />
@@ -328,18 +376,26 @@ export default function InlineSpritesheetStudio({
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="py-1.5 px-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs transition-all"
+            className="px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs hover:border-slate-400 transition-all"
           >
-            <span>📁</span> Tải ảnh từ máy
+            <svg className="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+            </svg>
+            Tải tệp ảnh
           </button>
 
           {onCaptureFromCanvas && (
             <button
               type="button"
               onClick={handleLoadFromStudio}
-              className="py-1.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-bold font-sans flex items-center gap-1.5 cursor-pointer border border-gray-200 transition-all"
+              className="px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs hover:border-slate-400 transition-all"
+              title="Chụp ảnh nhân vật từ bàn làm việc Character Studio"
             >
-              <span>🎨</span> Lấy từ Studio
+              <svg className="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              Lấy từ Studio
             </button>
           )}
 
@@ -347,136 +403,132 @@ export default function InlineSpritesheetStudio({
             type="button"
             onClick={() => {
               setImageUrl('/assets/sample_spritesheet_8x4.png');
-              applyPreset(8, 4);
-              toast.success("Đã nạp mẫu RPG 4 Hướng (8 cột x 4 hàng)!");
+              setFileName('sample_spritesheet_8x4.png');
+              applyPreset(8, 4, 'Mẫu RPG 4 Hướng');
             }}
-            className="py-1.5 px-3 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold font-sans flex items-center gap-1.5 cursor-pointer border border-amber-200 transition-all"
+            className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs transition-all"
           >
-            <span>🏃</span> Mẫu 8x4 RPG Walk
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Mẫu 8×4 RPG Walk
           </button>
         </div>
+
       </div>
 
-      {/* ── Khu vực Kéo thả & Presets Thiết lập Lưới ── */}
-      <div 
-        onDragOver={handleDragOver}
-        onDrop={handleDrop}
-        className="mt-3 p-3 bg-gray-50/80 rounded-xl border border-dashed border-gray-300 flex flex-col md:flex-row items-center justify-between gap-3 text-xs font-sans text-gray-600"
-      >
-        <div className="flex items-center gap-2">
-          <span className="text-gray-400 text-base">📥</span>
-          <span>
-            Kéo thả tệp ảnh vào đây để mở trực tiếp, hoặc chọn nhanh cấu hình lưới:
-          </span>
-        </div>
-
-        {/* Quick Grid Presets */}
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mr-1">
+      {/* ── 2. SUB-TOOLBAR: CẤU HÌNH MA TRẬN LƯỚI (Segmented Controls) ── */}
+      <div className="px-5 py-2.5 bg-white border-b border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs font-sans">
+        
+        {/* Preset Lưới thông dụng (Segmented Pills) */}
+        <div className="flex items-center gap-1.5">
+          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">
             Lưới mẫu:
           </span>
-          <button
-            type="button"
-            onClick={() => applyPreset(8, 4)}
-            className={`py-1 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              columns === 8 && rows === 4 ? 'bg-red-600 text-white shadow-2xs' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            8x4 (RPG 4 Hướng)
-          </button>
-          <button
-            type="button"
-            onClick={() => applyPreset(5, 3)}
-            className={`py-1 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              columns === 5 && rows === 3 ? 'bg-red-600 text-white shadow-2xs' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            5x3 (AI Grid 15 Frames)
-          </button>
-          <button
-            type="button"
-            onClick={() => applyPreset(3, 4)}
-            className={`py-1 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              columns === 3 && rows === 4 ? 'bg-red-600 text-white shadow-2xs' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            3x4 (Pipoya 12 Frames)
-          </button>
-          <button
-            type="button"
-            onClick={() => applyPreset(4, 4)}
-            className={`py-1 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              columns === 4 && rows === 4 ? 'bg-red-600 text-white shadow-2xs' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            4x4 (16 Khung)
-          </button>
+          <div className="inline-flex bg-slate-100 p-0.5 rounded-lg border border-slate-200">
+            {[
+              { id: '8x4', c: 8, r: 4, label: '8×4 RPG' },
+              { id: '5x3', c: 5, r: 3, label: '5×3 AI' },
+              { id: '3x4', c: 3, r: 4, label: '3×4 Pipoya' },
+              { id: '4x4', c: 4, r: 4, label: '4×4' }
+            ].map((p) => {
+              const active = columns === p.c && rows === p.r;
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => applyPreset(p.c, p.r, p.label)}
+                  className={`
+                    px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer
+                    ${active ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600 hover:text-slate-900'}
+                  `}
+                >
+                  {p.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {/* ── Bố Cục Chính 2 Cột: Bên Trái Lưới Khung - Bên Phải Trình Phát Hoạt Ảnh ── */}
-      <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-        
-        {/* CỘT TRÁI (7 Phầm): Ma Trận Lưới Khung Hình (Interactive Grid Slicer) */}
-        <div className="lg:col-span-7 flex flex-col gap-3">
-          
-          {/* Thanh tham số Lưới: Cột & Hàng & Thống kê kích thước */}
-          <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-gray-50 rounded-xl border border-gray-200 text-xs font-sans">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                <label className="font-bold text-gray-600">Số cột:</label>
-                <input
-                  type="number"
-                  min="1"
-                  max="32"
-                  value={columns}
-                  onChange={(e) => {
-                    const val = Math.max(1, parseInt(e.target.value) || 1);
-                    setColumns(val);
-                    setCurrentFrame(0);
-                  }}
-                  className="w-14 bg-white border border-gray-300 rounded-lg py-1 px-2 text-center font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
-                />
-              </div>
-
-              <div className="flex items-center gap-1.5">
-                <label className="font-bold text-gray-600">Số hàng:</label>
-                <input
-                  type="number"
-                  min="1"
-                  max="32"
-                  value={rows}
-                  onChange={(e) => {
-                    const val = Math.max(1, parseInt(e.target.value) || 1);
-                    setRows(val);
-                    setCurrentFrame(0);
-                  }}
-                  className="w-14 bg-white border border-gray-300 rounded-lg py-1 px-2 text-center font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
-                />
-              </div>
-            </div>
-
-            {/* Thông số kỹ thuật ảnh */}
-            <div className="text-[11px] text-gray-500 font-mono">
-              Khổ ảnh: <b className="text-gray-800">{imgSize.width}x{imgSize.height}px</b> &bull; Ô: <b className="text-gray-800">{Math.round(frameWidth)}x{Math.round(frameHeight)}px</b>
-            </div>
+        {/* Tùy chỉnh số Cột & Hàng (Compact Numeric Stepper) */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <span className="text-slate-500 font-medium text-[11px]">Cột:</span>
+            <input
+              type="number"
+              min="1"
+              max="32"
+              value={columns}
+              onChange={(e) => {
+                setColumns(Math.max(1, parseInt(e.target.value) || 1));
+                setCurrentFrame(0);
+              }}
+              className="w-12 bg-slate-50 border border-slate-200 rounded-md py-0.5 px-1.5 text-center font-mono font-bold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-red-500"
+            />
           </div>
 
-          {/* Khung Hiển thị Lưới Ma Trận (Click ô để nhảy frame) */}
-          <div className="relative border border-gray-200 rounded-xl overflow-hidden bg-gray-900/5 max-h-[380px] overflow-y-auto custom-scrollbar select-none">
+          <div className="flex items-center gap-2">
+            <span className="text-slate-500 font-medium text-[11px]">Hàng:</span>
+            <input
+              type="number"
+              min="1"
+              max="32"
+              value={rows}
+              onChange={(e) => {
+                setRows(Math.max(1, parseInt(e.target.value) || 1));
+                setCurrentFrame(0);
+              }}
+              className="w-12 bg-slate-50 border border-slate-200 rounded-md py-0.5 px-1.5 text-center font-mono font-bold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-red-500"
+            />
+          </div>
+
+          <span className="text-slate-300">|</span>
+
+          <span className="text-[11px] text-slate-400 italic">
+            * Kéo thả hoặc dán ảnh (Ctrl+V) trực tiếp vào bảng
+          </span>
+        </div>
+
+      </div>
+
+      {/* ── 3. KHUNG NHÌN ĐÔI CÂN XỨNG (DUAL VIEWPORTS: 7 CỘT LƯỚI - 5 CỘT STAGE) ── */}
+      <div className="p-4 sm:p-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch bg-slate-50/30">
+        
+        {/* CỘT TRÁI (7 Phần): Bàn Soi Ma Trận (Sheet Matrix Viewport) */}
+        <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col h-[460px] overflow-hidden">
+          
+          {/* Header Bàn soi */}
+          <div className="px-3.5 py-2.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs shrink-0">
+            <span className="font-bold text-slate-700 tracking-tight flex items-center gap-1.5 font-sans">
+              <svg className="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+              MA TRẬN LƯỚI ({columns * rows} Ô)
+            </span>
+            <span className="text-[11px] text-slate-400 font-sans">
+              Click vào ô bất kỳ để dừng & soi chi tiết
+            </span>
+          </div>
+
+          {/* Vùng hiển thị cuộn mượt Spritesheet Matrix */}
+          <div className="flex-1 p-3 overflow-auto custom-scrollbar flex items-center justify-center bg-slate-900/5 select-none relative">
             {imageUrl ? (
-              <div className="relative inline-block w-full">
+              <div className="relative inline-block max-w-full">
                 {/* Ảnh Spritesheet gốc */}
                 <img
                   src={imageUrl}
-                  alt="Spritesheet"
-                  className="w-full h-auto block pixelated"
-                  style={{ imageRendering: 'pixelated' }}
+                  alt="Spritesheet Matrix"
+                  className="max-w-none block pixelated"
+                  style={{
+                    imageRendering: 'pixelated',
+                    width: imgSize.width ? `${imgSize.width}px` : 'auto',
+                    height: imgSize.height ? `${imgSize.height}px` : 'auto'
+                  }}
                 />
 
-                {/* Lớp phủ Lưới Ma trận SVG / CSS */}
+                {/* Lưới Ma Trận SVG/CSS */}
                 <div
-                  className="absolute inset-0 grid"
+                  className="absolute inset-0 grid pointer-events-auto"
                   style={{
                     gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
                     gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`
@@ -496,19 +548,19 @@ export default function InlineSpritesheetStudio({
                           setIsPlaying(false);
                         }}
                         className={`
-                          relative border border-dashed transition-all cursor-pointer flex items-start justify-start p-1
+                          relative border transition-all cursor-pointer flex items-start justify-start p-1
                           ${isCurrent 
-                            ? 'border-amber-400 bg-amber-400/25 ring-2 ring-amber-400 ring-inset z-20' 
+                            ? 'border-amber-400 bg-amber-400/20 ring-2 ring-amber-400 ring-inset z-20' 
                             : isInAction 
-                              ? 'border-red-400/40 bg-red-500/5 hover:bg-red-500/15 z-10' 
-                              : 'border-white/20 bg-black/10 hover:bg-white/20'
+                              ? 'border-red-400/30 bg-red-500/5 hover:bg-red-500/15 z-10' 
+                              : 'border-slate-300/40 bg-black/5 hover:bg-white/20'
                           }
                         `}
-                        title={`Khung #${idx + 1} (Click để xem)`}
+                        title={`Khung #${idx + 1}`}
                       >
                         <span className={`
-                          text-[9px] font-mono font-bold px-1 rounded-sm shadow-xs select-none
-                          ${isCurrent ? 'bg-amber-500 text-white' : 'bg-black/60 text-white/90'}
+                          text-[9px] font-mono font-bold px-1 py-0.5 rounded shadow-2xs select-none
+                          ${isCurrent ? 'bg-amber-500 text-white' : 'bg-slate-900/70 text-white/90'}
                         `}>
                           {idx + 1}
                         </span>
@@ -518,39 +570,39 @@ export default function InlineSpritesheetStudio({
                 </div>
               </div>
             ) : (
-              <div className="h-64 flex flex-col items-center justify-center text-gray-400 gap-2">
-                <span className="text-3xl">🖼️</span>
-                <span>Chưa có ảnh Sprite Sheet nào được chọn</span>
+              <div className="text-center text-slate-400 text-xs">
+                Chưa có dữ liệu Spritesheet
               </div>
             )}
           </div>
 
-          <div className="text-[11px] text-gray-400 italic text-right font-sans">
-            * Mẹo: Click trực tiếp vào bất kỳ ô số nào trên ma trận để dừng và soi chi tiết khung hình đó.
+          {/* Footer Bàn soi: Trạng thái khung hiện tại */}
+          <div className="px-3.5 py-2 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-[11px] font-mono text-slate-500 shrink-0">
+            <span>Tọa độ ô: Cột {(currentFrame % columns) + 1} • Hàng {Math.floor(currentFrame / columns) + 1}</span>
+            <span className="font-semibold text-slate-700">Khung #{currentFrame + 1} / {columns * rows}</span>
           </div>
+
         </div>
 
-        {/* CỘT PHẢI (5 Phần): Trình Phát Hoạt Ảnh (Live Animation Player) */}
-        <div className="lg:col-span-5 bg-gray-50 rounded-xl border border-gray-200 p-4 flex flex-col gap-3">
+        {/* CỘT PHẢI (5 Phần): Sân Khấu Hoạt Cảnh (Animation Stage Viewport) */}
+        <div className="lg:col-span-5 bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col h-[460px] overflow-hidden justify-between">
           
-          {/* Header Trình phát & Khung hiện tại */}
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-gray-700 uppercase tracking-wider font-sans flex items-center gap-1.5">
-              <span>▶</span> Xem trước hoạt ảnh động tác
-            </span>
-            <span className="text-xs font-mono font-bold px-2 py-0.5 bg-red-100 text-red-700 rounded-md">
-              Khung: {currentFrame + 1} / {columns * rows}
-            </span>
-          </div>
+          {/* Header Sân khấu: Nhóm hành động (Horizontal Chips Bar) */}
+          <div className="p-3 bg-slate-50 border-b border-slate-200 shrink-0 flex flex-col gap-2">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-slate-700 text-xs tracking-tight uppercase font-sans flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                TRÌNH PHÁT HOẠT CẢNH
+              </span>
+              <span className="font-mono text-[11px] font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded-md border border-red-200/60">
+                Frame {currentFrame - currentAction.start_frame + 1} / {currentAction.end_frame - currentAction.start_frame + 1}
+              </span>
+            </div>
 
-          {/* Chọn nhóm hành động (Hàng 1, Hàng 2, Toàn bộ) */}
-          <div className="flex flex-col gap-1.5">
-            <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wider font-sans">
-              Chọn nhóm hành động để phát:
-            </label>
-            <div className="flex flex-wrap gap-1.5">
+            {/* Các thẻ Chip chọn hàng hành động ngang gọn gàng */}
+            <div className="flex flex-wrap gap-1">
               {actions.map((act) => {
-                const isSelected = selectedActionId === act.id;
+                const active = selectedActionId === act.id;
                 return (
                   <button
                     key={act.id}
@@ -560,69 +612,72 @@ export default function InlineSpritesheetStudio({
                       setCurrentFrame(act.start_frame);
                     }}
                     className={`
-                      py-1 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer font-sans
-                      ${isSelected
-                        ? 'bg-red-600 text-white shadow-2xs ring-2 ring-red-300'
-                        : 'bg-white hover:bg-gray-100 text-gray-700 border border-gray-200'
+                      px-2.5 py-1 rounded-lg text-xs font-semibold font-sans transition-all cursor-pointer flex items-center gap-1
+                      ${active 
+                        ? 'bg-slate-900 text-white shadow-2xs' 
+                        : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
                       }
                     `}
                   >
-                    {act.name}
+                    <span>{act.icon}</span>
+                    <span>{act.label}</span>
                   </button>
                 );
               })}
             </div>
           </div>
 
-          {/* Đổi màu nền Preview */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-[11px] font-bold text-gray-500 font-sans shrink-0">Nền thử:</span>
-            <div className="flex flex-wrap gap-1">
+          {/* Vùng Canvas Sân khấu trung tâm */}
+          <div className="flex-1 p-3 flex items-center justify-center relative overflow-hidden bg-slate-100/50">
+            {/* Color Swatches đổi màu nền (Góc trên phải nhỏ gọn) */}
+            <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/90 backdrop-blur-xs p-1 rounded-lg border border-slate-200 shadow-2xs z-20">
               {BACKGROUNDS.map((bg) => (
                 <button
                   key={bg.id}
                   type="button"
                   onClick={() => setPreviewBg(bg)}
                   className={`
-                    px-2 py-0.5 text-[11px] font-medium rounded-md border transition-all cursor-pointer font-sans
-                    ${previewBg.id === bg.id
-                      ? 'bg-gray-800 text-white border-gray-800'
-                      : 'bg-white text-gray-600 hover:bg-gray-100 border-gray-200'
-                    }
+                    w-4 h-4 rounded-full border transition-all cursor-pointer
+                    ${previewBg.id === bg.id ? 'ring-2 ring-red-500 scale-110' : 'border-slate-300 opacity-80 hover:opacity-100'}
+                    ${bg.id === 'transparent' ? 'bg-slate-300' : ''}
+                    ${bg.id === 'dark' ? 'bg-slate-950' : ''}
+                    ${bg.id === 'light' ? 'bg-white' : ''}
+                    ${bg.id === 'chroma' ? 'bg-[#00b140]' : ''}
+                    ${bg.id === 'rpg' ? 'bg-amber-700' : ''}
                   `}
-                >
-                  {bg.name}
-                </button>
+                  title={`Nền: ${bg.label}`}
+                />
               ))}
+            </div>
+
+            {/* Canvas Stage */}
+            <div
+              className={`
+                w-full h-full max-h-[220px] rounded-xl border border-slate-200/80 flex items-center justify-center overflow-hidden transition-all shadow-inner
+                ${previewBg.className}
+              `}
+              style={previewBg.style || {}}
+            >
+              <canvas
+                ref={canvasRef}
+                width={200}
+                height={200}
+                className="max-w-full max-h-full block pixelated"
+                style={{ imageRendering: 'pixelated' }}
+              />
             </div>
           </div>
 
-          {/* Vùng Canvas Renderer pixel-art sắc nét */}
-          <div
-            className={`
-              w-full h-56 rounded-xl border border-gray-300 flex items-center justify-center overflow-hidden transition-all relative
-              ${previewBg.className}
-            `}
-            style={previewBg.style || {}}
-          >
-            <canvas
-              ref={canvasRef}
-              width={220}
-              height={220}
-              className="max-w-full max-h-full block pixelated"
-              style={{ imageRendering: 'pixelated' }}
-            />
-          </div>
-
-          {/* Thanh tua hoạt cảnh (Timeline & Playback Controls) */}
-          <div className="flex flex-col gap-2 pt-1">
+          {/* Transport Controls Bar (Chuẩn Phần mềm Làm Game) */}
+          <div className="p-3 bg-slate-50 border-t border-slate-200 shrink-0 flex flex-col gap-2.5">
+            
+            {/* Thanh điều khiển Play/Pause/Steps & FPS */}
             <div className="flex items-center justify-between gap-3">
-              {/* Nút lùi, phát/dừng, tiến */}
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1">
                 <button
                   type="button"
                   onClick={handlePrevFrame}
-                  className="p-1.5 bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 rounded-lg text-xs font-bold cursor-pointer"
+                  className="w-7 h-7 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer transition-all shadow-2xs"
                   title="Khung trước đó"
                 >
                   ⏮
@@ -631,8 +686,8 @@ export default function InlineSpritesheetStudio({
                   type="button"
                   onClick={() => setIsPlaying(!isPlaying)}
                   className={`
-                    py-1.5 px-3 rounded-lg text-xs font-bold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs transition-all
-                    ${isPlaying ? 'bg-amber-500 hover:bg-amber-600 text-white' : 'bg-emerald-600 hover:bg-emerald-700 text-white'}
+                    px-3 py-1.5 rounded-lg text-xs font-bold font-sans flex items-center gap-1.5 cursor-pointer shadow-2xs transition-all
+                    ${isPlaying ? 'bg-slate-800 hover:bg-slate-900 text-white' : 'bg-emerald-600 hover:bg-emerald-700 text-white'}
                   `}
                 >
                   {isPlaying ? '⏸ Tạm dừng' : '▶ Tiếp tục'}
@@ -640,7 +695,7 @@ export default function InlineSpritesheetStudio({
                 <button
                   type="button"
                   onClick={handleNextFrame}
-                  className="p-1.5 bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 rounded-lg text-xs font-bold cursor-pointer"
+                  className="w-7 h-7 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer transition-all shadow-2xs"
                   title="Khung tiếp theo"
                 >
                   ⏭
@@ -649,39 +704,43 @@ export default function InlineSpritesheetStudio({
 
               {/* Tốc độ FPS */}
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-gray-600 font-sans">
-                  Tốc độ: <b className="text-red-600">{fps} FPS</b>
+                <span className="text-[11px] font-mono text-slate-500 font-medium">
+                  {Math.round(1000 / fps)}ms
+                </span>
+                <span className="text-xs font-bold text-slate-700 font-mono bg-white px-2 py-0.5 rounded border border-slate-200">
+                  {fps} FPS
                 </span>
               </div>
             </div>
 
-            {/* Slider điều chỉnh FPS */}
+            {/* Slider điều chỉnh FPS mượt mà */}
             <input
               type="range"
               min="1"
               max="24"
               value={fps}
               onChange={(e) => setFps(parseInt(e.target.value))}
-              className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-red-600"
+              className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-red-600"
             />
-          </div>
 
-          {/* Thanh nút Tải xuất hình ảnh */}
-          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-gray-200">
-            <button
-              type="button"
-              onClick={handleDownloadCurrentFrame}
-              className="py-2 px-3 bg-white hover:bg-gray-100 text-gray-800 rounded-xl text-xs font-bold font-sans flex items-center justify-center gap-1.5 border border-gray-300 cursor-pointer transition-all shadow-2xs"
-            >
-              <span>✂️</span> Tải Khung Này (#{currentFrame + 1})
-            </button>
-            <button
-              type="button"
-              onClick={handleDownloadFullSheet}
-              className="py-2 px-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold font-sans flex items-center justify-center gap-1.5 cursor-pointer transition-all shadow-2xs"
-            >
-              <span>📦</span> Tải Sprite Sheet PNG
-            </button>
+            {/* Hai nút xuất ảnh sạch sẽ */}
+            <div className="grid grid-cols-2 gap-2 pt-1 border-t border-slate-200">
+              <button
+                type="button"
+                onClick={handleDownloadCurrentFrame}
+                className="py-1.5 px-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold font-sans flex items-center justify-center gap-1.5 cursor-pointer transition-all shadow-2xs"
+              >
+                <span>✂</span> Xuất khung #{currentFrame + 1}
+              </button>
+              <button
+                type="button"
+                onClick={handleDownloadFullSheet}
+                className="py-1.5 px-2 bg-slate-900 hover:bg-black text-white rounded-lg text-xs font-semibold font-sans flex items-center justify-center gap-1.5 cursor-pointer transition-all shadow-2xs"
+              >
+                <span>📦</span> Xuất trọn bộ Sheet
+              </button>
+            </div>
+
           </div>
 
         </div>
