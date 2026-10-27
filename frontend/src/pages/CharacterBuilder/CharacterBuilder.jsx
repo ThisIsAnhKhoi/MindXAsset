@@ -12,130 +12,159 @@ import { soldierConfig, getSoldierLayers, soldierColorPalettes } from './soldier
 import { fantasyConfig, getFantasyLayers, fantasyColorPalettes, fantasyGroups } from './fantasy_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
 import InlineSpritesheetStudio from '../../components/InlineSpritesheetStudio';
+import ModelDropdown from './ModelDropdown';
 import { preloadImages } from './assetCache';
 import { getApiBaseUrl } from '../../config/api';
 
 const CHARACTER_MODELS = [
   {
     id: 'fantasy',
-    name: '🧙 Nhân Vật Fantasy (Chibi RPG)',
+    name: 'Nhân Vật Fantasy',
+    subtitle: 'Chibi RPG 48x48 • 30 Chủng tộc',
+    icon: '🧙',
+    badge: 'Hot • 48px',
+    tagColor: 'bg-amber-50 text-amber-700 border-amber-200',
     frameSize: 48,
     isSpritesheet: false,
     config: fantasyConfig,
     groups: fantasyGroups,
     colorPalettes: fantasyColorPalettes,
     categories: [
-      { id: 'races', label: 'Chủng Tộc & Gương Mặt', icon: '🧝' },
-      { id: 'expressions', label: 'Biểu Cảm (Expression)', icon: '🎭' },
-      { id: 'hairs', label: 'Kiểu Tóc & Râu Tóc', icon: '💇' },
-      { id: 'outfits', label: 'Trang Phục & Y Phục (128 Kiểu)', icon: '🥋' },
-      { id: 'bottoms', label: 'Quần & Giày Ủng', icon: '👖' },
-      { id: 'headgear', label: 'Mũ, Tai Thú & Sừng', icon: '👑' },
-      { id: 'accessories', label: 'Đuôi & Thắt Lưng', icon: '🦊' },
-      { id: 'weapons', label: 'Vũ Khí & Pháp Cụ', icon: '⚔️' },
-      { id: 'shadows', label: 'Bóng Đổ Mặt Đất', icon: '🌑' }
+      { id: 'races', label: 'Chủng Tộc', icon: '🧝' },
+      { id: 'expressions', label: 'Biểu Cảm', icon: '🎭' },
+      { id: 'hairs', label: 'Kiểu Tóc', icon: '💇' },
+      { id: 'outfits', label: 'Trang Phục', icon: '🥋' },
+      { id: 'bottoms', label: 'Quần & Giày', icon: '👖' },
+      { id: 'headgear', label: 'Mũ & Sừng', icon: '👑' },
+      { id: 'accessories', label: 'Đai & Đuôi', icon: '🦊' },
+      { id: 'weapons', label: 'Vũ Khí', icon: '⚔️' },
+      { id: 'shadows', label: 'Bóng Đổ', icon: '🌑' }
     ]
   },
   {
     id: 'pipoya',
-    name: 'RPG Pixel (Chung)',
+    name: 'RPG Pixel Cổ Điển',
+    subtitle: 'Nhân vật 4 hướng đi • JRPG 32x32',
+    icon: '🧝',
+    badge: 'Spritesheet',
+    tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
     frameSize: 32,
     isSpritesheet: true,
     config: assetConfig,
     categories: [
-      { id: 'bases', label: 'Body (Thân)', icon: '👤' },
-      { id: 'eyes', label: 'Eyes (Mắt)', icon: '👁️' },
-      { id: 'hairs', label: 'Hair (Tóc)', icon: '💇' },
-      { id: 'tops', label: 'Clothes (Áo)', icon: '👕' },
-      { id: 'hats', label: 'Hats (Nón/Mũ)', icon: '🎩' },
-      { id: 'glasses', label: 'Glasses (Kính)', icon: '🕶️' },
-      { id: 'ears', label: 'Ears (Tai thú)', icon: '🐱' },
-      { id: 'tails', label: 'Tails (Đuôi)', icon: '🦊' },
-      { id: 'items', label: 'Items (Vật phẩm)', icon: '⚔️' },
-      { id: 'cloaks', label: 'Cloaks (Áo choàng)', icon: '🦇' },
-      { id: 'beards', label: 'Beards (Râu)', icon: '🧔' },
-      { id: 'hairadds', label: 'Hair Adds (Phụ kiện tóc)', icon: '🎀' },
-      { id: 'makeup', label: 'Makeup (Trang điểm)', icon: '💄' }
+      { id: 'bases', label: 'Thân Thể', icon: '👤' },
+      { id: 'eyes', label: 'Đôi Mắt', icon: '👁️' },
+      { id: 'hairs', label: 'Mái Tóc', icon: '💇' },
+      { id: 'tops', label: 'Áo & Giáp', icon: '👕' },
+      { id: 'hats', label: 'Mũ Nón', icon: '🎩' },
+      { id: 'glasses', label: 'Kính Mắt', icon: '🕶️' },
+      { id: 'ears', label: 'Tai Thú', icon: '🐱' },
+      { id: 'tails', label: 'Đuôi Thú', icon: '🦊' },
+      { id: 'items', label: 'Vũ Khí', icon: '⚔️' },
+      { id: 'cloaks', label: 'Áo Choàng', icon: '🦇' },
+      { id: 'beards', label: 'Râu Tóc', icon: '🧔' },
+      { id: 'hairadds', label: 'Kẹp Tóc', icon: '🎀' },
+      { id: 'makeup', label: 'Họa Mặt', icon: '💄' }
     ]
   },
   {
     id: 'soldier',
-    name: '🪖 Chiến Binh Quân Sự (Spec-Ops)',
+    name: 'Chiến Binh Đặc Nhiệm',
+    subtitle: 'Lính Spec-Ops • Giáp & Súng hiện đại',
+    icon: '🪖',
+    badge: 'Quân Sự',
+    tagColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     frameSize: 32,
     isSpritesheet: true,
     config: soldierConfig,
     colorPalettes: soldierColorPalettes,
     categories: [
-      { id: 'bases', label: 'Body (Thân Lính)', icon: '👤' },
-      { id: 'helmets', label: 'Mũ Sắt / NVG / Mặt Nạ', icon: '🪖' },
-      { id: 'vests', label: 'Áo Giáp Chống Đạn', icon: '🦺' },
-      { id: 'bottoms', label: 'Quần & Giày Tác Chiến', icon: '👖' },
-      { id: 'weapons', label: 'Vũ Khí Tác Chiến', icon: '🔫' },
-      { id: 'gear', label: 'Ba Lô & Đai Đạn', icon: '🎒' }
-    ]
-  },
-  {
-    id: 'monster',
-    name: 'Monster (Quái Vật CC0)',
-    frameSize: 256,
-    isSpritesheet: false,
-    config: monsterConfig,
-    categories: [
-      { id: 'body', label: 'Body (Thân)', icon: '👾' },
-      { id: 'leg', label: 'Legs (Chân)', icon: '🦵' },
-      { id: 'arm', label: 'Arms (Tay)', icon: '💪' },
-      { id: 'detail', label: 'Sừng/Tai', icon: '✨' },
-      { id: 'eye', label: 'Eyes (Mắt)', icon: '👁️' },
-      { id: 'eyebrow', label: 'Eyebrow (Lông mày)', icon: '🤨' },
-      { id: 'mouth', label: 'Mouth (Miệng)', icon: '👄' },
-      { id: 'nose', label: 'Nose (Mũi)', icon: '👃' }
-    ]
-  },
-  {
-    id: 'alien',
-    name: 'Người Ngoài Hành Tinh (Alien)',
-    frameSize: 256,
-    isSpritesheet: false,
-    config: alienConfig,
-    categories: [
-      { id: 'body', label: 'Thân Ngoài Hành Tinh', icon: '👽' },
-      { id: 'antenna', label: 'Ăng-Ten Sóng Não', icon: '📡' },
-      { id: 'eye', label: 'Mắt Vũ Trụ / Bọ', icon: '👁️' },
-      { id: 'mouth', label: 'Hàm Răng Nanh', icon: '👄' },
-      { id: 'arm', label: 'Tay Xúc Tu / Càng', icon: '💪' },
-      { id: 'leg', label: 'Chân Xúc Tu / Đệm', icon: '🦵' }
+      { id: 'bases', label: 'Thân Lính', icon: '👤' },
+      { id: 'helmets', label: 'Mũ & Kính NVG', icon: '🪖' },
+      { id: 'vests', label: 'Áo Giáp', icon: '🦺' },
+      { id: 'bottoms', label: 'Quần Tác Chiến', icon: '👖' },
+      { id: 'weapons', label: 'Súng & Vũ Khí', icon: '🔫' },
+      { id: 'gear', label: 'Balo & Đạn', icon: '🎒' }
     ]
   },
   {
     id: 'vehicle',
-    name: 'Xe Cộ & Phương Tiện (Top-Down)',
+    name: 'Xe Cộ & Phương Tiện',
+    subtitle: '57 mẫu xe Top-Down • Đổi màu & đèn',
+    icon: '🏎️',
+    badge: 'Top-Down',
+    tagColor: 'bg-rose-50 text-rose-700 border-rose-200',
     frameSize: 160,
     isSpritesheet: false,
     config: vehicleConfig,
     colorPalettes: vehicleColorPalettes,
     categories: [
-      { id: 'chassis', label: 'Dòng Phương Tiện (57 Xe)', icon: '🏎️' },
-      { id: 'direction', label: 'Hướng Nhìn (Góc Chiếu)', icon: '🧭' },
-      { id: 'paint', label: 'Màu Sơn Thân Xe (Body)', icon: '🎨' },
-      { id: 'windows', label: 'Kính Xe & Phim Cách Nhiệt', icon: '🪟' },
-      { id: 'lights', label: 'Cụm Đèn Pha & Cảnh Báo', icon: '💡' },
-      { id: 'accessories', label: 'Phụ Kiện & Hiệu Ứng', icon: '⚡' },
-      { id: 'ground', label: 'Mặt Đường & Bóng Đổ', icon: '🛣️' }
+      { id: 'chassis', label: 'Dòng Xe', icon: '🏎️' },
+      { id: 'direction', label: 'Góc Nhìn', icon: '🧭' },
+      { id: 'paint', label: 'Màu Sơn', icon: '🎨' },
+      { id: 'windows', label: 'Kính Xe', icon: '🪟' },
+      { id: 'lights', label: 'Đèn Pha', icon: '💡' },
+      { id: 'accessories', label: 'Họa Tiết', icon: '⚡' },
+      { id: 'ground', label: 'Mặt Đường', icon: '🛣️' }
     ]
   },
   {
     id: 'prop',
-    name: 'Vật Phẩm In-Game (Props & Items)',
+    name: 'Vật Phẩm In-Game',
+    subtitle: 'Trang bị, rương báu & hào quang ma pháp',
+    icon: '💎',
+    badge: 'Vật Phẩm',
+    tagColor: 'bg-purple-50 text-purple-700 border-purple-200',
     frameSize: 48,
     isSpritesheet: false,
     config: propConfig,
     colorPalettes: propColorPalettes,
     categories: [
-      { id: 'prop_type', label: 'Nhóm Vật Phẩm', icon: '📦' },
-      { id: 'state', label: 'Vật Phẩm & Biến Thể', icon: '💎' },
-      { id: 'pedestal', label: 'Bệ Đỡ / Bục Trưng Bày', icon: '🏛️' },
-      { id: 'aura', label: 'Hào Quang Phép Thuật', icon: '✨' },
-      { id: 'effects', label: 'Bụi Sao & Tia Sáng', icon: '🌟' }
+      { id: 'prop_type', label: 'Nhóm Đồ', icon: '📦' },
+      { id: 'state', label: 'Vật Phẩm', icon: '💎' },
+      { id: 'pedestal', label: 'Bục Đỡ', icon: '🏛️' },
+      { id: 'aura', label: 'Hào Quang', icon: '✨' },
+      { id: 'effects', label: 'Hiệu Ứng', icon: '🌟' }
+    ]
+  },
+  {
+    id: 'monster',
+    name: 'Quái Vật Dị Biến',
+    subtitle: 'Monster CC0 • Sừng, càng & nanh vuốt',
+    icon: '👾',
+    badge: 'Quái Vật',
+    tagColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+    frameSize: 256,
+    isSpritesheet: false,
+    config: monsterConfig,
+    categories: [
+      { id: 'body', label: 'Thân Quái', icon: '👾' },
+      { id: 'leg', label: 'Đôi Chân', icon: '🦵' },
+      { id: 'arm', label: 'Cánh Tay', icon: '💪' },
+      { id: 'detail', label: 'Sừng & Vảy', icon: '✨' },
+      { id: 'eye', label: 'Đôi Mắt', icon: '👁️' },
+      { id: 'eyebrow', label: 'Lông Mày', icon: '🤨' },
+      { id: 'mouth', label: 'Răng Nanh', icon: '👄' },
+      { id: 'nose', label: 'Chiếc Mũi', icon: '👃' }
+    ]
+  },
+  {
+    id: 'alien',
+    name: 'Người Ngoài Hành Tinh',
+    subtitle: 'Alien Vũ Trụ • Ăng-ten & xúc tu',
+    icon: '👽',
+    badge: 'Ngoại Giới',
+    tagColor: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+    frameSize: 256,
+    isSpritesheet: false,
+    config: alienConfig,
+    categories: [
+      { id: 'body', label: 'Thân Quái', icon: '👽' },
+      { id: 'antenna', label: 'Ăng-Ten', icon: '📡' },
+      { id: 'eye', label: 'Mắt Dị Tộc', icon: '👁️' },
+      { id: 'mouth', label: 'Nanh Miệng', icon: '👄' },
+      { id: 'arm', label: 'Xúc Tu Tay', icon: '💪' },
+      { id: 'leg', label: 'Chân Đệm', icon: '🦵' }
     ]
   }
 ];
@@ -493,26 +522,22 @@ const CharacterBuilder = () => {
         {/* Bố cục 3 CỘT chuẩn Studio - Đồng bộ chiều cao 560px, triệt tiêu đè lấn */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
 
-          {/* CỘT 1: Sidebar Danh mục Điều Hướng (Hợp nhất 1 Card duy nhất) */}
-          <div className="md:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[560px] overflow-hidden">
-            {/* Header Thẻ: Chọn Model */}
-            <div className="p-3.5 border-b border-gray-100 bg-gray-50/60 shrink-0">
+          {/* CỘT 1: Sidebar Danh mục Điều Hướng (Hợp nhất 1 Card duy nhất, overflow-visible cho Dropdown) */}
+          <div className="md:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[560px] relative z-20">
+            {/* Header Thẻ: Chọn Model với Custom Dropdown */}
+            <div className="p-3 border-b border-gray-100 bg-gray-50/70 shrink-0 rounded-t-2xl">
               <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1.5 font-sans">
                 Loại Nhân Vật
               </label>
-              <select
-                value={currentModelId}
-                onChange={(e) => handleModelChange(e.target.value)}
-                className="w-full bg-white text-red-700 font-bold border border-red-200 py-2 px-3 rounded-xl font-sans text-xs focus:outline-none focus:ring-2 focus:ring-red-500 shadow-2xs"
-              >
-                {CHARACTER_MODELS.map(model => (
-                  <option key={model.id} value={model.id}>{model.name}</option>
-                ))}
-              </select>
+              <ModelDropdown
+                models={CHARACTER_MODELS}
+                selectedModelId={currentModelId}
+                onSelectModel={handleModelChange}
+              />
             </div>
 
             {/* Thân Thẻ: Danh sách Bộ phận (Cuộn nội bộ bên trong) */}
-            <div className="flex-1 p-3 overflow-y-auto custom-scrollbar flex flex-col">
+            <div className="flex-1 p-3 overflow-y-auto custom-scrollbar flex flex-col min-h-0">
               <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 block font-sans shrink-0">
                 Bộ Phận ({currentModel.categories.length})
               </span>
@@ -523,21 +548,38 @@ const CharacterBuilder = () => {
               />
             </div>
 
-            {/* Đáy Thẻ: Động tác Action (Gắn liền ở chân, không bị rơi rụng hay che khuất) */}
+            {/* Đáy Thẻ: Động tác Action (Segmented Pills đẹp mắt) */}
             {currentModel.isSpritesheet && (
-              <div className="p-3 border-t border-gray-100 bg-gray-50/80 shrink-0">
-                <label className="text-[11px] font-bold uppercase tracking-wider block mb-1.5 text-gray-500 font-sans">
+              <div className="p-2.5 border-t border-gray-100 bg-gray-50/80 shrink-0 rounded-b-2xl">
+                <label className="text-[10px] font-bold uppercase tracking-wider block mb-1 text-gray-400 font-sans">
                   Động tác (Action)
                 </label>
-                <select
-                  value={selections.action}
-                  onChange={(e) => handleSelectOption('action', e.target.value)}
-                  className="w-full bg-white border border-gray-300 text-gray-800 py-1.5 px-3 rounded-lg font-sans text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-red-500"
-                >
-                  <option value="idle">Đứng im (Idle)</option>
-                  <option value="run">Chạy (Run)</option>
-                  <option value="attack">Tấn công (Attack)</option>
-                </select>
+                <div className="grid grid-cols-3 gap-1 p-1 bg-gray-200/60 rounded-xl border border-gray-200/80">
+                  {[
+                    { id: 'idle', label: 'Đứng im', icon: '🧍' },
+                    { id: 'run', label: 'Chạy', icon: '🏃' },
+                    { id: 'attack', label: 'Tấn công', icon: '⚔️' },
+                  ].map(act => {
+                    const isActive = selections.action === act.id;
+                    return (
+                      <button
+                        key={act.id}
+                        type="button"
+                        onClick={() => handleSelectOption('action', act.id)}
+                        className={`
+                          py-1 px-1 rounded-lg text-[11px] font-bold font-sans flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer
+                          ${isActive
+                            ? 'bg-white text-red-600 shadow-2xs font-extrabold border border-red-100'
+                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70'
+                          }
+                        `}
+                      >
+                        <span className="text-xs">{act.icon}</span>
+                        <span className="leading-tight text-[10px]">{act.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>
@@ -672,6 +714,7 @@ const CharacterBuilder = () => {
               currentPalettes={currentModel.colorPalettes}
               currentGroups={currentModel.groups}
               isSpritesheet={currentModel.isSpritesheet}
+              currentModel={currentModel}
             />
           </div>
 

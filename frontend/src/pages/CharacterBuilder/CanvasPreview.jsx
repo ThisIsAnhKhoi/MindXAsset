@@ -109,12 +109,20 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
         // Check if rendering legacy side-view vehicles (frameSize !== 100 && frameSize !== 160)
         const isLegacyVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'wheels')) && frameSize !== 100 && frameSize !== 160;
         const isTopDownVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'ground' || l.category === 'accessories')) && (frameSize === 100 || frameSize === 160);
+        const isMonsterOrAlien = sortedLayers.some(l => l && (l.bodyCenter || (l.position && !isLegacyVehicle && !isTopDownVehicle)));
         const floorY = Math.round(height * (1 - 56 / 330)); // Top surface of the pedestal (h-14)
         if (isLegacyVehicle) {
           ctx.save();
           ctx.beginPath();
           ctx.ellipse(width / 2, floorY, Math.round(width * 0.36), 10, 0, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(0, 0, 0, 0.28)';
+          ctx.fill();
+          ctx.restore();
+        } else if (isMonsterOrAlien && !transparentBg) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.ellipse(width / 2, floorY - 2, Math.round(width * 0.22), 8, 0, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.20)';
           ctx.fill();
           ctx.restore();
         }
@@ -294,13 +302,13 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
           ctx.save();
 
           if (layerInfo.position) {
-            // Dựa vào cấu hình monster (ví dụ: position {x, y})
-            // Ta cần canh giữa quái vật trong canvas
-            const monsterScale = isSpritesheet ? layerScale : Math.min((width * 0.75) / 200, (height * 0.75) / 250);
+            // Quái vật & Alien Kenney CC0 Modular: Bounding box chuẩn tổng thể sau khi ghép là ~360px rộng và ~430px cao
+            // Thu phóng theo tỷ lệ 70% canvas để quái vật có độ thở hoàn hảo, không chạm trần, không bị cắt tay chân
+            const monsterScale = isSpritesheet ? layerScale : Math.min((width * 0.70) / 360, (height * 0.70) / 430);
 
             // Điểm bắt đầu vẽ (căn giữa)
-            const offsetX = (width - 200 * monsterScale) / 2;
-            const offsetY = (height - 250 * monsterScale) / 2;
+            const offsetX = (width - 360 * monsterScale) / 2;
+            const offsetY = (height - 430 * monsterScale) / 2;
 
             // Tính toán Pivot thực tế (mặc định 0,0 là góc trên trái)
             const pX = layerInfo.pivot ? layerInfo.pivot.x * sW : 0;
@@ -310,15 +318,15 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
             let tX = offsetX + layerInfo.position.x * monsterScale;
             let tY = offsetY + layerInfo.position.y * monsterScale;
 
-            // Nếu có bodyCenter, ta neo trung tâm của body vào chính giữa canvas
+            // Nếu có bodyCenter, neo trung tâm quái vật chuẩn mực vào giữa Canvas
             if (layerInfo.bodyCenter) {
               const dx = layerInfo.position.x - layerInfo.bodyCenter.x;
               const dy = layerInfo.position.y - layerInfo.bodyCenter.y;
 
-              // Đưa điểm bodyCenter vào giữa màn hình (theo width) 
-              // Lùi y xuống 55% height để chân chạm bóng đổ hợp lý hơn
+              // Trục X căn giữa (width / 2)
+              // Trục Y đặt tại 46% height để chân chạm sát mặt sàn bục đứng, sừng và tai không chạm nóc
               tX = width / 2 + dx * monsterScale;
-              tY = height * 0.45 + dy * monsterScale;
+              tY = height * 0.46 + dy * monsterScale;
             }
 
             // Di chuyển trục tọa độ tới điểm Neo trên màn hình

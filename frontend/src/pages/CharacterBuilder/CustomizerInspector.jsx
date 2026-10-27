@@ -48,6 +48,7 @@ const CustomizerInspector = ({
   colors,
   onSelectOption,
   onSelectColor,
+  currentModel,
   currentConfig,
   currentPalettes,
   currentGroups
@@ -73,37 +74,16 @@ const CustomizerInspector = ({
   const presets = (currentPalettes && currentPalettes[activeCategory]) || colorPalettes[activeCategory] || [];
 
   const getCategoryTitle = () => {
-    if (activeCategory === 'prop_type') return 'Nhóm Danh Mục Vật Phẩm';
+    if (activeCategory === 'prop_type') return '📦 Nhóm Vật Phẩm';
     if (activeCategory === 'state') {
       const activeTypeObj = (currentConfig?.prop_type || []).find(t => t.id === selections.prop_type);
-      return activeTypeObj ? activeTypeObj.name : 'Vật Phẩm & Biến Thể';
+      return activeTypeObj ? activeTypeObj.name : '💎 Vật Phẩm & Biến Thể';
     }
-    if (activeCategory === 'pedestal') return '🏛️ Bệ Đỡ Trưng Bày';
-    if (activeCategory === 'aura') return '✨ Hào Quang Phép Thuật';
-    if (activeCategory === 'effects') return '🌟 Bụi Sao & Tia Sáng';
-    // Fantasy categories:
-    if (activeCategory === 'races') return '🧝 Chủng Tộc & Gương Mặt';
-    if (activeCategory === 'expressions') return '🎭 Biểu Cảm Khuôn Mặt';
-    if (activeCategory === 'hairs') return '💇 Kiểu Tóc & Râu Tóc';
-    if (activeCategory === 'outfits') return '🥋 Trang Phục & Y Phục (128 Kiểu)';
-    if (activeCategory === 'bottoms') return '👖 Quần Giáp & Giày Ủng';
-    if (activeCategory === 'headgear') return '👑 Mũ, Tai Thú & Sừng';
-    if (activeCategory === 'accessories') return '🦊 Đuôi & Thắt Lưng';
-    if (activeCategory === 'weapons') return '⚔️ Vũ Khí & Pháp Cụ';
-    if (activeCategory === 'shadows') return '🌑 Bóng Đổ Mặt Đất';
-    // Standard pipoya / vehicles / soldiers:
-    if (activeCategory === 'bases') return '👤 Thân & Cơ Thể';
-    if (activeCategory === 'eyes') return '👁️ Mắt';
-    if (activeCategory === 'tops') return '👕 Trang Phục / Áo';
-    if (activeCategory === 'hats') return '🎩 Nón / Mũ';
-    if (activeCategory === 'glasses') return '🕶️ Kính';
-    if (activeCategory === 'ears') return '🐱 Tai Thú';
-    if (activeCategory === 'tails') return '🦊 Đuôi';
-    if (activeCategory === 'items') return '⚔️ Vật Phẩm';
-    if (activeCategory === 'cloaks') return '🦇 Áo Choàng';
-    if (activeCategory === 'beards') return '🧔 Râu';
-    if (activeCategory === 'hairadds') return '🎀 Phụ Kiện Tóc';
-    if (activeCategory === 'makeup') return '💄 Trang Điểm';
+    // Check if category exists in currentModel
+    const catObj = (currentModel?.categories || []).find(c => c.id === activeCategory);
+    if (catObj) {
+      return `${catObj.icon} ${catObj.label}`;
+    }
     return activeCategory;
   };
 
