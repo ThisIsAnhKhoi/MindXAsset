@@ -1,6 +1,6 @@
 /**
  * Configuration & Layer Composer for Grand In-Game Props & Items Studio
- * Features 220 high-quality pixel art and RPG items across 8 categories:
+ * Features 2082 high-quality pixel art and RPG items across 8 categories:
  * Weapons, Armor & Shields, Alchemy, Chests & Mechanisms, Relics & Tomes, Jewels & Minerals, Royal Feast, Survival.
  * Includes interactive states, multi-tier pedestals, mystical auras, and particle FX.
  */
@@ -1599,6 +1599,13040 @@ export const propConfig = {
         "src": "/assets/props/items/food_herbs_01.png",
         "thumbSrc": "/assets/props/thumbs/food_herbs_01.png",
         "forType": "survival_tools"
+    },
+    {
+        "id": "med7_r00_c00_000",
+        "name": "Khí Giới Trung Cổ #01-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c00_000.png"
+    },
+    {
+        "id": "med7_r00_c01_001",
+        "name": "Khí Giới Trung Cổ #01-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c01_001.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c01_001.png"
+    },
+    {
+        "id": "med7_r00_c02_002",
+        "name": "Khí Giới Trung Cổ #01-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c02_002.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c02_002.png"
+    },
+    {
+        "id": "med7_r00_c03_003",
+        "name": "Khí Giới Trung Cổ #01-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c03_003.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c03_003.png"
+    },
+    {
+        "id": "med7_r00_c04_004",
+        "name": "Khí Giới Trung Cổ #01-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c04_004.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c04_004.png"
+    },
+    {
+        "id": "med7_r00_c05_005",
+        "name": "Khí Giới Trung Cổ #01-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c05_005.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c05_005.png"
+    },
+    {
+        "id": "med7_r00_c06_006",
+        "name": "Khí Giới Trung Cổ #01-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c06_006.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c06_006.png"
+    },
+    {
+        "id": "med7_r00_c07_007",
+        "name": "Khí Giới Trung Cổ #01-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c07_007.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c07_007.png"
+    },
+    {
+        "id": "med7_r00_c08_008",
+        "name": "Khí Giới Trung Cổ #01-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c08_008.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c08_008.png"
+    },
+    {
+        "id": "med7_r00_c09_009",
+        "name": "Khí Giới Trung Cổ #01-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c09_009.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c09_009.png"
+    },
+    {
+        "id": "med7_r00_c10_010",
+        "name": "Khí Giới Trung Cổ #01-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c10_010.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c10_010.png"
+    },
+    {
+        "id": "med7_r00_c11_011",
+        "name": "Khí Giới Trung Cổ #01-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c11_011.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c11_011.png"
+    },
+    {
+        "id": "med7_r00_c12_012",
+        "name": "Khí Giới Trung Cổ #01-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c12_012.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c12_012.png"
+    },
+    {
+        "id": "med7_r00_c13_013",
+        "name": "Khí Giới Trung Cổ #01-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c13_013.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c13_013.png"
+    },
+    {
+        "id": "med7_r00_c14_014",
+        "name": "Khí Giới Trung Cổ #01-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c14_014.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c14_014.png"
+    },
+    {
+        "id": "med7_r00_c15_015",
+        "name": "Khí Giới Trung Cổ #01-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r00_c15_015.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r00_c15_015.png"
+    },
+    {
+        "id": "med7_r01_c00_016",
+        "name": "Khí Giới Trung Cổ #02-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c00_016.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c00_016.png"
+    },
+    {
+        "id": "med7_r01_c01_017",
+        "name": "Khí Giới Trung Cổ #02-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c01_017.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c01_017.png"
+    },
+    {
+        "id": "med7_r01_c02_018",
+        "name": "Khí Giới Trung Cổ #02-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c02_018.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c02_018.png"
+    },
+    {
+        "id": "med7_r01_c03_019",
+        "name": "Khí Giới Trung Cổ #02-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c03_019.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c03_019.png"
+    },
+    {
+        "id": "med7_r01_c04_020",
+        "name": "Khí Giới Trung Cổ #02-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c04_020.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c04_020.png"
+    },
+    {
+        "id": "med7_r01_c05_021",
+        "name": "Khí Giới Trung Cổ #02-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c05_021.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c05_021.png"
+    },
+    {
+        "id": "med7_r01_c06_022",
+        "name": "Khí Giới Trung Cổ #02-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c06_022.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c06_022.png"
+    },
+    {
+        "id": "med7_r01_c07_023",
+        "name": "Khí Giới Trung Cổ #02-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c07_023.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c07_023.png"
+    },
+    {
+        "id": "med7_r01_c08_024",
+        "name": "Khí Giới Trung Cổ #02-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c08_024.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c08_024.png"
+    },
+    {
+        "id": "med7_r01_c09_025",
+        "name": "Khí Giới Trung Cổ #02-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c09_025.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c09_025.png"
+    },
+    {
+        "id": "med7_r01_c10_026",
+        "name": "Khí Giới Trung Cổ #02-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c10_026.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c10_026.png"
+    },
+    {
+        "id": "med7_r01_c11_027",
+        "name": "Khí Giới Trung Cổ #02-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c11_027.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c11_027.png"
+    },
+    {
+        "id": "med7_r01_c12_028",
+        "name": "Khí Giới Trung Cổ #02-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c12_028.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c12_028.png"
+    },
+    {
+        "id": "med7_r01_c13_029",
+        "name": "Khí Giới Trung Cổ #02-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c13_029.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c13_029.png"
+    },
+    {
+        "id": "med7_r01_c14_030",
+        "name": "Khí Giới Trung Cổ #02-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c14_030.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c14_030.png"
+    },
+    {
+        "id": "med7_r01_c15_031",
+        "name": "Khí Giới Trung Cổ #02-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r01_c15_031.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r01_c15_031.png"
+    },
+    {
+        "id": "med7_r02_c00_032",
+        "name": "Khí Giới Trung Cổ #03-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c00_032.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c00_032.png"
+    },
+    {
+        "id": "med7_r02_c01_033",
+        "name": "Khí Giới Trung Cổ #03-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c01_033.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c01_033.png"
+    },
+    {
+        "id": "med7_r02_c02_034",
+        "name": "Khí Giới Trung Cổ #03-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c02_034.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c02_034.png"
+    },
+    {
+        "id": "med7_r02_c03_035",
+        "name": "Khí Giới Trung Cổ #03-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c03_035.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c03_035.png"
+    },
+    {
+        "id": "med7_r02_c04_036",
+        "name": "Khí Giới Trung Cổ #03-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c04_036.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c04_036.png"
+    },
+    {
+        "id": "med7_r02_c05_037",
+        "name": "Khí Giới Trung Cổ #03-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c05_037.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c05_037.png"
+    },
+    {
+        "id": "med7_r02_c06_038",
+        "name": "Khí Giới Trung Cổ #03-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c06_038.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c06_038.png"
+    },
+    {
+        "id": "med7_r02_c07_039",
+        "name": "Khí Giới Trung Cổ #03-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c07_039.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c07_039.png"
+    },
+    {
+        "id": "med7_r02_c08_040",
+        "name": "Khí Giới Trung Cổ #03-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c08_040.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c08_040.png"
+    },
+    {
+        "id": "med7_r02_c09_041",
+        "name": "Khí Giới Trung Cổ #03-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c09_041.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c09_041.png"
+    },
+    {
+        "id": "med7_r02_c10_042",
+        "name": "Khí Giới Trung Cổ #03-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c10_042.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c10_042.png"
+    },
+    {
+        "id": "med7_r02_c11_043",
+        "name": "Khí Giới Trung Cổ #03-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c11_043.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c11_043.png"
+    },
+    {
+        "id": "med7_r02_c12_044",
+        "name": "Khí Giới Trung Cổ #03-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c12_044.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c12_044.png"
+    },
+    {
+        "id": "med7_r02_c13_045",
+        "name": "Khí Giới Trung Cổ #03-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c13_045.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c13_045.png"
+    },
+    {
+        "id": "med7_r02_c14_046",
+        "name": "Khí Giới Trung Cổ #03-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c14_046.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c14_046.png"
+    },
+    {
+        "id": "med7_r02_c15_047",
+        "name": "Khí Giới Trung Cổ #03-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r02_c15_047.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r02_c15_047.png"
+    },
+    {
+        "id": "med7_r03_c00_048",
+        "name": "Khí Giới Trung Cổ #04-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c00_048.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c00_048.png"
+    },
+    {
+        "id": "med7_r03_c01_049",
+        "name": "Khí Giới Trung Cổ #04-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c01_049.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c01_049.png"
+    },
+    {
+        "id": "med7_r03_c02_050",
+        "name": "Khí Giới Trung Cổ #04-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c02_050.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c02_050.png"
+    },
+    {
+        "id": "med7_r03_c03_051",
+        "name": "Khí Giới Trung Cổ #04-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c03_051.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c03_051.png"
+    },
+    {
+        "id": "med7_r03_c04_052",
+        "name": "Khí Giới Trung Cổ #04-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c04_052.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c04_052.png"
+    },
+    {
+        "id": "med7_r03_c05_053",
+        "name": "Khí Giới Trung Cổ #04-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c05_053.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c05_053.png"
+    },
+    {
+        "id": "med7_r03_c06_054",
+        "name": "Khí Giới Trung Cổ #04-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c06_054.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c06_054.png"
+    },
+    {
+        "id": "med7_r03_c07_055",
+        "name": "Khí Giới Trung Cổ #04-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c07_055.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c07_055.png"
+    },
+    {
+        "id": "med7_r03_c08_056",
+        "name": "Khí Giới Trung Cổ #04-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c08_056.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c08_056.png"
+    },
+    {
+        "id": "med7_r03_c09_057",
+        "name": "Khí Giới Trung Cổ #04-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c09_057.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c09_057.png"
+    },
+    {
+        "id": "med7_r03_c10_058",
+        "name": "Khí Giới Trung Cổ #04-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c10_058.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c10_058.png"
+    },
+    {
+        "id": "med7_r03_c11_059",
+        "name": "Khí Giới Trung Cổ #04-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c11_059.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c11_059.png"
+    },
+    {
+        "id": "med7_r03_c12_060",
+        "name": "Khí Giới Trung Cổ #04-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c12_060.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c12_060.png"
+    },
+    {
+        "id": "med7_r03_c13_061",
+        "name": "Khí Giới Trung Cổ #04-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c13_061.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c13_061.png"
+    },
+    {
+        "id": "med7_r03_c14_062",
+        "name": "Khí Giới Trung Cổ #04-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c14_062.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c14_062.png"
+    },
+    {
+        "id": "med7_r03_c15_063",
+        "name": "Khí Giới Trung Cổ #04-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r03_c15_063.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r03_c15_063.png"
+    },
+    {
+        "id": "med7_r04_c00_064",
+        "name": "Khí Giới Trung Cổ #05-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c00_064.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c00_064.png"
+    },
+    {
+        "id": "med7_r04_c01_065",
+        "name": "Khí Giới Trung Cổ #05-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c01_065.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c01_065.png"
+    },
+    {
+        "id": "med7_r04_c02_066",
+        "name": "Khí Giới Trung Cổ #05-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c02_066.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c02_066.png"
+    },
+    {
+        "id": "med7_r04_c03_067",
+        "name": "Khí Giới Trung Cổ #05-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c03_067.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c03_067.png"
+    },
+    {
+        "id": "med7_r04_c04_068",
+        "name": "Khí Giới Trung Cổ #05-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c04_068.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c04_068.png"
+    },
+    {
+        "id": "med7_r04_c05_069",
+        "name": "Khí Giới Trung Cổ #05-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c05_069.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c05_069.png"
+    },
+    {
+        "id": "med7_r04_c06_070",
+        "name": "Khí Giới Trung Cổ #05-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c06_070.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c06_070.png"
+    },
+    {
+        "id": "med7_r04_c07_071",
+        "name": "Khí Giới Trung Cổ #05-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c07_071.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c07_071.png"
+    },
+    {
+        "id": "med7_r04_c08_072",
+        "name": "Khí Giới Trung Cổ #05-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c08_072.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c08_072.png"
+    },
+    {
+        "id": "med7_r04_c09_073",
+        "name": "Khí Giới Trung Cổ #05-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c09_073.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c09_073.png"
+    },
+    {
+        "id": "med7_r04_c10_074",
+        "name": "Khí Giới Trung Cổ #05-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c10_074.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c10_074.png"
+    },
+    {
+        "id": "med7_r04_c11_075",
+        "name": "Khí Giới Trung Cổ #05-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c11_075.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c11_075.png"
+    },
+    {
+        "id": "med7_r04_c12_076",
+        "name": "Khí Giới Trung Cổ #05-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c12_076.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c12_076.png"
+    },
+    {
+        "id": "med7_r04_c13_077",
+        "name": "Khí Giới Trung Cổ #05-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c13_077.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c13_077.png"
+    },
+    {
+        "id": "med7_r04_c14_078",
+        "name": "Khí Giới Trung Cổ #05-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c14_078.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c14_078.png"
+    },
+    {
+        "id": "med7_r04_c15_079",
+        "name": "Khí Giới Trung Cổ #05-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r04_c15_079.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r04_c15_079.png"
+    },
+    {
+        "id": "med7_r05_c00_080",
+        "name": "Khí Giới Trung Cổ #06-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c00_080.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c00_080.png"
+    },
+    {
+        "id": "med7_r05_c01_081",
+        "name": "Khí Giới Trung Cổ #06-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c01_081.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c01_081.png"
+    },
+    {
+        "id": "med7_r05_c02_082",
+        "name": "Khí Giới Trung Cổ #06-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c02_082.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c02_082.png"
+    },
+    {
+        "id": "med7_r05_c03_083",
+        "name": "Khí Giới Trung Cổ #06-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c03_083.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c03_083.png"
+    },
+    {
+        "id": "med7_r05_c04_084",
+        "name": "Khí Giới Trung Cổ #06-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c04_084.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c04_084.png"
+    },
+    {
+        "id": "med7_r05_c05_085",
+        "name": "Khí Giới Trung Cổ #06-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c05_085.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c05_085.png"
+    },
+    {
+        "id": "med7_r05_c06_086",
+        "name": "Khí Giới Trung Cổ #06-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c06_086.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c06_086.png"
+    },
+    {
+        "id": "med7_r05_c07_087",
+        "name": "Khí Giới Trung Cổ #06-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c07_087.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c07_087.png"
+    },
+    {
+        "id": "med7_r05_c08_088",
+        "name": "Khí Giới Trung Cổ #06-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c08_088.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c08_088.png"
+    },
+    {
+        "id": "med7_r05_c09_089",
+        "name": "Khí Giới Trung Cổ #06-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c09_089.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c09_089.png"
+    },
+    {
+        "id": "med7_r05_c10_090",
+        "name": "Khí Giới Trung Cổ #06-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c10_090.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c10_090.png"
+    },
+    {
+        "id": "med7_r05_c11_091",
+        "name": "Khí Giới Trung Cổ #06-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c11_091.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c11_091.png"
+    },
+    {
+        "id": "med7_r05_c12_092",
+        "name": "Khí Giới Trung Cổ #06-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c12_092.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c12_092.png"
+    },
+    {
+        "id": "med7_r05_c13_093",
+        "name": "Khí Giới Trung Cổ #06-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c13_093.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c13_093.png"
+    },
+    {
+        "id": "med7_r05_c14_094",
+        "name": "Khí Giới Trung Cổ #06-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c14_094.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c14_094.png"
+    },
+    {
+        "id": "med7_r05_c15_095",
+        "name": "Khí Giới Trung Cổ #06-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r05_c15_095.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r05_c15_095.png"
+    },
+    {
+        "id": "med7_r06_c00_096",
+        "name": "Khí Giới Trung Cổ #07-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c00_096.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c00_096.png"
+    },
+    {
+        "id": "med7_r06_c01_097",
+        "name": "Khí Giới Trung Cổ #07-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c01_097.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c01_097.png"
+    },
+    {
+        "id": "med7_r06_c02_098",
+        "name": "Khí Giới Trung Cổ #07-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c02_098.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c02_098.png"
+    },
+    {
+        "id": "med7_r06_c03_099",
+        "name": "Khí Giới Trung Cổ #07-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c03_099.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c03_099.png"
+    },
+    {
+        "id": "med7_r06_c04_100",
+        "name": "Khí Giới Trung Cổ #07-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c04_100.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c04_100.png"
+    },
+    {
+        "id": "med7_r06_c05_101",
+        "name": "Khí Giới Trung Cổ #07-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c05_101.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c05_101.png"
+    },
+    {
+        "id": "med7_r06_c06_102",
+        "name": "Khí Giới Trung Cổ #07-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c06_102.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c06_102.png"
+    },
+    {
+        "id": "med7_r06_c07_103",
+        "name": "Khí Giới Trung Cổ #07-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c07_103.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c07_103.png"
+    },
+    {
+        "id": "med7_r06_c08_104",
+        "name": "Khí Giới Trung Cổ #07-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c08_104.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c08_104.png"
+    },
+    {
+        "id": "med7_r06_c09_105",
+        "name": "Khí Giới Trung Cổ #07-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c09_105.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c09_105.png"
+    },
+    {
+        "id": "med7_r06_c10_106",
+        "name": "Khí Giới Trung Cổ #07-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c10_106.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c10_106.png"
+    },
+    {
+        "id": "med7_r06_c11_107",
+        "name": "Khí Giới Trung Cổ #07-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c11_107.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c11_107.png"
+    },
+    {
+        "id": "med7_r06_c12_108",
+        "name": "Khí Giới Trung Cổ #07-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c12_108.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c12_108.png"
+    },
+    {
+        "id": "med7_r06_c13_109",
+        "name": "Khí Giới Trung Cổ #07-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c13_109.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c13_109.png"
+    },
+    {
+        "id": "med7_r06_c14_110",
+        "name": "Khí Giới Trung Cổ #07-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c14_110.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c14_110.png"
+    },
+    {
+        "id": "med7_r06_c15_111",
+        "name": "Khí Giới Trung Cổ #07-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r06_c15_111.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r06_c15_111.png"
+    },
+    {
+        "id": "med7_r07_c00_112",
+        "name": "Khí Giới Trung Cổ #08-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c00_112.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c00_112.png"
+    },
+    {
+        "id": "med7_r07_c01_113",
+        "name": "Khí Giới Trung Cổ #08-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c01_113.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c01_113.png"
+    },
+    {
+        "id": "med7_r07_c02_114",
+        "name": "Khí Giới Trung Cổ #08-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c02_114.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c02_114.png"
+    },
+    {
+        "id": "med7_r07_c03_115",
+        "name": "Khí Giới Trung Cổ #08-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c03_115.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c03_115.png"
+    },
+    {
+        "id": "med7_r07_c04_116",
+        "name": "Khí Giới Trung Cổ #08-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c04_116.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c04_116.png"
+    },
+    {
+        "id": "med7_r07_c05_117",
+        "name": "Khí Giới Trung Cổ #08-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c05_117.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c05_117.png"
+    },
+    {
+        "id": "med7_r07_c06_118",
+        "name": "Khí Giới Trung Cổ #08-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c06_118.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c06_118.png"
+    },
+    {
+        "id": "med7_r07_c07_119",
+        "name": "Khí Giới Trung Cổ #08-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c07_119.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c07_119.png"
+    },
+    {
+        "id": "med7_r07_c08_120",
+        "name": "Khí Giới Trung Cổ #08-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c08_120.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c08_120.png"
+    },
+    {
+        "id": "med7_r07_c09_121",
+        "name": "Khí Giới Trung Cổ #08-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c09_121.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c09_121.png"
+    },
+    {
+        "id": "med7_r07_c10_122",
+        "name": "Khí Giới Trung Cổ #08-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c10_122.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c10_122.png"
+    },
+    {
+        "id": "med7_r07_c11_123",
+        "name": "Khí Giới Trung Cổ #08-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c11_123.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c11_123.png"
+    },
+    {
+        "id": "med7_r07_c12_124",
+        "name": "Khí Giới Trung Cổ #08-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c12_124.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c12_124.png"
+    },
+    {
+        "id": "med7_r07_c13_125",
+        "name": "Khí Giới Trung Cổ #08-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c13_125.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c13_125.png"
+    },
+    {
+        "id": "med7_r07_c14_126",
+        "name": "Khí Giới Trung Cổ #08-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c14_126.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c14_126.png"
+    },
+    {
+        "id": "med7_r07_c15_127",
+        "name": "Khí Giới Trung Cổ #08-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r07_c15_127.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r07_c15_127.png"
+    },
+    {
+        "id": "med7_r08_c00_128",
+        "name": "Khí Giới Trung Cổ #09-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c00_128.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c00_128.png"
+    },
+    {
+        "id": "med7_r08_c01_129",
+        "name": "Khí Giới Trung Cổ #09-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c01_129.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c01_129.png"
+    },
+    {
+        "id": "med7_r08_c02_130",
+        "name": "Khí Giới Trung Cổ #09-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c02_130.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c02_130.png"
+    },
+    {
+        "id": "med7_r08_c03_131",
+        "name": "Khí Giới Trung Cổ #09-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c03_131.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c03_131.png"
+    },
+    {
+        "id": "med7_r08_c04_132",
+        "name": "Khí Giới Trung Cổ #09-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c04_132.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c04_132.png"
+    },
+    {
+        "id": "med7_r08_c05_133",
+        "name": "Khí Giới Trung Cổ #09-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c05_133.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c05_133.png"
+    },
+    {
+        "id": "med7_r08_c06_134",
+        "name": "Khí Giới Trung Cổ #09-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c06_134.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c06_134.png"
+    },
+    {
+        "id": "med7_r08_c07_135",
+        "name": "Khí Giới Trung Cổ #09-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c07_135.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c07_135.png"
+    },
+    {
+        "id": "med7_r08_c08_136",
+        "name": "Khí Giới Trung Cổ #09-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c08_136.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c08_136.png"
+    },
+    {
+        "id": "med7_r08_c09_137",
+        "name": "Khí Giới Trung Cổ #09-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c09_137.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c09_137.png"
+    },
+    {
+        "id": "med7_r08_c10_138",
+        "name": "Khí Giới Trung Cổ #09-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c10_138.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c10_138.png"
+    },
+    {
+        "id": "med7_r08_c11_139",
+        "name": "Khí Giới Trung Cổ #09-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c11_139.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c11_139.png"
+    },
+    {
+        "id": "med7_r08_c12_140",
+        "name": "Khí Giới Trung Cổ #09-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c12_140.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c12_140.png"
+    },
+    {
+        "id": "med7_r08_c13_141",
+        "name": "Khí Giới Trung Cổ #09-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c13_141.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c13_141.png"
+    },
+    {
+        "id": "med7_r08_c14_142",
+        "name": "Khí Giới Trung Cổ #09-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c14_142.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c14_142.png"
+    },
+    {
+        "id": "med7_r08_c15_143",
+        "name": "Khí Giới Trung Cổ #09-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r08_c15_143.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r08_c15_143.png"
+    },
+    {
+        "id": "med7_r09_c00_144",
+        "name": "Khí Giới Trung Cổ #10-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c00_144.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c00_144.png"
+    },
+    {
+        "id": "med7_r09_c01_145",
+        "name": "Khí Giới Trung Cổ #10-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c01_145.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c01_145.png"
+    },
+    {
+        "id": "med7_r09_c02_146",
+        "name": "Khí Giới Trung Cổ #10-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c02_146.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c02_146.png"
+    },
+    {
+        "id": "med7_r09_c03_147",
+        "name": "Khí Giới Trung Cổ #10-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c03_147.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c03_147.png"
+    },
+    {
+        "id": "med7_r09_c04_148",
+        "name": "Khí Giới Trung Cổ #10-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c04_148.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c04_148.png"
+    },
+    {
+        "id": "med7_r09_c05_149",
+        "name": "Khí Giới Trung Cổ #10-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c05_149.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c05_149.png"
+    },
+    {
+        "id": "med7_r09_c06_150",
+        "name": "Khí Giới Trung Cổ #10-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c06_150.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c06_150.png"
+    },
+    {
+        "id": "med7_r09_c07_151",
+        "name": "Khí Giới Trung Cổ #10-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c07_151.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c07_151.png"
+    },
+    {
+        "id": "med7_r09_c08_152",
+        "name": "Khí Giới Trung Cổ #10-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c08_152.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c08_152.png"
+    },
+    {
+        "id": "med7_r09_c09_153",
+        "name": "Khí Giới Trung Cổ #10-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c09_153.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c09_153.png"
+    },
+    {
+        "id": "med7_r09_c10_154",
+        "name": "Khí Giới Trung Cổ #10-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c10_154.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c10_154.png"
+    },
+    {
+        "id": "med7_r09_c11_155",
+        "name": "Khí Giới Trung Cổ #10-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c11_155.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c11_155.png"
+    },
+    {
+        "id": "med7_r09_c12_156",
+        "name": "Khí Giới Trung Cổ #10-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c12_156.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c12_156.png"
+    },
+    {
+        "id": "med7_r09_c13_157",
+        "name": "Khí Giới Trung Cổ #10-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c13_157.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c13_157.png"
+    },
+    {
+        "id": "med7_r09_c14_158",
+        "name": "Khí Giới Trung Cổ #10-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c14_158.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c14_158.png"
+    },
+    {
+        "id": "med7_r09_c15_159",
+        "name": "Khí Giới Trung Cổ #10-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r09_c15_159.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r09_c15_159.png"
+    },
+    {
+        "id": "med7_r10_c00_160",
+        "name": "Cung Nỏ & Mũi Tên #11-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c00_160.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c00_160.png"
+    },
+    {
+        "id": "med7_r10_c01_161",
+        "name": "Cung Nỏ & Mũi Tên #11-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c01_161.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c01_161.png"
+    },
+    {
+        "id": "med7_r10_c02_162",
+        "name": "Cung Nỏ & Mũi Tên #11-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c02_162.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c02_162.png"
+    },
+    {
+        "id": "med7_r10_c03_163",
+        "name": "Cung Nỏ & Mũi Tên #11-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c03_163.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c03_163.png"
+    },
+    {
+        "id": "med7_r10_c04_164",
+        "name": "Cung Nỏ & Mũi Tên #11-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c04_164.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c04_164.png"
+    },
+    {
+        "id": "med7_r10_c05_165",
+        "name": "Cung Nỏ & Mũi Tên #11-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c05_165.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c05_165.png"
+    },
+    {
+        "id": "med7_r10_c06_166",
+        "name": "Cung Nỏ & Mũi Tên #11-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c06_166.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c06_166.png"
+    },
+    {
+        "id": "med7_r10_c07_167",
+        "name": "Cung Nỏ & Mũi Tên #11-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c07_167.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c07_167.png"
+    },
+    {
+        "id": "med7_r10_c08_168",
+        "name": "Cung Nỏ & Mũi Tên #11-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c08_168.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c08_168.png"
+    },
+    {
+        "id": "med7_r10_c09_169",
+        "name": "Cung Nỏ & Mũi Tên #11-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c09_169.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c09_169.png"
+    },
+    {
+        "id": "med7_r10_c10_170",
+        "name": "Cung Nỏ & Mũi Tên #11-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c10_170.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c10_170.png"
+    },
+    {
+        "id": "med7_r10_c11_171",
+        "name": "Cung Nỏ & Mũi Tên #11-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c11_171.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c11_171.png"
+    },
+    {
+        "id": "med7_r10_c12_172",
+        "name": "Cung Nỏ & Mũi Tên #11-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c12_172.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c12_172.png"
+    },
+    {
+        "id": "med7_r10_c13_173",
+        "name": "Cung Nỏ & Mũi Tên #11-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c13_173.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c13_173.png"
+    },
+    {
+        "id": "med7_r10_c14_174",
+        "name": "Cung Nỏ & Mũi Tên #11-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c14_174.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c14_174.png"
+    },
+    {
+        "id": "med7_r10_c15_175",
+        "name": "Cung Nỏ & Mũi Tên #11-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r10_c15_175.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r10_c15_175.png"
+    },
+    {
+        "id": "med7_r11_c00_176",
+        "name": "Cung Nỏ & Mũi Tên #12-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c00_176.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c00_176.png"
+    },
+    {
+        "id": "med7_r11_c01_177",
+        "name": "Cung Nỏ & Mũi Tên #12-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c01_177.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c01_177.png"
+    },
+    {
+        "id": "med7_r11_c02_178",
+        "name": "Cung Nỏ & Mũi Tên #12-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c02_178.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c02_178.png"
+    },
+    {
+        "id": "med7_r11_c03_179",
+        "name": "Cung Nỏ & Mũi Tên #12-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c03_179.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c03_179.png"
+    },
+    {
+        "id": "med7_r11_c04_180",
+        "name": "Cung Nỏ & Mũi Tên #12-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c04_180.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c04_180.png"
+    },
+    {
+        "id": "med7_r11_c05_181",
+        "name": "Cung Nỏ & Mũi Tên #12-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c05_181.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c05_181.png"
+    },
+    {
+        "id": "med7_r11_c06_182",
+        "name": "Cung Nỏ & Mũi Tên #12-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c06_182.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c06_182.png"
+    },
+    {
+        "id": "med7_r11_c07_183",
+        "name": "Cung Nỏ & Mũi Tên #12-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c07_183.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c07_183.png"
+    },
+    {
+        "id": "med7_r11_c08_184",
+        "name": "Cung Nỏ & Mũi Tên #12-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c08_184.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c08_184.png"
+    },
+    {
+        "id": "med7_r11_c09_185",
+        "name": "Cung Nỏ & Mũi Tên #12-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c09_185.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c09_185.png"
+    },
+    {
+        "id": "med7_r11_c10_186",
+        "name": "Cung Nỏ & Mũi Tên #12-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c10_186.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c10_186.png"
+    },
+    {
+        "id": "med7_r11_c11_187",
+        "name": "Cung Nỏ & Mũi Tên #12-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c11_187.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c11_187.png"
+    },
+    {
+        "id": "med7_r11_c12_188",
+        "name": "Cung Nỏ & Mũi Tên #12-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c12_188.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c12_188.png"
+    },
+    {
+        "id": "med7_r11_c13_189",
+        "name": "Cung Nỏ & Mũi Tên #12-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c13_189.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c13_189.png"
+    },
+    {
+        "id": "med7_r11_c14_190",
+        "name": "Cung Nỏ & Mũi Tên #12-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c14_190.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c14_190.png"
+    },
+    {
+        "id": "med7_r11_c15_191",
+        "name": "Cung Nỏ & Mũi Tên #12-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r11_c15_191.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r11_c15_191.png"
+    },
+    {
+        "id": "med7_r12_c00_192",
+        "name": "Cung Nỏ & Mũi Tên #13-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c00_192.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c00_192.png"
+    },
+    {
+        "id": "med7_r12_c01_193",
+        "name": "Cung Nỏ & Mũi Tên #13-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c01_193.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c01_193.png"
+    },
+    {
+        "id": "med7_r12_c02_194",
+        "name": "Cung Nỏ & Mũi Tên #13-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c02_194.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c02_194.png"
+    },
+    {
+        "id": "med7_r12_c03_195",
+        "name": "Cung Nỏ & Mũi Tên #13-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c03_195.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c03_195.png"
+    },
+    {
+        "id": "med7_r12_c04_196",
+        "name": "Cung Nỏ & Mũi Tên #13-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c04_196.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c04_196.png"
+    },
+    {
+        "id": "med7_r12_c05_197",
+        "name": "Cung Nỏ & Mũi Tên #13-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c05_197.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c05_197.png"
+    },
+    {
+        "id": "med7_r12_c06_198",
+        "name": "Cung Nỏ & Mũi Tên #13-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c06_198.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c06_198.png"
+    },
+    {
+        "id": "med7_r12_c07_199",
+        "name": "Cung Nỏ & Mũi Tên #13-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c07_199.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c07_199.png"
+    },
+    {
+        "id": "med7_r12_c08_200",
+        "name": "Cung Nỏ & Mũi Tên #13-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c08_200.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c08_200.png"
+    },
+    {
+        "id": "med7_r12_c09_201",
+        "name": "Cung Nỏ & Mũi Tên #13-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c09_201.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c09_201.png"
+    },
+    {
+        "id": "med7_r12_c10_202",
+        "name": "Cung Nỏ & Mũi Tên #13-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c10_202.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c10_202.png"
+    },
+    {
+        "id": "med7_r12_c11_203",
+        "name": "Cung Nỏ & Mũi Tên #13-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c11_203.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c11_203.png"
+    },
+    {
+        "id": "med7_r12_c12_204",
+        "name": "Cung Nỏ & Mũi Tên #13-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c12_204.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c12_204.png"
+    },
+    {
+        "id": "med7_r12_c13_205",
+        "name": "Cung Nỏ & Mũi Tên #13-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c13_205.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c13_205.png"
+    },
+    {
+        "id": "med7_r12_c14_206",
+        "name": "Cung Nỏ & Mũi Tên #13-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c14_206.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c14_206.png"
+    },
+    {
+        "id": "med7_r12_c15_207",
+        "name": "Cung Nỏ & Mũi Tên #13-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med7_r12_c15_207.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r12_c15_207.png"
+    },
+    {
+        "id": "med7_r13_c00_208",
+        "name": "Khiên Chiến Binh #14-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c00_208.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c00_208.png"
+    },
+    {
+        "id": "med7_r13_c01_209",
+        "name": "Khiên Chiến Binh #14-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c01_209.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c01_209.png"
+    },
+    {
+        "id": "med7_r13_c02_210",
+        "name": "Khiên Chiến Binh #14-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c02_210.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c02_210.png"
+    },
+    {
+        "id": "med7_r13_c03_211",
+        "name": "Khiên Chiến Binh #14-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c03_211.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c03_211.png"
+    },
+    {
+        "id": "med7_r13_c04_212",
+        "name": "Khiên Chiến Binh #14-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c04_212.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c04_212.png"
+    },
+    {
+        "id": "med7_r13_c05_213",
+        "name": "Khiên Chiến Binh #14-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c05_213.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c05_213.png"
+    },
+    {
+        "id": "med7_r13_c06_214",
+        "name": "Khiên Chiến Binh #14-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c06_214.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c06_214.png"
+    },
+    {
+        "id": "med7_r13_c07_215",
+        "name": "Khiên Chiến Binh #14-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c07_215.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c07_215.png"
+    },
+    {
+        "id": "med7_r13_c08_216",
+        "name": "Khiên Chiến Binh #14-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c08_216.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c08_216.png"
+    },
+    {
+        "id": "med7_r13_c09_217",
+        "name": "Khiên Chiến Binh #14-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c09_217.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c09_217.png"
+    },
+    {
+        "id": "med7_r13_c10_218",
+        "name": "Khiên Chiến Binh #14-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c10_218.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c10_218.png"
+    },
+    {
+        "id": "med7_r13_c11_219",
+        "name": "Khiên Chiến Binh #14-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c11_219.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c11_219.png"
+    },
+    {
+        "id": "med7_r13_c12_220",
+        "name": "Khiên Chiến Binh #14-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c12_220.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c12_220.png"
+    },
+    {
+        "id": "med7_r13_c13_221",
+        "name": "Khiên Chiến Binh #14-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c13_221.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c13_221.png"
+    },
+    {
+        "id": "med7_r13_c14_222",
+        "name": "Khiên Chiến Binh #14-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c14_222.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c14_222.png"
+    },
+    {
+        "id": "med7_r13_c15_223",
+        "name": "Khiên Chiến Binh #14-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c15_223.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c15_223.png"
+    },
+    {
+        "id": "med7_r13_c16_224",
+        "name": "Khiên Chiến Binh #14-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c16_224.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c16_224.png"
+    },
+    {
+        "id": "med7_r13_c17_225",
+        "name": "Khiên Chiến Binh #14-18",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r13_c17_225.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r13_c17_225.png"
+    },
+    {
+        "id": "med7_r14_c00_226",
+        "name": "Khiên Chiến Binh #15-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c00_226.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c00_226.png"
+    },
+    {
+        "id": "med7_r14_c01_227",
+        "name": "Khiên Chiến Binh #15-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c01_227.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c01_227.png"
+    },
+    {
+        "id": "med7_r14_c02_228",
+        "name": "Khiên Chiến Binh #15-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c02_228.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c02_228.png"
+    },
+    {
+        "id": "med7_r14_c03_229",
+        "name": "Khiên Chiến Binh #15-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c03_229.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c03_229.png"
+    },
+    {
+        "id": "med7_r14_c04_230",
+        "name": "Khiên Chiến Binh #15-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c04_230.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c04_230.png"
+    },
+    {
+        "id": "med7_r14_c05_231",
+        "name": "Khiên Chiến Binh #15-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c05_231.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c05_231.png"
+    },
+    {
+        "id": "med7_r14_c06_232",
+        "name": "Khiên Chiến Binh #15-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c06_232.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c06_232.png"
+    },
+    {
+        "id": "med7_r14_c07_233",
+        "name": "Khiên Chiến Binh #15-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c07_233.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c07_233.png"
+    },
+    {
+        "id": "med7_r14_c08_234",
+        "name": "Khiên Chiến Binh #15-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c08_234.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c08_234.png"
+    },
+    {
+        "id": "med7_r14_c09_235",
+        "name": "Khiên Chiến Binh #15-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c09_235.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c09_235.png"
+    },
+    {
+        "id": "med7_r14_c10_236",
+        "name": "Khiên Chiến Binh #15-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c10_236.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c10_236.png"
+    },
+    {
+        "id": "med7_r14_c11_237",
+        "name": "Khiên Chiến Binh #15-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c11_237.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c11_237.png"
+    },
+    {
+        "id": "med7_r14_c12_238",
+        "name": "Khiên Chiến Binh #15-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c12_238.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c12_238.png"
+    },
+    {
+        "id": "med7_r14_c13_239",
+        "name": "Khiên Chiến Binh #15-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c13_239.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c13_239.png"
+    },
+    {
+        "id": "med7_r14_c14_240",
+        "name": "Khiên Chiến Binh #15-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c14_240.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c14_240.png"
+    },
+    {
+        "id": "med7_r14_c15_241",
+        "name": "Khiên Chiến Binh #15-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c15_241.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c15_241.png"
+    },
+    {
+        "id": "med7_r14_c16_242",
+        "name": "Khiên Chiến Binh #15-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r14_c16_242.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r14_c16_242.png"
+    },
+    {
+        "id": "med7_r15_c00_243",
+        "name": "Giáp Trụ & Mũ Sắt #16-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c00_243.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c00_243.png"
+    },
+    {
+        "id": "med7_r15_c01_244",
+        "name": "Giáp Trụ & Mũ Sắt #16-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c01_244.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c01_244.png"
+    },
+    {
+        "id": "med7_r15_c02_245",
+        "name": "Giáp Trụ & Mũ Sắt #16-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c02_245.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c02_245.png"
+    },
+    {
+        "id": "med7_r15_c03_246",
+        "name": "Giáp Trụ & Mũ Sắt #16-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c03_246.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c03_246.png"
+    },
+    {
+        "id": "med7_r15_c04_247",
+        "name": "Giáp Trụ & Mũ Sắt #16-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c04_247.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c04_247.png"
+    },
+    {
+        "id": "med7_r15_c05_248",
+        "name": "Giáp Trụ & Mũ Sắt #16-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c05_248.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c05_248.png"
+    },
+    {
+        "id": "med7_r15_c06_249",
+        "name": "Giáp Trụ & Mũ Sắt #16-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c06_249.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c06_249.png"
+    },
+    {
+        "id": "med7_r15_c07_250",
+        "name": "Giáp Trụ & Mũ Sắt #16-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c07_250.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c07_250.png"
+    },
+    {
+        "id": "med7_r15_c08_251",
+        "name": "Giáp Trụ & Mũ Sắt #16-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c08_251.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c08_251.png"
+    },
+    {
+        "id": "med7_r15_c09_252",
+        "name": "Giáp Trụ & Mũ Sắt #16-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c09_252.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c09_252.png"
+    },
+    {
+        "id": "med7_r15_c10_253",
+        "name": "Giáp Trụ & Mũ Sắt #16-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c10_253.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c10_253.png"
+    },
+    {
+        "id": "med7_r15_c11_254",
+        "name": "Giáp Trụ & Mũ Sắt #16-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c11_254.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c11_254.png"
+    },
+    {
+        "id": "med7_r15_c12_255",
+        "name": "Giáp Trụ & Mũ Sắt #16-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c12_255.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c12_255.png"
+    },
+    {
+        "id": "med7_r15_c13_256",
+        "name": "Giáp Trụ & Mũ Sắt #16-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c13_256.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c13_256.png"
+    },
+    {
+        "id": "med7_r15_c14_257",
+        "name": "Giáp Trụ & Mũ Sắt #16-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c14_257.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c14_257.png"
+    },
+    {
+        "id": "med7_r15_c15_258",
+        "name": "Giáp Trụ & Mũ Sắt #16-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med7_r15_c15_258.png",
+        "thumbSrc": "/assets/props/thumbs/med7_r15_c15_258.png"
+    },
+    {
+        "id": "med5_r00_c00_000",
+        "name": "Vũ Khí Cổ Điển #01-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c00_000.png"
+    },
+    {
+        "id": "med5_r00_c01_001",
+        "name": "Vũ Khí Cổ Điển #01-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c01_001.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c01_001.png"
+    },
+    {
+        "id": "med5_r00_c02_002",
+        "name": "Vũ Khí Cổ Điển #01-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c02_002.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c02_002.png"
+    },
+    {
+        "id": "med5_r00_c03_003",
+        "name": "Vũ Khí Cổ Điển #01-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c03_003.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c03_003.png"
+    },
+    {
+        "id": "med5_r00_c04_004",
+        "name": "Vũ Khí Cổ Điển #01-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c04_004.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c04_004.png"
+    },
+    {
+        "id": "med5_r00_c05_005",
+        "name": "Vũ Khí Cổ Điển #01-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c05_005.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c05_005.png"
+    },
+    {
+        "id": "med5_r00_c06_006",
+        "name": "Vũ Khí Cổ Điển #01-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c06_006.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c06_006.png"
+    },
+    {
+        "id": "med5_r00_c07_007",
+        "name": "Vũ Khí Cổ Điển #01-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c07_007.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c07_007.png"
+    },
+    {
+        "id": "med5_r00_c08_008",
+        "name": "Vũ Khí Cổ Điển #01-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c08_008.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c08_008.png"
+    },
+    {
+        "id": "med5_r00_c09_009",
+        "name": "Vũ Khí Cổ Điển #01-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c09_009.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c09_009.png"
+    },
+    {
+        "id": "med5_r00_c10_010",
+        "name": "Vũ Khí Cổ Điển #01-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c10_010.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c10_010.png"
+    },
+    {
+        "id": "med5_r00_c11_011",
+        "name": "Vũ Khí Cổ Điển #01-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c11_011.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c11_011.png"
+    },
+    {
+        "id": "med5_r00_c12_012",
+        "name": "Vũ Khí Cổ Điển #01-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c12_012.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c12_012.png"
+    },
+    {
+        "id": "med5_r00_c13_013",
+        "name": "Vũ Khí Cổ Điển #01-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c13_013.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c13_013.png"
+    },
+    {
+        "id": "med5_r00_c14_014",
+        "name": "Vũ Khí Cổ Điển #01-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c14_014.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c14_014.png"
+    },
+    {
+        "id": "med5_r00_c15_015",
+        "name": "Vũ Khí Cổ Điển #01-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r00_c15_015.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r00_c15_015.png"
+    },
+    {
+        "id": "med5_r01_c00_016",
+        "name": "Vũ Khí Cổ Điển #02-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c00_016.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c00_016.png"
+    },
+    {
+        "id": "med5_r01_c01_017",
+        "name": "Vũ Khí Cổ Điển #02-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c01_017.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c01_017.png"
+    },
+    {
+        "id": "med5_r01_c02_018",
+        "name": "Vũ Khí Cổ Điển #02-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c02_018.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c02_018.png"
+    },
+    {
+        "id": "med5_r01_c03_019",
+        "name": "Vũ Khí Cổ Điển #02-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c03_019.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c03_019.png"
+    },
+    {
+        "id": "med5_r01_c04_020",
+        "name": "Vũ Khí Cổ Điển #02-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c04_020.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c04_020.png"
+    },
+    {
+        "id": "med5_r01_c05_021",
+        "name": "Vũ Khí Cổ Điển #02-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c05_021.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c05_021.png"
+    },
+    {
+        "id": "med5_r01_c06_022",
+        "name": "Vũ Khí Cổ Điển #02-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c06_022.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c06_022.png"
+    },
+    {
+        "id": "med5_r01_c07_023",
+        "name": "Vũ Khí Cổ Điển #02-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c07_023.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c07_023.png"
+    },
+    {
+        "id": "med5_r01_c08_024",
+        "name": "Vũ Khí Cổ Điển #02-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c08_024.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c08_024.png"
+    },
+    {
+        "id": "med5_r01_c09_025",
+        "name": "Vũ Khí Cổ Điển #02-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c09_025.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c09_025.png"
+    },
+    {
+        "id": "med5_r01_c10_026",
+        "name": "Vũ Khí Cổ Điển #02-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c10_026.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c10_026.png"
+    },
+    {
+        "id": "med5_r01_c11_027",
+        "name": "Vũ Khí Cổ Điển #02-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c11_027.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c11_027.png"
+    },
+    {
+        "id": "med5_r01_c12_028",
+        "name": "Vũ Khí Cổ Điển #02-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c12_028.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c12_028.png"
+    },
+    {
+        "id": "med5_r01_c13_029",
+        "name": "Vũ Khí Cổ Điển #02-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c13_029.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c13_029.png"
+    },
+    {
+        "id": "med5_r01_c14_030",
+        "name": "Vũ Khí Cổ Điển #02-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c14_030.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c14_030.png"
+    },
+    {
+        "id": "med5_r01_c15_031",
+        "name": "Vũ Khí Cổ Điển #02-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r01_c15_031.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r01_c15_031.png"
+    },
+    {
+        "id": "med5_r02_c00_032",
+        "name": "Vũ Khí Cổ Điển #03-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c00_032.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c00_032.png"
+    },
+    {
+        "id": "med5_r02_c01_033",
+        "name": "Vũ Khí Cổ Điển #03-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c01_033.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c01_033.png"
+    },
+    {
+        "id": "med5_r02_c02_034",
+        "name": "Vũ Khí Cổ Điển #03-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c02_034.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c02_034.png"
+    },
+    {
+        "id": "med5_r02_c03_035",
+        "name": "Vũ Khí Cổ Điển #03-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c03_035.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c03_035.png"
+    },
+    {
+        "id": "med5_r02_c04_036",
+        "name": "Vũ Khí Cổ Điển #03-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c04_036.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c04_036.png"
+    },
+    {
+        "id": "med5_r02_c05_037",
+        "name": "Vũ Khí Cổ Điển #03-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c05_037.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c05_037.png"
+    },
+    {
+        "id": "med5_r02_c06_038",
+        "name": "Vũ Khí Cổ Điển #03-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c06_038.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c06_038.png"
+    },
+    {
+        "id": "med5_r02_c07_039",
+        "name": "Vũ Khí Cổ Điển #03-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c07_039.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c07_039.png"
+    },
+    {
+        "id": "med5_r02_c08_040",
+        "name": "Vũ Khí Cổ Điển #03-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c08_040.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c08_040.png"
+    },
+    {
+        "id": "med5_r02_c09_041",
+        "name": "Vũ Khí Cổ Điển #03-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c09_041.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c09_041.png"
+    },
+    {
+        "id": "med5_r02_c10_042",
+        "name": "Vũ Khí Cổ Điển #03-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c10_042.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c10_042.png"
+    },
+    {
+        "id": "med5_r02_c11_043",
+        "name": "Vũ Khí Cổ Điển #03-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c11_043.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c11_043.png"
+    },
+    {
+        "id": "med5_r02_c12_044",
+        "name": "Vũ Khí Cổ Điển #03-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c12_044.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c12_044.png"
+    },
+    {
+        "id": "med5_r02_c13_045",
+        "name": "Vũ Khí Cổ Điển #03-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c13_045.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c13_045.png"
+    },
+    {
+        "id": "med5_r02_c14_046",
+        "name": "Vũ Khí Cổ Điển #03-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c14_046.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c14_046.png"
+    },
+    {
+        "id": "med5_r02_c15_047",
+        "name": "Vũ Khí Cổ Điển #03-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r02_c15_047.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r02_c15_047.png"
+    },
+    {
+        "id": "med5_r03_c00_048",
+        "name": "Vũ Khí Cổ Điển #04-01",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c00_048.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c00_048.png"
+    },
+    {
+        "id": "med5_r03_c01_049",
+        "name": "Vũ Khí Cổ Điển #04-02",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c01_049.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c01_049.png"
+    },
+    {
+        "id": "med5_r03_c02_050",
+        "name": "Vũ Khí Cổ Điển #04-03",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c02_050.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c02_050.png"
+    },
+    {
+        "id": "med5_r03_c03_051",
+        "name": "Vũ Khí Cổ Điển #04-04",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c03_051.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c03_051.png"
+    },
+    {
+        "id": "med5_r03_c04_052",
+        "name": "Vũ Khí Cổ Điển #04-05",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c04_052.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c04_052.png"
+    },
+    {
+        "id": "med5_r03_c05_053",
+        "name": "Vũ Khí Cổ Điển #04-06",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c05_053.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c05_053.png"
+    },
+    {
+        "id": "med5_r03_c06_054",
+        "name": "Vũ Khí Cổ Điển #04-07",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c06_054.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c06_054.png"
+    },
+    {
+        "id": "med5_r03_c07_055",
+        "name": "Vũ Khí Cổ Điển #04-08",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c07_055.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c07_055.png"
+    },
+    {
+        "id": "med5_r03_c08_056",
+        "name": "Vũ Khí Cổ Điển #04-09",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c08_056.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c08_056.png"
+    },
+    {
+        "id": "med5_r03_c09_057",
+        "name": "Vũ Khí Cổ Điển #04-10",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c09_057.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c09_057.png"
+    },
+    {
+        "id": "med5_r03_c10_058",
+        "name": "Vũ Khí Cổ Điển #04-11",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c10_058.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c10_058.png"
+    },
+    {
+        "id": "med5_r03_c11_059",
+        "name": "Vũ Khí Cổ Điển #04-12",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c11_059.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c11_059.png"
+    },
+    {
+        "id": "med5_r03_c12_060",
+        "name": "Vũ Khí Cổ Điển #04-13",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c12_060.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c12_060.png"
+    },
+    {
+        "id": "med5_r03_c13_061",
+        "name": "Vũ Khí Cổ Điển #04-14",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c13_061.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c13_061.png"
+    },
+    {
+        "id": "med5_r03_c14_062",
+        "name": "Vũ Khí Cổ Điển #04-15",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c14_062.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c14_062.png"
+    },
+    {
+        "id": "med5_r03_c15_063",
+        "name": "Vũ Khí Cổ Điển #04-16",
+        "forType": "weapons",
+        "src": "/assets/props/items/med5_r03_c15_063.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r03_c15_063.png"
+    },
+    {
+        "id": "med5_r04_c00_064",
+        "name": "Dụng Cụ Thợ Rèn #05-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c00_064.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c00_064.png"
+    },
+    {
+        "id": "med5_r04_c01_065",
+        "name": "Dụng Cụ Thợ Rèn #05-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c01_065.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c01_065.png"
+    },
+    {
+        "id": "med5_r04_c02_066",
+        "name": "Dụng Cụ Thợ Rèn #05-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c02_066.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c02_066.png"
+    },
+    {
+        "id": "med5_r04_c03_067",
+        "name": "Dụng Cụ Thợ Rèn #05-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c03_067.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c03_067.png"
+    },
+    {
+        "id": "med5_r04_c04_068",
+        "name": "Dụng Cụ Thợ Rèn #05-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c04_068.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c04_068.png"
+    },
+    {
+        "id": "med5_r04_c05_069",
+        "name": "Dụng Cụ Thợ Rèn #05-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c05_069.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c05_069.png"
+    },
+    {
+        "id": "med5_r04_c06_070",
+        "name": "Dụng Cụ Thợ Rèn #05-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c06_070.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c06_070.png"
+    },
+    {
+        "id": "med5_r04_c07_071",
+        "name": "Dụng Cụ Thợ Rèn #05-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c07_071.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c07_071.png"
+    },
+    {
+        "id": "med5_r04_c08_072",
+        "name": "Dụng Cụ Thợ Rèn #05-09",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c08_072.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c08_072.png"
+    },
+    {
+        "id": "med5_r04_c09_073",
+        "name": "Dụng Cụ Thợ Rèn #05-10",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c09_073.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c09_073.png"
+    },
+    {
+        "id": "med5_r04_c10_074",
+        "name": "Dụng Cụ Thợ Rèn #05-11",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c10_074.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c10_074.png"
+    },
+    {
+        "id": "med5_r04_c11_075",
+        "name": "Dụng Cụ Thợ Rèn #05-12",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c11_075.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c11_075.png"
+    },
+    {
+        "id": "med5_r04_c12_076",
+        "name": "Dụng Cụ Thợ Rèn #05-13",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c12_076.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c12_076.png"
+    },
+    {
+        "id": "med5_r04_c13_077",
+        "name": "Dụng Cụ Thợ Rèn #05-14",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c13_077.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c13_077.png"
+    },
+    {
+        "id": "med5_r04_c14_078",
+        "name": "Dụng Cụ Thợ Rèn #05-15",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c14_078.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c14_078.png"
+    },
+    {
+        "id": "med5_r04_c15_079",
+        "name": "Dụng Cụ Thợ Rèn #05-16",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c15_079.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c15_079.png"
+    },
+    {
+        "id": "med5_r04_c16_080",
+        "name": "Dụng Cụ Thợ Rèn #05-17",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c16_080.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c16_080.png"
+    },
+    {
+        "id": "med5_r04_c17_081",
+        "name": "Dụng Cụ Thợ Rèn #05-18",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r04_c17_081.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r04_c17_081.png"
+    },
+    {
+        "id": "med5_r05_c00_082",
+        "name": "Dụng Cụ Thợ Rèn #06-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c00_082.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c00_082.png"
+    },
+    {
+        "id": "med5_r05_c01_083",
+        "name": "Dụng Cụ Thợ Rèn #06-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c01_083.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c01_083.png"
+    },
+    {
+        "id": "med5_r05_c02_084",
+        "name": "Dụng Cụ Thợ Rèn #06-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c02_084.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c02_084.png"
+    },
+    {
+        "id": "med5_r05_c03_085",
+        "name": "Dụng Cụ Thợ Rèn #06-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c03_085.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c03_085.png"
+    },
+    {
+        "id": "med5_r05_c04_086",
+        "name": "Dụng Cụ Thợ Rèn #06-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c04_086.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c04_086.png"
+    },
+    {
+        "id": "med5_r05_c05_087",
+        "name": "Dụng Cụ Thợ Rèn #06-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c05_087.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c05_087.png"
+    },
+    {
+        "id": "med5_r05_c06_088",
+        "name": "Dụng Cụ Thợ Rèn #06-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c06_088.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c06_088.png"
+    },
+    {
+        "id": "med5_r05_c07_089",
+        "name": "Dụng Cụ Thợ Rèn #06-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c07_089.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c07_089.png"
+    },
+    {
+        "id": "med5_r05_c08_090",
+        "name": "Dụng Cụ Thợ Rèn #06-09",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c08_090.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c08_090.png"
+    },
+    {
+        "id": "med5_r05_c09_091",
+        "name": "Dụng Cụ Thợ Rèn #06-10",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c09_091.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c09_091.png"
+    },
+    {
+        "id": "med5_r05_c10_092",
+        "name": "Dụng Cụ Thợ Rèn #06-11",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c10_092.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c10_092.png"
+    },
+    {
+        "id": "med5_r05_c11_093",
+        "name": "Dụng Cụ Thợ Rèn #06-12",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c11_093.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c11_093.png"
+    },
+    {
+        "id": "med5_r05_c12_094",
+        "name": "Dụng Cụ Thợ Rèn #06-13",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c12_094.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c12_094.png"
+    },
+    {
+        "id": "med5_r05_c13_095",
+        "name": "Dụng Cụ Thợ Rèn #06-14",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c13_095.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c13_095.png"
+    },
+    {
+        "id": "med5_r05_c14_096",
+        "name": "Dụng Cụ Thợ Rèn #06-15",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c14_096.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c14_096.png"
+    },
+    {
+        "id": "med5_r05_c15_097",
+        "name": "Dụng Cụ Thợ Rèn #06-16",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med5_r05_c15_097.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r05_c15_097.png"
+    },
+    {
+        "id": "med5_r06_c00_098",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-01",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c00_098.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c00_098.png"
+    },
+    {
+        "id": "med5_r06_c01_099",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-02",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c01_099.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c01_099.png"
+    },
+    {
+        "id": "med5_r06_c02_100",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-03",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c02_100.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c02_100.png"
+    },
+    {
+        "id": "med5_r06_c03_101",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-04",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c03_101.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c03_101.png"
+    },
+    {
+        "id": "med5_r06_c04_102",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-05",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c04_102.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c04_102.png"
+    },
+    {
+        "id": "med5_r06_c05_103",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-06",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c05_103.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c05_103.png"
+    },
+    {
+        "id": "med5_r06_c06_104",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-07",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c06_104.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c06_104.png"
+    },
+    {
+        "id": "med5_r06_c07_105",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-08",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c07_105.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c07_105.png"
+    },
+    {
+        "id": "med5_r06_c08_106",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-09",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c08_106.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c08_106.png"
+    },
+    {
+        "id": "med5_r06_c09_107",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-10",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c09_107.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c09_107.png"
+    },
+    {
+        "id": "med5_r06_c10_108",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-11",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c10_108.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c10_108.png"
+    },
+    {
+        "id": "med5_r06_c11_109",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-12",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c11_109.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c11_109.png"
+    },
+    {
+        "id": "med5_r06_c12_110",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-13",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c12_110.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c12_110.png"
+    },
+    {
+        "id": "med5_r06_c13_111",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-14",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c13_111.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c13_111.png"
+    },
+    {
+        "id": "med5_r06_c14_112",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-15",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c14_112.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c14_112.png"
+    },
+    {
+        "id": "med5_r06_c15_113",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #07-16",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r06_c15_113.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r06_c15_113.png"
+    },
+    {
+        "id": "med5_r07_c00_114",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-01",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c00_114.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c00_114.png"
+    },
+    {
+        "id": "med5_r07_c01_115",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-02",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c01_115.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c01_115.png"
+    },
+    {
+        "id": "med5_r07_c02_116",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-03",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c02_116.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c02_116.png"
+    },
+    {
+        "id": "med5_r07_c03_117",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-04",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c03_117.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c03_117.png"
+    },
+    {
+        "id": "med5_r07_c04_118",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-05",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c04_118.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c04_118.png"
+    },
+    {
+        "id": "med5_r07_c05_119",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-06",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c05_119.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c05_119.png"
+    },
+    {
+        "id": "med5_r07_c06_120",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-07",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c06_120.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c06_120.png"
+    },
+    {
+        "id": "med5_r07_c07_121",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-08",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c07_121.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c07_121.png"
+    },
+    {
+        "id": "med5_r07_c08_122",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-09",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c08_122.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c08_122.png"
+    },
+    {
+        "id": "med5_r07_c09_123",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-10",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c09_123.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c09_123.png"
+    },
+    {
+        "id": "med5_r07_c10_124",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-11",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c10_124.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c10_124.png"
+    },
+    {
+        "id": "med5_r07_c11_125",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-12",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c11_125.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c11_125.png"
+    },
+    {
+        "id": "med5_r07_c12_126",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-13",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c12_126.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c12_126.png"
+    },
+    {
+        "id": "med5_r07_c13_127",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-14",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c13_127.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c13_127.png"
+    },
+    {
+        "id": "med5_r07_c14_128",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-15",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c14_128.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c14_128.png"
+    },
+    {
+        "id": "med5_r07_c15_129",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-16",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c15_129.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c15_129.png"
+    },
+    {
+        "id": "med5_r07_c16_130",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #08-17",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r07_c16_130.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r07_c16_130.png"
+    },
+    {
+        "id": "med5_r08_c00_131",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-01",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c00_131.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c00_131.png"
+    },
+    {
+        "id": "med5_r08_c01_132",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-02",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c01_132.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c01_132.png"
+    },
+    {
+        "id": "med5_r08_c02_133",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-03",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c02_133.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c02_133.png"
+    },
+    {
+        "id": "med5_r08_c03_134",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-04",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c03_134.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c03_134.png"
+    },
+    {
+        "id": "med5_r08_c04_135",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-05",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c04_135.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c04_135.png"
+    },
+    {
+        "id": "med5_r08_c05_136",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-06",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c05_136.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c05_136.png"
+    },
+    {
+        "id": "med5_r08_c06_137",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-07",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c06_137.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c06_137.png"
+    },
+    {
+        "id": "med5_r08_c07_138",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-08",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c07_138.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c07_138.png"
+    },
+    {
+        "id": "med5_r08_c08_139",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-09",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c08_139.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c08_139.png"
+    },
+    {
+        "id": "med5_r08_c09_140",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-10",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c09_140.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c09_140.png"
+    },
+    {
+        "id": "med5_r08_c10_141",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-11",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c10_141.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c10_141.png"
+    },
+    {
+        "id": "med5_r08_c11_142",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-12",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c11_142.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c11_142.png"
+    },
+    {
+        "id": "med5_r08_c12_143",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-13",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c12_143.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c12_143.png"
+    },
+    {
+        "id": "med5_r08_c13_144",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-14",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c13_144.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c13_144.png"
+    },
+    {
+        "id": "med5_r08_c14_145",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-15",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c14_145.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c14_145.png"
+    },
+    {
+        "id": "med5_r08_c15_146",
+        "name": "Dụng Cụ Giả Kim & Thước Đo #09-16",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med5_r08_c15_146.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r08_c15_146.png"
+    },
+    {
+        "id": "med5_r09_c00_147",
+        "name": "Bình Thủy Tinh Giả Kim #10-01",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c00_147.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c00_147.png"
+    },
+    {
+        "id": "med5_r09_c01_148",
+        "name": "Bình Thủy Tinh Giả Kim #10-02",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c01_148.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c01_148.png"
+    },
+    {
+        "id": "med5_r09_c02_149",
+        "name": "Bình Thủy Tinh Giả Kim #10-03",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c02_149.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c02_149.png"
+    },
+    {
+        "id": "med5_r09_c03_150",
+        "name": "Bình Thủy Tinh Giả Kim #10-04",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c03_150.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c03_150.png"
+    },
+    {
+        "id": "med5_r09_c04_151",
+        "name": "Bình Thủy Tinh Giả Kim #10-05",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c04_151.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c04_151.png"
+    },
+    {
+        "id": "med5_r09_c05_152",
+        "name": "Bình Thủy Tinh Giả Kim #10-06",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c05_152.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c05_152.png"
+    },
+    {
+        "id": "med5_r09_c06_153",
+        "name": "Bình Thủy Tinh Giả Kim #10-07",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c06_153.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c06_153.png"
+    },
+    {
+        "id": "med5_r09_c07_154",
+        "name": "Bình Thủy Tinh Giả Kim #10-08",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c07_154.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c07_154.png"
+    },
+    {
+        "id": "med5_r09_c08_155",
+        "name": "Bình Thủy Tinh Giả Kim #10-09",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c08_155.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c08_155.png"
+    },
+    {
+        "id": "med5_r09_c09_156",
+        "name": "Bình Thủy Tinh Giả Kim #10-10",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c09_156.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c09_156.png"
+    },
+    {
+        "id": "med5_r09_c10_157",
+        "name": "Bình Thủy Tinh Giả Kim #10-11",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c10_157.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c10_157.png"
+    },
+    {
+        "id": "med5_r09_c11_158",
+        "name": "Bình Thủy Tinh Giả Kim #10-12",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c11_158.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c11_158.png"
+    },
+    {
+        "id": "med5_r09_c12_159",
+        "name": "Bình Thủy Tinh Giả Kim #10-13",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c12_159.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c12_159.png"
+    },
+    {
+        "id": "med5_r09_c13_160",
+        "name": "Bình Thủy Tinh Giả Kim #10-14",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c13_160.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c13_160.png"
+    },
+    {
+        "id": "med5_r09_c14_161",
+        "name": "Bình Thủy Tinh Giả Kim #10-15",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c14_161.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c14_161.png"
+    },
+    {
+        "id": "med5_r09_c15_162",
+        "name": "Bình Thủy Tinh Giả Kim #10-16",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r09_c15_162.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r09_c15_162.png"
+    },
+    {
+        "id": "med5_r10_c00_163",
+        "name": "Bình Thủy Tinh Giả Kim #11-01",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c00_163.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c00_163.png"
+    },
+    {
+        "id": "med5_r10_c01_164",
+        "name": "Bình Thủy Tinh Giả Kim #11-02",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c01_164.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c01_164.png"
+    },
+    {
+        "id": "med5_r10_c02_165",
+        "name": "Bình Thủy Tinh Giả Kim #11-03",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c02_165.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c02_165.png"
+    },
+    {
+        "id": "med5_r10_c03_166",
+        "name": "Bình Thủy Tinh Giả Kim #11-04",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c03_166.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c03_166.png"
+    },
+    {
+        "id": "med5_r10_c04_167",
+        "name": "Bình Thủy Tinh Giả Kim #11-05",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c04_167.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c04_167.png"
+    },
+    {
+        "id": "med5_r10_c05_168",
+        "name": "Bình Thủy Tinh Giả Kim #11-06",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c05_168.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c05_168.png"
+    },
+    {
+        "id": "med5_r10_c06_169",
+        "name": "Bình Thủy Tinh Giả Kim #11-07",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c06_169.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c06_169.png"
+    },
+    {
+        "id": "med5_r10_c07_170",
+        "name": "Bình Thủy Tinh Giả Kim #11-08",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c07_170.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c07_170.png"
+    },
+    {
+        "id": "med5_r10_c08_171",
+        "name": "Bình Thủy Tinh Giả Kim #11-09",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c08_171.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c08_171.png"
+    },
+    {
+        "id": "med5_r10_c09_172",
+        "name": "Bình Thủy Tinh Giả Kim #11-10",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c09_172.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c09_172.png"
+    },
+    {
+        "id": "med5_r10_c10_173",
+        "name": "Bình Thủy Tinh Giả Kim #11-11",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c10_173.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c10_173.png"
+    },
+    {
+        "id": "med5_r10_c11_174",
+        "name": "Bình Thủy Tinh Giả Kim #11-12",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c11_174.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c11_174.png"
+    },
+    {
+        "id": "med5_r10_c12_175",
+        "name": "Bình Thủy Tinh Giả Kim #11-13",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c12_175.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c12_175.png"
+    },
+    {
+        "id": "med5_r10_c13_176",
+        "name": "Bình Thủy Tinh Giả Kim #11-14",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c13_176.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c13_176.png"
+    },
+    {
+        "id": "med5_r10_c14_177",
+        "name": "Bình Thủy Tinh Giả Kim #11-15",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c14_177.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c14_177.png"
+    },
+    {
+        "id": "med5_r10_c15_178",
+        "name": "Bình Thủy Tinh Giả Kim #11-16",
+        "forType": "alchemy",
+        "src": "/assets/props/items/med5_r10_c15_178.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r10_c15_178.png"
+    },
+    {
+        "id": "med5_r11_c00_179",
+        "name": "Trang Sức Hoàng Gia #12-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c00_179.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c00_179.png"
+    },
+    {
+        "id": "med5_r11_c01_180",
+        "name": "Trang Sức Hoàng Gia #12-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c01_180.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c01_180.png"
+    },
+    {
+        "id": "med5_r11_c02_181",
+        "name": "Trang Sức Hoàng Gia #12-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c02_181.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c02_181.png"
+    },
+    {
+        "id": "med5_r11_c03_182",
+        "name": "Trang Sức Hoàng Gia #12-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c03_182.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c03_182.png"
+    },
+    {
+        "id": "med5_r11_c04_183",
+        "name": "Trang Sức Hoàng Gia #12-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c04_183.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c04_183.png"
+    },
+    {
+        "id": "med5_r11_c05_184",
+        "name": "Trang Sức Hoàng Gia #12-06",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c05_184.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c05_184.png"
+    },
+    {
+        "id": "med5_r11_c06_185",
+        "name": "Trang Sức Hoàng Gia #12-07",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c06_185.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c06_185.png"
+    },
+    {
+        "id": "med5_r11_c07_186",
+        "name": "Trang Sức Hoàng Gia #12-08",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c07_186.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c07_186.png"
+    },
+    {
+        "id": "med5_r11_c08_187",
+        "name": "Trang Sức Hoàng Gia #12-09",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c08_187.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c08_187.png"
+    },
+    {
+        "id": "med5_r11_c09_188",
+        "name": "Trang Sức Hoàng Gia #12-10",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c09_188.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c09_188.png"
+    },
+    {
+        "id": "med5_r11_c10_189",
+        "name": "Trang Sức Hoàng Gia #12-11",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c10_189.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c10_189.png"
+    },
+    {
+        "id": "med5_r11_c11_190",
+        "name": "Trang Sức Hoàng Gia #12-12",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c11_190.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c11_190.png"
+    },
+    {
+        "id": "med5_r11_c12_191",
+        "name": "Trang Sức Hoàng Gia #12-13",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c12_191.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c12_191.png"
+    },
+    {
+        "id": "med5_r11_c13_192",
+        "name": "Trang Sức Hoàng Gia #12-14",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c13_192.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c13_192.png"
+    },
+    {
+        "id": "med5_r11_c14_193",
+        "name": "Trang Sức Hoàng Gia #12-15",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c14_193.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c14_193.png"
+    },
+    {
+        "id": "med5_r11_c15_194",
+        "name": "Trang Sức Hoàng Gia #12-16",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r11_c15_194.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r11_c15_194.png"
+    },
+    {
+        "id": "med5_r12_c00_195",
+        "name": "Trang Sức Hoàng Gia #13-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c00_195.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c00_195.png"
+    },
+    {
+        "id": "med5_r12_c01_196",
+        "name": "Trang Sức Hoàng Gia #13-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c01_196.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c01_196.png"
+    },
+    {
+        "id": "med5_r12_c02_197",
+        "name": "Trang Sức Hoàng Gia #13-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c02_197.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c02_197.png"
+    },
+    {
+        "id": "med5_r12_c03_198",
+        "name": "Trang Sức Hoàng Gia #13-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c03_198.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c03_198.png"
+    },
+    {
+        "id": "med5_r12_c04_199",
+        "name": "Trang Sức Hoàng Gia #13-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c04_199.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c04_199.png"
+    },
+    {
+        "id": "med5_r12_c08_200",
+        "name": "Trang Sức Hoàng Gia #13-09",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c08_200.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c08_200.png"
+    },
+    {
+        "id": "med5_r12_c09_201",
+        "name": "Trang Sức Hoàng Gia #13-10",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c09_201.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c09_201.png"
+    },
+    {
+        "id": "med5_r12_c10_202",
+        "name": "Trang Sức Hoàng Gia #13-11",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c10_202.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c10_202.png"
+    },
+    {
+        "id": "med5_r12_c11_203",
+        "name": "Trang Sức Hoàng Gia #13-12",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c11_203.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c11_203.png"
+    },
+    {
+        "id": "med5_r12_c12_204",
+        "name": "Trang Sức Hoàng Gia #13-13",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c12_204.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c12_204.png"
+    },
+    {
+        "id": "med5_r12_c13_205",
+        "name": "Trang Sức Hoàng Gia #13-14",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c13_205.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c13_205.png"
+    },
+    {
+        "id": "med5_r12_c14_206",
+        "name": "Trang Sức Hoàng Gia #13-15",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c14_206.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c14_206.png"
+    },
+    {
+        "id": "med5_r12_c15_207",
+        "name": "Trang Sức Hoàng Gia #13-16",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c15_207.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c15_207.png"
+    },
+    {
+        "id": "med5_r12_c16_208",
+        "name": "Trang Sức Hoàng Gia #13-17",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c16_208.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c16_208.png"
+    },
+    {
+        "id": "med5_r12_c17_209",
+        "name": "Trang Sức Hoàng Gia #13-18",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/med5_r12_c17_209.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r12_c17_209.png"
+    },
+    {
+        "id": "med5_r13_c00_210",
+        "name": "Vật Phẩm Cung Đình #14-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c00_210.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c00_210.png"
+    },
+    {
+        "id": "med5_r13_c01_211",
+        "name": "Vật Phẩm Cung Đình #14-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c01_211.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c01_211.png"
+    },
+    {
+        "id": "med5_r13_c02_212",
+        "name": "Vật Phẩm Cung Đình #14-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c02_212.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c02_212.png"
+    },
+    {
+        "id": "med5_r13_c03_213",
+        "name": "Vật Phẩm Cung Đình #14-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c03_213.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c03_213.png"
+    },
+    {
+        "id": "med5_r13_c04_214",
+        "name": "Vật Phẩm Cung Đình #14-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c04_214.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c04_214.png"
+    },
+    {
+        "id": "med5_r13_c05_215",
+        "name": "Vật Phẩm Cung Đình #14-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c05_215.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c05_215.png"
+    },
+    {
+        "id": "med5_r13_c06_216",
+        "name": "Vật Phẩm Cung Đình #14-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c06_216.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c06_216.png"
+    },
+    {
+        "id": "med5_r13_c07_217",
+        "name": "Vật Phẩm Cung Đình #14-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c07_217.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c07_217.png"
+    },
+    {
+        "id": "med5_r13_c08_218",
+        "name": "Vật Phẩm Cung Đình #14-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c08_218.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c08_218.png"
+    },
+    {
+        "id": "med5_r13_c09_219",
+        "name": "Vật Phẩm Cung Đình #14-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c09_219.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c09_219.png"
+    },
+    {
+        "id": "med5_r13_c10_220",
+        "name": "Vật Phẩm Cung Đình #14-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c10_220.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c10_220.png"
+    },
+    {
+        "id": "med5_r13_c11_221",
+        "name": "Vật Phẩm Cung Đình #14-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c11_221.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c11_221.png"
+    },
+    {
+        "id": "med5_r13_c12_222",
+        "name": "Vật Phẩm Cung Đình #14-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c12_222.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c12_222.png"
+    },
+    {
+        "id": "med5_r13_c13_223",
+        "name": "Vật Phẩm Cung Đình #14-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c13_223.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c13_223.png"
+    },
+    {
+        "id": "med5_r13_c14_224",
+        "name": "Vật Phẩm Cung Đình #14-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c14_224.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c14_224.png"
+    },
+    {
+        "id": "med5_r13_c15_225",
+        "name": "Vật Phẩm Cung Đình #14-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med5_r13_c15_225.png",
+        "thumbSrc": "/assets/props/thumbs/med5_r13_c15_225.png"
+    },
+    {
+        "id": "med2_r00_c00_000",
+        "name": "Bánh Mì & Bánh Nướng #01-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c00_000.png"
+    },
+    {
+        "id": "med2_r00_c01_001",
+        "name": "Bánh Mì & Bánh Nướng #01-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c01_001.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c01_001.png"
+    },
+    {
+        "id": "med2_r00_c02_002",
+        "name": "Bánh Mì & Bánh Nướng #01-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c02_002.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c02_002.png"
+    },
+    {
+        "id": "med2_r00_c03_003",
+        "name": "Bánh Mì & Bánh Nướng #01-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c03_003.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c03_003.png"
+    },
+    {
+        "id": "med2_r00_c04_004",
+        "name": "Bánh Mì & Bánh Nướng #01-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c04_004.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c04_004.png"
+    },
+    {
+        "id": "med2_r00_c05_005",
+        "name": "Bánh Mì & Bánh Nướng #01-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c05_005.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c05_005.png"
+    },
+    {
+        "id": "med2_r00_c06_006",
+        "name": "Bánh Mì & Bánh Nướng #01-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c06_006.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c06_006.png"
+    },
+    {
+        "id": "med2_r00_c07_007",
+        "name": "Bánh Mì & Bánh Nướng #01-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c07_007.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c07_007.png"
+    },
+    {
+        "id": "med2_r00_c08_008",
+        "name": "Bánh Mì & Bánh Nướng #01-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c08_008.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c08_008.png"
+    },
+    {
+        "id": "med2_r00_c09_009",
+        "name": "Bánh Mì & Bánh Nướng #01-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c09_009.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c09_009.png"
+    },
+    {
+        "id": "med2_r00_c10_010",
+        "name": "Bánh Mì & Bánh Nướng #01-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c10_010.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c10_010.png"
+    },
+    {
+        "id": "med2_r00_c11_011",
+        "name": "Bánh Mì & Bánh Nướng #01-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c11_011.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c11_011.png"
+    },
+    {
+        "id": "med2_r00_c12_012",
+        "name": "Bánh Mì & Bánh Nướng #01-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c12_012.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c12_012.png"
+    },
+    {
+        "id": "med2_r00_c13_013",
+        "name": "Bánh Mì & Bánh Nướng #01-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c13_013.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c13_013.png"
+    },
+    {
+        "id": "med2_r00_c14_014",
+        "name": "Bánh Mì & Bánh Nướng #01-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c14_014.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c14_014.png"
+    },
+    {
+        "id": "med2_r00_c15_015",
+        "name": "Bánh Mì & Bánh Nướng #01-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r00_c15_015.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r00_c15_015.png"
+    },
+    {
+        "id": "med2_r01_c00_016",
+        "name": "Bánh Mì & Bánh Nướng #02-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c00_016.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c00_016.png"
+    },
+    {
+        "id": "med2_r01_c01_017",
+        "name": "Bánh Mì & Bánh Nướng #02-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c01_017.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c01_017.png"
+    },
+    {
+        "id": "med2_r01_c02_018",
+        "name": "Bánh Mì & Bánh Nướng #02-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c02_018.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c02_018.png"
+    },
+    {
+        "id": "med2_r01_c03_019",
+        "name": "Bánh Mì & Bánh Nướng #02-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c03_019.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c03_019.png"
+    },
+    {
+        "id": "med2_r01_c04_020",
+        "name": "Bánh Mì & Bánh Nướng #02-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c04_020.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c04_020.png"
+    },
+    {
+        "id": "med2_r01_c05_021",
+        "name": "Bánh Mì & Bánh Nướng #02-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c05_021.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c05_021.png"
+    },
+    {
+        "id": "med2_r01_c06_022",
+        "name": "Bánh Mì & Bánh Nướng #02-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c06_022.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c06_022.png"
+    },
+    {
+        "id": "med2_r01_c07_023",
+        "name": "Bánh Mì & Bánh Nướng #02-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c07_023.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c07_023.png"
+    },
+    {
+        "id": "med2_r01_c08_024",
+        "name": "Bánh Mì & Bánh Nướng #02-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c08_024.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c08_024.png"
+    },
+    {
+        "id": "med2_r01_c09_025",
+        "name": "Bánh Mì & Bánh Nướng #02-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c09_025.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c09_025.png"
+    },
+    {
+        "id": "med2_r01_c10_026",
+        "name": "Bánh Mì & Bánh Nướng #02-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c10_026.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c10_026.png"
+    },
+    {
+        "id": "med2_r01_c11_027",
+        "name": "Bánh Mì & Bánh Nướng #02-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c11_027.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c11_027.png"
+    },
+    {
+        "id": "med2_r01_c12_028",
+        "name": "Bánh Mì & Bánh Nướng #02-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c12_028.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c12_028.png"
+    },
+    {
+        "id": "med2_r01_c13_029",
+        "name": "Bánh Mì & Bánh Nướng #02-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c13_029.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c13_029.png"
+    },
+    {
+        "id": "med2_r01_c14_030",
+        "name": "Bánh Mì & Bánh Nướng #02-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c14_030.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c14_030.png"
+    },
+    {
+        "id": "med2_r01_c15_031",
+        "name": "Bánh Mì & Bánh Nướng #02-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r01_c15_031.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r01_c15_031.png"
+    },
+    {
+        "id": "med2_r02_c00_032",
+        "name": "Bánh Mì & Bánh Nướng #03-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c00_032.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c00_032.png"
+    },
+    {
+        "id": "med2_r02_c01_033",
+        "name": "Bánh Mì & Bánh Nướng #03-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c01_033.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c01_033.png"
+    },
+    {
+        "id": "med2_r02_c02_034",
+        "name": "Bánh Mì & Bánh Nướng #03-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c02_034.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c02_034.png"
+    },
+    {
+        "id": "med2_r02_c03_035",
+        "name": "Bánh Mì & Bánh Nướng #03-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c03_035.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c03_035.png"
+    },
+    {
+        "id": "med2_r02_c04_036",
+        "name": "Bánh Mì & Bánh Nướng #03-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c04_036.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c04_036.png"
+    },
+    {
+        "id": "med2_r02_c05_037",
+        "name": "Bánh Mì & Bánh Nướng #03-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c05_037.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c05_037.png"
+    },
+    {
+        "id": "med2_r02_c06_038",
+        "name": "Bánh Mì & Bánh Nướng #03-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c06_038.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c06_038.png"
+    },
+    {
+        "id": "med2_r02_c07_039",
+        "name": "Bánh Mì & Bánh Nướng #03-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c07_039.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c07_039.png"
+    },
+    {
+        "id": "med2_r02_c08_040",
+        "name": "Bánh Mì & Bánh Nướng #03-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c08_040.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c08_040.png"
+    },
+    {
+        "id": "med2_r02_c09_041",
+        "name": "Bánh Mì & Bánh Nướng #03-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c09_041.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c09_041.png"
+    },
+    {
+        "id": "med2_r02_c10_042",
+        "name": "Bánh Mì & Bánh Nướng #03-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c10_042.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c10_042.png"
+    },
+    {
+        "id": "med2_r02_c11_043",
+        "name": "Bánh Mì & Bánh Nướng #03-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c11_043.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c11_043.png"
+    },
+    {
+        "id": "med2_r02_c12_044",
+        "name": "Bánh Mì & Bánh Nướng #03-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c12_044.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c12_044.png"
+    },
+    {
+        "id": "med2_r02_c13_045",
+        "name": "Bánh Mì & Bánh Nướng #03-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c13_045.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c13_045.png"
+    },
+    {
+        "id": "med2_r02_c14_046",
+        "name": "Bánh Mì & Bánh Nướng #03-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c14_046.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c14_046.png"
+    },
+    {
+        "id": "med2_r02_c15_047",
+        "name": "Bánh Mì & Bánh Nướng #03-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r02_c15_047.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r02_c15_047.png"
+    },
+    {
+        "id": "med2_r03_c00_048",
+        "name": "Bánh Mì & Bánh Nướng #04-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c00_048.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c00_048.png"
+    },
+    {
+        "id": "med2_r03_c01_049",
+        "name": "Bánh Mì & Bánh Nướng #04-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c01_049.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c01_049.png"
+    },
+    {
+        "id": "med2_r03_c02_050",
+        "name": "Bánh Mì & Bánh Nướng #04-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c02_050.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c02_050.png"
+    },
+    {
+        "id": "med2_r03_c03_051",
+        "name": "Bánh Mì & Bánh Nướng #04-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c03_051.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c03_051.png"
+    },
+    {
+        "id": "med2_r03_c04_052",
+        "name": "Bánh Mì & Bánh Nướng #04-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c04_052.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c04_052.png"
+    },
+    {
+        "id": "med2_r03_c05_053",
+        "name": "Bánh Mì & Bánh Nướng #04-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c05_053.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c05_053.png"
+    },
+    {
+        "id": "med2_r03_c06_054",
+        "name": "Bánh Mì & Bánh Nướng #04-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c06_054.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c06_054.png"
+    },
+    {
+        "id": "med2_r03_c07_055",
+        "name": "Bánh Mì & Bánh Nướng #04-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c07_055.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c07_055.png"
+    },
+    {
+        "id": "med2_r03_c08_056",
+        "name": "Bánh Mì & Bánh Nướng #04-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c08_056.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c08_056.png"
+    },
+    {
+        "id": "med2_r03_c09_057",
+        "name": "Bánh Mì & Bánh Nướng #04-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c09_057.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c09_057.png"
+    },
+    {
+        "id": "med2_r03_c10_058",
+        "name": "Bánh Mì & Bánh Nướng #04-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c10_058.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c10_058.png"
+    },
+    {
+        "id": "med2_r03_c11_059",
+        "name": "Bánh Mì & Bánh Nướng #04-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c11_059.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c11_059.png"
+    },
+    {
+        "id": "med2_r03_c12_060",
+        "name": "Bánh Mì & Bánh Nướng #04-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c12_060.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c12_060.png"
+    },
+    {
+        "id": "med2_r03_c13_061",
+        "name": "Bánh Mì & Bánh Nướng #04-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c13_061.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c13_061.png"
+    },
+    {
+        "id": "med2_r03_c14_062",
+        "name": "Bánh Mì & Bánh Nướng #04-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c14_062.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c14_062.png"
+    },
+    {
+        "id": "med2_r03_c15_063",
+        "name": "Bánh Mì & Bánh Nướng #04-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r03_c15_063.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r03_c15_063.png"
+    },
+    {
+        "id": "med2_r04_c00_064",
+        "name": "Món Thịt & Cá Yến Tiệc #05-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c00_064.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c00_064.png"
+    },
+    {
+        "id": "med2_r04_c01_065",
+        "name": "Món Thịt & Cá Yến Tiệc #05-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c01_065.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c01_065.png"
+    },
+    {
+        "id": "med2_r04_c02_066",
+        "name": "Món Thịt & Cá Yến Tiệc #05-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c02_066.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c02_066.png"
+    },
+    {
+        "id": "med2_r04_c03_067",
+        "name": "Món Thịt & Cá Yến Tiệc #05-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c03_067.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c03_067.png"
+    },
+    {
+        "id": "med2_r04_c04_068",
+        "name": "Món Thịt & Cá Yến Tiệc #05-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c04_068.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c04_068.png"
+    },
+    {
+        "id": "med2_r04_c05_069",
+        "name": "Món Thịt & Cá Yến Tiệc #05-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c05_069.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c05_069.png"
+    },
+    {
+        "id": "med2_r04_c06_070",
+        "name": "Món Thịt & Cá Yến Tiệc #05-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c06_070.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c06_070.png"
+    },
+    {
+        "id": "med2_r04_c07_071",
+        "name": "Món Thịt & Cá Yến Tiệc #05-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c07_071.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c07_071.png"
+    },
+    {
+        "id": "med2_r04_c08_072",
+        "name": "Món Thịt & Cá Yến Tiệc #05-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c08_072.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c08_072.png"
+    },
+    {
+        "id": "med2_r04_c09_073",
+        "name": "Món Thịt & Cá Yến Tiệc #05-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c09_073.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c09_073.png"
+    },
+    {
+        "id": "med2_r04_c10_074",
+        "name": "Món Thịt & Cá Yến Tiệc #05-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c10_074.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c10_074.png"
+    },
+    {
+        "id": "med2_r04_c11_075",
+        "name": "Món Thịt & Cá Yến Tiệc #05-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c11_075.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c11_075.png"
+    },
+    {
+        "id": "med2_r04_c12_076",
+        "name": "Món Thịt & Cá Yến Tiệc #05-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c12_076.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c12_076.png"
+    },
+    {
+        "id": "med2_r04_c13_077",
+        "name": "Món Thịt & Cá Yến Tiệc #05-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c13_077.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c13_077.png"
+    },
+    {
+        "id": "med2_r04_c14_078",
+        "name": "Món Thịt & Cá Yến Tiệc #05-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c14_078.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c14_078.png"
+    },
+    {
+        "id": "med2_r04_c15_079",
+        "name": "Món Thịt & Cá Yến Tiệc #05-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r04_c15_079.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r04_c15_079.png"
+    },
+    {
+        "id": "med2_r05_c00_080",
+        "name": "Món Thịt & Cá Yến Tiệc #06-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c00_080.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c00_080.png"
+    },
+    {
+        "id": "med2_r05_c01_081",
+        "name": "Món Thịt & Cá Yến Tiệc #06-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c01_081.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c01_081.png"
+    },
+    {
+        "id": "med2_r05_c02_082",
+        "name": "Món Thịt & Cá Yến Tiệc #06-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c02_082.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c02_082.png"
+    },
+    {
+        "id": "med2_r05_c03_083",
+        "name": "Món Thịt & Cá Yến Tiệc #06-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c03_083.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c03_083.png"
+    },
+    {
+        "id": "med2_r05_c04_084",
+        "name": "Món Thịt & Cá Yến Tiệc #06-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c04_084.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c04_084.png"
+    },
+    {
+        "id": "med2_r05_c05_085",
+        "name": "Món Thịt & Cá Yến Tiệc #06-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c05_085.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c05_085.png"
+    },
+    {
+        "id": "med2_r05_c06_086",
+        "name": "Món Thịt & Cá Yến Tiệc #06-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c06_086.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c06_086.png"
+    },
+    {
+        "id": "med2_r05_c07_087",
+        "name": "Món Thịt & Cá Yến Tiệc #06-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c07_087.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c07_087.png"
+    },
+    {
+        "id": "med2_r05_c08_088",
+        "name": "Món Thịt & Cá Yến Tiệc #06-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c08_088.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c08_088.png"
+    },
+    {
+        "id": "med2_r05_c09_089",
+        "name": "Món Thịt & Cá Yến Tiệc #06-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c09_089.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c09_089.png"
+    },
+    {
+        "id": "med2_r05_c10_090",
+        "name": "Món Thịt & Cá Yến Tiệc #06-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c10_090.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c10_090.png"
+    },
+    {
+        "id": "med2_r05_c11_091",
+        "name": "Món Thịt & Cá Yến Tiệc #06-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c11_091.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c11_091.png"
+    },
+    {
+        "id": "med2_r05_c12_092",
+        "name": "Món Thịt & Cá Yến Tiệc #06-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c12_092.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c12_092.png"
+    },
+    {
+        "id": "med2_r05_c13_093",
+        "name": "Món Thịt & Cá Yến Tiệc #06-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c13_093.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c13_093.png"
+    },
+    {
+        "id": "med2_r05_c14_094",
+        "name": "Món Thịt & Cá Yến Tiệc #06-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c14_094.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c14_094.png"
+    },
+    {
+        "id": "med2_r05_c15_095",
+        "name": "Món Thịt & Cá Yến Tiệc #06-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r05_c15_095.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r05_c15_095.png"
+    },
+    {
+        "id": "med2_r06_c00_096",
+        "name": "Món Thịt & Cá Yến Tiệc #07-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c00_096.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c00_096.png"
+    },
+    {
+        "id": "med2_r06_c01_097",
+        "name": "Món Thịt & Cá Yến Tiệc #07-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c01_097.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c01_097.png"
+    },
+    {
+        "id": "med2_r06_c02_098",
+        "name": "Món Thịt & Cá Yến Tiệc #07-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c02_098.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c02_098.png"
+    },
+    {
+        "id": "med2_r06_c03_099",
+        "name": "Món Thịt & Cá Yến Tiệc #07-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c03_099.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c03_099.png"
+    },
+    {
+        "id": "med2_r06_c04_100",
+        "name": "Món Thịt & Cá Yến Tiệc #07-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c04_100.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c04_100.png"
+    },
+    {
+        "id": "med2_r06_c05_101",
+        "name": "Món Thịt & Cá Yến Tiệc #07-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c05_101.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c05_101.png"
+    },
+    {
+        "id": "med2_r06_c06_102",
+        "name": "Món Thịt & Cá Yến Tiệc #07-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c06_102.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c06_102.png"
+    },
+    {
+        "id": "med2_r06_c07_103",
+        "name": "Món Thịt & Cá Yến Tiệc #07-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c07_103.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c07_103.png"
+    },
+    {
+        "id": "med2_r06_c08_104",
+        "name": "Món Thịt & Cá Yến Tiệc #07-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c08_104.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c08_104.png"
+    },
+    {
+        "id": "med2_r06_c09_105",
+        "name": "Món Thịt & Cá Yến Tiệc #07-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c09_105.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c09_105.png"
+    },
+    {
+        "id": "med2_r06_c10_106",
+        "name": "Món Thịt & Cá Yến Tiệc #07-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c10_106.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c10_106.png"
+    },
+    {
+        "id": "med2_r06_c11_107",
+        "name": "Món Thịt & Cá Yến Tiệc #07-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c11_107.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c11_107.png"
+    },
+    {
+        "id": "med2_r06_c12_108",
+        "name": "Món Thịt & Cá Yến Tiệc #07-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c12_108.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c12_108.png"
+    },
+    {
+        "id": "med2_r06_c13_109",
+        "name": "Món Thịt & Cá Yến Tiệc #07-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c13_109.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c13_109.png"
+    },
+    {
+        "id": "med2_r06_c14_110",
+        "name": "Món Thịt & Cá Yến Tiệc #07-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c14_110.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c14_110.png"
+    },
+    {
+        "id": "med2_r06_c15_111",
+        "name": "Món Thịt & Cá Yến Tiệc #07-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r06_c15_111.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r06_c15_111.png"
+    },
+    {
+        "id": "med2_r07_c00_112",
+        "name": "Rau Củ & Trái Cây #08-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c00_112.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c00_112.png"
+    },
+    {
+        "id": "med2_r07_c01_113",
+        "name": "Rau Củ & Trái Cây #08-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c01_113.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c01_113.png"
+    },
+    {
+        "id": "med2_r07_c02_114",
+        "name": "Rau Củ & Trái Cây #08-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c02_114.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c02_114.png"
+    },
+    {
+        "id": "med2_r07_c03_115",
+        "name": "Rau Củ & Trái Cây #08-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c03_115.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c03_115.png"
+    },
+    {
+        "id": "med2_r07_c04_116",
+        "name": "Rau Củ & Trái Cây #08-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c04_116.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c04_116.png"
+    },
+    {
+        "id": "med2_r07_c05_117",
+        "name": "Rau Củ & Trái Cây #08-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c05_117.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c05_117.png"
+    },
+    {
+        "id": "med2_r07_c06_118",
+        "name": "Rau Củ & Trái Cây #08-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c06_118.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c06_118.png"
+    },
+    {
+        "id": "med2_r07_c07_119",
+        "name": "Rau Củ & Trái Cây #08-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c07_119.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c07_119.png"
+    },
+    {
+        "id": "med2_r07_c08_120",
+        "name": "Rau Củ & Trái Cây #08-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c08_120.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c08_120.png"
+    },
+    {
+        "id": "med2_r07_c09_121",
+        "name": "Rau Củ & Trái Cây #08-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c09_121.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c09_121.png"
+    },
+    {
+        "id": "med2_r07_c10_122",
+        "name": "Rau Củ & Trái Cây #08-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c10_122.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c10_122.png"
+    },
+    {
+        "id": "med2_r07_c11_123",
+        "name": "Rau Củ & Trái Cây #08-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c11_123.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c11_123.png"
+    },
+    {
+        "id": "med2_r07_c12_124",
+        "name": "Rau Củ & Trái Cây #08-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c12_124.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c12_124.png"
+    },
+    {
+        "id": "med2_r07_c13_125",
+        "name": "Rau Củ & Trái Cây #08-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c13_125.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c13_125.png"
+    },
+    {
+        "id": "med2_r07_c14_126",
+        "name": "Rau Củ & Trái Cây #08-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c14_126.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c14_126.png"
+    },
+    {
+        "id": "med2_r07_c15_127",
+        "name": "Rau Củ & Trái Cây #08-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r07_c15_127.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r07_c15_127.png"
+    },
+    {
+        "id": "med2_r08_c00_128",
+        "name": "Rau Củ & Trái Cây #09-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c00_128.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c00_128.png"
+    },
+    {
+        "id": "med2_r08_c01_129",
+        "name": "Rau Củ & Trái Cây #09-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c01_129.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c01_129.png"
+    },
+    {
+        "id": "med2_r08_c02_130",
+        "name": "Rau Củ & Trái Cây #09-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c02_130.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c02_130.png"
+    },
+    {
+        "id": "med2_r08_c03_131",
+        "name": "Rau Củ & Trái Cây #09-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c03_131.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c03_131.png"
+    },
+    {
+        "id": "med2_r08_c04_132",
+        "name": "Rau Củ & Trái Cây #09-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c04_132.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c04_132.png"
+    },
+    {
+        "id": "med2_r08_c05_133",
+        "name": "Rau Củ & Trái Cây #09-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c05_133.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c05_133.png"
+    },
+    {
+        "id": "med2_r08_c06_134",
+        "name": "Rau Củ & Trái Cây #09-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c06_134.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c06_134.png"
+    },
+    {
+        "id": "med2_r08_c07_135",
+        "name": "Rau Củ & Trái Cây #09-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c07_135.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c07_135.png"
+    },
+    {
+        "id": "med2_r08_c08_136",
+        "name": "Rau Củ & Trái Cây #09-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c08_136.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c08_136.png"
+    },
+    {
+        "id": "med2_r08_c09_137",
+        "name": "Rau Củ & Trái Cây #09-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c09_137.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c09_137.png"
+    },
+    {
+        "id": "med2_r08_c10_138",
+        "name": "Rau Củ & Trái Cây #09-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c10_138.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c10_138.png"
+    },
+    {
+        "id": "med2_r08_c11_139",
+        "name": "Rau Củ & Trái Cây #09-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c11_139.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c11_139.png"
+    },
+    {
+        "id": "med2_r08_c12_140",
+        "name": "Rau Củ & Trái Cây #09-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c12_140.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c12_140.png"
+    },
+    {
+        "id": "med2_r08_c13_141",
+        "name": "Rau Củ & Trái Cây #09-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c13_141.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c13_141.png"
+    },
+    {
+        "id": "med2_r08_c14_142",
+        "name": "Rau Củ & Trái Cây #09-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c14_142.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c14_142.png"
+    },
+    {
+        "id": "med2_r08_c15_143",
+        "name": "Rau Củ & Trái Cây #09-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r08_c15_143.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r08_c15_143.png"
+    },
+    {
+        "id": "med2_r09_c00_144",
+        "name": "Rau Củ & Trái Cây #10-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c00_144.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c00_144.png"
+    },
+    {
+        "id": "med2_r09_c01_145",
+        "name": "Rau Củ & Trái Cây #10-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c01_145.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c01_145.png"
+    },
+    {
+        "id": "med2_r09_c02_146",
+        "name": "Rau Củ & Trái Cây #10-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c02_146.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c02_146.png"
+    },
+    {
+        "id": "med2_r09_c03_147",
+        "name": "Rau Củ & Trái Cây #10-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c03_147.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c03_147.png"
+    },
+    {
+        "id": "med2_r09_c04_148",
+        "name": "Rau Củ & Trái Cây #10-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c04_148.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c04_148.png"
+    },
+    {
+        "id": "med2_r09_c05_149",
+        "name": "Rau Củ & Trái Cây #10-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c05_149.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c05_149.png"
+    },
+    {
+        "id": "med2_r09_c06_150",
+        "name": "Rau Củ & Trái Cây #10-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c06_150.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c06_150.png"
+    },
+    {
+        "id": "med2_r09_c07_151",
+        "name": "Rau Củ & Trái Cây #10-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c07_151.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c07_151.png"
+    },
+    {
+        "id": "med2_r09_c08_152",
+        "name": "Rau Củ & Trái Cây #10-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c08_152.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c08_152.png"
+    },
+    {
+        "id": "med2_r09_c09_153",
+        "name": "Rau Củ & Trái Cây #10-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c09_153.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c09_153.png"
+    },
+    {
+        "id": "med2_r09_c10_154",
+        "name": "Rau Củ & Trái Cây #10-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c10_154.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c10_154.png"
+    },
+    {
+        "id": "med2_r09_c11_155",
+        "name": "Rau Củ & Trái Cây #10-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c11_155.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c11_155.png"
+    },
+    {
+        "id": "med2_r09_c12_156",
+        "name": "Rau Củ & Trái Cây #10-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c12_156.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c12_156.png"
+    },
+    {
+        "id": "med2_r09_c13_157",
+        "name": "Rau Củ & Trái Cây #10-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c13_157.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c13_157.png"
+    },
+    {
+        "id": "med2_r09_c14_158",
+        "name": "Rau Củ & Trái Cây #10-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c14_158.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c14_158.png"
+    },
+    {
+        "id": "med2_r09_c15_159",
+        "name": "Rau Củ & Trái Cây #10-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r09_c15_159.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r09_c15_159.png"
+    },
+    {
+        "id": "med2_r10_c00_160",
+        "name": "Đồ Uống Quán Trọ #11-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c00_160.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c00_160.png"
+    },
+    {
+        "id": "med2_r10_c01_161",
+        "name": "Đồ Uống Quán Trọ #11-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c01_161.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c01_161.png"
+    },
+    {
+        "id": "med2_r10_c02_162",
+        "name": "Đồ Uống Quán Trọ #11-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c02_162.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c02_162.png"
+    },
+    {
+        "id": "med2_r10_c03_163",
+        "name": "Đồ Uống Quán Trọ #11-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c03_163.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c03_163.png"
+    },
+    {
+        "id": "med2_r10_c04_164",
+        "name": "Đồ Uống Quán Trọ #11-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c04_164.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c04_164.png"
+    },
+    {
+        "id": "med2_r10_c05_165",
+        "name": "Đồ Uống Quán Trọ #11-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c05_165.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c05_165.png"
+    },
+    {
+        "id": "med2_r10_c06_166",
+        "name": "Đồ Uống Quán Trọ #11-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c06_166.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c06_166.png"
+    },
+    {
+        "id": "med2_r10_c07_167",
+        "name": "Đồ Uống Quán Trọ #11-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c07_167.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c07_167.png"
+    },
+    {
+        "id": "med2_r10_c08_168",
+        "name": "Đồ Uống Quán Trọ #11-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c08_168.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c08_168.png"
+    },
+    {
+        "id": "med2_r10_c09_169",
+        "name": "Đồ Uống Quán Trọ #11-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c09_169.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c09_169.png"
+    },
+    {
+        "id": "med2_r10_c10_170",
+        "name": "Đồ Uống Quán Trọ #11-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c10_170.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c10_170.png"
+    },
+    {
+        "id": "med2_r10_c11_171",
+        "name": "Đồ Uống Quán Trọ #11-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c11_171.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c11_171.png"
+    },
+    {
+        "id": "med2_r10_c12_172",
+        "name": "Đồ Uống Quán Trọ #11-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c12_172.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c12_172.png"
+    },
+    {
+        "id": "med2_r10_c13_173",
+        "name": "Đồ Uống Quán Trọ #11-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c13_173.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c13_173.png"
+    },
+    {
+        "id": "med2_r10_c14_174",
+        "name": "Đồ Uống Quán Trọ #11-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c14_174.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c14_174.png"
+    },
+    {
+        "id": "med2_r10_c15_175",
+        "name": "Đồ Uống Quán Trọ #11-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r10_c15_175.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r10_c15_175.png"
+    },
+    {
+        "id": "med2_r11_c00_176",
+        "name": "Đồ Uống Quán Trọ #12-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c00_176.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c00_176.png"
+    },
+    {
+        "id": "med2_r11_c01_177",
+        "name": "Đồ Uống Quán Trọ #12-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c01_177.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c01_177.png"
+    },
+    {
+        "id": "med2_r11_c02_178",
+        "name": "Đồ Uống Quán Trọ #12-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c02_178.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c02_178.png"
+    },
+    {
+        "id": "med2_r11_c03_179",
+        "name": "Đồ Uống Quán Trọ #12-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c03_179.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c03_179.png"
+    },
+    {
+        "id": "med2_r11_c04_180",
+        "name": "Đồ Uống Quán Trọ #12-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c04_180.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c04_180.png"
+    },
+    {
+        "id": "med2_r11_c05_181",
+        "name": "Đồ Uống Quán Trọ #12-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c05_181.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c05_181.png"
+    },
+    {
+        "id": "med2_r11_c06_182",
+        "name": "Đồ Uống Quán Trọ #12-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c06_182.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c06_182.png"
+    },
+    {
+        "id": "med2_r11_c07_183",
+        "name": "Đồ Uống Quán Trọ #12-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c07_183.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c07_183.png"
+    },
+    {
+        "id": "med2_r11_c08_184",
+        "name": "Đồ Uống Quán Trọ #12-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c08_184.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c08_184.png"
+    },
+    {
+        "id": "med2_r11_c09_185",
+        "name": "Đồ Uống Quán Trọ #12-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c09_185.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c09_185.png"
+    },
+    {
+        "id": "med2_r11_c10_186",
+        "name": "Đồ Uống Quán Trọ #12-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c10_186.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c10_186.png"
+    },
+    {
+        "id": "med2_r11_c11_187",
+        "name": "Đồ Uống Quán Trọ #12-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c11_187.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c11_187.png"
+    },
+    {
+        "id": "med2_r11_c12_188",
+        "name": "Đồ Uống Quán Trọ #12-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c12_188.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c12_188.png"
+    },
+    {
+        "id": "med2_r11_c13_189",
+        "name": "Đồ Uống Quán Trọ #12-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c13_189.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c13_189.png"
+    },
+    {
+        "id": "med2_r11_c14_190",
+        "name": "Đồ Uống Quán Trọ #12-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c14_190.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c14_190.png"
+    },
+    {
+        "id": "med2_r11_c15_191",
+        "name": "Đồ Uống Quán Trọ #12-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c15_191.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c15_191.png"
+    },
+    {
+        "id": "med2_r11_c16_192",
+        "name": "Đồ Uống Quán Trọ #12-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c16_192.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c16_192.png"
+    },
+    {
+        "id": "med2_r11_c17_193",
+        "name": "Đồ Uống Quán Trọ #12-18",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c17_193.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c17_193.png"
+    },
+    {
+        "id": "med2_r11_c18_194",
+        "name": "Đồ Uống Quán Trọ #12-19",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c18_194.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c18_194.png"
+    },
+    {
+        "id": "med2_r11_c19_195",
+        "name": "Đồ Uống Quán Trọ #12-20",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c19_195.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c19_195.png"
+    },
+    {
+        "id": "med2_r11_c20_196",
+        "name": "Đồ Uống Quán Trọ #12-21",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c20_196.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c20_196.png"
+    },
+    {
+        "id": "med2_r11_c21_197",
+        "name": "Đồ Uống Quán Trọ #12-22",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r11_c21_197.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r11_c21_197.png"
+    },
+    {
+        "id": "med2_r12_c00_198",
+        "name": "Dụng Cụ Bếp Cung Đình #13-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c00_198.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c00_198.png"
+    },
+    {
+        "id": "med2_r12_c01_199",
+        "name": "Dụng Cụ Bếp Cung Đình #13-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c01_199.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c01_199.png"
+    },
+    {
+        "id": "med2_r12_c02_200",
+        "name": "Dụng Cụ Bếp Cung Đình #13-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c02_200.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c02_200.png"
+    },
+    {
+        "id": "med2_r12_c03_201",
+        "name": "Dụng Cụ Bếp Cung Đình #13-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c03_201.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c03_201.png"
+    },
+    {
+        "id": "med2_r12_c04_202",
+        "name": "Dụng Cụ Bếp Cung Đình #13-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c04_202.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c04_202.png"
+    },
+    {
+        "id": "med2_r12_c05_203",
+        "name": "Dụng Cụ Bếp Cung Đình #13-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c05_203.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c05_203.png"
+    },
+    {
+        "id": "med2_r12_c06_204",
+        "name": "Dụng Cụ Bếp Cung Đình #13-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c06_204.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c06_204.png"
+    },
+    {
+        "id": "med2_r12_c07_205",
+        "name": "Dụng Cụ Bếp Cung Đình #13-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c07_205.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c07_205.png"
+    },
+    {
+        "id": "med2_r12_c08_206",
+        "name": "Dụng Cụ Bếp Cung Đình #13-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c08_206.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c08_206.png"
+    },
+    {
+        "id": "med2_r12_c09_207",
+        "name": "Dụng Cụ Bếp Cung Đình #13-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c09_207.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c09_207.png"
+    },
+    {
+        "id": "med2_r12_c10_208",
+        "name": "Dụng Cụ Bếp Cung Đình #13-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c10_208.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c10_208.png"
+    },
+    {
+        "id": "med2_r12_c11_209",
+        "name": "Dụng Cụ Bếp Cung Đình #13-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c11_209.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c11_209.png"
+    },
+    {
+        "id": "med2_r12_c12_210",
+        "name": "Dụng Cụ Bếp Cung Đình #13-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c12_210.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c12_210.png"
+    },
+    {
+        "id": "med2_r12_c13_211",
+        "name": "Dụng Cụ Bếp Cung Đình #13-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r12_c13_211.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r12_c13_211.png"
+    },
+    {
+        "id": "med2_r13_c00_212",
+        "name": "Dụng Cụ Bếp Cung Đình #14-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c00_212.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c00_212.png"
+    },
+    {
+        "id": "med2_r13_c01_213",
+        "name": "Dụng Cụ Bếp Cung Đình #14-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c01_213.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c01_213.png"
+    },
+    {
+        "id": "med2_r13_c02_214",
+        "name": "Dụng Cụ Bếp Cung Đình #14-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c02_214.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c02_214.png"
+    },
+    {
+        "id": "med2_r13_c03_215",
+        "name": "Dụng Cụ Bếp Cung Đình #14-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c03_215.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c03_215.png"
+    },
+    {
+        "id": "med2_r13_c04_216",
+        "name": "Dụng Cụ Bếp Cung Đình #14-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c04_216.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c04_216.png"
+    },
+    {
+        "id": "med2_r13_c05_217",
+        "name": "Dụng Cụ Bếp Cung Đình #14-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c05_217.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c05_217.png"
+    },
+    {
+        "id": "med2_r13_c06_218",
+        "name": "Dụng Cụ Bếp Cung Đình #14-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c06_218.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c06_218.png"
+    },
+    {
+        "id": "med2_r13_c07_219",
+        "name": "Dụng Cụ Bếp Cung Đình #14-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c07_219.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c07_219.png"
+    },
+    {
+        "id": "med2_r13_c08_220",
+        "name": "Dụng Cụ Bếp Cung Đình #14-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c08_220.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c08_220.png"
+    },
+    {
+        "id": "med2_r13_c09_221",
+        "name": "Dụng Cụ Bếp Cung Đình #14-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c09_221.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c09_221.png"
+    },
+    {
+        "id": "med2_r13_c10_222",
+        "name": "Dụng Cụ Bếp Cung Đình #14-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c10_222.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c10_222.png"
+    },
+    {
+        "id": "med2_r13_c11_223",
+        "name": "Dụng Cụ Bếp Cung Đình #14-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c11_223.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c11_223.png"
+    },
+    {
+        "id": "med2_r13_c12_224",
+        "name": "Dụng Cụ Bếp Cung Đình #14-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c12_224.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c12_224.png"
+    },
+    {
+        "id": "med2_r13_c13_225",
+        "name": "Dụng Cụ Bếp Cung Đình #14-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med2_r13_c13_225.png",
+        "thumbSrc": "/assets/props/thumbs/med2_r13_c13_225.png"
+    },
+    {
+        "id": "med4_r00_c01_000",
+        "name": "Lò Sưởi & Bếp Lửa #01-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c01_000.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c01_000.png"
+    },
+    {
+        "id": "med4_r00_c02_001",
+        "name": "Lò Sưởi & Bếp Lửa #01-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c02_001.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c02_001.png"
+    },
+    {
+        "id": "med4_r00_c03_002",
+        "name": "Lò Sưởi & Bếp Lửa #01-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c03_002.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c03_002.png"
+    },
+    {
+        "id": "med4_r00_c04_003",
+        "name": "Lò Sưởi & Bếp Lửa #01-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c04_003.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c04_003.png"
+    },
+    {
+        "id": "med4_r00_c05_004",
+        "name": "Lò Sưởi & Bếp Lửa #01-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c05_004.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c05_004.png"
+    },
+    {
+        "id": "med4_r00_c06_005",
+        "name": "Lò Sưởi & Bếp Lửa #01-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c06_005.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c06_005.png"
+    },
+    {
+        "id": "med4_r00_c07_006",
+        "name": "Lò Sưởi & Bếp Lửa #01-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c07_006.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c07_006.png"
+    },
+    {
+        "id": "med4_r00_c08_007",
+        "name": "Lò Sưởi & Bếp Lửa #01-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c08_007.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c08_007.png"
+    },
+    {
+        "id": "med4_r00_c09_008",
+        "name": "Lò Sưởi & Bếp Lửa #01-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c09_008.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c09_008.png"
+    },
+    {
+        "id": "med4_r00_c10_009",
+        "name": "Lò Sưởi & Bếp Lửa #01-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c10_009.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c10_009.png"
+    },
+    {
+        "id": "med4_r00_c11_010",
+        "name": "Lò Sưởi & Bếp Lửa #01-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c11_010.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c11_010.png"
+    },
+    {
+        "id": "med4_r00_c12_011",
+        "name": "Lò Sưởi & Bếp Lửa #01-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c12_011.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c12_011.png"
+    },
+    {
+        "id": "med4_r00_c13_012",
+        "name": "Lò Sưởi & Bếp Lửa #01-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c13_012.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c13_012.png"
+    },
+    {
+        "id": "med4_r00_c14_013",
+        "name": "Lò Sưởi & Bếp Lửa #01-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c14_013.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c14_013.png"
+    },
+    {
+        "id": "med4_r00_c15_014",
+        "name": "Lò Sưởi & Bếp Lửa #01-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r00_c15_014.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r00_c15_014.png"
+    },
+    {
+        "id": "med4_r01_c01_015",
+        "name": "Lò Sưởi & Bếp Lửa #02-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c01_015.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c01_015.png"
+    },
+    {
+        "id": "med4_r01_c02_016",
+        "name": "Lò Sưởi & Bếp Lửa #02-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c02_016.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c02_016.png"
+    },
+    {
+        "id": "med4_r01_c03_017",
+        "name": "Lò Sưởi & Bếp Lửa #02-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c03_017.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c03_017.png"
+    },
+    {
+        "id": "med4_r01_c04_018",
+        "name": "Lò Sưởi & Bếp Lửa #02-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c04_018.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c04_018.png"
+    },
+    {
+        "id": "med4_r01_c05_019",
+        "name": "Lò Sưởi & Bếp Lửa #02-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c05_019.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c05_019.png"
+    },
+    {
+        "id": "med4_r01_c06_020",
+        "name": "Lò Sưởi & Bếp Lửa #02-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c06_020.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c06_020.png"
+    },
+    {
+        "id": "med4_r01_c07_021",
+        "name": "Lò Sưởi & Bếp Lửa #02-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c07_021.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c07_021.png"
+    },
+    {
+        "id": "med4_r01_c08_022",
+        "name": "Lò Sưởi & Bếp Lửa #02-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c08_022.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c08_022.png"
+    },
+    {
+        "id": "med4_r01_c09_023",
+        "name": "Lò Sưởi & Bếp Lửa #02-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c09_023.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c09_023.png"
+    },
+    {
+        "id": "med4_r01_c10_024",
+        "name": "Lò Sưởi & Bếp Lửa #02-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c10_024.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c10_024.png"
+    },
+    {
+        "id": "med4_r01_c11_025",
+        "name": "Lò Sưởi & Bếp Lửa #02-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c11_025.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c11_025.png"
+    },
+    {
+        "id": "med4_r01_c12_026",
+        "name": "Lò Sưởi & Bếp Lửa #02-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c12_026.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c12_026.png"
+    },
+    {
+        "id": "med4_r01_c13_027",
+        "name": "Lò Sưởi & Bếp Lửa #02-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c13_027.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c13_027.png"
+    },
+    {
+        "id": "med4_r01_c14_028",
+        "name": "Lò Sưởi & Bếp Lửa #02-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c14_028.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c14_028.png"
+    },
+    {
+        "id": "med4_r01_c15_029",
+        "name": "Lò Sưởi & Bếp Lửa #02-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r01_c15_029.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r01_c15_029.png"
+    },
+    {
+        "id": "med4_r02_c01_030",
+        "name": "Lò Sưởi & Bếp Lửa #03-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c01_030.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c01_030.png"
+    },
+    {
+        "id": "med4_r02_c02_031",
+        "name": "Lò Sưởi & Bếp Lửa #03-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c02_031.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c02_031.png"
+    },
+    {
+        "id": "med4_r02_c03_032",
+        "name": "Lò Sưởi & Bếp Lửa #03-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c03_032.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c03_032.png"
+    },
+    {
+        "id": "med4_r02_c04_033",
+        "name": "Lò Sưởi & Bếp Lửa #03-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c04_033.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c04_033.png"
+    },
+    {
+        "id": "med4_r02_c05_034",
+        "name": "Lò Sưởi & Bếp Lửa #03-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c05_034.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c05_034.png"
+    },
+    {
+        "id": "med4_r02_c06_035",
+        "name": "Lò Sưởi & Bếp Lửa #03-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c06_035.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c06_035.png"
+    },
+    {
+        "id": "med4_r02_c07_036",
+        "name": "Lò Sưởi & Bếp Lửa #03-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c07_036.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c07_036.png"
+    },
+    {
+        "id": "med4_r02_c08_037",
+        "name": "Lò Sưởi & Bếp Lửa #03-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c08_037.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c08_037.png"
+    },
+    {
+        "id": "med4_r02_c09_038",
+        "name": "Lò Sưởi & Bếp Lửa #03-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c09_038.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c09_038.png"
+    },
+    {
+        "id": "med4_r02_c10_039",
+        "name": "Lò Sưởi & Bếp Lửa #03-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c10_039.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c10_039.png"
+    },
+    {
+        "id": "med4_r02_c11_040",
+        "name": "Lò Sưởi & Bếp Lửa #03-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c11_040.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c11_040.png"
+    },
+    {
+        "id": "med4_r02_c12_041",
+        "name": "Lò Sưởi & Bếp Lửa #03-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c12_041.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c12_041.png"
+    },
+    {
+        "id": "med4_r02_c13_042",
+        "name": "Lò Sưởi & Bếp Lửa #03-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c13_042.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c13_042.png"
+    },
+    {
+        "id": "med4_r02_c14_043",
+        "name": "Lò Sưởi & Bếp Lửa #03-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c14_043.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c14_043.png"
+    },
+    {
+        "id": "med4_r02_c15_044",
+        "name": "Lò Sưởi & Bếp Lửa #03-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c15_044.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c15_044.png"
+    },
+    {
+        "id": "med4_r02_c16_045",
+        "name": "Lò Sưởi & Bếp Lửa #03-17",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r02_c16_045.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r02_c16_045.png"
+    },
+    {
+        "id": "med4_r03_c01_046",
+        "name": "Lò Sưởi & Bếp Lửa #04-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c01_046.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c01_046.png"
+    },
+    {
+        "id": "med4_r03_c02_047",
+        "name": "Lò Sưởi & Bếp Lửa #04-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c02_047.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c02_047.png"
+    },
+    {
+        "id": "med4_r03_c03_048",
+        "name": "Lò Sưởi & Bếp Lửa #04-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c03_048.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c03_048.png"
+    },
+    {
+        "id": "med4_r03_c04_049",
+        "name": "Lò Sưởi & Bếp Lửa #04-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c04_049.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c04_049.png"
+    },
+    {
+        "id": "med4_r03_c05_050",
+        "name": "Lò Sưởi & Bếp Lửa #04-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c05_050.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c05_050.png"
+    },
+    {
+        "id": "med4_r03_c06_051",
+        "name": "Lò Sưởi & Bếp Lửa #04-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c06_051.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c06_051.png"
+    },
+    {
+        "id": "med4_r03_c07_052",
+        "name": "Lò Sưởi & Bếp Lửa #04-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c07_052.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c07_052.png"
+    },
+    {
+        "id": "med4_r03_c08_053",
+        "name": "Lò Sưởi & Bếp Lửa #04-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c08_053.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c08_053.png"
+    },
+    {
+        "id": "med4_r03_c09_054",
+        "name": "Lò Sưởi & Bếp Lửa #04-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c09_054.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c09_054.png"
+    },
+    {
+        "id": "med4_r03_c10_055",
+        "name": "Lò Sưởi & Bếp Lửa #04-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c10_055.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c10_055.png"
+    },
+    {
+        "id": "med4_r03_c11_056",
+        "name": "Lò Sưởi & Bếp Lửa #04-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c11_056.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c11_056.png"
+    },
+    {
+        "id": "med4_r03_c12_057",
+        "name": "Lò Sưởi & Bếp Lửa #04-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c12_057.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c12_057.png"
+    },
+    {
+        "id": "med4_r03_c13_058",
+        "name": "Lò Sưởi & Bếp Lửa #04-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c13_058.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c13_058.png"
+    },
+    {
+        "id": "med4_r03_c14_059",
+        "name": "Lò Sưởi & Bếp Lửa #04-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c14_059.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c14_059.png"
+    },
+    {
+        "id": "med4_r03_c15_060",
+        "name": "Lò Sưởi & Bếp Lửa #04-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c15_060.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c15_060.png"
+    },
+    {
+        "id": "med4_r03_c16_061",
+        "name": "Lò Sưởi & Bếp Lửa #04-17",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r03_c16_061.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r03_c16_061.png"
+    },
+    {
+        "id": "med4_r04_c01_062",
+        "name": "Nông Sản & Gia Cầm #05-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c01_062.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c01_062.png"
+    },
+    {
+        "id": "med4_r04_c02_063",
+        "name": "Nông Sản & Gia Cầm #05-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c02_063.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c02_063.png"
+    },
+    {
+        "id": "med4_r04_c03_064",
+        "name": "Nông Sản & Gia Cầm #05-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c03_064.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c03_064.png"
+    },
+    {
+        "id": "med4_r04_c04_065",
+        "name": "Nông Sản & Gia Cầm #05-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c04_065.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c04_065.png"
+    },
+    {
+        "id": "med4_r04_c05_066",
+        "name": "Nông Sản & Gia Cầm #05-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c05_066.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c05_066.png"
+    },
+    {
+        "id": "med4_r04_c06_067",
+        "name": "Nông Sản & Gia Cầm #05-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c06_067.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c06_067.png"
+    },
+    {
+        "id": "med4_r04_c07_068",
+        "name": "Nông Sản & Gia Cầm #05-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c07_068.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c07_068.png"
+    },
+    {
+        "id": "med4_r04_c08_069",
+        "name": "Nông Sản & Gia Cầm #05-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c08_069.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c08_069.png"
+    },
+    {
+        "id": "med4_r04_c09_070",
+        "name": "Nông Sản & Gia Cầm #05-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c09_070.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c09_070.png"
+    },
+    {
+        "id": "med4_r04_c10_071",
+        "name": "Nông Sản & Gia Cầm #05-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c10_071.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c10_071.png"
+    },
+    {
+        "id": "med4_r04_c11_072",
+        "name": "Nông Sản & Gia Cầm #05-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c11_072.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c11_072.png"
+    },
+    {
+        "id": "med4_r04_c12_073",
+        "name": "Nông Sản & Gia Cầm #05-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c12_073.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c12_073.png"
+    },
+    {
+        "id": "med4_r04_c13_074",
+        "name": "Nông Sản & Gia Cầm #05-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c13_074.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c13_074.png"
+    },
+    {
+        "id": "med4_r04_c14_075",
+        "name": "Nông Sản & Gia Cầm #05-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c14_075.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c14_075.png"
+    },
+    {
+        "id": "med4_r04_c15_076",
+        "name": "Nông Sản & Gia Cầm #05-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c15_076.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c15_076.png"
+    },
+    {
+        "id": "med4_r04_c16_077",
+        "name": "Nông Sản & Gia Cầm #05-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r04_c16_077.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r04_c16_077.png"
+    },
+    {
+        "id": "med4_r05_c01_078",
+        "name": "Nông Sản & Gia Cầm #06-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c01_078.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c01_078.png"
+    },
+    {
+        "id": "med4_r05_c02_079",
+        "name": "Nông Sản & Gia Cầm #06-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c02_079.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c02_079.png"
+    },
+    {
+        "id": "med4_r05_c03_080",
+        "name": "Nông Sản & Gia Cầm #06-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c03_080.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c03_080.png"
+    },
+    {
+        "id": "med4_r05_c04_081",
+        "name": "Nông Sản & Gia Cầm #06-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c04_081.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c04_081.png"
+    },
+    {
+        "id": "med4_r05_c05_082",
+        "name": "Nông Sản & Gia Cầm #06-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c05_082.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c05_082.png"
+    },
+    {
+        "id": "med4_r05_c06_083",
+        "name": "Nông Sản & Gia Cầm #06-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c06_083.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c06_083.png"
+    },
+    {
+        "id": "med4_r05_c07_084",
+        "name": "Nông Sản & Gia Cầm #06-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c07_084.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c07_084.png"
+    },
+    {
+        "id": "med4_r05_c08_085",
+        "name": "Nông Sản & Gia Cầm #06-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c08_085.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c08_085.png"
+    },
+    {
+        "id": "med4_r05_c09_086",
+        "name": "Nông Sản & Gia Cầm #06-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c09_086.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c09_086.png"
+    },
+    {
+        "id": "med4_r05_c10_087",
+        "name": "Nông Sản & Gia Cầm #06-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c10_087.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c10_087.png"
+    },
+    {
+        "id": "med4_r05_c11_088",
+        "name": "Nông Sản & Gia Cầm #06-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c11_088.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c11_088.png"
+    },
+    {
+        "id": "med4_r05_c12_089",
+        "name": "Nông Sản & Gia Cầm #06-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c12_089.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c12_089.png"
+    },
+    {
+        "id": "med4_r05_c13_090",
+        "name": "Nông Sản & Gia Cầm #06-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c13_090.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c13_090.png"
+    },
+    {
+        "id": "med4_r05_c14_091",
+        "name": "Nông Sản & Gia Cầm #06-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c14_091.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c14_091.png"
+    },
+    {
+        "id": "med4_r05_c15_092",
+        "name": "Nông Sản & Gia Cầm #06-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c15_092.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c15_092.png"
+    },
+    {
+        "id": "med4_r05_c16_093",
+        "name": "Nông Sản & Gia Cầm #06-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r05_c16_093.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r05_c16_093.png"
+    },
+    {
+        "id": "med4_r06_c01_094",
+        "name": "Nông Sản & Gia Cầm #07-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c01_094.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c01_094.png"
+    },
+    {
+        "id": "med4_r06_c02_095",
+        "name": "Nông Sản & Gia Cầm #07-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c02_095.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c02_095.png"
+    },
+    {
+        "id": "med4_r06_c03_096",
+        "name": "Nông Sản & Gia Cầm #07-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c03_096.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c03_096.png"
+    },
+    {
+        "id": "med4_r06_c04_097",
+        "name": "Nông Sản & Gia Cầm #07-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c04_097.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c04_097.png"
+    },
+    {
+        "id": "med4_r06_c05_098",
+        "name": "Nông Sản & Gia Cầm #07-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c05_098.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c05_098.png"
+    },
+    {
+        "id": "med4_r06_c06_099",
+        "name": "Nông Sản & Gia Cầm #07-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c06_099.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c06_099.png"
+    },
+    {
+        "id": "med4_r06_c07_100",
+        "name": "Nông Sản & Gia Cầm #07-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c07_100.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c07_100.png"
+    },
+    {
+        "id": "med4_r06_c08_101",
+        "name": "Nông Sản & Gia Cầm #07-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c08_101.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c08_101.png"
+    },
+    {
+        "id": "med4_r06_c09_102",
+        "name": "Nông Sản & Gia Cầm #07-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c09_102.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c09_102.png"
+    },
+    {
+        "id": "med4_r06_c10_103",
+        "name": "Nông Sản & Gia Cầm #07-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c10_103.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c10_103.png"
+    },
+    {
+        "id": "med4_r06_c11_104",
+        "name": "Nông Sản & Gia Cầm #07-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c11_104.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c11_104.png"
+    },
+    {
+        "id": "med4_r06_c12_105",
+        "name": "Nông Sản & Gia Cầm #07-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c12_105.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c12_105.png"
+    },
+    {
+        "id": "med4_r06_c13_106",
+        "name": "Nông Sản & Gia Cầm #07-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c13_106.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c13_106.png"
+    },
+    {
+        "id": "med4_r06_c14_107",
+        "name": "Nông Sản & Gia Cầm #07-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c14_107.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c14_107.png"
+    },
+    {
+        "id": "med4_r06_c15_108",
+        "name": "Nông Sản & Gia Cầm #07-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c15_108.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c15_108.png"
+    },
+    {
+        "id": "med4_r06_c16_109",
+        "name": "Nông Sản & Gia Cầm #07-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r06_c16_109.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r06_c16_109.png"
+    },
+    {
+        "id": "med4_r07_c01_110",
+        "name": "Bao Bột & Gia Vị #08-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c01_110.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c01_110.png"
+    },
+    {
+        "id": "med4_r07_c02_111",
+        "name": "Bao Bột & Gia Vị #08-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c02_111.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c02_111.png"
+    },
+    {
+        "id": "med4_r07_c03_112",
+        "name": "Bao Bột & Gia Vị #08-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c03_112.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c03_112.png"
+    },
+    {
+        "id": "med4_r07_c04_113",
+        "name": "Bao Bột & Gia Vị #08-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c04_113.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c04_113.png"
+    },
+    {
+        "id": "med4_r07_c05_114",
+        "name": "Bao Bột & Gia Vị #08-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c05_114.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c05_114.png"
+    },
+    {
+        "id": "med4_r07_c06_115",
+        "name": "Bao Bột & Gia Vị #08-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c06_115.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c06_115.png"
+    },
+    {
+        "id": "med4_r07_c07_116",
+        "name": "Bao Bột & Gia Vị #08-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c07_116.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c07_116.png"
+    },
+    {
+        "id": "med4_r07_c08_117",
+        "name": "Bao Bột & Gia Vị #08-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c08_117.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c08_117.png"
+    },
+    {
+        "id": "med4_r07_c09_118",
+        "name": "Bao Bột & Gia Vị #08-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c09_118.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c09_118.png"
+    },
+    {
+        "id": "med4_r07_c10_119",
+        "name": "Bao Bột & Gia Vị #08-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c10_119.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c10_119.png"
+    },
+    {
+        "id": "med4_r07_c11_120",
+        "name": "Bao Bột & Gia Vị #08-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c11_120.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c11_120.png"
+    },
+    {
+        "id": "med4_r07_c12_121",
+        "name": "Bao Bột & Gia Vị #08-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c12_121.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c12_121.png"
+    },
+    {
+        "id": "med4_r07_c13_122",
+        "name": "Bao Bột & Gia Vị #08-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c13_122.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c13_122.png"
+    },
+    {
+        "id": "med4_r07_c14_123",
+        "name": "Bao Bột & Gia Vị #08-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c14_123.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c14_123.png"
+    },
+    {
+        "id": "med4_r07_c15_124",
+        "name": "Bao Bột & Gia Vị #08-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c15_124.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c15_124.png"
+    },
+    {
+        "id": "med4_r07_c16_125",
+        "name": "Bao Bột & Gia Vị #08-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r07_c16_125.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r07_c16_125.png"
+    },
+    {
+        "id": "med4_r08_c01_126",
+        "name": "Bao Bột & Gia Vị #09-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c01_126.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c01_126.png"
+    },
+    {
+        "id": "med4_r08_c02_127",
+        "name": "Bao Bột & Gia Vị #09-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c02_127.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c02_127.png"
+    },
+    {
+        "id": "med4_r08_c03_128",
+        "name": "Bao Bột & Gia Vị #09-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c03_128.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c03_128.png"
+    },
+    {
+        "id": "med4_r08_c04_129",
+        "name": "Bao Bột & Gia Vị #09-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c04_129.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c04_129.png"
+    },
+    {
+        "id": "med4_r08_c05_130",
+        "name": "Bao Bột & Gia Vị #09-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c05_130.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c05_130.png"
+    },
+    {
+        "id": "med4_r08_c06_131",
+        "name": "Bao Bột & Gia Vị #09-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c06_131.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c06_131.png"
+    },
+    {
+        "id": "med4_r08_c07_132",
+        "name": "Bao Bột & Gia Vị #09-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c07_132.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c07_132.png"
+    },
+    {
+        "id": "med4_r08_c08_133",
+        "name": "Bao Bột & Gia Vị #09-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c08_133.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c08_133.png"
+    },
+    {
+        "id": "med4_r08_c09_134",
+        "name": "Bao Bột & Gia Vị #09-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c09_134.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c09_134.png"
+    },
+    {
+        "id": "med4_r08_c10_135",
+        "name": "Bao Bột & Gia Vị #09-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c10_135.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c10_135.png"
+    },
+    {
+        "id": "med4_r08_c11_136",
+        "name": "Bao Bột & Gia Vị #09-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c11_136.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c11_136.png"
+    },
+    {
+        "id": "med4_r08_c12_137",
+        "name": "Bao Bột & Gia Vị #09-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r08_c12_137.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r08_c12_137.png"
+    },
+    {
+        "id": "med4_r09_c01_138",
+        "name": "Thịt Tươi Sơ Chế #10-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c01_138.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c01_138.png"
+    },
+    {
+        "id": "med4_r09_c02_139",
+        "name": "Thịt Tươi Sơ Chế #10-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c02_139.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c02_139.png"
+    },
+    {
+        "id": "med4_r09_c03_140",
+        "name": "Thịt Tươi Sơ Chế #10-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c03_140.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c03_140.png"
+    },
+    {
+        "id": "med4_r09_c04_141",
+        "name": "Thịt Tươi Sơ Chế #10-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c04_141.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c04_141.png"
+    },
+    {
+        "id": "med4_r09_c05_142",
+        "name": "Thịt Tươi Sơ Chế #10-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c05_142.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c05_142.png"
+    },
+    {
+        "id": "med4_r09_c06_143",
+        "name": "Thịt Tươi Sơ Chế #10-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c06_143.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c06_143.png"
+    },
+    {
+        "id": "med4_r09_c07_144",
+        "name": "Thịt Tươi Sơ Chế #10-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c07_144.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c07_144.png"
+    },
+    {
+        "id": "med4_r09_c08_145",
+        "name": "Thịt Tươi Sơ Chế #10-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c08_145.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c08_145.png"
+    },
+    {
+        "id": "med4_r09_c09_146",
+        "name": "Thịt Tươi Sơ Chế #10-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c09_146.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c09_146.png"
+    },
+    {
+        "id": "med4_r09_c10_147",
+        "name": "Thịt Tươi Sơ Chế #10-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c10_147.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c10_147.png"
+    },
+    {
+        "id": "med4_r09_c11_148",
+        "name": "Thịt Tươi Sơ Chế #10-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c11_148.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c11_148.png"
+    },
+    {
+        "id": "med4_r09_c12_149",
+        "name": "Thịt Tươi Sơ Chế #10-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c12_149.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c12_149.png"
+    },
+    {
+        "id": "med4_r09_c13_150",
+        "name": "Thịt Tươi Sơ Chế #10-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c13_150.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c13_150.png"
+    },
+    {
+        "id": "med4_r09_c14_151",
+        "name": "Thịt Tươi Sơ Chế #10-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c14_151.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c14_151.png"
+    },
+    {
+        "id": "med4_r09_c15_152",
+        "name": "Thịt Tươi Sơ Chế #10-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c15_152.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c15_152.png"
+    },
+    {
+        "id": "med4_r09_c16_153",
+        "name": "Thịt Tươi Sơ Chế #10-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r09_c16_153.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r09_c16_153.png"
+    },
+    {
+        "id": "med4_r10_c01_154",
+        "name": "Thịt Tươi Sơ Chế #11-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c01_154.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c01_154.png"
+    },
+    {
+        "id": "med4_r10_c02_155",
+        "name": "Thịt Tươi Sơ Chế #11-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c02_155.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c02_155.png"
+    },
+    {
+        "id": "med4_r10_c03_156",
+        "name": "Thịt Tươi Sơ Chế #11-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c03_156.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c03_156.png"
+    },
+    {
+        "id": "med4_r10_c04_157",
+        "name": "Thịt Tươi Sơ Chế #11-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c04_157.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c04_157.png"
+    },
+    {
+        "id": "med4_r10_c05_158",
+        "name": "Thịt Tươi Sơ Chế #11-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c05_158.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c05_158.png"
+    },
+    {
+        "id": "med4_r10_c06_159",
+        "name": "Thịt Tươi Sơ Chế #11-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c06_159.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c06_159.png"
+    },
+    {
+        "id": "med4_r10_c07_160",
+        "name": "Thịt Tươi Sơ Chế #11-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c07_160.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c07_160.png"
+    },
+    {
+        "id": "med4_r10_c08_161",
+        "name": "Thịt Tươi Sơ Chế #11-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c08_161.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c08_161.png"
+    },
+    {
+        "id": "med4_r10_c09_162",
+        "name": "Thịt Tươi Sơ Chế #11-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c09_162.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c09_162.png"
+    },
+    {
+        "id": "med4_r10_c10_163",
+        "name": "Thịt Tươi Sơ Chế #11-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c10_163.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c10_163.png"
+    },
+    {
+        "id": "med4_r10_c11_164",
+        "name": "Thịt Tươi Sơ Chế #11-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c11_164.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c11_164.png"
+    },
+    {
+        "id": "med4_r10_c12_165",
+        "name": "Thịt Tươi Sơ Chế #11-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c12_165.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c12_165.png"
+    },
+    {
+        "id": "med4_r10_c13_166",
+        "name": "Thịt Tươi Sơ Chế #11-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c13_166.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c13_166.png"
+    },
+    {
+        "id": "med4_r10_c14_167",
+        "name": "Thịt Tươi Sơ Chế #11-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c14_167.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c14_167.png"
+    },
+    {
+        "id": "med4_r10_c15_168",
+        "name": "Thịt Tươi Sơ Chế #11-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c15_168.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c15_168.png"
+    },
+    {
+        "id": "med4_r10_c16_169",
+        "name": "Thịt Tươi Sơ Chế #11-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r10_c16_169.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r10_c16_169.png"
+    },
+    {
+        "id": "med4_r11_c01_170",
+        "name": "Thịt Tươi Sơ Chế #12-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c01_170.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c01_170.png"
+    },
+    {
+        "id": "med4_r11_c02_171",
+        "name": "Thịt Tươi Sơ Chế #12-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c02_171.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c02_171.png"
+    },
+    {
+        "id": "med4_r11_c03_172",
+        "name": "Thịt Tươi Sơ Chế #12-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c03_172.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c03_172.png"
+    },
+    {
+        "id": "med4_r11_c04_173",
+        "name": "Thịt Tươi Sơ Chế #12-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c04_173.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c04_173.png"
+    },
+    {
+        "id": "med4_r11_c05_174",
+        "name": "Thịt Tươi Sơ Chế #12-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c05_174.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c05_174.png"
+    },
+    {
+        "id": "med4_r11_c06_175",
+        "name": "Thịt Tươi Sơ Chế #12-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c06_175.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c06_175.png"
+    },
+    {
+        "id": "med4_r11_c07_176",
+        "name": "Thịt Tươi Sơ Chế #12-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c07_176.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c07_176.png"
+    },
+    {
+        "id": "med4_r11_c08_177",
+        "name": "Thịt Tươi Sơ Chế #12-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c08_177.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c08_177.png"
+    },
+    {
+        "id": "med4_r11_c09_178",
+        "name": "Thịt Tươi Sơ Chế #12-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c09_178.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c09_178.png"
+    },
+    {
+        "id": "med4_r11_c10_179",
+        "name": "Thịt Tươi Sơ Chế #12-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c10_179.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c10_179.png"
+    },
+    {
+        "id": "med4_r11_c11_180",
+        "name": "Thịt Tươi Sơ Chế #12-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c11_180.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c11_180.png"
+    },
+    {
+        "id": "med4_r11_c12_181",
+        "name": "Thịt Tươi Sơ Chế #12-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c12_181.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c12_181.png"
+    },
+    {
+        "id": "med4_r11_c13_182",
+        "name": "Thịt Tươi Sơ Chế #12-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c13_182.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c13_182.png"
+    },
+    {
+        "id": "med4_r11_c14_183",
+        "name": "Thịt Tươi Sơ Chế #12-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c14_183.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c14_183.png"
+    },
+    {
+        "id": "med4_r11_c15_184",
+        "name": "Thịt Tươi Sơ Chế #12-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c15_184.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c15_184.png"
+    },
+    {
+        "id": "med4_r11_c16_185",
+        "name": "Thịt Tươi Sơ Chế #12-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r11_c16_185.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r11_c16_185.png"
+    },
+    {
+        "id": "med4_r12_c01_186",
+        "name": "Thịt Tươi Sơ Chế #13-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c01_186.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c01_186.png"
+    },
+    {
+        "id": "med4_r12_c02_187",
+        "name": "Thịt Tươi Sơ Chế #13-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c02_187.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c02_187.png"
+    },
+    {
+        "id": "med4_r12_c03_188",
+        "name": "Thịt Tươi Sơ Chế #13-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c03_188.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c03_188.png"
+    },
+    {
+        "id": "med4_r12_c04_189",
+        "name": "Thịt Tươi Sơ Chế #13-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c04_189.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c04_189.png"
+    },
+    {
+        "id": "med4_r12_c05_190",
+        "name": "Thịt Tươi Sơ Chế #13-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c05_190.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c05_190.png"
+    },
+    {
+        "id": "med4_r12_c06_191",
+        "name": "Thịt Tươi Sơ Chế #13-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c06_191.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c06_191.png"
+    },
+    {
+        "id": "med4_r12_c07_192",
+        "name": "Thịt Tươi Sơ Chế #13-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c07_192.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c07_192.png"
+    },
+    {
+        "id": "med4_r12_c08_193",
+        "name": "Thịt Tươi Sơ Chế #13-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c08_193.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c08_193.png"
+    },
+    {
+        "id": "med4_r12_c09_194",
+        "name": "Thịt Tươi Sơ Chế #13-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c09_194.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c09_194.png"
+    },
+    {
+        "id": "med4_r12_c10_195",
+        "name": "Thịt Tươi Sơ Chế #13-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c10_195.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c10_195.png"
+    },
+    {
+        "id": "med4_r12_c11_196",
+        "name": "Thịt Tươi Sơ Chế #13-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c11_196.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c11_196.png"
+    },
+    {
+        "id": "med4_r12_c12_197",
+        "name": "Thịt Tươi Sơ Chế #13-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c12_197.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c12_197.png"
+    },
+    {
+        "id": "med4_r12_c13_198",
+        "name": "Thịt Tươi Sơ Chế #13-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c13_198.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c13_198.png"
+    },
+    {
+        "id": "med4_r12_c14_199",
+        "name": "Thịt Tươi Sơ Chế #13-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c14_199.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c14_199.png"
+    },
+    {
+        "id": "med4_r12_c15_200",
+        "name": "Thịt Tươi Sơ Chế #13-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c15_200.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c15_200.png"
+    },
+    {
+        "id": "med4_r12_c16_201",
+        "name": "Thịt Tươi Sơ Chế #13-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r12_c16_201.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r12_c16_201.png"
+    },
+    {
+        "id": "med4_r13_c01_202",
+        "name": "Thịt Tươi Sơ Chế #14-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c01_202.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c01_202.png"
+    },
+    {
+        "id": "med4_r13_c02_203",
+        "name": "Thịt Tươi Sơ Chế #14-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c02_203.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c02_203.png"
+    },
+    {
+        "id": "med4_r13_c03_204",
+        "name": "Thịt Tươi Sơ Chế #14-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c03_204.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c03_204.png"
+    },
+    {
+        "id": "med4_r13_c04_205",
+        "name": "Thịt Tươi Sơ Chế #14-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c04_205.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c04_205.png"
+    },
+    {
+        "id": "med4_r13_c05_206",
+        "name": "Thịt Tươi Sơ Chế #14-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c05_206.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c05_206.png"
+    },
+    {
+        "id": "med4_r13_c06_207",
+        "name": "Thịt Tươi Sơ Chế #14-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c06_207.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c06_207.png"
+    },
+    {
+        "id": "med4_r13_c07_208",
+        "name": "Thịt Tươi Sơ Chế #14-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c07_208.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c07_208.png"
+    },
+    {
+        "id": "med4_r13_c08_209",
+        "name": "Thịt Tươi Sơ Chế #14-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c08_209.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c08_209.png"
+    },
+    {
+        "id": "med4_r13_c09_210",
+        "name": "Thịt Tươi Sơ Chế #14-10",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c09_210.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c09_210.png"
+    },
+    {
+        "id": "med4_r13_c10_211",
+        "name": "Thịt Tươi Sơ Chế #14-11",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c10_211.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c10_211.png"
+    },
+    {
+        "id": "med4_r13_c11_212",
+        "name": "Thịt Tươi Sơ Chế #14-12",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c11_212.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c11_212.png"
+    },
+    {
+        "id": "med4_r13_c12_213",
+        "name": "Thịt Tươi Sơ Chế #14-13",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c12_213.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c12_213.png"
+    },
+    {
+        "id": "med4_r13_c13_214",
+        "name": "Thịt Tươi Sơ Chế #14-14",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c13_214.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c13_214.png"
+    },
+    {
+        "id": "med4_r13_c14_215",
+        "name": "Thịt Tươi Sơ Chế #14-15",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c14_215.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c14_215.png"
+    },
+    {
+        "id": "med4_r13_c15_216",
+        "name": "Thịt Tươi Sơ Chế #14-16",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c15_216.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c15_216.png"
+    },
+    {
+        "id": "med4_r13_c16_217",
+        "name": "Thịt Tươi Sơ Chế #14-17",
+        "forType": "provisions",
+        "src": "/assets/props/items/med4_r13_c16_217.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r13_c16_217.png"
+    },
+    {
+        "id": "med4_r14_c01_218",
+        "name": "Thùng Gỗ & Rổ Rau #15-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c01_218.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c01_218.png"
+    },
+    {
+        "id": "med4_r14_c02_219",
+        "name": "Thùng Gỗ & Rổ Rau #15-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c02_219.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c02_219.png"
+    },
+    {
+        "id": "med4_r14_c03_220",
+        "name": "Thùng Gỗ & Rổ Rau #15-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c03_220.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c03_220.png"
+    },
+    {
+        "id": "med4_r14_c04_221",
+        "name": "Thùng Gỗ & Rổ Rau #15-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c04_221.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c04_221.png"
+    },
+    {
+        "id": "med4_r14_c05_222",
+        "name": "Thùng Gỗ & Rổ Rau #15-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c05_222.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c05_222.png"
+    },
+    {
+        "id": "med4_r14_c06_223",
+        "name": "Thùng Gỗ & Rổ Rau #15-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c06_223.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c06_223.png"
+    },
+    {
+        "id": "med4_r14_c07_224",
+        "name": "Thùng Gỗ & Rổ Rau #15-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c07_224.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c07_224.png"
+    },
+    {
+        "id": "med4_r14_c08_225",
+        "name": "Thùng Gỗ & Rổ Rau #15-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c08_225.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c08_225.png"
+    },
+    {
+        "id": "med4_r14_c09_226",
+        "name": "Thùng Gỗ & Rổ Rau #15-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c09_226.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c09_226.png"
+    },
+    {
+        "id": "med4_r14_c10_227",
+        "name": "Thùng Gỗ & Rổ Rau #15-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c10_227.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c10_227.png"
+    },
+    {
+        "id": "med4_r14_c11_228",
+        "name": "Thùng Gỗ & Rổ Rau #15-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c11_228.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c11_228.png"
+    },
+    {
+        "id": "med4_r14_c12_229",
+        "name": "Thùng Gỗ & Rổ Rau #15-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c12_229.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c12_229.png"
+    },
+    {
+        "id": "med4_r14_c13_230",
+        "name": "Thùng Gỗ & Rổ Rau #15-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c13_230.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c13_230.png"
+    },
+    {
+        "id": "med4_r14_c14_231",
+        "name": "Thùng Gỗ & Rổ Rau #15-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c14_231.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c14_231.png"
+    },
+    {
+        "id": "med4_r14_c15_232",
+        "name": "Thùng Gỗ & Rổ Rau #15-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c15_232.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c15_232.png"
+    },
+    {
+        "id": "med4_r14_c16_233",
+        "name": "Thùng Gỗ & Rổ Rau #15-17",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r14_c16_233.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r14_c16_233.png"
+    },
+    {
+        "id": "med4_r15_c01_234",
+        "name": "Thùng Gỗ & Rổ Rau #16-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c01_234.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c01_234.png"
+    },
+    {
+        "id": "med4_r15_c02_235",
+        "name": "Thùng Gỗ & Rổ Rau #16-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c02_235.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c02_235.png"
+    },
+    {
+        "id": "med4_r15_c03_236",
+        "name": "Thùng Gỗ & Rổ Rau #16-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c03_236.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c03_236.png"
+    },
+    {
+        "id": "med4_r15_c04_237",
+        "name": "Thùng Gỗ & Rổ Rau #16-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c04_237.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c04_237.png"
+    },
+    {
+        "id": "med4_r15_c05_238",
+        "name": "Thùng Gỗ & Rổ Rau #16-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c05_238.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c05_238.png"
+    },
+    {
+        "id": "med4_r15_c06_239",
+        "name": "Thùng Gỗ & Rổ Rau #16-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c06_239.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c06_239.png"
+    },
+    {
+        "id": "med4_r15_c07_240",
+        "name": "Thùng Gỗ & Rổ Rau #16-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c07_240.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c07_240.png"
+    },
+    {
+        "id": "med4_r15_c08_241",
+        "name": "Thùng Gỗ & Rổ Rau #16-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c08_241.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c08_241.png"
+    },
+    {
+        "id": "med4_r15_c09_242",
+        "name": "Thùng Gỗ & Rổ Rau #16-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c09_242.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c09_242.png"
+    },
+    {
+        "id": "med4_r15_c10_243",
+        "name": "Thùng Gỗ & Rổ Rau #16-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c10_243.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c10_243.png"
+    },
+    {
+        "id": "med4_r15_c11_244",
+        "name": "Thùng Gỗ & Rổ Rau #16-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c11_244.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c11_244.png"
+    },
+    {
+        "id": "med4_r15_c12_245",
+        "name": "Thùng Gỗ & Rổ Rau #16-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c12_245.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c12_245.png"
+    },
+    {
+        "id": "med4_r15_c13_246",
+        "name": "Thùng Gỗ & Rổ Rau #16-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c13_246.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c13_246.png"
+    },
+    {
+        "id": "med4_r15_c14_247",
+        "name": "Thùng Gỗ & Rổ Rau #16-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c14_247.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c14_247.png"
+    },
+    {
+        "id": "med4_r15_c15_248",
+        "name": "Thùng Gỗ & Rổ Rau #16-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med4_r15_c15_248.png",
+        "thumbSrc": "/assets/props/thumbs/med4_r15_c15_248.png"
+    },
+    {
+        "id": "med6_r00_c01_000",
+        "name": "Công Trình & Rương Báu #01-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c01_000.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c01_000.png"
+    },
+    {
+        "id": "med6_r00_c02_001",
+        "name": "Công Trình & Rương Báu #01-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c02_001.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c02_001.png"
+    },
+    {
+        "id": "med6_r00_c03_002",
+        "name": "Công Trình & Rương Báu #01-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c03_002.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c03_002.png"
+    },
+    {
+        "id": "med6_r00_c04_003",
+        "name": "Công Trình & Rương Báu #01-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c04_003.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c04_003.png"
+    },
+    {
+        "id": "med6_r00_c05_004",
+        "name": "Công Trình & Rương Báu #01-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c05_004.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c05_004.png"
+    },
+    {
+        "id": "med6_r00_c06_005",
+        "name": "Công Trình & Rương Báu #01-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c06_005.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c06_005.png"
+    },
+    {
+        "id": "med6_r00_c07_006",
+        "name": "Công Trình & Rương Báu #01-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c07_006.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c07_006.png"
+    },
+    {
+        "id": "med6_r00_c08_007",
+        "name": "Công Trình & Rương Báu #01-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c08_007.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c08_007.png"
+    },
+    {
+        "id": "med6_r00_c09_008",
+        "name": "Công Trình & Rương Báu #01-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c09_008.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c09_008.png"
+    },
+    {
+        "id": "med6_r00_c10_009",
+        "name": "Công Trình & Rương Báu #01-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c10_009.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c10_009.png"
+    },
+    {
+        "id": "med6_r00_c11_010",
+        "name": "Công Trình & Rương Báu #01-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c11_010.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c11_010.png"
+    },
+    {
+        "id": "med6_r00_c12_011",
+        "name": "Công Trình & Rương Báu #01-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c12_011.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c12_011.png"
+    },
+    {
+        "id": "med6_r00_c13_012",
+        "name": "Công Trình & Rương Báu #01-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c13_012.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c13_012.png"
+    },
+    {
+        "id": "med6_r00_c14_013",
+        "name": "Công Trình & Rương Báu #01-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r00_c14_013.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r00_c14_013.png"
+    },
+    {
+        "id": "med6_r01_c00_014",
+        "name": "Công Trình & Rương Báu #02-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c00_014.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c00_014.png"
+    },
+    {
+        "id": "med6_r01_c01_015",
+        "name": "Công Trình & Rương Báu #02-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c01_015.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c01_015.png"
+    },
+    {
+        "id": "med6_r01_c02_016",
+        "name": "Công Trình & Rương Báu #02-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c02_016.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c02_016.png"
+    },
+    {
+        "id": "med6_r01_c03_017",
+        "name": "Công Trình & Rương Báu #02-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c03_017.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c03_017.png"
+    },
+    {
+        "id": "med6_r01_c04_018",
+        "name": "Công Trình & Rương Báu #02-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c04_018.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c04_018.png"
+    },
+    {
+        "id": "med6_r01_c05_019",
+        "name": "Công Trình & Rương Báu #02-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c05_019.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c05_019.png"
+    },
+    {
+        "id": "med6_r01_c06_020",
+        "name": "Công Trình & Rương Báu #02-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c06_020.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c06_020.png"
+    },
+    {
+        "id": "med6_r01_c07_021",
+        "name": "Công Trình & Rương Báu #02-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r01_c07_021.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r01_c07_021.png"
+    },
+    {
+        "id": "med6_r02_c01_022",
+        "name": "Công Trình & Rương Báu #03-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c01_022.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c01_022.png"
+    },
+    {
+        "id": "med6_r02_c02_023",
+        "name": "Công Trình & Rương Báu #03-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c02_023.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c02_023.png"
+    },
+    {
+        "id": "med6_r02_c03_024",
+        "name": "Công Trình & Rương Báu #03-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c03_024.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c03_024.png"
+    },
+    {
+        "id": "med6_r02_c04_025",
+        "name": "Công Trình & Rương Báu #03-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c04_025.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c04_025.png"
+    },
+    {
+        "id": "med6_r02_c05_026",
+        "name": "Công Trình & Rương Báu #03-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c05_026.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c05_026.png"
+    },
+    {
+        "id": "med6_r02_c06_027",
+        "name": "Công Trình & Rương Báu #03-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c06_027.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c06_027.png"
+    },
+    {
+        "id": "med6_r02_c07_028",
+        "name": "Công Trình & Rương Báu #03-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c07_028.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c07_028.png"
+    },
+    {
+        "id": "med6_r02_c08_029",
+        "name": "Công Trình & Rương Báu #03-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c08_029.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c08_029.png"
+    },
+    {
+        "id": "med6_r02_c09_030",
+        "name": "Công Trình & Rương Báu #03-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c09_030.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c09_030.png"
+    },
+    {
+        "id": "med6_r02_c10_031",
+        "name": "Công Trình & Rương Báu #03-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c10_031.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c10_031.png"
+    },
+    {
+        "id": "med6_r02_c11_032",
+        "name": "Công Trình & Rương Báu #03-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c11_032.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c11_032.png"
+    },
+    {
+        "id": "med6_r02_c12_033",
+        "name": "Công Trình & Rương Báu #03-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c12_033.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c12_033.png"
+    },
+    {
+        "id": "med6_r02_c13_034",
+        "name": "Công Trình & Rương Báu #03-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r02_c13_034.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r02_c13_034.png"
+    },
+    {
+        "id": "med6_r03_c01_035",
+        "name": "Công Trình & Rương Báu #04-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c01_035.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c01_035.png"
+    },
+    {
+        "id": "med6_r03_c02_036",
+        "name": "Công Trình & Rương Báu #04-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c02_036.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c02_036.png"
+    },
+    {
+        "id": "med6_r03_c03_037",
+        "name": "Công Trình & Rương Báu #04-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c03_037.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c03_037.png"
+    },
+    {
+        "id": "med6_r03_c04_038",
+        "name": "Công Trình & Rương Báu #04-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c04_038.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c04_038.png"
+    },
+    {
+        "id": "med6_r03_c05_039",
+        "name": "Công Trình & Rương Báu #04-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c05_039.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c05_039.png"
+    },
+    {
+        "id": "med6_r03_c06_040",
+        "name": "Công Trình & Rương Báu #04-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c06_040.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c06_040.png"
+    },
+    {
+        "id": "med6_r03_c07_041",
+        "name": "Công Trình & Rương Báu #04-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c07_041.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c07_041.png"
+    },
+    {
+        "id": "med6_r03_c08_042",
+        "name": "Công Trình & Rương Báu #04-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c08_042.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c08_042.png"
+    },
+    {
+        "id": "med6_r03_c09_043",
+        "name": "Công Trình & Rương Báu #04-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c09_043.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c09_043.png"
+    },
+    {
+        "id": "med6_r03_c10_044",
+        "name": "Công Trình & Rương Báu #04-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c10_044.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c10_044.png"
+    },
+    {
+        "id": "med6_r03_c11_045",
+        "name": "Công Trình & Rương Báu #04-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c11_045.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c11_045.png"
+    },
+    {
+        "id": "med6_r03_c12_046",
+        "name": "Công Trình & Rương Báu #04-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r03_c12_046.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r03_c12_046.png"
+    },
+    {
+        "id": "med6_r04_c01_047",
+        "name": "Công Trình & Rương Báu #05-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c01_047.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c01_047.png"
+    },
+    {
+        "id": "med6_r04_c02_048",
+        "name": "Công Trình & Rương Báu #05-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c02_048.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c02_048.png"
+    },
+    {
+        "id": "med6_r04_c03_049",
+        "name": "Công Trình & Rương Báu #05-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c03_049.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c03_049.png"
+    },
+    {
+        "id": "med6_r04_c04_050",
+        "name": "Công Trình & Rương Báu #05-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c04_050.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c04_050.png"
+    },
+    {
+        "id": "med6_r04_c05_051",
+        "name": "Công Trình & Rương Báu #05-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c05_051.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c05_051.png"
+    },
+    {
+        "id": "med6_r04_c06_052",
+        "name": "Công Trình & Rương Báu #05-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c06_052.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c06_052.png"
+    },
+    {
+        "id": "med6_r04_c07_053",
+        "name": "Công Trình & Rương Báu #05-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c07_053.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c07_053.png"
+    },
+    {
+        "id": "med6_r04_c08_054",
+        "name": "Công Trình & Rương Báu #05-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c08_054.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c08_054.png"
+    },
+    {
+        "id": "med6_r04_c09_055",
+        "name": "Công Trình & Rương Báu #05-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c09_055.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c09_055.png"
+    },
+    {
+        "id": "med6_r04_c10_056",
+        "name": "Công Trình & Rương Báu #05-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c10_056.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c10_056.png"
+    },
+    {
+        "id": "med6_r04_c11_057",
+        "name": "Công Trình & Rương Báu #05-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c11_057.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c11_057.png"
+    },
+    {
+        "id": "med6_r04_c12_058",
+        "name": "Công Trình & Rương Báu #05-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c12_058.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c12_058.png"
+    },
+    {
+        "id": "med6_r04_c13_059",
+        "name": "Công Trình & Rương Báu #05-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c13_059.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c13_059.png"
+    },
+    {
+        "id": "med6_r04_c14_060",
+        "name": "Công Trình & Rương Báu #05-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c14_060.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c14_060.png"
+    },
+    {
+        "id": "med6_r04_c15_061",
+        "name": "Công Trình & Rương Báu #05-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c15_061.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c15_061.png"
+    },
+    {
+        "id": "med6_r04_c16_062",
+        "name": "Công Trình & Rương Báu #05-17",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r04_c16_062.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r04_c16_062.png"
+    },
+    {
+        "id": "med6_r05_c01_063",
+        "name": "Công Trình & Rương Báu #06-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c01_063.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c01_063.png"
+    },
+    {
+        "id": "med6_r05_c02_064",
+        "name": "Công Trình & Rương Báu #06-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c02_064.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c02_064.png"
+    },
+    {
+        "id": "med6_r05_c03_065",
+        "name": "Công Trình & Rương Báu #06-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c03_065.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c03_065.png"
+    },
+    {
+        "id": "med6_r05_c04_066",
+        "name": "Công Trình & Rương Báu #06-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c04_066.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c04_066.png"
+    },
+    {
+        "id": "med6_r05_c05_067",
+        "name": "Công Trình & Rương Báu #06-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c05_067.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c05_067.png"
+    },
+    {
+        "id": "med6_r05_c06_068",
+        "name": "Công Trình & Rương Báu #06-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c06_068.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c06_068.png"
+    },
+    {
+        "id": "med6_r05_c07_069",
+        "name": "Công Trình & Rương Báu #06-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c07_069.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c07_069.png"
+    },
+    {
+        "id": "med6_r05_c08_070",
+        "name": "Công Trình & Rương Báu #06-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c08_070.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c08_070.png"
+    },
+    {
+        "id": "med6_r05_c09_071",
+        "name": "Công Trình & Rương Báu #06-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c09_071.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c09_071.png"
+    },
+    {
+        "id": "med6_r05_c10_072",
+        "name": "Công Trình & Rương Báu #06-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c10_072.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c10_072.png"
+    },
+    {
+        "id": "med6_r05_c11_073",
+        "name": "Công Trình & Rương Báu #06-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c11_073.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c11_073.png"
+    },
+    {
+        "id": "med6_r05_c12_074",
+        "name": "Công Trình & Rương Báu #06-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c12_074.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c12_074.png"
+    },
+    {
+        "id": "med6_r05_c13_075",
+        "name": "Công Trình & Rương Báu #06-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c13_075.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c13_075.png"
+    },
+    {
+        "id": "med6_r05_c14_076",
+        "name": "Công Trình & Rương Báu #06-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c14_076.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c14_076.png"
+    },
+    {
+        "id": "med6_r05_c15_077",
+        "name": "Công Trình & Rương Báu #06-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c15_077.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c15_077.png"
+    },
+    {
+        "id": "med6_r05_c16_078",
+        "name": "Công Trình & Rương Báu #06-17",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r05_c16_078.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r05_c16_078.png"
+    },
+    {
+        "id": "med6_r06_c01_079",
+        "name": "Công Trình & Rương Báu #07-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c01_079.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c01_079.png"
+    },
+    {
+        "id": "med6_r06_c02_080",
+        "name": "Công Trình & Rương Báu #07-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c02_080.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c02_080.png"
+    },
+    {
+        "id": "med6_r06_c03_081",
+        "name": "Công Trình & Rương Báu #07-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c03_081.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c03_081.png"
+    },
+    {
+        "id": "med6_r06_c04_082",
+        "name": "Công Trình & Rương Báu #07-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c04_082.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c04_082.png"
+    },
+    {
+        "id": "med6_r06_c05_083",
+        "name": "Công Trình & Rương Báu #07-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c05_083.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c05_083.png"
+    },
+    {
+        "id": "med6_r06_c06_084",
+        "name": "Công Trình & Rương Báu #07-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c06_084.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c06_084.png"
+    },
+    {
+        "id": "med6_r06_c07_085",
+        "name": "Công Trình & Rương Báu #07-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c07_085.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c07_085.png"
+    },
+    {
+        "id": "med6_r06_c08_086",
+        "name": "Công Trình & Rương Báu #07-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c08_086.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c08_086.png"
+    },
+    {
+        "id": "med6_r06_c09_087",
+        "name": "Công Trình & Rương Báu #07-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c09_087.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c09_087.png"
+    },
+    {
+        "id": "med6_r06_c10_088",
+        "name": "Công Trình & Rương Báu #07-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c10_088.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c10_088.png"
+    },
+    {
+        "id": "med6_r06_c11_089",
+        "name": "Công Trình & Rương Báu #07-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c11_089.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c11_089.png"
+    },
+    {
+        "id": "med6_r06_c12_090",
+        "name": "Công Trình & Rương Báu #07-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med6_r06_c12_090.png",
+        "thumbSrc": "/assets/props/thumbs/med6_r06_c12_090.png"
+    },
+    {
+        "id": "med8_r00_c00_000",
+        "name": "Thành Quách & Cổng Thành #01-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c00_000.png"
+    },
+    {
+        "id": "med8_r00_c01_001",
+        "name": "Thành Quách & Cổng Thành #01-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c01_001.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c01_001.png"
+    },
+    {
+        "id": "med8_r00_c02_002",
+        "name": "Thành Quách & Cổng Thành #01-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c02_002.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c02_002.png"
+    },
+    {
+        "id": "med8_r00_c03_003",
+        "name": "Thành Quách & Cổng Thành #01-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c03_003.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c03_003.png"
+    },
+    {
+        "id": "med8_r00_c04_004",
+        "name": "Thành Quách & Cổng Thành #01-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c04_004.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c04_004.png"
+    },
+    {
+        "id": "med8_r00_c05_005",
+        "name": "Thành Quách & Cổng Thành #01-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c05_005.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c05_005.png"
+    },
+    {
+        "id": "med8_r00_c06_006",
+        "name": "Thành Quách & Cổng Thành #01-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c06_006.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c06_006.png"
+    },
+    {
+        "id": "med8_r00_c07_007",
+        "name": "Thành Quách & Cổng Thành #01-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c07_007.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c07_007.png"
+    },
+    {
+        "id": "med8_r00_c08_008",
+        "name": "Thành Quách & Cổng Thành #01-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c08_008.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c08_008.png"
+    },
+    {
+        "id": "med8_r00_c09_009",
+        "name": "Thành Quách & Cổng Thành #01-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r00_c09_009.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r00_c09_009.png"
+    },
+    {
+        "id": "med8_r01_c00_010",
+        "name": "Thành Quách & Cổng Thành #02-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c00_010.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c00_010.png"
+    },
+    {
+        "id": "med8_r01_c01_011",
+        "name": "Thành Quách & Cổng Thành #02-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c01_011.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c01_011.png"
+    },
+    {
+        "id": "med8_r01_c02_012",
+        "name": "Thành Quách & Cổng Thành #02-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c02_012.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c02_012.png"
+    },
+    {
+        "id": "med8_r01_c03_013",
+        "name": "Thành Quách & Cổng Thành #02-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c03_013.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c03_013.png"
+    },
+    {
+        "id": "med8_r01_c04_014",
+        "name": "Thành Quách & Cổng Thành #02-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c04_014.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c04_014.png"
+    },
+    {
+        "id": "med8_r01_c05_015",
+        "name": "Thành Quách & Cổng Thành #02-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c05_015.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c05_015.png"
+    },
+    {
+        "id": "med8_r01_c06_016",
+        "name": "Thành Quách & Cổng Thành #02-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c06_016.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c06_016.png"
+    },
+    {
+        "id": "med8_r01_c07_017",
+        "name": "Thành Quách & Cổng Thành #02-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c07_017.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c07_017.png"
+    },
+    {
+        "id": "med8_r01_c08_018",
+        "name": "Thành Quách & Cổng Thành #02-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c08_018.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c08_018.png"
+    },
+    {
+        "id": "med8_r01_c09_019",
+        "name": "Thành Quách & Cổng Thành #02-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c09_019.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c09_019.png"
+    },
+    {
+        "id": "med8_r01_c10_020",
+        "name": "Thành Quách & Cổng Thành #02-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c10_020.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c10_020.png"
+    },
+    {
+        "id": "med8_r01_c11_021",
+        "name": "Thành Quách & Cổng Thành #02-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c11_021.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c11_021.png"
+    },
+    {
+        "id": "med8_r01_c12_022",
+        "name": "Thành Quách & Cổng Thành #02-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r01_c12_022.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r01_c12_022.png"
+    },
+    {
+        "id": "med8_r02_c00_023",
+        "name": "Thành Quách & Cổng Thành #03-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c00_023.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c00_023.png"
+    },
+    {
+        "id": "med8_r02_c01_024",
+        "name": "Thành Quách & Cổng Thành #03-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c01_024.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c01_024.png"
+    },
+    {
+        "id": "med8_r02_c02_025",
+        "name": "Thành Quách & Cổng Thành #03-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c02_025.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c02_025.png"
+    },
+    {
+        "id": "med8_r02_c03_026",
+        "name": "Thành Quách & Cổng Thành #03-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c03_026.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c03_026.png"
+    },
+    {
+        "id": "med8_r02_c04_027",
+        "name": "Thành Quách & Cổng Thành #03-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c04_027.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c04_027.png"
+    },
+    {
+        "id": "med8_r02_c05_028",
+        "name": "Thành Quách & Cổng Thành #03-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c05_028.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c05_028.png"
+    },
+    {
+        "id": "med8_r02_c06_029",
+        "name": "Thành Quách & Cổng Thành #03-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c06_029.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c06_029.png"
+    },
+    {
+        "id": "med8_r02_c07_030",
+        "name": "Thành Quách & Cổng Thành #03-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c07_030.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c07_030.png"
+    },
+    {
+        "id": "med8_r02_c08_031",
+        "name": "Thành Quách & Cổng Thành #03-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c08_031.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c08_031.png"
+    },
+    {
+        "id": "med8_r02_c09_032",
+        "name": "Thành Quách & Cổng Thành #03-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c09_032.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c09_032.png"
+    },
+    {
+        "id": "med8_r02_c10_033",
+        "name": "Thành Quách & Cổng Thành #03-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c10_033.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c10_033.png"
+    },
+    {
+        "id": "med8_r02_c11_034",
+        "name": "Thành Quách & Cổng Thành #03-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c11_034.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c11_034.png"
+    },
+    {
+        "id": "med8_r02_c12_035",
+        "name": "Thành Quách & Cổng Thành #03-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c12_035.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c12_035.png"
+    },
+    {
+        "id": "med8_r02_c13_036",
+        "name": "Thành Quách & Cổng Thành #03-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c13_036.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c13_036.png"
+    },
+    {
+        "id": "med8_r02_c14_037",
+        "name": "Thành Quách & Cổng Thành #03-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c14_037.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c14_037.png"
+    },
+    {
+        "id": "med8_r02_c15_038",
+        "name": "Thành Quách & Cổng Thành #03-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c15_038.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c15_038.png"
+    },
+    {
+        "id": "med8_r02_c16_039",
+        "name": "Thành Quách & Cổng Thành #03-17",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r02_c16_039.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r02_c16_039.png"
+    },
+    {
+        "id": "med8_r03_c00_040",
+        "name": "Nội Thất Cung Điện #04-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c00_040.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c00_040.png"
+    },
+    {
+        "id": "med8_r03_c01_041",
+        "name": "Nội Thất Cung Điện #04-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c01_041.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c01_041.png"
+    },
+    {
+        "id": "med8_r03_c02_042",
+        "name": "Nội Thất Cung Điện #04-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c02_042.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c02_042.png"
+    },
+    {
+        "id": "med8_r03_c03_043",
+        "name": "Nội Thất Cung Điện #04-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c03_043.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c03_043.png"
+    },
+    {
+        "id": "med8_r03_c04_044",
+        "name": "Nội Thất Cung Điện #04-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c04_044.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c04_044.png"
+    },
+    {
+        "id": "med8_r03_c05_045",
+        "name": "Nội Thất Cung Điện #04-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c05_045.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c05_045.png"
+    },
+    {
+        "id": "med8_r03_c06_046",
+        "name": "Nội Thất Cung Điện #04-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c06_046.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c06_046.png"
+    },
+    {
+        "id": "med8_r03_c07_047",
+        "name": "Nội Thất Cung Điện #04-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c07_047.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c07_047.png"
+    },
+    {
+        "id": "med8_r03_c08_048",
+        "name": "Nội Thất Cung Điện #04-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c08_048.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c08_048.png"
+    },
+    {
+        "id": "med8_r03_c09_049",
+        "name": "Nội Thất Cung Điện #04-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c09_049.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c09_049.png"
+    },
+    {
+        "id": "med8_r03_c10_050",
+        "name": "Nội Thất Cung Điện #04-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c10_050.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c10_050.png"
+    },
+    {
+        "id": "med8_r03_c11_051",
+        "name": "Nội Thất Cung Điện #04-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c11_051.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c11_051.png"
+    },
+    {
+        "id": "med8_r03_c12_052",
+        "name": "Nội Thất Cung Điện #04-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c12_052.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c12_052.png"
+    },
+    {
+        "id": "med8_r03_c13_053",
+        "name": "Nội Thất Cung Điện #04-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c13_053.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c13_053.png"
+    },
+    {
+        "id": "med8_r03_c14_054",
+        "name": "Nội Thất Cung Điện #04-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c14_054.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c14_054.png"
+    },
+    {
+        "id": "med8_r03_c15_055",
+        "name": "Nội Thất Cung Điện #04-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r03_c15_055.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r03_c15_055.png"
+    },
+    {
+        "id": "med8_r04_c00_056",
+        "name": "Nội Thất Cung Điện #05-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c00_056.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c00_056.png"
+    },
+    {
+        "id": "med8_r04_c01_057",
+        "name": "Nội Thất Cung Điện #05-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c01_057.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c01_057.png"
+    },
+    {
+        "id": "med8_r04_c02_058",
+        "name": "Nội Thất Cung Điện #05-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c02_058.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c02_058.png"
+    },
+    {
+        "id": "med8_r04_c03_059",
+        "name": "Nội Thất Cung Điện #05-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c03_059.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c03_059.png"
+    },
+    {
+        "id": "med8_r04_c04_060",
+        "name": "Nội Thất Cung Điện #05-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c04_060.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c04_060.png"
+    },
+    {
+        "id": "med8_r04_c05_061",
+        "name": "Nội Thất Cung Điện #05-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c05_061.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c05_061.png"
+    },
+    {
+        "id": "med8_r04_c06_062",
+        "name": "Nội Thất Cung Điện #05-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c06_062.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c06_062.png"
+    },
+    {
+        "id": "med8_r04_c07_063",
+        "name": "Nội Thất Cung Điện #05-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c07_063.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c07_063.png"
+    },
+    {
+        "id": "med8_r04_c08_064",
+        "name": "Nội Thất Cung Điện #05-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c08_064.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c08_064.png"
+    },
+    {
+        "id": "med8_r04_c09_065",
+        "name": "Nội Thất Cung Điện #05-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c09_065.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c09_065.png"
+    },
+    {
+        "id": "med8_r04_c10_066",
+        "name": "Nội Thất Cung Điện #05-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c10_066.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c10_066.png"
+    },
+    {
+        "id": "med8_r04_c11_067",
+        "name": "Nội Thất Cung Điện #05-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c11_067.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c11_067.png"
+    },
+    {
+        "id": "med8_r04_c12_068",
+        "name": "Nội Thất Cung Điện #05-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c12_068.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c12_068.png"
+    },
+    {
+        "id": "med8_r04_c13_069",
+        "name": "Nội Thất Cung Điện #05-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c13_069.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c13_069.png"
+    },
+    {
+        "id": "med8_r04_c14_070",
+        "name": "Nội Thất Cung Điện #05-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c14_070.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c14_070.png"
+    },
+    {
+        "id": "med8_r04_c15_071",
+        "name": "Nội Thất Cung Điện #05-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r04_c15_071.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r04_c15_071.png"
+    },
+    {
+        "id": "med8_r05_c00_072",
+        "name": "Nội Thất Cung Điện #06-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c00_072.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c00_072.png"
+    },
+    {
+        "id": "med8_r05_c01_073",
+        "name": "Nội Thất Cung Điện #06-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c01_073.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c01_073.png"
+    },
+    {
+        "id": "med8_r05_c02_074",
+        "name": "Nội Thất Cung Điện #06-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c02_074.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c02_074.png"
+    },
+    {
+        "id": "med8_r05_c03_075",
+        "name": "Nội Thất Cung Điện #06-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c03_075.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c03_075.png"
+    },
+    {
+        "id": "med8_r05_c04_076",
+        "name": "Nội Thất Cung Điện #06-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c04_076.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c04_076.png"
+    },
+    {
+        "id": "med8_r05_c05_077",
+        "name": "Nội Thất Cung Điện #06-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c05_077.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c05_077.png"
+    },
+    {
+        "id": "med8_r05_c06_078",
+        "name": "Nội Thất Cung Điện #06-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c06_078.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c06_078.png"
+    },
+    {
+        "id": "med8_r05_c07_079",
+        "name": "Nội Thất Cung Điện #06-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c07_079.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c07_079.png"
+    },
+    {
+        "id": "med8_r05_c08_080",
+        "name": "Nội Thất Cung Điện #06-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c08_080.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c08_080.png"
+    },
+    {
+        "id": "med8_r05_c09_081",
+        "name": "Nội Thất Cung Điện #06-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c09_081.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c09_081.png"
+    },
+    {
+        "id": "med8_r05_c10_082",
+        "name": "Nội Thất Cung Điện #06-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c10_082.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c10_082.png"
+    },
+    {
+        "id": "med8_r05_c11_083",
+        "name": "Nội Thất Cung Điện #06-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c11_083.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c11_083.png"
+    },
+    {
+        "id": "med8_r05_c12_084",
+        "name": "Nội Thất Cung Điện #06-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c12_084.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c12_084.png"
+    },
+    {
+        "id": "med8_r05_c13_085",
+        "name": "Nội Thất Cung Điện #06-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c13_085.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c13_085.png"
+    },
+    {
+        "id": "med8_r05_c14_086",
+        "name": "Nội Thất Cung Điện #06-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c14_086.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c14_086.png"
+    },
+    {
+        "id": "med8_r05_c15_087",
+        "name": "Nội Thất Cung Điện #06-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r05_c15_087.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r05_c15_087.png"
+    },
+    {
+        "id": "med8_r06_c00_088",
+        "name": "Dụng Cụ Nông Trại #07-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c00_088.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c00_088.png"
+    },
+    {
+        "id": "med8_r06_c01_089",
+        "name": "Dụng Cụ Nông Trại #07-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c01_089.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c01_089.png"
+    },
+    {
+        "id": "med8_r06_c02_090",
+        "name": "Dụng Cụ Nông Trại #07-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c02_090.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c02_090.png"
+    },
+    {
+        "id": "med8_r06_c03_091",
+        "name": "Dụng Cụ Nông Trại #07-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c03_091.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c03_091.png"
+    },
+    {
+        "id": "med8_r06_c04_092",
+        "name": "Dụng Cụ Nông Trại #07-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c04_092.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c04_092.png"
+    },
+    {
+        "id": "med8_r06_c05_093",
+        "name": "Dụng Cụ Nông Trại #07-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c05_093.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c05_093.png"
+    },
+    {
+        "id": "med8_r06_c06_094",
+        "name": "Dụng Cụ Nông Trại #07-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c06_094.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c06_094.png"
+    },
+    {
+        "id": "med8_r06_c07_095",
+        "name": "Dụng Cụ Nông Trại #07-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c07_095.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c07_095.png"
+    },
+    {
+        "id": "med8_r06_c08_096",
+        "name": "Dụng Cụ Nông Trại #07-09",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c08_096.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c08_096.png"
+    },
+    {
+        "id": "med8_r06_c09_097",
+        "name": "Dụng Cụ Nông Trại #07-10",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c09_097.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c09_097.png"
+    },
+    {
+        "id": "med8_r06_c10_098",
+        "name": "Dụng Cụ Nông Trại #07-11",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c10_098.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c10_098.png"
+    },
+    {
+        "id": "med8_r06_c11_099",
+        "name": "Dụng Cụ Nông Trại #07-12",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c11_099.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c11_099.png"
+    },
+    {
+        "id": "med8_r06_c12_100",
+        "name": "Dụng Cụ Nông Trại #07-13",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c12_100.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c12_100.png"
+    },
+    {
+        "id": "med8_r06_c13_101",
+        "name": "Dụng Cụ Nông Trại #07-14",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c13_101.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c13_101.png"
+    },
+    {
+        "id": "med8_r06_c14_102",
+        "name": "Dụng Cụ Nông Trại #07-15",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c14_102.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c14_102.png"
+    },
+    {
+        "id": "med8_r06_c15_103",
+        "name": "Dụng Cụ Nông Trại #07-16",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r06_c15_103.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r06_c15_103.png"
+    },
+    {
+        "id": "med8_r07_c00_104",
+        "name": "Dụng Cụ Nông Trại #08-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c00_104.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c00_104.png"
+    },
+    {
+        "id": "med8_r07_c01_105",
+        "name": "Dụng Cụ Nông Trại #08-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c01_105.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c01_105.png"
+    },
+    {
+        "id": "med8_r07_c02_106",
+        "name": "Dụng Cụ Nông Trại #08-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c02_106.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c02_106.png"
+    },
+    {
+        "id": "med8_r07_c03_107",
+        "name": "Dụng Cụ Nông Trại #08-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c03_107.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c03_107.png"
+    },
+    {
+        "id": "med8_r07_c04_108",
+        "name": "Dụng Cụ Nông Trại #08-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c04_108.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c04_108.png"
+    },
+    {
+        "id": "med8_r07_c05_109",
+        "name": "Dụng Cụ Nông Trại #08-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c05_109.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c05_109.png"
+    },
+    {
+        "id": "med8_r07_c06_110",
+        "name": "Dụng Cụ Nông Trại #08-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c06_110.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c06_110.png"
+    },
+    {
+        "id": "med8_r07_c07_111",
+        "name": "Dụng Cụ Nông Trại #08-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c07_111.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c07_111.png"
+    },
+    {
+        "id": "med8_r07_c08_112",
+        "name": "Dụng Cụ Nông Trại #08-09",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c08_112.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c08_112.png"
+    },
+    {
+        "id": "med8_r07_c09_113",
+        "name": "Dụng Cụ Nông Trại #08-10",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c09_113.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c09_113.png"
+    },
+    {
+        "id": "med8_r07_c10_114",
+        "name": "Dụng Cụ Nông Trại #08-11",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c10_114.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c10_114.png"
+    },
+    {
+        "id": "med8_r07_c11_115",
+        "name": "Dụng Cụ Nông Trại #08-12",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c11_115.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c11_115.png"
+    },
+    {
+        "id": "med8_r07_c12_116",
+        "name": "Dụng Cụ Nông Trại #08-13",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c12_116.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c12_116.png"
+    },
+    {
+        "id": "med8_r07_c13_117",
+        "name": "Dụng Cụ Nông Trại #08-14",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c13_117.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c13_117.png"
+    },
+    {
+        "id": "med8_r07_c14_118",
+        "name": "Dụng Cụ Nông Trại #08-15",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c14_118.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c14_118.png"
+    },
+    {
+        "id": "med8_r07_c15_119",
+        "name": "Dụng Cụ Nông Trại #08-16",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/med8_r07_c15_119.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r07_c15_119.png"
+    },
+    {
+        "id": "med8_r08_c00_120",
+        "name": "Cây Cối & Hàng Rào #09-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c00_120.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c00_120.png"
+    },
+    {
+        "id": "med8_r08_c01_121",
+        "name": "Cây Cối & Hàng Rào #09-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c01_121.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c01_121.png"
+    },
+    {
+        "id": "med8_r08_c02_122",
+        "name": "Cây Cối & Hàng Rào #09-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c02_122.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c02_122.png"
+    },
+    {
+        "id": "med8_r08_c03_123",
+        "name": "Cây Cối & Hàng Rào #09-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c03_123.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c03_123.png"
+    },
+    {
+        "id": "med8_r08_c04_124",
+        "name": "Cây Cối & Hàng Rào #09-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c04_124.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c04_124.png"
+    },
+    {
+        "id": "med8_r08_c05_125",
+        "name": "Cây Cối & Hàng Rào #09-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c05_125.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c05_125.png"
+    },
+    {
+        "id": "med8_r08_c06_126",
+        "name": "Cây Cối & Hàng Rào #09-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c06_126.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c06_126.png"
+    },
+    {
+        "id": "med8_r08_c07_127",
+        "name": "Cây Cối & Hàng Rào #09-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c07_127.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c07_127.png"
+    },
+    {
+        "id": "med8_r08_c08_128",
+        "name": "Cây Cối & Hàng Rào #09-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c08_128.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c08_128.png"
+    },
+    {
+        "id": "med8_r08_c09_129",
+        "name": "Cây Cối & Hàng Rào #09-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c09_129.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c09_129.png"
+    },
+    {
+        "id": "med8_r08_c10_130",
+        "name": "Cây Cối & Hàng Rào #09-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c10_130.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c10_130.png"
+    },
+    {
+        "id": "med8_r08_c11_131",
+        "name": "Cây Cối & Hàng Rào #09-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c11_131.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c11_131.png"
+    },
+    {
+        "id": "med8_r08_c12_132",
+        "name": "Cây Cối & Hàng Rào #09-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c12_132.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c12_132.png"
+    },
+    {
+        "id": "med8_r08_c13_133",
+        "name": "Cây Cối & Hàng Rào #09-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c13_133.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c13_133.png"
+    },
+    {
+        "id": "med8_r08_c14_134",
+        "name": "Cây Cối & Hàng Rào #09-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c14_134.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c14_134.png"
+    },
+    {
+        "id": "med8_r08_c15_135",
+        "name": "Cây Cối & Hàng Rào #09-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r08_c15_135.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r08_c15_135.png"
+    },
+    {
+        "id": "med8_r09_c00_136",
+        "name": "Cây Cối & Hàng Rào #10-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c00_136.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c00_136.png"
+    },
+    {
+        "id": "med8_r09_c01_137",
+        "name": "Cây Cối & Hàng Rào #10-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c01_137.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c01_137.png"
+    },
+    {
+        "id": "med8_r09_c02_138",
+        "name": "Cây Cối & Hàng Rào #10-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c02_138.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c02_138.png"
+    },
+    {
+        "id": "med8_r09_c03_139",
+        "name": "Cây Cối & Hàng Rào #10-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c03_139.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c03_139.png"
+    },
+    {
+        "id": "med8_r09_c04_140",
+        "name": "Cây Cối & Hàng Rào #10-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c04_140.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c04_140.png"
+    },
+    {
+        "id": "med8_r09_c05_141",
+        "name": "Cây Cối & Hàng Rào #10-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c05_141.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c05_141.png"
+    },
+    {
+        "id": "med8_r09_c06_142",
+        "name": "Cây Cối & Hàng Rào #10-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c06_142.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c06_142.png"
+    },
+    {
+        "id": "med8_r09_c07_143",
+        "name": "Cây Cối & Hàng Rào #10-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c07_143.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c07_143.png"
+    },
+    {
+        "id": "med8_r09_c08_144",
+        "name": "Cây Cối & Hàng Rào #10-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c08_144.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c08_144.png"
+    },
+    {
+        "id": "med8_r09_c09_145",
+        "name": "Cây Cối & Hàng Rào #10-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c09_145.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c09_145.png"
+    },
+    {
+        "id": "med8_r09_c10_146",
+        "name": "Cây Cối & Hàng Rào #10-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c10_146.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c10_146.png"
+    },
+    {
+        "id": "med8_r09_c11_147",
+        "name": "Cây Cối & Hàng Rào #10-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c11_147.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c11_147.png"
+    },
+    {
+        "id": "med8_r09_c12_148",
+        "name": "Cây Cối & Hàng Rào #10-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c12_148.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c12_148.png"
+    },
+    {
+        "id": "med8_r09_c13_149",
+        "name": "Cây Cối & Hàng Rào #10-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c13_149.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c13_149.png"
+    },
+    {
+        "id": "med8_r09_c14_150",
+        "name": "Cây Cối & Hàng Rào #10-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c14_150.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c14_150.png"
+    },
+    {
+        "id": "med8_r09_c15_151",
+        "name": "Cây Cối & Hàng Rào #10-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r09_c15_151.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r09_c15_151.png"
+    },
+    {
+        "id": "med8_r10_c00_152",
+        "name": "Cây Cối & Hàng Rào #11-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c00_152.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c00_152.png"
+    },
+    {
+        "id": "med8_r10_c01_153",
+        "name": "Cây Cối & Hàng Rào #11-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c01_153.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c01_153.png"
+    },
+    {
+        "id": "med8_r10_c02_154",
+        "name": "Cây Cối & Hàng Rào #11-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c02_154.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c02_154.png"
+    },
+    {
+        "id": "med8_r10_c03_155",
+        "name": "Cây Cối & Hàng Rào #11-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c03_155.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c03_155.png"
+    },
+    {
+        "id": "med8_r10_c04_156",
+        "name": "Cây Cối & Hàng Rào #11-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c04_156.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c04_156.png"
+    },
+    {
+        "id": "med8_r10_c05_157",
+        "name": "Cây Cối & Hàng Rào #11-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c05_157.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c05_157.png"
+    },
+    {
+        "id": "med8_r10_c06_158",
+        "name": "Cây Cối & Hàng Rào #11-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c06_158.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c06_158.png"
+    },
+    {
+        "id": "med8_r10_c07_159",
+        "name": "Cây Cối & Hàng Rào #11-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c07_159.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c07_159.png"
+    },
+    {
+        "id": "med8_r10_c08_160",
+        "name": "Cây Cối & Hàng Rào #11-09",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c08_160.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c08_160.png"
+    },
+    {
+        "id": "med8_r10_c09_161",
+        "name": "Cây Cối & Hàng Rào #11-10",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c09_161.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c09_161.png"
+    },
+    {
+        "id": "med8_r10_c10_162",
+        "name": "Cây Cối & Hàng Rào #11-11",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c10_162.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c10_162.png"
+    },
+    {
+        "id": "med8_r10_c11_163",
+        "name": "Cây Cối & Hàng Rào #11-12",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c11_163.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c11_163.png"
+    },
+    {
+        "id": "med8_r10_c12_164",
+        "name": "Cây Cối & Hàng Rào #11-13",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c12_164.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c12_164.png"
+    },
+    {
+        "id": "med8_r10_c13_165",
+        "name": "Cây Cối & Hàng Rào #11-14",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c13_165.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c13_165.png"
+    },
+    {
+        "id": "med8_r10_c14_166",
+        "name": "Cây Cối & Hàng Rào #11-15",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c14_166.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c14_166.png"
+    },
+    {
+        "id": "med8_r10_c15_167",
+        "name": "Cây Cối & Hàng Rào #11-16",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/med8_r10_c15_167.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r10_c15_167.png"
+    },
+    {
+        "id": "med8_r11_c00_168",
+        "name": "Biển Hiệu & Cờ Hiệu #12-01",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c00_168.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c00_168.png"
+    },
+    {
+        "id": "med8_r11_c01_169",
+        "name": "Biển Hiệu & Cờ Hiệu #12-02",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c01_169.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c01_169.png"
+    },
+    {
+        "id": "med8_r11_c02_170",
+        "name": "Biển Hiệu & Cờ Hiệu #12-03",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c02_170.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c02_170.png"
+    },
+    {
+        "id": "med8_r11_c03_171",
+        "name": "Biển Hiệu & Cờ Hiệu #12-04",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c03_171.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c03_171.png"
+    },
+    {
+        "id": "med8_r11_c04_172",
+        "name": "Biển Hiệu & Cờ Hiệu #12-05",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c04_172.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c04_172.png"
+    },
+    {
+        "id": "med8_r11_c05_173",
+        "name": "Biển Hiệu & Cờ Hiệu #12-06",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c05_173.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c05_173.png"
+    },
+    {
+        "id": "med8_r11_c06_174",
+        "name": "Biển Hiệu & Cờ Hiệu #12-07",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c06_174.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c06_174.png"
+    },
+    {
+        "id": "med8_r11_c07_175",
+        "name": "Biển Hiệu & Cờ Hiệu #12-08",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c07_175.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c07_175.png"
+    },
+    {
+        "id": "med8_r11_c08_176",
+        "name": "Biển Hiệu & Cờ Hiệu #12-09",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c08_176.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c08_176.png"
+    },
+    {
+        "id": "med8_r11_c09_177",
+        "name": "Biển Hiệu & Cờ Hiệu #12-10",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c09_177.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c09_177.png"
+    },
+    {
+        "id": "med8_r11_c10_178",
+        "name": "Biển Hiệu & Cờ Hiệu #12-11",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c10_178.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c10_178.png"
+    },
+    {
+        "id": "med8_r11_c11_179",
+        "name": "Biển Hiệu & Cờ Hiệu #12-12",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c11_179.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c11_179.png"
+    },
+    {
+        "id": "med8_r11_c12_180",
+        "name": "Biển Hiệu & Cờ Hiệu #12-13",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c12_180.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c12_180.png"
+    },
+    {
+        "id": "med8_r11_c13_181",
+        "name": "Biển Hiệu & Cờ Hiệu #12-14",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c13_181.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c13_181.png"
+    },
+    {
+        "id": "med8_r11_c14_182",
+        "name": "Biển Hiệu & Cờ Hiệu #12-15",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c14_182.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c14_182.png"
+    },
+    {
+        "id": "med8_r11_c15_183",
+        "name": "Biển Hiệu & Cờ Hiệu #12-16",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r11_c15_183.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r11_c15_183.png"
+    },
+    {
+        "id": "med8_r12_c00_184",
+        "name": "Biển Hiệu & Cờ Hiệu #13-01",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c00_184.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c00_184.png"
+    },
+    {
+        "id": "med8_r12_c01_185",
+        "name": "Biển Hiệu & Cờ Hiệu #13-02",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c01_185.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c01_185.png"
+    },
+    {
+        "id": "med8_r12_c02_186",
+        "name": "Biển Hiệu & Cờ Hiệu #13-03",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c02_186.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c02_186.png"
+    },
+    {
+        "id": "med8_r12_c03_187",
+        "name": "Biển Hiệu & Cờ Hiệu #13-04",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c03_187.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c03_187.png"
+    },
+    {
+        "id": "med8_r12_c04_188",
+        "name": "Biển Hiệu & Cờ Hiệu #13-05",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c04_188.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c04_188.png"
+    },
+    {
+        "id": "med8_r12_c05_189",
+        "name": "Biển Hiệu & Cờ Hiệu #13-06",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c05_189.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c05_189.png"
+    },
+    {
+        "id": "med8_r12_c06_190",
+        "name": "Biển Hiệu & Cờ Hiệu #13-07",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c06_190.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c06_190.png"
+    },
+    {
+        "id": "med8_r12_c07_191",
+        "name": "Biển Hiệu & Cờ Hiệu #13-08",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c07_191.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c07_191.png"
+    },
+    {
+        "id": "med8_r12_c08_192",
+        "name": "Biển Hiệu & Cờ Hiệu #13-09",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c08_192.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c08_192.png"
+    },
+    {
+        "id": "med8_r12_c09_193",
+        "name": "Biển Hiệu & Cờ Hiệu #13-10",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c09_193.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c09_193.png"
+    },
+    {
+        "id": "med8_r12_c10_194",
+        "name": "Biển Hiệu & Cờ Hiệu #13-11",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c10_194.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c10_194.png"
+    },
+    {
+        "id": "med8_r12_c11_195",
+        "name": "Biển Hiệu & Cờ Hiệu #13-12",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c11_195.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c11_195.png"
+    },
+    {
+        "id": "med8_r12_c12_196",
+        "name": "Biển Hiệu & Cờ Hiệu #13-13",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c12_196.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c12_196.png"
+    },
+    {
+        "id": "med8_r12_c13_197",
+        "name": "Biển Hiệu & Cờ Hiệu #13-14",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c13_197.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c13_197.png"
+    },
+    {
+        "id": "med8_r12_c14_198",
+        "name": "Biển Hiệu & Cờ Hiệu #13-15",
+        "forType": "relics_tomes",
+        "src": "/assets/props/items/med8_r12_c14_198.png",
+        "thumbSrc": "/assets/props/thumbs/med8_r12_c14_198.png"
+    },
+    {
+        "id": "med3_r00_c01_000",
+        "name": "Mũ Trùm & Nón Vải #01-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c01_000.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c01_000.png"
+    },
+    {
+        "id": "med3_r00_c02_001",
+        "name": "Mũ Trùm & Nón Vải #01-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c02_001.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c02_001.png"
+    },
+    {
+        "id": "med3_r00_c03_002",
+        "name": "Mũ Trùm & Nón Vải #01-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c03_002.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c03_002.png"
+    },
+    {
+        "id": "med3_r00_c04_003",
+        "name": "Mũ Trùm & Nón Vải #01-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c04_003.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c04_003.png"
+    },
+    {
+        "id": "med3_r00_c05_004",
+        "name": "Mũ Trùm & Nón Vải #01-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c05_004.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c05_004.png"
+    },
+    {
+        "id": "med3_r00_c06_005",
+        "name": "Mũ Trùm & Nón Vải #01-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c06_005.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c06_005.png"
+    },
+    {
+        "id": "med3_r00_c07_006",
+        "name": "Mũ Trùm & Nón Vải #01-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c07_006.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c07_006.png"
+    },
+    {
+        "id": "med3_r00_c08_007",
+        "name": "Mũ Trùm & Nón Vải #01-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c08_007.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c08_007.png"
+    },
+    {
+        "id": "med3_r00_c09_008",
+        "name": "Mũ Trùm & Nón Vải #01-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c09_008.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c09_008.png"
+    },
+    {
+        "id": "med3_r00_c10_009",
+        "name": "Mũ Trùm & Nón Vải #01-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c10_009.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c10_009.png"
+    },
+    {
+        "id": "med3_r00_c11_010",
+        "name": "Mũ Trùm & Nón Vải #01-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c11_010.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c11_010.png"
+    },
+    {
+        "id": "med3_r00_c12_011",
+        "name": "Mũ Trùm & Nón Vải #01-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c12_011.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c12_011.png"
+    },
+    {
+        "id": "med3_r00_c13_012",
+        "name": "Mũ Trùm & Nón Vải #01-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c13_012.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c13_012.png"
+    },
+    {
+        "id": "med3_r00_c14_013",
+        "name": "Mũ Trùm & Nón Vải #01-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c14_013.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c14_013.png"
+    },
+    {
+        "id": "med3_r00_c15_014",
+        "name": "Mũ Trùm & Nón Vải #01-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c15_014.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c15_014.png"
+    },
+    {
+        "id": "med3_r00_c16_015",
+        "name": "Mũ Trùm & Nón Vải #01-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r00_c16_015.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r00_c16_015.png"
+    },
+    {
+        "id": "med3_r01_c01_016",
+        "name": "Mũ Trùm & Nón Vải #02-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c01_016.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c01_016.png"
+    },
+    {
+        "id": "med3_r01_c02_017",
+        "name": "Mũ Trùm & Nón Vải #02-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c02_017.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c02_017.png"
+    },
+    {
+        "id": "med3_r01_c03_018",
+        "name": "Mũ Trùm & Nón Vải #02-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c03_018.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c03_018.png"
+    },
+    {
+        "id": "med3_r01_c04_019",
+        "name": "Mũ Trùm & Nón Vải #02-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c04_019.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c04_019.png"
+    },
+    {
+        "id": "med3_r01_c05_020",
+        "name": "Mũ Trùm & Nón Vải #02-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c05_020.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c05_020.png"
+    },
+    {
+        "id": "med3_r01_c06_021",
+        "name": "Mũ Trùm & Nón Vải #02-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c06_021.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c06_021.png"
+    },
+    {
+        "id": "med3_r01_c07_022",
+        "name": "Mũ Trùm & Nón Vải #02-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c07_022.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c07_022.png"
+    },
+    {
+        "id": "med3_r01_c08_023",
+        "name": "Mũ Trùm & Nón Vải #02-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c08_023.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c08_023.png"
+    },
+    {
+        "id": "med3_r01_c09_024",
+        "name": "Mũ Trùm & Nón Vải #02-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c09_024.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c09_024.png"
+    },
+    {
+        "id": "med3_r01_c10_025",
+        "name": "Mũ Trùm & Nón Vải #02-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c10_025.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c10_025.png"
+    },
+    {
+        "id": "med3_r01_c11_026",
+        "name": "Mũ Trùm & Nón Vải #02-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c11_026.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c11_026.png"
+    },
+    {
+        "id": "med3_r01_c12_027",
+        "name": "Mũ Trùm & Nón Vải #02-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c12_027.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c12_027.png"
+    },
+    {
+        "id": "med3_r01_c13_028",
+        "name": "Mũ Trùm & Nón Vải #02-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c13_028.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c13_028.png"
+    },
+    {
+        "id": "med3_r01_c14_029",
+        "name": "Mũ Trùm & Nón Vải #02-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c14_029.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c14_029.png"
+    },
+    {
+        "id": "med3_r01_c15_030",
+        "name": "Mũ Trùm & Nón Vải #02-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c15_030.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c15_030.png"
+    },
+    {
+        "id": "med3_r01_c16_031",
+        "name": "Mũ Trùm & Nón Vải #02-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r01_c16_031.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r01_c16_031.png"
+    },
+    {
+        "id": "med3_r02_c01_032",
+        "name": "Mũ Trùm & Nón Vải #03-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c01_032.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c01_032.png"
+    },
+    {
+        "id": "med3_r02_c02_033",
+        "name": "Mũ Trùm & Nón Vải #03-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c02_033.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c02_033.png"
+    },
+    {
+        "id": "med3_r02_c03_034",
+        "name": "Mũ Trùm & Nón Vải #03-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c03_034.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c03_034.png"
+    },
+    {
+        "id": "med3_r02_c04_035",
+        "name": "Mũ Trùm & Nón Vải #03-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c04_035.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c04_035.png"
+    },
+    {
+        "id": "med3_r02_c05_036",
+        "name": "Mũ Trùm & Nón Vải #03-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c05_036.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c05_036.png"
+    },
+    {
+        "id": "med3_r02_c06_037",
+        "name": "Mũ Trùm & Nón Vải #03-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c06_037.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c06_037.png"
+    },
+    {
+        "id": "med3_r02_c07_038",
+        "name": "Mũ Trùm & Nón Vải #03-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c07_038.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c07_038.png"
+    },
+    {
+        "id": "med3_r02_c08_039",
+        "name": "Mũ Trùm & Nón Vải #03-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c08_039.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c08_039.png"
+    },
+    {
+        "id": "med3_r02_c09_040",
+        "name": "Mũ Trùm & Nón Vải #03-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c09_040.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c09_040.png"
+    },
+    {
+        "id": "med3_r02_c10_041",
+        "name": "Mũ Trùm & Nón Vải #03-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c10_041.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c10_041.png"
+    },
+    {
+        "id": "med3_r02_c11_042",
+        "name": "Mũ Trùm & Nón Vải #03-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c11_042.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c11_042.png"
+    },
+    {
+        "id": "med3_r02_c12_043",
+        "name": "Mũ Trùm & Nón Vải #03-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c12_043.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c12_043.png"
+    },
+    {
+        "id": "med3_r02_c13_044",
+        "name": "Mũ Trùm & Nón Vải #03-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c13_044.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c13_044.png"
+    },
+    {
+        "id": "med3_r02_c14_045",
+        "name": "Mũ Trùm & Nón Vải #03-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c14_045.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c14_045.png"
+    },
+    {
+        "id": "med3_r02_c15_046",
+        "name": "Mũ Trùm & Nón Vải #03-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c15_046.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c15_046.png"
+    },
+    {
+        "id": "med3_r02_c16_047",
+        "name": "Mũ Trùm & Nón Vải #03-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r02_c16_047.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r02_c16_047.png"
+    },
+    {
+        "id": "med3_r03_c01_048",
+        "name": "Trang Phục Trung Cổ #04-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c01_048.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c01_048.png"
+    },
+    {
+        "id": "med3_r03_c02_049",
+        "name": "Trang Phục Trung Cổ #04-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c02_049.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c02_049.png"
+    },
+    {
+        "id": "med3_r03_c03_050",
+        "name": "Trang Phục Trung Cổ #04-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c03_050.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c03_050.png"
+    },
+    {
+        "id": "med3_r03_c04_051",
+        "name": "Trang Phục Trung Cổ #04-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c04_051.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c04_051.png"
+    },
+    {
+        "id": "med3_r03_c05_052",
+        "name": "Trang Phục Trung Cổ #04-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c05_052.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c05_052.png"
+    },
+    {
+        "id": "med3_r03_c06_053",
+        "name": "Trang Phục Trung Cổ #04-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c06_053.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c06_053.png"
+    },
+    {
+        "id": "med3_r03_c07_054",
+        "name": "Trang Phục Trung Cổ #04-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c07_054.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c07_054.png"
+    },
+    {
+        "id": "med3_r03_c08_055",
+        "name": "Trang Phục Trung Cổ #04-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c08_055.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c08_055.png"
+    },
+    {
+        "id": "med3_r03_c09_056",
+        "name": "Trang Phục Trung Cổ #04-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c09_056.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c09_056.png"
+    },
+    {
+        "id": "med3_r03_c10_057",
+        "name": "Trang Phục Trung Cổ #04-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c10_057.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c10_057.png"
+    },
+    {
+        "id": "med3_r03_c11_058",
+        "name": "Trang Phục Trung Cổ #04-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c11_058.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c11_058.png"
+    },
+    {
+        "id": "med3_r03_c12_059",
+        "name": "Trang Phục Trung Cổ #04-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c12_059.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c12_059.png"
+    },
+    {
+        "id": "med3_r03_c13_060",
+        "name": "Trang Phục Trung Cổ #04-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c13_060.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c13_060.png"
+    },
+    {
+        "id": "med3_r03_c14_061",
+        "name": "Trang Phục Trung Cổ #04-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c14_061.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c14_061.png"
+    },
+    {
+        "id": "med3_r03_c15_062",
+        "name": "Trang Phục Trung Cổ #04-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c15_062.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c15_062.png"
+    },
+    {
+        "id": "med3_r03_c16_063",
+        "name": "Trang Phục Trung Cổ #04-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r03_c16_063.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r03_c16_063.png"
+    },
+    {
+        "id": "med3_r04_c01_064",
+        "name": "Trang Phục Trung Cổ #05-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c01_064.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c01_064.png"
+    },
+    {
+        "id": "med3_r04_c02_065",
+        "name": "Trang Phục Trung Cổ #05-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c02_065.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c02_065.png"
+    },
+    {
+        "id": "med3_r04_c03_066",
+        "name": "Trang Phục Trung Cổ #05-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c03_066.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c03_066.png"
+    },
+    {
+        "id": "med3_r04_c04_067",
+        "name": "Trang Phục Trung Cổ #05-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c04_067.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c04_067.png"
+    },
+    {
+        "id": "med3_r04_c05_068",
+        "name": "Trang Phục Trung Cổ #05-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c05_068.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c05_068.png"
+    },
+    {
+        "id": "med3_r04_c06_069",
+        "name": "Trang Phục Trung Cổ #05-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c06_069.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c06_069.png"
+    },
+    {
+        "id": "med3_r04_c07_070",
+        "name": "Trang Phục Trung Cổ #05-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c07_070.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c07_070.png"
+    },
+    {
+        "id": "med3_r04_c08_071",
+        "name": "Trang Phục Trung Cổ #05-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c08_071.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c08_071.png"
+    },
+    {
+        "id": "med3_r04_c09_072",
+        "name": "Trang Phục Trung Cổ #05-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c09_072.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c09_072.png"
+    },
+    {
+        "id": "med3_r04_c10_073",
+        "name": "Trang Phục Trung Cổ #05-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c10_073.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c10_073.png"
+    },
+    {
+        "id": "med3_r04_c11_074",
+        "name": "Trang Phục Trung Cổ #05-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c11_074.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c11_074.png"
+    },
+    {
+        "id": "med3_r04_c12_075",
+        "name": "Trang Phục Trung Cổ #05-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c12_075.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c12_075.png"
+    },
+    {
+        "id": "med3_r04_c13_076",
+        "name": "Trang Phục Trung Cổ #05-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c13_076.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c13_076.png"
+    },
+    {
+        "id": "med3_r04_c14_077",
+        "name": "Trang Phục Trung Cổ #05-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c14_077.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c14_077.png"
+    },
+    {
+        "id": "med3_r04_c15_078",
+        "name": "Trang Phục Trung Cổ #05-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c15_078.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c15_078.png"
+    },
+    {
+        "id": "med3_r04_c16_079",
+        "name": "Trang Phục Trung Cổ #05-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r04_c16_079.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r04_c16_079.png"
+    },
+    {
+        "id": "med3_r05_c01_080",
+        "name": "Trang Phục Trung Cổ #06-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c01_080.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c01_080.png"
+    },
+    {
+        "id": "med3_r05_c02_081",
+        "name": "Trang Phục Trung Cổ #06-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c02_081.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c02_081.png"
+    },
+    {
+        "id": "med3_r05_c03_082",
+        "name": "Trang Phục Trung Cổ #06-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c03_082.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c03_082.png"
+    },
+    {
+        "id": "med3_r05_c04_083",
+        "name": "Trang Phục Trung Cổ #06-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c04_083.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c04_083.png"
+    },
+    {
+        "id": "med3_r05_c05_084",
+        "name": "Trang Phục Trung Cổ #06-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c05_084.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c05_084.png"
+    },
+    {
+        "id": "med3_r05_c06_085",
+        "name": "Trang Phục Trung Cổ #06-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c06_085.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c06_085.png"
+    },
+    {
+        "id": "med3_r05_c07_086",
+        "name": "Trang Phục Trung Cổ #06-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c07_086.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c07_086.png"
+    },
+    {
+        "id": "med3_r05_c08_087",
+        "name": "Trang Phục Trung Cổ #06-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c08_087.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c08_087.png"
+    },
+    {
+        "id": "med3_r05_c09_088",
+        "name": "Trang Phục Trung Cổ #06-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c09_088.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c09_088.png"
+    },
+    {
+        "id": "med3_r05_c10_089",
+        "name": "Trang Phục Trung Cổ #06-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c10_089.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c10_089.png"
+    },
+    {
+        "id": "med3_r05_c11_090",
+        "name": "Trang Phục Trung Cổ #06-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c11_090.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c11_090.png"
+    },
+    {
+        "id": "med3_r05_c12_091",
+        "name": "Trang Phục Trung Cổ #06-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c12_091.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c12_091.png"
+    },
+    {
+        "id": "med3_r05_c13_092",
+        "name": "Trang Phục Trung Cổ #06-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c13_092.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c13_092.png"
+    },
+    {
+        "id": "med3_r05_c14_093",
+        "name": "Trang Phục Trung Cổ #06-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c14_093.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c14_093.png"
+    },
+    {
+        "id": "med3_r05_c15_094",
+        "name": "Trang Phục Trung Cổ #06-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c15_094.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c15_094.png"
+    },
+    {
+        "id": "med3_r05_c16_095",
+        "name": "Trang Phục Trung Cổ #06-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r05_c16_095.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r05_c16_095.png"
+    },
+    {
+        "id": "med3_r06_c01_096",
+        "name": "Trang Phục Trung Cổ #07-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c01_096.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c01_096.png"
+    },
+    {
+        "id": "med3_r06_c02_097",
+        "name": "Trang Phục Trung Cổ #07-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c02_097.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c02_097.png"
+    },
+    {
+        "id": "med3_r06_c03_098",
+        "name": "Trang Phục Trung Cổ #07-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c03_098.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c03_098.png"
+    },
+    {
+        "id": "med3_r06_c04_099",
+        "name": "Trang Phục Trung Cổ #07-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c04_099.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c04_099.png"
+    },
+    {
+        "id": "med3_r06_c05_100",
+        "name": "Trang Phục Trung Cổ #07-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c05_100.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c05_100.png"
+    },
+    {
+        "id": "med3_r06_c06_101",
+        "name": "Trang Phục Trung Cổ #07-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c06_101.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c06_101.png"
+    },
+    {
+        "id": "med3_r06_c07_102",
+        "name": "Trang Phục Trung Cổ #07-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c07_102.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c07_102.png"
+    },
+    {
+        "id": "med3_r06_c08_103",
+        "name": "Trang Phục Trung Cổ #07-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c08_103.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c08_103.png"
+    },
+    {
+        "id": "med3_r06_c09_104",
+        "name": "Trang Phục Trung Cổ #07-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c09_104.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c09_104.png"
+    },
+    {
+        "id": "med3_r06_c10_105",
+        "name": "Trang Phục Trung Cổ #07-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c10_105.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c10_105.png"
+    },
+    {
+        "id": "med3_r06_c11_106",
+        "name": "Trang Phục Trung Cổ #07-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c11_106.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c11_106.png"
+    },
+    {
+        "id": "med3_r06_c12_107",
+        "name": "Trang Phục Trung Cổ #07-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c12_107.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c12_107.png"
+    },
+    {
+        "id": "med3_r06_c13_108",
+        "name": "Trang Phục Trung Cổ #07-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c13_108.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c13_108.png"
+    },
+    {
+        "id": "med3_r06_c14_109",
+        "name": "Trang Phục Trung Cổ #07-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c14_109.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c14_109.png"
+    },
+    {
+        "id": "med3_r06_c15_110",
+        "name": "Trang Phục Trung Cổ #07-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c15_110.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c15_110.png"
+    },
+    {
+        "id": "med3_r06_c16_111",
+        "name": "Trang Phục Trung Cổ #07-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r06_c16_111.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r06_c16_111.png"
+    },
+    {
+        "id": "med3_r07_c01_112",
+        "name": "Trang Phục Trung Cổ #08-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c01_112.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c01_112.png"
+    },
+    {
+        "id": "med3_r07_c02_113",
+        "name": "Trang Phục Trung Cổ #08-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c02_113.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c02_113.png"
+    },
+    {
+        "id": "med3_r07_c03_114",
+        "name": "Trang Phục Trung Cổ #08-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c03_114.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c03_114.png"
+    },
+    {
+        "id": "med3_r07_c04_115",
+        "name": "Trang Phục Trung Cổ #08-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c04_115.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c04_115.png"
+    },
+    {
+        "id": "med3_r07_c05_116",
+        "name": "Trang Phục Trung Cổ #08-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c05_116.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c05_116.png"
+    },
+    {
+        "id": "med3_r07_c06_117",
+        "name": "Trang Phục Trung Cổ #08-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c06_117.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c06_117.png"
+    },
+    {
+        "id": "med3_r07_c07_118",
+        "name": "Trang Phục Trung Cổ #08-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c07_118.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c07_118.png"
+    },
+    {
+        "id": "med3_r07_c08_119",
+        "name": "Trang Phục Trung Cổ #08-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c08_119.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c08_119.png"
+    },
+    {
+        "id": "med3_r07_c09_120",
+        "name": "Trang Phục Trung Cổ #08-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c09_120.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c09_120.png"
+    },
+    {
+        "id": "med3_r07_c10_121",
+        "name": "Trang Phục Trung Cổ #08-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c10_121.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c10_121.png"
+    },
+    {
+        "id": "med3_r07_c11_122",
+        "name": "Trang Phục Trung Cổ #08-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c11_122.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c11_122.png"
+    },
+    {
+        "id": "med3_r07_c12_123",
+        "name": "Trang Phục Trung Cổ #08-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c12_123.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c12_123.png"
+    },
+    {
+        "id": "med3_r07_c13_124",
+        "name": "Trang Phục Trung Cổ #08-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c13_124.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c13_124.png"
+    },
+    {
+        "id": "med3_r07_c14_125",
+        "name": "Trang Phục Trung Cổ #08-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c14_125.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c14_125.png"
+    },
+    {
+        "id": "med3_r07_c15_126",
+        "name": "Trang Phục Trung Cổ #08-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c15_126.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c15_126.png"
+    },
+    {
+        "id": "med3_r07_c16_127",
+        "name": "Trang Phục Trung Cổ #08-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r07_c16_127.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r07_c16_127.png"
+    },
+    {
+        "id": "med3_r08_c01_128",
+        "name": "Váy & Quần Dã Chiến #09-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c01_128.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c01_128.png"
+    },
+    {
+        "id": "med3_r08_c02_129",
+        "name": "Váy & Quần Dã Chiến #09-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c02_129.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c02_129.png"
+    },
+    {
+        "id": "med3_r08_c03_130",
+        "name": "Váy & Quần Dã Chiến #09-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c03_130.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c03_130.png"
+    },
+    {
+        "id": "med3_r08_c04_131",
+        "name": "Váy & Quần Dã Chiến #09-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c04_131.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c04_131.png"
+    },
+    {
+        "id": "med3_r08_c05_132",
+        "name": "Váy & Quần Dã Chiến #09-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c05_132.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c05_132.png"
+    },
+    {
+        "id": "med3_r08_c06_133",
+        "name": "Váy & Quần Dã Chiến #09-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c06_133.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c06_133.png"
+    },
+    {
+        "id": "med3_r08_c07_134",
+        "name": "Váy & Quần Dã Chiến #09-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c07_134.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c07_134.png"
+    },
+    {
+        "id": "med3_r08_c08_135",
+        "name": "Váy & Quần Dã Chiến #09-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c08_135.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c08_135.png"
+    },
+    {
+        "id": "med3_r08_c09_136",
+        "name": "Váy & Quần Dã Chiến #09-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c09_136.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c09_136.png"
+    },
+    {
+        "id": "med3_r08_c10_137",
+        "name": "Váy & Quần Dã Chiến #09-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c10_137.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c10_137.png"
+    },
+    {
+        "id": "med3_r08_c11_138",
+        "name": "Váy & Quần Dã Chiến #09-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c11_138.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c11_138.png"
+    },
+    {
+        "id": "med3_r08_c12_139",
+        "name": "Váy & Quần Dã Chiến #09-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c12_139.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c12_139.png"
+    },
+    {
+        "id": "med3_r08_c13_140",
+        "name": "Váy & Quần Dã Chiến #09-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c13_140.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c13_140.png"
+    },
+    {
+        "id": "med3_r08_c14_141",
+        "name": "Váy & Quần Dã Chiến #09-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c14_141.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c14_141.png"
+    },
+    {
+        "id": "med3_r08_c15_142",
+        "name": "Váy & Quần Dã Chiến #09-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c15_142.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c15_142.png"
+    },
+    {
+        "id": "med3_r08_c16_143",
+        "name": "Váy & Quần Dã Chiến #09-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r08_c16_143.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r08_c16_143.png"
+    },
+    {
+        "id": "med3_r09_c01_144",
+        "name": "Váy & Quần Dã Chiến #10-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c01_144.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c01_144.png"
+    },
+    {
+        "id": "med3_r09_c02_145",
+        "name": "Váy & Quần Dã Chiến #10-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c02_145.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c02_145.png"
+    },
+    {
+        "id": "med3_r09_c03_146",
+        "name": "Váy & Quần Dã Chiến #10-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c03_146.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c03_146.png"
+    },
+    {
+        "id": "med3_r09_c04_147",
+        "name": "Váy & Quần Dã Chiến #10-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c04_147.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c04_147.png"
+    },
+    {
+        "id": "med3_r09_c05_148",
+        "name": "Váy & Quần Dã Chiến #10-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c05_148.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c05_148.png"
+    },
+    {
+        "id": "med3_r09_c06_149",
+        "name": "Váy & Quần Dã Chiến #10-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c06_149.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c06_149.png"
+    },
+    {
+        "id": "med3_r09_c07_150",
+        "name": "Váy & Quần Dã Chiến #10-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c07_150.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c07_150.png"
+    },
+    {
+        "id": "med3_r09_c08_151",
+        "name": "Váy & Quần Dã Chiến #10-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c08_151.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c08_151.png"
+    },
+    {
+        "id": "med3_r09_c09_152",
+        "name": "Váy & Quần Dã Chiến #10-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c09_152.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c09_152.png"
+    },
+    {
+        "id": "med3_r09_c10_153",
+        "name": "Váy & Quần Dã Chiến #10-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c10_153.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c10_153.png"
+    },
+    {
+        "id": "med3_r09_c11_154",
+        "name": "Váy & Quần Dã Chiến #10-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c11_154.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c11_154.png"
+    },
+    {
+        "id": "med3_r09_c12_155",
+        "name": "Váy & Quần Dã Chiến #10-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c12_155.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c12_155.png"
+    },
+    {
+        "id": "med3_r09_c13_156",
+        "name": "Váy & Quần Dã Chiến #10-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c13_156.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c13_156.png"
+    },
+    {
+        "id": "med3_r09_c14_157",
+        "name": "Váy & Quần Dã Chiến #10-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c14_157.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c14_157.png"
+    },
+    {
+        "id": "med3_r09_c15_158",
+        "name": "Váy & Quần Dã Chiến #10-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c15_158.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c15_158.png"
+    },
+    {
+        "id": "med3_r09_c16_159",
+        "name": "Váy & Quần Dã Chiến #10-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r09_c16_159.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r09_c16_159.png"
+    },
+    {
+        "id": "med3_r10_c01_160",
+        "name": "Váy & Quần Dã Chiến #11-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c01_160.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c01_160.png"
+    },
+    {
+        "id": "med3_r10_c02_161",
+        "name": "Váy & Quần Dã Chiến #11-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c02_161.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c02_161.png"
+    },
+    {
+        "id": "med3_r10_c03_162",
+        "name": "Váy & Quần Dã Chiến #11-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c03_162.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c03_162.png"
+    },
+    {
+        "id": "med3_r10_c04_163",
+        "name": "Váy & Quần Dã Chiến #11-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c04_163.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c04_163.png"
+    },
+    {
+        "id": "med3_r10_c05_164",
+        "name": "Váy & Quần Dã Chiến #11-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c05_164.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c05_164.png"
+    },
+    {
+        "id": "med3_r10_c06_165",
+        "name": "Váy & Quần Dã Chiến #11-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c06_165.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c06_165.png"
+    },
+    {
+        "id": "med3_r10_c07_166",
+        "name": "Váy & Quần Dã Chiến #11-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c07_166.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c07_166.png"
+    },
+    {
+        "id": "med3_r10_c08_167",
+        "name": "Váy & Quần Dã Chiến #11-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c08_167.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c08_167.png"
+    },
+    {
+        "id": "med3_r10_c09_168",
+        "name": "Váy & Quần Dã Chiến #11-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c09_168.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c09_168.png"
+    },
+    {
+        "id": "med3_r10_c10_169",
+        "name": "Váy & Quần Dã Chiến #11-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c10_169.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c10_169.png"
+    },
+    {
+        "id": "med3_r10_c11_170",
+        "name": "Váy & Quần Dã Chiến #11-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c11_170.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c11_170.png"
+    },
+    {
+        "id": "med3_r10_c12_171",
+        "name": "Váy & Quần Dã Chiến #11-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c12_171.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c12_171.png"
+    },
+    {
+        "id": "med3_r10_c13_172",
+        "name": "Váy & Quần Dã Chiến #11-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c13_172.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c13_172.png"
+    },
+    {
+        "id": "med3_r10_c14_173",
+        "name": "Váy & Quần Dã Chiến #11-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c14_173.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c14_173.png"
+    },
+    {
+        "id": "med3_r10_c15_174",
+        "name": "Váy & Quần Dã Chiến #11-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c15_174.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c15_174.png"
+    },
+    {
+        "id": "med3_r10_c16_175",
+        "name": "Váy & Quần Dã Chiến #11-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r10_c16_175.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r10_c16_175.png"
+    },
+    {
+        "id": "med3_r11_c01_176",
+        "name": "Giày & Găng Tay Da #12-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c01_176.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c01_176.png"
+    },
+    {
+        "id": "med3_r11_c02_177",
+        "name": "Giày & Găng Tay Da #12-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c02_177.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c02_177.png"
+    },
+    {
+        "id": "med3_r11_c03_178",
+        "name": "Giày & Găng Tay Da #12-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c03_178.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c03_178.png"
+    },
+    {
+        "id": "med3_r11_c04_179",
+        "name": "Giày & Găng Tay Da #12-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c04_179.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c04_179.png"
+    },
+    {
+        "id": "med3_r11_c05_180",
+        "name": "Giày & Găng Tay Da #12-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c05_180.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c05_180.png"
+    },
+    {
+        "id": "med3_r11_c06_181",
+        "name": "Giày & Găng Tay Da #12-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c06_181.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c06_181.png"
+    },
+    {
+        "id": "med3_r11_c07_182",
+        "name": "Giày & Găng Tay Da #12-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c07_182.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c07_182.png"
+    },
+    {
+        "id": "med3_r11_c08_183",
+        "name": "Giày & Găng Tay Da #12-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c08_183.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c08_183.png"
+    },
+    {
+        "id": "med3_r11_c09_184",
+        "name": "Giày & Găng Tay Da #12-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c09_184.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c09_184.png"
+    },
+    {
+        "id": "med3_r11_c10_185",
+        "name": "Giày & Găng Tay Da #12-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c10_185.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c10_185.png"
+    },
+    {
+        "id": "med3_r11_c11_186",
+        "name": "Giày & Găng Tay Da #12-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c11_186.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c11_186.png"
+    },
+    {
+        "id": "med3_r11_c12_187",
+        "name": "Giày & Găng Tay Da #12-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c12_187.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c12_187.png"
+    },
+    {
+        "id": "med3_r11_c13_188",
+        "name": "Giày & Găng Tay Da #12-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c13_188.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c13_188.png"
+    },
+    {
+        "id": "med3_r11_c14_189",
+        "name": "Giày & Găng Tay Da #12-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c14_189.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c14_189.png"
+    },
+    {
+        "id": "med3_r11_c15_190",
+        "name": "Giày & Găng Tay Da #12-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c15_190.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c15_190.png"
+    },
+    {
+        "id": "med3_r11_c16_191",
+        "name": "Giày & Găng Tay Da #12-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r11_c16_191.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r11_c16_191.png"
+    },
+    {
+        "id": "med3_r12_c01_192",
+        "name": "Giày & Găng Tay Da #13-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c01_192.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c01_192.png"
+    },
+    {
+        "id": "med3_r12_c02_193",
+        "name": "Giày & Găng Tay Da #13-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c02_193.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c02_193.png"
+    },
+    {
+        "id": "med3_r12_c03_194",
+        "name": "Giày & Găng Tay Da #13-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c03_194.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c03_194.png"
+    },
+    {
+        "id": "med3_r12_c04_195",
+        "name": "Giày & Găng Tay Da #13-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c04_195.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c04_195.png"
+    },
+    {
+        "id": "med3_r12_c05_196",
+        "name": "Giày & Găng Tay Da #13-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c05_196.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c05_196.png"
+    },
+    {
+        "id": "med3_r12_c06_197",
+        "name": "Giày & Găng Tay Da #13-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c06_197.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c06_197.png"
+    },
+    {
+        "id": "med3_r12_c07_198",
+        "name": "Giày & Găng Tay Da #13-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c07_198.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c07_198.png"
+    },
+    {
+        "id": "med3_r12_c08_199",
+        "name": "Giày & Găng Tay Da #13-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c08_199.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c08_199.png"
+    },
+    {
+        "id": "med3_r12_c09_200",
+        "name": "Giày & Găng Tay Da #13-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c09_200.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c09_200.png"
+    },
+    {
+        "id": "med3_r12_c10_201",
+        "name": "Giày & Găng Tay Da #13-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c10_201.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c10_201.png"
+    },
+    {
+        "id": "med3_r12_c11_202",
+        "name": "Giày & Găng Tay Da #13-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c11_202.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c11_202.png"
+    },
+    {
+        "id": "med3_r12_c12_203",
+        "name": "Giày & Găng Tay Da #13-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c12_203.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c12_203.png"
+    },
+    {
+        "id": "med3_r12_c13_204",
+        "name": "Giày & Găng Tay Da #13-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c13_204.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c13_204.png"
+    },
+    {
+        "id": "med3_r12_c14_205",
+        "name": "Giày & Găng Tay Da #13-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c14_205.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c14_205.png"
+    },
+    {
+        "id": "med3_r12_c15_206",
+        "name": "Giày & Găng Tay Da #13-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c15_206.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c15_206.png"
+    },
+    {
+        "id": "med3_r12_c16_207",
+        "name": "Giày & Găng Tay Da #13-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r12_c16_207.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r12_c16_207.png"
+    },
+    {
+        "id": "med3_r13_c01_208",
+        "name": "Giày & Găng Tay Da #14-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c01_208.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c01_208.png"
+    },
+    {
+        "id": "med3_r13_c02_209",
+        "name": "Giày & Găng Tay Da #14-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c02_209.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c02_209.png"
+    },
+    {
+        "id": "med3_r13_c03_210",
+        "name": "Giày & Găng Tay Da #14-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c03_210.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c03_210.png"
+    },
+    {
+        "id": "med3_r13_c04_211",
+        "name": "Giày & Găng Tay Da #14-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c04_211.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c04_211.png"
+    },
+    {
+        "id": "med3_r13_c05_212",
+        "name": "Giày & Găng Tay Da #14-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c05_212.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c05_212.png"
+    },
+    {
+        "id": "med3_r13_c06_213",
+        "name": "Giày & Găng Tay Da #14-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c06_213.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c06_213.png"
+    },
+    {
+        "id": "med3_r13_c07_214",
+        "name": "Giày & Găng Tay Da #14-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c07_214.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c07_214.png"
+    },
+    {
+        "id": "med3_r13_c08_215",
+        "name": "Giày & Găng Tay Da #14-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c08_215.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c08_215.png"
+    },
+    {
+        "id": "med3_r13_c09_216",
+        "name": "Giày & Găng Tay Da #14-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c09_216.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c09_216.png"
+    },
+    {
+        "id": "med3_r13_c10_217",
+        "name": "Giày & Găng Tay Da #14-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c10_217.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c10_217.png"
+    },
+    {
+        "id": "med3_r13_c11_218",
+        "name": "Giày & Găng Tay Da #14-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c11_218.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c11_218.png"
+    },
+    {
+        "id": "med3_r13_c12_219",
+        "name": "Giày & Găng Tay Da #14-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c12_219.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c12_219.png"
+    },
+    {
+        "id": "med3_r13_c13_220",
+        "name": "Giày & Găng Tay Da #14-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c13_220.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c13_220.png"
+    },
+    {
+        "id": "med3_r13_c14_221",
+        "name": "Giày & Găng Tay Da #14-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c14_221.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c14_221.png"
+    },
+    {
+        "id": "med3_r13_c15_222",
+        "name": "Giày & Găng Tay Da #14-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c15_222.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c15_222.png"
+    },
+    {
+        "id": "med3_r13_c16_223",
+        "name": "Giày & Găng Tay Da #14-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r13_c16_223.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r13_c16_223.png"
+    },
+    {
+        "id": "med3_r14_c01_224",
+        "name": "Giày & Găng Tay Da #15-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c01_224.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c01_224.png"
+    },
+    {
+        "id": "med3_r14_c02_225",
+        "name": "Giày & Găng Tay Da #15-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c02_225.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c02_225.png"
+    },
+    {
+        "id": "med3_r14_c03_226",
+        "name": "Giày & Găng Tay Da #15-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c03_226.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c03_226.png"
+    },
+    {
+        "id": "med3_r14_c04_227",
+        "name": "Giày & Găng Tay Da #15-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c04_227.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c04_227.png"
+    },
+    {
+        "id": "med3_r14_c05_228",
+        "name": "Giày & Găng Tay Da #15-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c05_228.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c05_228.png"
+    },
+    {
+        "id": "med3_r14_c06_229",
+        "name": "Giày & Găng Tay Da #15-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c06_229.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c06_229.png"
+    },
+    {
+        "id": "med3_r14_c07_230",
+        "name": "Giày & Găng Tay Da #15-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c07_230.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c07_230.png"
+    },
+    {
+        "id": "med3_r14_c08_231",
+        "name": "Giày & Găng Tay Da #15-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c08_231.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c08_231.png"
+    },
+    {
+        "id": "med3_r14_c09_232",
+        "name": "Giày & Găng Tay Da #15-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c09_232.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c09_232.png"
+    },
+    {
+        "id": "med3_r14_c10_233",
+        "name": "Giày & Găng Tay Da #15-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c10_233.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c10_233.png"
+    },
+    {
+        "id": "med3_r14_c11_234",
+        "name": "Giày & Găng Tay Da #15-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c11_234.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c11_234.png"
+    },
+    {
+        "id": "med3_r14_c12_235",
+        "name": "Giày & Găng Tay Da #15-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c12_235.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c12_235.png"
+    },
+    {
+        "id": "med3_r14_c13_236",
+        "name": "Giày & Găng Tay Da #15-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c13_236.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c13_236.png"
+    },
+    {
+        "id": "med3_r14_c14_237",
+        "name": "Giày & Găng Tay Da #15-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c14_237.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c14_237.png"
+    },
+    {
+        "id": "med3_r14_c15_238",
+        "name": "Giày & Găng Tay Da #15-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c15_238.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c15_238.png"
+    },
+    {
+        "id": "med3_r14_c16_239",
+        "name": "Giày & Găng Tay Da #15-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med3_r14_c16_239.png",
+        "thumbSrc": "/assets/props/thumbs/med3_r14_c16_239.png"
+    },
+    {
+        "id": "med0_r00_c00_000",
+        "name": "Mũ Trùm & Nón Vải #01-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c00_000.png"
+    },
+    {
+        "id": "med0_r00_c01_001",
+        "name": "Mũ Trùm & Nón Vải #01-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c01_001.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c01_001.png"
+    },
+    {
+        "id": "med0_r00_c02_002",
+        "name": "Mũ Trùm & Nón Vải #01-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c02_002.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c02_002.png"
+    },
+    {
+        "id": "med0_r00_c03_003",
+        "name": "Mũ Trùm & Nón Vải #01-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c03_003.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c03_003.png"
+    },
+    {
+        "id": "med0_r00_c04_004",
+        "name": "Mũ Trùm & Nón Vải #01-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c04_004.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c04_004.png"
+    },
+    {
+        "id": "med0_r00_c05_005",
+        "name": "Mũ Trùm & Nón Vải #01-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c05_005.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c05_005.png"
+    },
+    {
+        "id": "med0_r00_c06_006",
+        "name": "Mũ Trùm & Nón Vải #01-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c06_006.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c06_006.png"
+    },
+    {
+        "id": "med0_r00_c07_007",
+        "name": "Mũ Trùm & Nón Vải #01-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c07_007.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c07_007.png"
+    },
+    {
+        "id": "med0_r00_c08_008",
+        "name": "Mũ Trùm & Nón Vải #01-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c08_008.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c08_008.png"
+    },
+    {
+        "id": "med0_r00_c09_009",
+        "name": "Mũ Trùm & Nón Vải #01-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c09_009.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c09_009.png"
+    },
+    {
+        "id": "med0_r00_c10_010",
+        "name": "Mũ Trùm & Nón Vải #01-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c10_010.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c10_010.png"
+    },
+    {
+        "id": "med0_r00_c11_011",
+        "name": "Mũ Trùm & Nón Vải #01-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c11_011.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c11_011.png"
+    },
+    {
+        "id": "med0_r00_c12_012",
+        "name": "Mũ Trùm & Nón Vải #01-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c12_012.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c12_012.png"
+    },
+    {
+        "id": "med0_r00_c13_013",
+        "name": "Mũ Trùm & Nón Vải #01-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c13_013.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c13_013.png"
+    },
+    {
+        "id": "med0_r00_c14_014",
+        "name": "Mũ Trùm & Nón Vải #01-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c14_014.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c14_014.png"
+    },
+    {
+        "id": "med0_r00_c15_015",
+        "name": "Mũ Trùm & Nón Vải #01-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r00_c15_015.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r00_c15_015.png"
+    },
+    {
+        "id": "med0_r01_c00_016",
+        "name": "Mũ Trùm & Nón Vải #02-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c00_016.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c00_016.png"
+    },
+    {
+        "id": "med0_r01_c01_017",
+        "name": "Mũ Trùm & Nón Vải #02-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c01_017.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c01_017.png"
+    },
+    {
+        "id": "med0_r01_c02_018",
+        "name": "Mũ Trùm & Nón Vải #02-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c02_018.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c02_018.png"
+    },
+    {
+        "id": "med0_r01_c03_019",
+        "name": "Mũ Trùm & Nón Vải #02-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c03_019.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c03_019.png"
+    },
+    {
+        "id": "med0_r01_c04_020",
+        "name": "Mũ Trùm & Nón Vải #02-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c04_020.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c04_020.png"
+    },
+    {
+        "id": "med0_r01_c05_021",
+        "name": "Mũ Trùm & Nón Vải #02-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c05_021.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c05_021.png"
+    },
+    {
+        "id": "med0_r01_c06_022",
+        "name": "Mũ Trùm & Nón Vải #02-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c06_022.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c06_022.png"
+    },
+    {
+        "id": "med0_r01_c07_023",
+        "name": "Mũ Trùm & Nón Vải #02-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c07_023.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c07_023.png"
+    },
+    {
+        "id": "med0_r01_c08_024",
+        "name": "Mũ Trùm & Nón Vải #02-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c08_024.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c08_024.png"
+    },
+    {
+        "id": "med0_r01_c09_025",
+        "name": "Mũ Trùm & Nón Vải #02-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c09_025.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c09_025.png"
+    },
+    {
+        "id": "med0_r01_c10_026",
+        "name": "Mũ Trùm & Nón Vải #02-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c10_026.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c10_026.png"
+    },
+    {
+        "id": "med0_r01_c11_027",
+        "name": "Mũ Trùm & Nón Vải #02-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c11_027.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c11_027.png"
+    },
+    {
+        "id": "med0_r01_c12_028",
+        "name": "Mũ Trùm & Nón Vải #02-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c12_028.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c12_028.png"
+    },
+    {
+        "id": "med0_r01_c13_029",
+        "name": "Mũ Trùm & Nón Vải #02-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c13_029.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c13_029.png"
+    },
+    {
+        "id": "med0_r01_c14_030",
+        "name": "Mũ Trùm & Nón Vải #02-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c14_030.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c14_030.png"
+    },
+    {
+        "id": "med0_r01_c15_031",
+        "name": "Mũ Trùm & Nón Vải #02-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r01_c15_031.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r01_c15_031.png"
+    },
+    {
+        "id": "med0_r02_c00_032",
+        "name": "Mũ Trùm & Nón Vải #03-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c00_032.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c00_032.png"
+    },
+    {
+        "id": "med0_r02_c01_033",
+        "name": "Mũ Trùm & Nón Vải #03-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c01_033.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c01_033.png"
+    },
+    {
+        "id": "med0_r02_c02_034",
+        "name": "Mũ Trùm & Nón Vải #03-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c02_034.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c02_034.png"
+    },
+    {
+        "id": "med0_r02_c03_035",
+        "name": "Mũ Trùm & Nón Vải #03-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c03_035.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c03_035.png"
+    },
+    {
+        "id": "med0_r02_c04_036",
+        "name": "Mũ Trùm & Nón Vải #03-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c04_036.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c04_036.png"
+    },
+    {
+        "id": "med0_r02_c05_037",
+        "name": "Mũ Trùm & Nón Vải #03-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c05_037.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c05_037.png"
+    },
+    {
+        "id": "med0_r02_c06_038",
+        "name": "Mũ Trùm & Nón Vải #03-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c06_038.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c06_038.png"
+    },
+    {
+        "id": "med0_r02_c07_039",
+        "name": "Mũ Trùm & Nón Vải #03-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c07_039.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c07_039.png"
+    },
+    {
+        "id": "med0_r02_c08_040",
+        "name": "Mũ Trùm & Nón Vải #03-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c08_040.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c08_040.png"
+    },
+    {
+        "id": "med0_r02_c09_041",
+        "name": "Mũ Trùm & Nón Vải #03-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c09_041.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c09_041.png"
+    },
+    {
+        "id": "med0_r02_c10_042",
+        "name": "Mũ Trùm & Nón Vải #03-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c10_042.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c10_042.png"
+    },
+    {
+        "id": "med0_r02_c11_043",
+        "name": "Mũ Trùm & Nón Vải #03-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c11_043.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c11_043.png"
+    },
+    {
+        "id": "med0_r02_c12_044",
+        "name": "Mũ Trùm & Nón Vải #03-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c12_044.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c12_044.png"
+    },
+    {
+        "id": "med0_r02_c13_045",
+        "name": "Mũ Trùm & Nón Vải #03-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c13_045.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c13_045.png"
+    },
+    {
+        "id": "med0_r02_c14_046",
+        "name": "Mũ Trùm & Nón Vải #03-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c14_046.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c14_046.png"
+    },
+    {
+        "id": "med0_r02_c15_047",
+        "name": "Mũ Trùm & Nón Vải #03-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r02_c15_047.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r02_c15_047.png"
+    },
+    {
+        "id": "med0_r03_c00_048",
+        "name": "Trang Phục Trung Cổ #04-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c00_048.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c00_048.png"
+    },
+    {
+        "id": "med0_r03_c01_049",
+        "name": "Trang Phục Trung Cổ #04-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c01_049.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c01_049.png"
+    },
+    {
+        "id": "med0_r03_c02_050",
+        "name": "Trang Phục Trung Cổ #04-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c02_050.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c02_050.png"
+    },
+    {
+        "id": "med0_r03_c03_051",
+        "name": "Trang Phục Trung Cổ #04-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c03_051.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c03_051.png"
+    },
+    {
+        "id": "med0_r03_c04_052",
+        "name": "Trang Phục Trung Cổ #04-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c04_052.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c04_052.png"
+    },
+    {
+        "id": "med0_r03_c05_053",
+        "name": "Trang Phục Trung Cổ #04-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c05_053.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c05_053.png"
+    },
+    {
+        "id": "med0_r03_c06_054",
+        "name": "Trang Phục Trung Cổ #04-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c06_054.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c06_054.png"
+    },
+    {
+        "id": "med0_r03_c07_055",
+        "name": "Trang Phục Trung Cổ #04-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c07_055.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c07_055.png"
+    },
+    {
+        "id": "med0_r03_c08_056",
+        "name": "Trang Phục Trung Cổ #04-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c08_056.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c08_056.png"
+    },
+    {
+        "id": "med0_r03_c09_057",
+        "name": "Trang Phục Trung Cổ #04-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c09_057.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c09_057.png"
+    },
+    {
+        "id": "med0_r03_c10_058",
+        "name": "Trang Phục Trung Cổ #04-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c10_058.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c10_058.png"
+    },
+    {
+        "id": "med0_r03_c11_059",
+        "name": "Trang Phục Trung Cổ #04-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c11_059.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c11_059.png"
+    },
+    {
+        "id": "med0_r03_c12_060",
+        "name": "Trang Phục Trung Cổ #04-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c12_060.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c12_060.png"
+    },
+    {
+        "id": "med0_r03_c13_061",
+        "name": "Trang Phục Trung Cổ #04-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c13_061.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c13_061.png"
+    },
+    {
+        "id": "med0_r03_c14_062",
+        "name": "Trang Phục Trung Cổ #04-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c14_062.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c14_062.png"
+    },
+    {
+        "id": "med0_r03_c15_063",
+        "name": "Trang Phục Trung Cổ #04-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r03_c15_063.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r03_c15_063.png"
+    },
+    {
+        "id": "med0_r04_c00_064",
+        "name": "Trang Phục Trung Cổ #05-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c00_064.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c00_064.png"
+    },
+    {
+        "id": "med0_r04_c01_065",
+        "name": "Trang Phục Trung Cổ #05-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c01_065.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c01_065.png"
+    },
+    {
+        "id": "med0_r04_c02_066",
+        "name": "Trang Phục Trung Cổ #05-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c02_066.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c02_066.png"
+    },
+    {
+        "id": "med0_r04_c03_067",
+        "name": "Trang Phục Trung Cổ #05-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c03_067.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c03_067.png"
+    },
+    {
+        "id": "med0_r04_c04_068",
+        "name": "Trang Phục Trung Cổ #05-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c04_068.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c04_068.png"
+    },
+    {
+        "id": "med0_r04_c05_069",
+        "name": "Trang Phục Trung Cổ #05-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c05_069.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c05_069.png"
+    },
+    {
+        "id": "med0_r04_c06_070",
+        "name": "Trang Phục Trung Cổ #05-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c06_070.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c06_070.png"
+    },
+    {
+        "id": "med0_r04_c07_071",
+        "name": "Trang Phục Trung Cổ #05-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c07_071.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c07_071.png"
+    },
+    {
+        "id": "med0_r04_c08_072",
+        "name": "Trang Phục Trung Cổ #05-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c08_072.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c08_072.png"
+    },
+    {
+        "id": "med0_r04_c09_073",
+        "name": "Trang Phục Trung Cổ #05-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c09_073.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c09_073.png"
+    },
+    {
+        "id": "med0_r04_c10_074",
+        "name": "Trang Phục Trung Cổ #05-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c10_074.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c10_074.png"
+    },
+    {
+        "id": "med0_r04_c11_075",
+        "name": "Trang Phục Trung Cổ #05-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c11_075.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c11_075.png"
+    },
+    {
+        "id": "med0_r04_c12_076",
+        "name": "Trang Phục Trung Cổ #05-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c12_076.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c12_076.png"
+    },
+    {
+        "id": "med0_r04_c13_077",
+        "name": "Trang Phục Trung Cổ #05-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c13_077.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c13_077.png"
+    },
+    {
+        "id": "med0_r04_c14_078",
+        "name": "Trang Phục Trung Cổ #05-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c14_078.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c14_078.png"
+    },
+    {
+        "id": "med0_r04_c15_079",
+        "name": "Trang Phục Trung Cổ #05-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r04_c15_079.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r04_c15_079.png"
+    },
+    {
+        "id": "med0_r05_c00_080",
+        "name": "Trang Phục Trung Cổ #06-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c00_080.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c00_080.png"
+    },
+    {
+        "id": "med0_r05_c01_081",
+        "name": "Trang Phục Trung Cổ #06-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c01_081.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c01_081.png"
+    },
+    {
+        "id": "med0_r05_c02_082",
+        "name": "Trang Phục Trung Cổ #06-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c02_082.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c02_082.png"
+    },
+    {
+        "id": "med0_r05_c03_083",
+        "name": "Trang Phục Trung Cổ #06-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c03_083.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c03_083.png"
+    },
+    {
+        "id": "med0_r05_c04_084",
+        "name": "Trang Phục Trung Cổ #06-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c04_084.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c04_084.png"
+    },
+    {
+        "id": "med0_r05_c05_085",
+        "name": "Trang Phục Trung Cổ #06-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c05_085.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c05_085.png"
+    },
+    {
+        "id": "med0_r05_c06_086",
+        "name": "Trang Phục Trung Cổ #06-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c06_086.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c06_086.png"
+    },
+    {
+        "id": "med0_r05_c07_087",
+        "name": "Trang Phục Trung Cổ #06-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c07_087.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c07_087.png"
+    },
+    {
+        "id": "med0_r05_c08_088",
+        "name": "Trang Phục Trung Cổ #06-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c08_088.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c08_088.png"
+    },
+    {
+        "id": "med0_r05_c09_089",
+        "name": "Trang Phục Trung Cổ #06-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c09_089.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c09_089.png"
+    },
+    {
+        "id": "med0_r05_c10_090",
+        "name": "Trang Phục Trung Cổ #06-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c10_090.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c10_090.png"
+    },
+    {
+        "id": "med0_r05_c11_091",
+        "name": "Trang Phục Trung Cổ #06-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c11_091.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c11_091.png"
+    },
+    {
+        "id": "med0_r05_c12_092",
+        "name": "Trang Phục Trung Cổ #06-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c12_092.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c12_092.png"
+    },
+    {
+        "id": "med0_r05_c13_093",
+        "name": "Trang Phục Trung Cổ #06-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c13_093.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c13_093.png"
+    },
+    {
+        "id": "med0_r05_c14_094",
+        "name": "Trang Phục Trung Cổ #06-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c14_094.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c14_094.png"
+    },
+    {
+        "id": "med0_r05_c15_095",
+        "name": "Trang Phục Trung Cổ #06-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r05_c15_095.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r05_c15_095.png"
+    },
+    {
+        "id": "med0_r06_c00_096",
+        "name": "Trang Phục Trung Cổ #07-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c00_096.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c00_096.png"
+    },
+    {
+        "id": "med0_r06_c01_097",
+        "name": "Trang Phục Trung Cổ #07-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c01_097.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c01_097.png"
+    },
+    {
+        "id": "med0_r06_c02_098",
+        "name": "Trang Phục Trung Cổ #07-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c02_098.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c02_098.png"
+    },
+    {
+        "id": "med0_r06_c03_099",
+        "name": "Trang Phục Trung Cổ #07-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c03_099.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c03_099.png"
+    },
+    {
+        "id": "med0_r06_c04_100",
+        "name": "Trang Phục Trung Cổ #07-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c04_100.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c04_100.png"
+    },
+    {
+        "id": "med0_r06_c05_101",
+        "name": "Trang Phục Trung Cổ #07-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c05_101.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c05_101.png"
+    },
+    {
+        "id": "med0_r06_c06_102",
+        "name": "Trang Phục Trung Cổ #07-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c06_102.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c06_102.png"
+    },
+    {
+        "id": "med0_r06_c07_103",
+        "name": "Trang Phục Trung Cổ #07-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c07_103.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c07_103.png"
+    },
+    {
+        "id": "med0_r06_c08_104",
+        "name": "Trang Phục Trung Cổ #07-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c08_104.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c08_104.png"
+    },
+    {
+        "id": "med0_r06_c09_105",
+        "name": "Trang Phục Trung Cổ #07-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c09_105.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c09_105.png"
+    },
+    {
+        "id": "med0_r06_c10_106",
+        "name": "Trang Phục Trung Cổ #07-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c10_106.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c10_106.png"
+    },
+    {
+        "id": "med0_r06_c11_107",
+        "name": "Trang Phục Trung Cổ #07-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c11_107.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c11_107.png"
+    },
+    {
+        "id": "med0_r06_c12_108",
+        "name": "Trang Phục Trung Cổ #07-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c12_108.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c12_108.png"
+    },
+    {
+        "id": "med0_r06_c13_109",
+        "name": "Trang Phục Trung Cổ #07-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c13_109.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c13_109.png"
+    },
+    {
+        "id": "med0_r06_c14_110",
+        "name": "Trang Phục Trung Cổ #07-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c14_110.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c14_110.png"
+    },
+    {
+        "id": "med0_r06_c15_111",
+        "name": "Trang Phục Trung Cổ #07-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r06_c15_111.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r06_c15_111.png"
+    },
+    {
+        "id": "med0_r07_c00_112",
+        "name": "Trang Phục Trung Cổ #08-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c00_112.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c00_112.png"
+    },
+    {
+        "id": "med0_r07_c01_113",
+        "name": "Trang Phục Trung Cổ #08-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c01_113.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c01_113.png"
+    },
+    {
+        "id": "med0_r07_c02_114",
+        "name": "Trang Phục Trung Cổ #08-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c02_114.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c02_114.png"
+    },
+    {
+        "id": "med0_r07_c03_115",
+        "name": "Trang Phục Trung Cổ #08-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c03_115.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c03_115.png"
+    },
+    {
+        "id": "med0_r07_c04_116",
+        "name": "Trang Phục Trung Cổ #08-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c04_116.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c04_116.png"
+    },
+    {
+        "id": "med0_r07_c05_117",
+        "name": "Trang Phục Trung Cổ #08-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c05_117.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c05_117.png"
+    },
+    {
+        "id": "med0_r07_c06_118",
+        "name": "Trang Phục Trung Cổ #08-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c06_118.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c06_118.png"
+    },
+    {
+        "id": "med0_r07_c07_119",
+        "name": "Trang Phục Trung Cổ #08-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c07_119.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c07_119.png"
+    },
+    {
+        "id": "med0_r07_c08_120",
+        "name": "Trang Phục Trung Cổ #08-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c08_120.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c08_120.png"
+    },
+    {
+        "id": "med0_r07_c09_121",
+        "name": "Trang Phục Trung Cổ #08-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c09_121.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c09_121.png"
+    },
+    {
+        "id": "med0_r07_c10_122",
+        "name": "Trang Phục Trung Cổ #08-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c10_122.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c10_122.png"
+    },
+    {
+        "id": "med0_r07_c11_123",
+        "name": "Trang Phục Trung Cổ #08-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c11_123.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c11_123.png"
+    },
+    {
+        "id": "med0_r07_c12_124",
+        "name": "Trang Phục Trung Cổ #08-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c12_124.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c12_124.png"
+    },
+    {
+        "id": "med0_r07_c13_125",
+        "name": "Trang Phục Trung Cổ #08-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c13_125.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c13_125.png"
+    },
+    {
+        "id": "med0_r07_c14_126",
+        "name": "Trang Phục Trung Cổ #08-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c14_126.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c14_126.png"
+    },
+    {
+        "id": "med0_r07_c15_127",
+        "name": "Trang Phục Trung Cổ #08-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r07_c15_127.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r07_c15_127.png"
+    },
+    {
+        "id": "med0_r08_c00_128",
+        "name": "Váy & Quần Dã Chiến #09-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c00_128.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c00_128.png"
+    },
+    {
+        "id": "med0_r08_c01_129",
+        "name": "Váy & Quần Dã Chiến #09-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c01_129.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c01_129.png"
+    },
+    {
+        "id": "med0_r08_c02_130",
+        "name": "Váy & Quần Dã Chiến #09-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c02_130.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c02_130.png"
+    },
+    {
+        "id": "med0_r08_c03_131",
+        "name": "Váy & Quần Dã Chiến #09-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c03_131.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c03_131.png"
+    },
+    {
+        "id": "med0_r08_c04_132",
+        "name": "Váy & Quần Dã Chiến #09-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c04_132.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c04_132.png"
+    },
+    {
+        "id": "med0_r08_c05_133",
+        "name": "Váy & Quần Dã Chiến #09-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c05_133.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c05_133.png"
+    },
+    {
+        "id": "med0_r08_c06_134",
+        "name": "Váy & Quần Dã Chiến #09-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c06_134.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c06_134.png"
+    },
+    {
+        "id": "med0_r08_c07_135",
+        "name": "Váy & Quần Dã Chiến #09-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c07_135.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c07_135.png"
+    },
+    {
+        "id": "med0_r08_c08_136",
+        "name": "Váy & Quần Dã Chiến #09-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c08_136.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c08_136.png"
+    },
+    {
+        "id": "med0_r08_c09_137",
+        "name": "Váy & Quần Dã Chiến #09-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c09_137.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c09_137.png"
+    },
+    {
+        "id": "med0_r08_c10_138",
+        "name": "Váy & Quần Dã Chiến #09-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c10_138.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c10_138.png"
+    },
+    {
+        "id": "med0_r08_c11_139",
+        "name": "Váy & Quần Dã Chiến #09-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c11_139.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c11_139.png"
+    },
+    {
+        "id": "med0_r08_c12_140",
+        "name": "Váy & Quần Dã Chiến #09-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c12_140.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c12_140.png"
+    },
+    {
+        "id": "med0_r08_c13_141",
+        "name": "Váy & Quần Dã Chiến #09-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c13_141.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c13_141.png"
+    },
+    {
+        "id": "med0_r08_c14_142",
+        "name": "Váy & Quần Dã Chiến #09-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c14_142.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c14_142.png"
+    },
+    {
+        "id": "med0_r08_c15_143",
+        "name": "Váy & Quần Dã Chiến #09-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c15_143.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c15_143.png"
+    },
+    {
+        "id": "med0_r08_c16_144",
+        "name": "Váy & Quần Dã Chiến #09-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r08_c16_144.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r08_c16_144.png"
+    },
+    {
+        "id": "med0_r09_c00_145",
+        "name": "Váy & Quần Dã Chiến #10-01",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c00_145.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c00_145.png"
+    },
+    {
+        "id": "med0_r09_c01_146",
+        "name": "Váy & Quần Dã Chiến #10-02",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c01_146.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c01_146.png"
+    },
+    {
+        "id": "med0_r09_c02_147",
+        "name": "Váy & Quần Dã Chiến #10-03",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c02_147.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c02_147.png"
+    },
+    {
+        "id": "med0_r09_c03_148",
+        "name": "Váy & Quần Dã Chiến #10-04",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c03_148.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c03_148.png"
+    },
+    {
+        "id": "med0_r09_c04_149",
+        "name": "Váy & Quần Dã Chiến #10-05",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c04_149.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c04_149.png"
+    },
+    {
+        "id": "med0_r09_c05_150",
+        "name": "Váy & Quần Dã Chiến #10-06",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c05_150.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c05_150.png"
+    },
+    {
+        "id": "med0_r09_c06_151",
+        "name": "Váy & Quần Dã Chiến #10-07",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c06_151.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c06_151.png"
+    },
+    {
+        "id": "med0_r09_c07_152",
+        "name": "Váy & Quần Dã Chiến #10-08",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c07_152.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c07_152.png"
+    },
+    {
+        "id": "med0_r09_c08_153",
+        "name": "Váy & Quần Dã Chiến #10-09",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c08_153.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c08_153.png"
+    },
+    {
+        "id": "med0_r09_c09_154",
+        "name": "Váy & Quần Dã Chiến #10-10",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c09_154.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c09_154.png"
+    },
+    {
+        "id": "med0_r09_c10_155",
+        "name": "Váy & Quần Dã Chiến #10-11",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c10_155.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c10_155.png"
+    },
+    {
+        "id": "med0_r09_c11_156",
+        "name": "Váy & Quần Dã Chiến #10-12",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c11_156.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c11_156.png"
+    },
+    {
+        "id": "med0_r09_c12_157",
+        "name": "Váy & Quần Dã Chiến #10-13",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c12_157.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c12_157.png"
+    },
+    {
+        "id": "med0_r09_c13_158",
+        "name": "Váy & Quần Dã Chiến #10-14",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c13_158.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c13_158.png"
+    },
+    {
+        "id": "med0_r09_c14_159",
+        "name": "Váy & Quần Dã Chiến #10-15",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c14_159.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c14_159.png"
+    },
+    {
+        "id": "med0_r09_c15_160",
+        "name": "Váy & Quần Dã Chiến #10-16",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c15_160.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c15_160.png"
+    },
+    {
+        "id": "med0_r09_c16_161",
+        "name": "Váy & Quần Dã Chiến #10-17",
+        "forType": "armor",
+        "src": "/assets/props/items/med0_r09_c16_161.png",
+        "thumbSrc": "/assets/props/thumbs/med0_r09_c16_161.png"
+    },
+    {
+        "id": "surv0_r00_c00_000",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #01-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r00_c00_000.png"
+    },
+    {
+        "id": "surv0_r00_c01_001",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #01-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r00_c01_001.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r00_c01_001.png"
+    },
+    {
+        "id": "surv0_r00_c02_002",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #01-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r00_c02_002.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r00_c02_002.png"
+    },
+    {
+        "id": "surv0_r00_c03_003",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #01-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r00_c03_003.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r00_c03_003.png"
+    },
+    {
+        "id": "surv0_r00_c04_004",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #01-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r00_c04_004.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r00_c04_004.png"
+    },
+    {
+        "id": "surv0_r00_c05_005",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #01-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r00_c05_005.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r00_c05_005.png"
+    },
+    {
+        "id": "surv0_r00_c06_006",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #01-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r00_c06_006.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r00_c06_006.png"
+    },
+    {
+        "id": "surv0_r01_c00_007",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c00_007.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c00_007.png"
+    },
+    {
+        "id": "surv0_r01_c01_008",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c01_008.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c01_008.png"
+    },
+    {
+        "id": "surv0_r01_c02_009",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c02_009.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c02_009.png"
+    },
+    {
+        "id": "surv0_r01_c03_010",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c03_010.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c03_010.png"
+    },
+    {
+        "id": "surv0_r01_c04_011",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c04_011.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c04_011.png"
+    },
+    {
+        "id": "surv0_r01_c05_012",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c05_012.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c05_012.png"
+    },
+    {
+        "id": "surv0_r01_c06_013",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c06_013.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c06_013.png"
+    },
+    {
+        "id": "surv0_r01_c07_014",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #02-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r01_c07_014.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r01_c07_014.png"
+    },
+    {
+        "id": "surv0_r02_c00_015",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #03-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r02_c00_015.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r02_c00_015.png"
+    },
+    {
+        "id": "surv0_r02_c01_016",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #03-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r02_c01_016.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r02_c01_016.png"
+    },
+    {
+        "id": "surv0_r02_c02_017",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #03-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r02_c02_017.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r02_c02_017.png"
+    },
+    {
+        "id": "surv0_r02_c03_018",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #03-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r02_c03_018.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r02_c03_018.png"
+    },
+    {
+        "id": "surv0_r02_c04_019",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #03-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r02_c04_019.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r02_c04_019.png"
+    },
+    {
+        "id": "surv0_r02_c05_020",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #03-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r02_c05_020.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r02_c05_020.png"
+    },
+    {
+        "id": "surv0_r02_c06_021",
+        "name": "Gỗ & Dây Thừng Sinh Tồn #03-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r02_c06_021.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r02_c06_021.png"
+    },
+    {
+        "id": "surv0_r03_c00_022",
+        "name": "Lương Thực Dã Ngoại #04-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r03_c00_022.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r03_c00_022.png"
+    },
+    {
+        "id": "surv0_r03_c01_023",
+        "name": "Lương Thực Dã Ngoại #04-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r03_c01_023.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r03_c01_023.png"
+    },
+    {
+        "id": "surv0_r03_c02_024",
+        "name": "Lương Thực Dã Ngoại #04-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r03_c02_024.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r03_c02_024.png"
+    },
+    {
+        "id": "surv0_r03_c03_025",
+        "name": "Lương Thực Dã Ngoại #04-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r03_c03_025.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r03_c03_025.png"
+    },
+    {
+        "id": "surv0_r03_c04_026",
+        "name": "Lương Thực Dã Ngoại #04-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r03_c04_026.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r03_c04_026.png"
+    },
+    {
+        "id": "surv0_r03_c05_027",
+        "name": "Lương Thực Dã Ngoại #04-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r03_c05_027.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r03_c05_027.png"
+    },
+    {
+        "id": "surv0_r03_c06_028",
+        "name": "Lương Thực Dã Ngoại #04-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r03_c06_028.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r03_c06_028.png"
+    },
+    {
+        "id": "surv0_r04_c00_029",
+        "name": "Lương Thực Dã Ngoại #05-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r04_c00_029.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r04_c00_029.png"
+    },
+    {
+        "id": "surv0_r04_c01_030",
+        "name": "Lương Thực Dã Ngoại #05-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r04_c01_030.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r04_c01_030.png"
+    },
+    {
+        "id": "surv0_r04_c02_031",
+        "name": "Lương Thực Dã Ngoại #05-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r04_c02_031.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r04_c02_031.png"
+    },
+    {
+        "id": "surv0_r04_c03_032",
+        "name": "Lương Thực Dã Ngoại #05-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r04_c03_032.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r04_c03_032.png"
+    },
+    {
+        "id": "surv0_r04_c04_033",
+        "name": "Lương Thực Dã Ngoại #05-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r04_c04_033.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r04_c04_033.png"
+    },
+    {
+        "id": "surv0_r04_c05_034",
+        "name": "Lương Thực Dã Ngoại #05-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r04_c05_034.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r04_c05_034.png"
+    },
+    {
+        "id": "surv0_r04_c06_035",
+        "name": "Lương Thực Dã Ngoại #05-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv0_r04_c06_035.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r04_c06_035.png"
+    },
+    {
+        "id": "surv0_r05_c00_036",
+        "name": "Trại & Lửa Sinh Tồn #06-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r05_c00_036.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r05_c00_036.png"
+    },
+    {
+        "id": "surv0_r05_c01_037",
+        "name": "Trại & Lửa Sinh Tồn #06-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r05_c01_037.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r05_c01_037.png"
+    },
+    {
+        "id": "surv0_r05_c02_038",
+        "name": "Trại & Lửa Sinh Tồn #06-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r05_c02_038.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r05_c02_038.png"
+    },
+    {
+        "id": "surv0_r05_c03_039",
+        "name": "Trại & Lửa Sinh Tồn #06-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r05_c03_039.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r05_c03_039.png"
+    },
+    {
+        "id": "surv0_r06_c00_040",
+        "name": "Trại & Lửa Sinh Tồn #07-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c00_040.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c00_040.png"
+    },
+    {
+        "id": "surv0_r06_c01_041",
+        "name": "Trại & Lửa Sinh Tồn #07-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c01_041.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c01_041.png"
+    },
+    {
+        "id": "surv0_r06_c02_042",
+        "name": "Trại & Lửa Sinh Tồn #07-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c02_042.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c02_042.png"
+    },
+    {
+        "id": "surv0_r06_c03_043",
+        "name": "Trại & Lửa Sinh Tồn #07-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c03_043.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c03_043.png"
+    },
+    {
+        "id": "surv0_r06_c04_044",
+        "name": "Trại & Lửa Sinh Tồn #07-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c04_044.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c04_044.png"
+    },
+    {
+        "id": "surv0_r06_c05_045",
+        "name": "Trại & Lửa Sinh Tồn #07-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c05_045.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c05_045.png"
+    },
+    {
+        "id": "surv0_r06_c06_046",
+        "name": "Trại & Lửa Sinh Tồn #07-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c06_046.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c06_046.png"
+    },
+    {
+        "id": "surv0_r06_c07_047",
+        "name": "Trại & Lửa Sinh Tồn #07-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv0_r06_c07_047.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r06_c07_047.png"
+    },
+    {
+        "id": "surv0_r07_c00_048",
+        "name": "Công Cụ Đốn Chặt #08-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c00_048.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c00_048.png"
+    },
+    {
+        "id": "surv0_r07_c01_049",
+        "name": "Công Cụ Đốn Chặt #08-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c01_049.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c01_049.png"
+    },
+    {
+        "id": "surv0_r07_c02_050",
+        "name": "Công Cụ Đốn Chặt #08-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c02_050.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c02_050.png"
+    },
+    {
+        "id": "surv0_r07_c03_051",
+        "name": "Công Cụ Đốn Chặt #08-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c03_051.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c03_051.png"
+    },
+    {
+        "id": "surv0_r07_c04_052",
+        "name": "Công Cụ Đốn Chặt #08-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c04_052.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c04_052.png"
+    },
+    {
+        "id": "surv0_r07_c05_053",
+        "name": "Công Cụ Đốn Chặt #08-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c05_053.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c05_053.png"
+    },
+    {
+        "id": "surv0_r07_c06_054",
+        "name": "Công Cụ Đốn Chặt #08-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c06_054.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c06_054.png"
+    },
+    {
+        "id": "surv0_r07_c07_055",
+        "name": "Công Cụ Đốn Chặt #08-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c07_055.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c07_055.png"
+    },
+    {
+        "id": "surv0_r07_c08_056",
+        "name": "Công Cụ Đốn Chặt #08-09",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c08_056.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c08_056.png"
+    },
+    {
+        "id": "surv0_r07_c09_057",
+        "name": "Công Cụ Đốn Chặt #08-10",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r07_c09_057.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r07_c09_057.png"
+    },
+    {
+        "id": "surv0_r08_c00_058",
+        "name": "Công Cụ Đốn Chặt #09-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c00_058.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c00_058.png"
+    },
+    {
+        "id": "surv0_r08_c01_059",
+        "name": "Công Cụ Đốn Chặt #09-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c01_059.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c01_059.png"
+    },
+    {
+        "id": "surv0_r08_c02_060",
+        "name": "Công Cụ Đốn Chặt #09-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c02_060.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c02_060.png"
+    },
+    {
+        "id": "surv0_r08_c03_061",
+        "name": "Công Cụ Đốn Chặt #09-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c03_061.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c03_061.png"
+    },
+    {
+        "id": "surv0_r08_c04_062",
+        "name": "Công Cụ Đốn Chặt #09-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c04_062.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c04_062.png"
+    },
+    {
+        "id": "surv0_r08_c05_063",
+        "name": "Công Cụ Đốn Chặt #09-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c05_063.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c05_063.png"
+    },
+    {
+        "id": "surv0_r08_c06_064",
+        "name": "Công Cụ Đốn Chặt #09-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c06_064.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c06_064.png"
+    },
+    {
+        "id": "surv0_r08_c07_065",
+        "name": "Công Cụ Đốn Chặt #09-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c07_065.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c07_065.png"
+    },
+    {
+        "id": "surv0_r08_c08_066",
+        "name": "Công Cụ Đốn Chặt #09-09",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv0_r08_c08_066.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r08_c08_066.png"
+    },
+    {
+        "id": "surv0_r09_c00_067",
+        "name": "Dược Phẩm Dã Chiến #10-01",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c00_067.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c00_067.png"
+    },
+    {
+        "id": "surv0_r09_c01_068",
+        "name": "Dược Phẩm Dã Chiến #10-02",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c01_068.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c01_068.png"
+    },
+    {
+        "id": "surv0_r09_c02_069",
+        "name": "Dược Phẩm Dã Chiến #10-03",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c02_069.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c02_069.png"
+    },
+    {
+        "id": "surv0_r09_c03_070",
+        "name": "Dược Phẩm Dã Chiến #10-04",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c03_070.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c03_070.png"
+    },
+    {
+        "id": "surv0_r09_c04_071",
+        "name": "Dược Phẩm Dã Chiến #10-05",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c04_071.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c04_071.png"
+    },
+    {
+        "id": "surv0_r09_c05_072",
+        "name": "Dược Phẩm Dã Chiến #10-06",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c05_072.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c05_072.png"
+    },
+    {
+        "id": "surv0_r09_c06_073",
+        "name": "Dược Phẩm Dã Chiến #10-07",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c06_073.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c06_073.png"
+    },
+    {
+        "id": "surv0_r09_c07_074",
+        "name": "Dược Phẩm Dã Chiến #10-08",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c07_074.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c07_074.png"
+    },
+    {
+        "id": "surv0_r09_c08_075",
+        "name": "Dược Phẩm Dã Chiến #10-09",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c08_075.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c08_075.png"
+    },
+    {
+        "id": "surv0_r09_c09_076",
+        "name": "Dược Phẩm Dã Chiến #10-10",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv0_r09_c09_076.png",
+        "thumbSrc": "/assets/props/thumbs/surv0_r09_c09_076.png"
+    },
+    {
+        "id": "surv1_r00_c00_000",
+        "name": "Khoáng Sản & Quặng Đá #01-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r00_c00_000.png"
+    },
+    {
+        "id": "surv1_r00_c01_001",
+        "name": "Khoáng Sản & Quặng Đá #01-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r00_c01_001.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r00_c01_001.png"
+    },
+    {
+        "id": "surv1_r00_c02_002",
+        "name": "Khoáng Sản & Quặng Đá #01-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r00_c02_002.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r00_c02_002.png"
+    },
+    {
+        "id": "surv1_r00_c03_003",
+        "name": "Khoáng Sản & Quặng Đá #01-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r00_c03_003.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r00_c03_003.png"
+    },
+    {
+        "id": "surv1_r00_c04_004",
+        "name": "Khoáng Sản & Quặng Đá #01-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r00_c04_004.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r00_c04_004.png"
+    },
+    {
+        "id": "surv1_r00_c05_005",
+        "name": "Khoáng Sản & Quặng Đá #01-06",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r00_c05_005.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r00_c05_005.png"
+    },
+    {
+        "id": "surv1_r01_c00_006",
+        "name": "Khoáng Sản & Quặng Đá #02-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c00_006.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c00_006.png"
+    },
+    {
+        "id": "surv1_r01_c01_007",
+        "name": "Khoáng Sản & Quặng Đá #02-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c01_007.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c01_007.png"
+    },
+    {
+        "id": "surv1_r01_c02_008",
+        "name": "Khoáng Sản & Quặng Đá #02-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c02_008.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c02_008.png"
+    },
+    {
+        "id": "surv1_r01_c03_009",
+        "name": "Khoáng Sản & Quặng Đá #02-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c03_009.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c03_009.png"
+    },
+    {
+        "id": "surv1_r01_c04_010",
+        "name": "Khoáng Sản & Quặng Đá #02-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c04_010.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c04_010.png"
+    },
+    {
+        "id": "surv1_r01_c05_011",
+        "name": "Khoáng Sản & Quặng Đá #02-06",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c05_011.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c05_011.png"
+    },
+    {
+        "id": "surv1_r01_c06_012",
+        "name": "Khoáng Sản & Quặng Đá #02-07",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c06_012.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c06_012.png"
+    },
+    {
+        "id": "surv1_r01_c07_013",
+        "name": "Khoáng Sản & Quặng Đá #02-08",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r01_c07_013.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r01_c07_013.png"
+    },
+    {
+        "id": "surv1_r02_c00_014",
+        "name": "Khoáng Sản & Quặng Đá #03-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c00_014.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c00_014.png"
+    },
+    {
+        "id": "surv1_r02_c01_015",
+        "name": "Khoáng Sản & Quặng Đá #03-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c01_015.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c01_015.png"
+    },
+    {
+        "id": "surv1_r02_c02_016",
+        "name": "Khoáng Sản & Quặng Đá #03-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c02_016.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c02_016.png"
+    },
+    {
+        "id": "surv1_r02_c03_017",
+        "name": "Khoáng Sản & Quặng Đá #03-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c03_017.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c03_017.png"
+    },
+    {
+        "id": "surv1_r02_c04_018",
+        "name": "Khoáng Sản & Quặng Đá #03-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c04_018.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c04_018.png"
+    },
+    {
+        "id": "surv1_r02_c05_019",
+        "name": "Khoáng Sản & Quặng Đá #03-06",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c05_019.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c05_019.png"
+    },
+    {
+        "id": "surv1_r02_c06_020",
+        "name": "Khoáng Sản & Quặng Đá #03-07",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c06_020.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c06_020.png"
+    },
+    {
+        "id": "surv1_r02_c07_021",
+        "name": "Khoáng Sản & Quặng Đá #03-08",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c07_021.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c07_021.png"
+    },
+    {
+        "id": "surv1_r02_c08_022",
+        "name": "Khoáng Sản & Quặng Đá #03-09",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r02_c08_022.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r02_c08_022.png"
+    },
+    {
+        "id": "surv1_r03_c00_023",
+        "name": "Khoáng Sản & Quặng Đá #04-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c00_023.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c00_023.png"
+    },
+    {
+        "id": "surv1_r03_c01_024",
+        "name": "Khoáng Sản & Quặng Đá #04-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c01_024.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c01_024.png"
+    },
+    {
+        "id": "surv1_r03_c02_025",
+        "name": "Khoáng Sản & Quặng Đá #04-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c02_025.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c02_025.png"
+    },
+    {
+        "id": "surv1_r03_c03_026",
+        "name": "Khoáng Sản & Quặng Đá #04-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c03_026.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c03_026.png"
+    },
+    {
+        "id": "surv1_r03_c04_027",
+        "name": "Khoáng Sản & Quặng Đá #04-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c04_027.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c04_027.png"
+    },
+    {
+        "id": "surv1_r03_c05_028",
+        "name": "Khoáng Sản & Quặng Đá #04-06",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c05_028.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c05_028.png"
+    },
+    {
+        "id": "surv1_r03_c06_029",
+        "name": "Khoáng Sản & Quặng Đá #04-07",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c06_029.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c06_029.png"
+    },
+    {
+        "id": "surv1_r03_c07_030",
+        "name": "Khoáng Sản & Quặng Đá #04-08",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c07_030.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c07_030.png"
+    },
+    {
+        "id": "surv1_r03_c08_031",
+        "name": "Khoáng Sản & Quặng Đá #04-09",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv1_r03_c08_031.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r03_c08_031.png"
+    },
+    {
+        "id": "surv1_r04_c00_032",
+        "name": "Thịt Rừng & Món Nấu #05-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r04_c00_032.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r04_c00_032.png"
+    },
+    {
+        "id": "surv1_r04_c01_033",
+        "name": "Thịt Rừng & Món Nấu #05-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r04_c01_033.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r04_c01_033.png"
+    },
+    {
+        "id": "surv1_r04_c02_034",
+        "name": "Thịt Rừng & Món Nấu #05-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r04_c02_034.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r04_c02_034.png"
+    },
+    {
+        "id": "surv1_r04_c03_035",
+        "name": "Thịt Rừng & Món Nấu #05-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r04_c03_035.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r04_c03_035.png"
+    },
+    {
+        "id": "surv1_r04_c04_036",
+        "name": "Thịt Rừng & Món Nấu #05-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r04_c04_036.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r04_c04_036.png"
+    },
+    {
+        "id": "surv1_r04_c05_037",
+        "name": "Thịt Rừng & Món Nấu #05-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r04_c05_037.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r04_c05_037.png"
+    },
+    {
+        "id": "surv1_r05_c00_038",
+        "name": "Thịt Rừng & Món Nấu #06-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c00_038.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c00_038.png"
+    },
+    {
+        "id": "surv1_r05_c01_039",
+        "name": "Thịt Rừng & Món Nấu #06-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c01_039.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c01_039.png"
+    },
+    {
+        "id": "surv1_r05_c02_040",
+        "name": "Thịt Rừng & Món Nấu #06-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c02_040.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c02_040.png"
+    },
+    {
+        "id": "surv1_r05_c03_041",
+        "name": "Thịt Rừng & Món Nấu #06-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c03_041.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c03_041.png"
+    },
+    {
+        "id": "surv1_r05_c04_042",
+        "name": "Thịt Rừng & Món Nấu #06-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c04_042.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c04_042.png"
+    },
+    {
+        "id": "surv1_r05_c05_043",
+        "name": "Thịt Rừng & Món Nấu #06-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c05_043.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c05_043.png"
+    },
+    {
+        "id": "surv1_r05_c06_044",
+        "name": "Thịt Rừng & Món Nấu #06-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c06_044.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c06_044.png"
+    },
+    {
+        "id": "surv1_r05_c07_045",
+        "name": "Thịt Rừng & Món Nấu #06-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c07_045.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c07_045.png"
+    },
+    {
+        "id": "surv1_r05_c08_046",
+        "name": "Thịt Rừng & Món Nấu #06-09",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r05_c08_046.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r05_c08_046.png"
+    },
+    {
+        "id": "surv1_r06_c00_047",
+        "name": "Thịt Rừng & Món Nấu #07-01",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c00_047.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c00_047.png"
+    },
+    {
+        "id": "surv1_r06_c01_048",
+        "name": "Thịt Rừng & Món Nấu #07-02",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c01_048.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c01_048.png"
+    },
+    {
+        "id": "surv1_r06_c02_049",
+        "name": "Thịt Rừng & Món Nấu #07-03",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c02_049.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c02_049.png"
+    },
+    {
+        "id": "surv1_r06_c03_050",
+        "name": "Thịt Rừng & Món Nấu #07-04",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c03_050.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c03_050.png"
+    },
+    {
+        "id": "surv1_r06_c04_051",
+        "name": "Thịt Rừng & Món Nấu #07-05",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c04_051.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c04_051.png"
+    },
+    {
+        "id": "surv1_r06_c05_052",
+        "name": "Thịt Rừng & Món Nấu #07-06",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c05_052.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c05_052.png"
+    },
+    {
+        "id": "surv1_r06_c06_053",
+        "name": "Thịt Rừng & Món Nấu #07-07",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c06_053.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c06_053.png"
+    },
+    {
+        "id": "surv1_r06_c07_054",
+        "name": "Thịt Rừng & Món Nấu #07-08",
+        "forType": "provisions",
+        "src": "/assets/props/items/surv1_r06_c07_054.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r06_c07_054.png"
+    },
+    {
+        "id": "surv1_r07_c00_055",
+        "name": "Nồi Nấu & Lửa Trại #08-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c00_055.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c00_055.png"
+    },
+    {
+        "id": "surv1_r07_c01_056",
+        "name": "Nồi Nấu & Lửa Trại #08-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c01_056.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c01_056.png"
+    },
+    {
+        "id": "surv1_r07_c02_057",
+        "name": "Nồi Nấu & Lửa Trại #08-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c02_057.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c02_057.png"
+    },
+    {
+        "id": "surv1_r07_c03_058",
+        "name": "Nồi Nấu & Lửa Trại #08-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c03_058.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c03_058.png"
+    },
+    {
+        "id": "surv1_r07_c04_059",
+        "name": "Nồi Nấu & Lửa Trại #08-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c04_059.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c04_059.png"
+    },
+    {
+        "id": "surv1_r07_c05_060",
+        "name": "Nồi Nấu & Lửa Trại #08-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c05_060.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c05_060.png"
+    },
+    {
+        "id": "surv1_r07_c06_061",
+        "name": "Nồi Nấu & Lửa Trại #08-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c06_061.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c06_061.png"
+    },
+    {
+        "id": "surv1_r07_c07_062",
+        "name": "Nồi Nấu & Lửa Trại #08-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r07_c07_062.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r07_c07_062.png"
+    },
+    {
+        "id": "surv1_r08_c00_063",
+        "name": "Nồi Nấu & Lửa Trại #09-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c00_063.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c00_063.png"
+    },
+    {
+        "id": "surv1_r08_c01_064",
+        "name": "Nồi Nấu & Lửa Trại #09-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c01_064.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c01_064.png"
+    },
+    {
+        "id": "surv1_r08_c02_065",
+        "name": "Nồi Nấu & Lửa Trại #09-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c02_065.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c02_065.png"
+    },
+    {
+        "id": "surv1_r08_c03_066",
+        "name": "Nồi Nấu & Lửa Trại #09-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c03_066.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c03_066.png"
+    },
+    {
+        "id": "surv1_r08_c04_067",
+        "name": "Nồi Nấu & Lửa Trại #09-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c04_067.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c04_067.png"
+    },
+    {
+        "id": "surv1_r08_c05_068",
+        "name": "Nồi Nấu & Lửa Trại #09-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c05_068.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c05_068.png"
+    },
+    {
+        "id": "surv1_r08_c06_069",
+        "name": "Nồi Nấu & Lửa Trại #09-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c06_069.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c06_069.png"
+    },
+    {
+        "id": "surv1_r08_c07_070",
+        "name": "Nồi Nấu & Lửa Trại #09-08",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r08_c07_070.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r08_c07_070.png"
+    },
+    {
+        "id": "surv1_r09_c00_071",
+        "name": "Nồi Nấu & Lửa Trại #10-01",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r09_c00_071.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r09_c00_071.png"
+    },
+    {
+        "id": "surv1_r09_c01_072",
+        "name": "Nồi Nấu & Lửa Trại #10-02",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r09_c01_072.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r09_c01_072.png"
+    },
+    {
+        "id": "surv1_r09_c02_073",
+        "name": "Nồi Nấu & Lửa Trại #10-03",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r09_c02_073.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r09_c02_073.png"
+    },
+    {
+        "id": "surv1_r09_c03_074",
+        "name": "Nồi Nấu & Lửa Trại #10-04",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r09_c03_074.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r09_c03_074.png"
+    },
+    {
+        "id": "surv1_r09_c04_075",
+        "name": "Nồi Nấu & Lửa Trại #10-05",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r09_c04_075.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r09_c04_075.png"
+    },
+    {
+        "id": "surv1_r09_c05_076",
+        "name": "Nồi Nấu & Lửa Trại #10-06",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r09_c05_076.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r09_c05_076.png"
+    },
+    {
+        "id": "surv1_r09_c06_077",
+        "name": "Nồi Nấu & Lửa Trại #10-07",
+        "forType": "chests_mechanisms",
+        "src": "/assets/props/items/surv1_r09_c06_077.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r09_c06_077.png"
+    },
+    {
+        "id": "surv1_r10_c00_078",
+        "name": "Đồ Nghề Sinh Tồn #11-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv1_r10_c00_078.png",
+        "thumbSrc": "/assets/props/thumbs/surv1_r10_c00_078.png"
+    },
+    {
+        "id": "surv2_r00_c00_000",
+        "name": "Thỏi Kim Loại & Vải Cuộn #01-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r00_c00_000.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r00_c00_000.png"
+    },
+    {
+        "id": "surv2_r01_c00_001",
+        "name": "Thỏi Kim Loại & Vải Cuộn #02-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r01_c00_001.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r01_c00_001.png"
+    },
+    {
+        "id": "surv2_r01_c01_002",
+        "name": "Thỏi Kim Loại & Vải Cuộn #02-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r01_c01_002.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r01_c01_002.png"
+    },
+    {
+        "id": "surv2_r01_c02_003",
+        "name": "Thỏi Kim Loại & Vải Cuộn #02-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r01_c02_003.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r01_c02_003.png"
+    },
+    {
+        "id": "surv2_r01_c03_004",
+        "name": "Thỏi Kim Loại & Vải Cuộn #02-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r01_c03_004.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r01_c03_004.png"
+    },
+    {
+        "id": "surv2_r01_c04_005",
+        "name": "Thỏi Kim Loại & Vải Cuộn #02-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r01_c04_005.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r01_c04_005.png"
+    },
+    {
+        "id": "surv2_r02_c00_006",
+        "name": "Thỏi Kim Loại & Vải Cuộn #03-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r02_c00_006.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r02_c00_006.png"
+    },
+    {
+        "id": "surv2_r02_c01_007",
+        "name": "Thỏi Kim Loại & Vải Cuộn #03-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r02_c01_007.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r02_c01_007.png"
+    },
+    {
+        "id": "surv2_r02_c02_008",
+        "name": "Thỏi Kim Loại & Vải Cuộn #03-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r02_c02_008.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r02_c02_008.png"
+    },
+    {
+        "id": "surv2_r02_c03_009",
+        "name": "Thỏi Kim Loại & Vải Cuộn #03-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r02_c03_009.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r02_c03_009.png"
+    },
+    {
+        "id": "surv2_r03_c00_010",
+        "name": "Ốc Vít & Bánh Răng #04-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c00_010.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c00_010.png"
+    },
+    {
+        "id": "surv2_r03_c01_011",
+        "name": "Ốc Vít & Bánh Răng #04-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c01_011.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c01_011.png"
+    },
+    {
+        "id": "surv2_r03_c02_012",
+        "name": "Ốc Vít & Bánh Răng #04-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c02_012.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c02_012.png"
+    },
+    {
+        "id": "surv2_r03_c03_013",
+        "name": "Ốc Vít & Bánh Răng #04-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c03_013.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c03_013.png"
+    },
+    {
+        "id": "surv2_r03_c04_014",
+        "name": "Ốc Vít & Bánh Răng #04-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c04_014.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c04_014.png"
+    },
+    {
+        "id": "surv2_r03_c05_015",
+        "name": "Ốc Vít & Bánh Răng #04-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c05_015.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c05_015.png"
+    },
+    {
+        "id": "surv2_r03_c06_016",
+        "name": "Ốc Vít & Bánh Răng #04-07",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c06_016.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c06_016.png"
+    },
+    {
+        "id": "surv2_r03_c07_017",
+        "name": "Ốc Vít & Bánh Răng #04-08",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c07_017.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c07_017.png"
+    },
+    {
+        "id": "surv2_r03_c08_018",
+        "name": "Ốc Vít & Bánh Răng #04-09",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c08_018.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c08_018.png"
+    },
+    {
+        "id": "surv2_r03_c09_019",
+        "name": "Ốc Vít & Bánh Răng #04-10",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r03_c09_019.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r03_c09_019.png"
+    },
+    {
+        "id": "surv2_r04_c00_020",
+        "name": "Ốc Vít & Bánh Răng #05-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r04_c00_020.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r04_c00_020.png"
+    },
+    {
+        "id": "surv2_r04_c01_021",
+        "name": "Ốc Vít & Bánh Răng #05-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r04_c01_021.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r04_c01_021.png"
+    },
+    {
+        "id": "surv2_r04_c02_022",
+        "name": "Ốc Vít & Bánh Răng #05-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r04_c02_022.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r04_c02_022.png"
+    },
+    {
+        "id": "surv2_r04_c03_023",
+        "name": "Ốc Vít & Bánh Răng #05-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r04_c03_023.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r04_c03_023.png"
+    },
+    {
+        "id": "surv2_r04_c04_024",
+        "name": "Ốc Vít & Bánh Răng #05-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r04_c04_024.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r04_c04_024.png"
+    },
+    {
+        "id": "surv2_r04_c05_025",
+        "name": "Ốc Vít & Bánh Răng #05-06",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r04_c05_025.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r04_c05_025.png"
+    },
+    {
+        "id": "surv2_r05_c00_026",
+        "name": "Ốc Vít & Bánh Răng #06-01",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r05_c00_026.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r05_c00_026.png"
+    },
+    {
+        "id": "surv2_r05_c01_027",
+        "name": "Ốc Vít & Bánh Răng #06-02",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r05_c01_027.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r05_c01_027.png"
+    },
+    {
+        "id": "surv2_r05_c02_028",
+        "name": "Ốc Vít & Bánh Răng #06-03",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r05_c02_028.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r05_c02_028.png"
+    },
+    {
+        "id": "surv2_r05_c03_029",
+        "name": "Ốc Vít & Bánh Răng #06-04",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r05_c03_029.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r05_c03_029.png"
+    },
+    {
+        "id": "surv2_r05_c04_030",
+        "name": "Ốc Vít & Bánh Răng #06-05",
+        "forType": "survival_tools",
+        "src": "/assets/props/items/surv2_r05_c04_030.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r05_c04_030.png"
+    },
+    {
+        "id": "surv2_r06_c00_031",
+        "name": "Hóa Chất & Keo Dán #07-01",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r06_c00_031.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r06_c00_031.png"
+    },
+    {
+        "id": "surv2_r06_c01_032",
+        "name": "Hóa Chất & Keo Dán #07-02",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r06_c01_032.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r06_c01_032.png"
+    },
+    {
+        "id": "surv2_r06_c02_033",
+        "name": "Hóa Chất & Keo Dán #07-03",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r06_c02_033.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r06_c02_033.png"
+    },
+    {
+        "id": "surv2_r06_c03_034",
+        "name": "Hóa Chất & Keo Dán #07-04",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r06_c03_034.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r06_c03_034.png"
+    },
+    {
+        "id": "surv2_r06_c04_035",
+        "name": "Hóa Chất & Keo Dán #07-05",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r06_c04_035.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r06_c04_035.png"
+    },
+    {
+        "id": "surv2_r06_c05_036",
+        "name": "Hóa Chất & Keo Dán #07-06",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r06_c05_036.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r06_c05_036.png"
+    },
+    {
+        "id": "surv2_r06_c06_037",
+        "name": "Hóa Chất & Keo Dán #07-07",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r06_c06_037.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r06_c06_037.png"
+    },
+    {
+        "id": "surv2_r07_c00_038",
+        "name": "Hóa Chất & Keo Dán #08-01",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r07_c00_038.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r07_c00_038.png"
+    },
+    {
+        "id": "surv2_r07_c01_039",
+        "name": "Hóa Chất & Keo Dán #08-02",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r07_c01_039.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r07_c01_039.png"
+    },
+    {
+        "id": "surv2_r07_c02_040",
+        "name": "Hóa Chất & Keo Dán #08-03",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r07_c02_040.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r07_c02_040.png"
+    },
+    {
+        "id": "surv2_r07_c03_041",
+        "name": "Hóa Chất & Keo Dán #08-04",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r07_c03_041.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r07_c03_041.png"
+    },
+    {
+        "id": "surv2_r07_c04_042",
+        "name": "Hóa Chất & Keo Dán #08-05",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r07_c04_042.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r07_c04_042.png"
+    },
+    {
+        "id": "surv2_r08_c00_043",
+        "name": "Hóa Chất & Keo Dán #09-01",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r08_c00_043.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r08_c00_043.png"
+    },
+    {
+        "id": "surv2_r08_c01_044",
+        "name": "Hóa Chất & Keo Dán #09-02",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r08_c01_044.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r08_c01_044.png"
+    },
+    {
+        "id": "surv2_r08_c02_045",
+        "name": "Hóa Chất & Keo Dán #09-03",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r08_c02_045.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r08_c02_045.png"
+    },
+    {
+        "id": "surv2_r08_c03_046",
+        "name": "Hóa Chất & Keo Dán #09-04",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r08_c03_046.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r08_c03_046.png"
+    },
+    {
+        "id": "surv2_r08_c04_047",
+        "name": "Hóa Chất & Keo Dán #09-05",
+        "forType": "alchemy",
+        "src": "/assets/props/items/surv2_r08_c04_047.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r08_c04_047.png"
+    },
+    {
+        "id": "surv2_r09_c00_048",
+        "name": "Đá Quý & Bột Màu #10-01",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r09_c00_048.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r09_c00_048.png"
+    },
+    {
+        "id": "surv2_r09_c01_049",
+        "name": "Đá Quý & Bột Màu #10-02",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r09_c01_049.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r09_c01_049.png"
+    },
+    {
+        "id": "surv2_r09_c02_050",
+        "name": "Đá Quý & Bột Màu #10-03",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r09_c02_050.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r09_c02_050.png"
+    },
+    {
+        "id": "surv2_r09_c03_051",
+        "name": "Đá Quý & Bột Màu #10-04",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r09_c03_051.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r09_c03_051.png"
+    },
+    {
+        "id": "surv2_r09_c04_052",
+        "name": "Đá Quý & Bột Màu #10-05",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r09_c04_052.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r09_c04_052.png"
+    },
+    {
+        "id": "surv2_r09_c05_053",
+        "name": "Đá Quý & Bột Màu #10-06",
+        "forType": "gems_loot",
+        "src": "/assets/props/items/surv2_r09_c05_053.png",
+        "thumbSrc": "/assets/props/thumbs/surv2_r09_c05_053.png"
     }
 ],
 
