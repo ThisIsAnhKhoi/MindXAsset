@@ -435,25 +435,112 @@ export const vehicleConfig = {
       name: 'Nền Trong Suốt (Transparent Canvas)',
       thumbSrc: '/assets/vehicles/thumbs/ground_none.png'
     }
+  ],
+
+  windows: [
+    {
+      id: 'none',
+      name: 'Kính Trong Suốt Tự Nhiên (Factory Glass)',
+      thumbSrc: '/assets/vehicles/thumbs/win_none.png'
+    },
+    {
+      id: 'tint_smoke',
+      name: 'Kính Đen Khói Limo VIP (Dark Smoke)',
+      thumbSrc: '/assets/vehicles/thumbs/win_tint_smoke.png'
+    },
+    {
+      id: 'tint_amber',
+      name: 'Kính Vàng Hổ Phách (Amber Gold)',
+      thumbSrc: '/assets/vehicles/thumbs/win_tint_amber.png'
+    },
+    {
+      id: 'tint_blue',
+      name: 'Kính Xanh Biển Sâu (Ocean Blue)',
+      thumbSrc: '/assets/vehicles/thumbs/win_tint_blue.png'
+    },
+    {
+      id: 'tint_neon',
+      name: 'Kính Xanh Neon Mint Đua (Neon Mint)',
+      thumbSrc: '/assets/vehicles/thumbs/win_tint_neon.png'
+    },
+    {
+      id: 'tint_violet',
+      name: 'Kính Tím Cyberpunk (Cyber Violet)',
+      thumbSrc: '/assets/vehicles/thumbs/win_tint_violet.png'
+    }
+  ],
+
+  lights: [
+    {
+      id: 'none',
+      name: 'Đèn Pha Xenon Trắng (Xenon White)',
+      thumbSrc: '/assets/vehicles/thumbs/light_none.png'
+    },
+    {
+      id: 'light_amber',
+      name: 'Đèn Vàng Phá Sương (Amber Fog)',
+      thumbSrc: '/assets/vehicles/thumbs/light_amber.png'
+    },
+    {
+      id: 'light_ice',
+      name: 'Đèn Xanh Băng Laser (Ice Blue)',
+      thumbSrc: '/assets/vehicles/thumbs/light_ice.png'
+    },
+    {
+      id: 'light_red',
+      name: 'Đèn Đỏ Rực Thể Thao (Devil Red)',
+      thumbSrc: '/assets/vehicles/thumbs/light_red.png'
+    },
+    {
+      id: 'light_lime',
+      name: 'Đèn Xanh Toxic Lime (Toxic Green)',
+      thumbSrc: '/assets/vehicles/thumbs/light_lime.png'
+    }
   ]
 };
 
 export const vehicleColorPalettes = {
   chassis: [
     { name: 'Màu Sơn Nhà Máy', hex: '#FFFFFF' },
-    { name: 'Đỏ Thể Thao', hex: '#EF4444' },
-    { name: 'Xanh Năng Động', hex: '#3B82F6' },
+    { name: 'Đỏ Thể Thao Đua', hex: '#EF4444' },
+    { name: 'Xanh Cobalt Năng Động', hex: '#3B82F6' },
     { name: 'Vàng Bumblebee', hex: '#EAB308' },
-    { name: 'Xanh Lá Chiến Thuật', hex: '#10B981' },
-    { name: 'Đen Carbon', hex: '#18181B' },
+    { name: 'Xanh Ngọc Emerald', hex: '#10B981' },
+    { name: 'Đen Carbon Onyx', hex: '#18181B' },
     { name: 'Tím Cyberpunk', hex: '#A855F7' },
-    { name: 'Xanh Neon Plasma', hex: '#06B6D4' }
+    { name: 'Hồng Neon Thể Thao', hex: '#EC4899' },
+    { name: 'Xanh Neon Plasma', hex: '#06B6D4' },
+    { name: 'Cam Rực Rỡ GT', hex: '#F97316' }
   ],
   direction: [
     { name: 'Mặc Định', hex: '#FFFFFF' }
   ],
   paint: [
-    { name: 'Chuẩn Màu Sơn Nhà Máy', hex: '#FFFFFF' }
+    { name: 'Màu Sơn Nhà Máy', hex: '#FFFFFF' },
+    { name: 'Đỏ Thể Thao Đua', hex: '#EF4444' },
+    { name: 'Xanh Cobalt Năng Động', hex: '#3B82F6' },
+    { name: 'Vàng Bumblebee', hex: '#EAB308' },
+    { name: 'Xanh Ngọc Emerald', hex: '#10B981' },
+    { name: 'Đen Carbon Onyx', hex: '#18181B' },
+    { name: 'Tím Cyberpunk', hex: '#A855F7' },
+    { name: 'Hồng Neon Thể Thao', hex: '#EC4899' },
+    { name: 'Xanh Neon Plasma', hex: '#06B6D4' },
+    { name: 'Cam Rực Rỡ GT', hex: '#F97316' }
+  ],
+  windows: [
+    { name: 'Kính Trong Suốt', hex: '#FFFFFF' },
+    { name: 'Đen Khói Limo VIP', hex: '#1E293B' },
+    { name: 'Vàng Hổ Phách', hex: '#F59E0B' },
+    { name: 'Xanh Biển Sâu', hex: '#0284C7' },
+    { name: 'Xanh Neon Mint', hex: '#10B981' },
+    { name: 'Tím Cyberpunk', hex: '#A855F7' }
+  ],
+  lights: [
+    { name: 'Xenon Trắng Chuẩn', hex: '#FFFFFF' },
+    { name: 'Vàng Phá Sương', hex: '#FACC15' },
+    { name: 'Xanh Băng Laser', hex: '#38BDF8' },
+    { name: 'Đỏ Devil Red', hex: '#EF4444' },
+    { name: 'Xanh Toxic Lime', hex: '#84CC16' }
   ],
   accessories: [
     { name: 'Chuẩn Hiệu Ứng', hex: '#FFFFFF' },
@@ -512,17 +599,41 @@ export const getVehicleLayers = (selections = {}, colors = {}) => {
     vehicleSrc = `/assets/vehicles/topdown/${chassisId}/${paintId}/${directionId}.png`;
   }
 
-  // Preserve natural artist pixels (tires, glass, sirens, decals). Only tint if colors.chassis is explicitly given.
-  const chassisTint = colors.chassis && colors.chassis !== '#ffffff' ? colors.chassis : '#ffffff';
+  const windowHexMap = {
+    none: '#FFFFFF',
+    tint_smoke: '#1E293B',
+    tint_amber: '#F59E0B',
+    tint_blue: '#0284C7',
+    tint_neon: '#10B981',
+    tint_violet: '#A855F7'
+  };
+
+  const lightHexMap = {
+    none: '#FFFFFF',
+    light_amber: '#FACC15',
+    light_ice: '#38BDF8',
+    light_red: '#EF4444',
+    light_lime: '#84CC16'
+  };
+
+  const selectedWindowColor = colors.windows || windowHexMap[selections.windows] || null;
+  const selectedLightColor = colors.lights || lightHexMap[selections.lights] || null;
+  const selectedBodyColor = colors.paint || colors.chassis || null;
 
   layers.push({
     id: `vehicle_${chassisId}_${directionId}`,
     category: 'chassis',
     name: 'Thân Xe Top-Down',
     src: vehicleSrc,
-    color: chassisTint,
+    color: selectedBodyColor || '#ffffff',
+    customColors: {
+      chassis: selectedBodyColor,
+      windows: selectedWindowColor,
+      lights: selectedLightColor
+    },
     z_index: 2
   });
+
 
   // 3. Layer Phụ Kiện / Hiệu Ứng (Đèn Pha, Nitro, Còi Đèn, Sọc Đua, Khói Drift) (z_index: 3)
   if (accId && accId !== 'none') {

@@ -95,7 +95,9 @@ const CHARACTER_MODELS = [
     categories: [
       { id: 'chassis', label: 'Dòng Phương Tiện (57 Xe)', icon: '🏎️' },
       { id: 'direction', label: 'Hướng Nhìn (Góc Chiếu)', icon: '🧭' },
-      { id: 'paint', label: 'Màu Sơn Ngoại Thất', icon: '🎨' },
+      { id: 'paint', label: 'Màu Sơn Thân Xe (Body)', icon: '🎨' },
+      { id: 'windows', label: 'Kính Xe & Phim Cách Nhiệt', icon: '🪟' },
+      { id: 'lights', label: 'Cụm Đèn Pha & Cảnh Báo', icon: '💡' },
       { id: 'accessories', label: 'Phụ Kiện & Hiệu Ứng', icon: '⚡' },
       { id: 'ground', label: 'Mặt Đường & Bóng Đổ', icon: '🛣️' }
     ]
