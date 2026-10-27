@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { colorPalettes } from './assets_config';
 
 /**
@@ -48,12 +49,26 @@ const CustomizerInspector = ({
   onSelectOption,
   onSelectColor,
   currentConfig,
-  currentPalettes
+  currentPalettes,
+  currentGroups
 }) => {
+  const [filterGroup, setFilterGroup] = useState('all');
+
+  // Reset filter when switching category
+  useEffect(() => {
+    setFilterGroup('all');
+  }, [activeCategory]);
+
   const allOptions = (currentConfig || {})[activeCategory] || [];
-  const currentOptions = (activeCategory === 'state' && selections.prop_type)
-    ? allOptions.filter(o => !o.forType || o.forType === selections.prop_type)
-    : allOptions;
+  const availableGroups = (currentGroups && currentGroups[activeCategory]) || null;
+
+  let currentOptions = allOptions;
+  if (activeCategory === 'state' && selections.prop_type) {
+    currentOptions = allOptions.filter(o => !o.forType || o.forType === selections.prop_type);
+  } else if (availableGroups && filterGroup && filterGroup !== 'all') {
+    currentOptions = allOptions.filter(o => o.group === filterGroup || o.id?.endsWith('_none'));
+  }
+
   const currentColor = colors[activeCategory] || '#ffffff';
   const presets = (currentPalettes && currentPalettes[activeCategory]) || colorPalettes[activeCategory] || [];
 
@@ -66,6 +81,29 @@ const CustomizerInspector = ({
     if (activeCategory === 'pedestal') return '🏛️ Bệ Đỡ Trưng Bày';
     if (activeCategory === 'aura') return '✨ Hào Quang Phép Thuật';
     if (activeCategory === 'effects') return '🌟 Bụi Sao & Tia Sáng';
+    // Fantasy categories:
+    if (activeCategory === 'races') return '🧝 Chủng Tộc & Gương Mặt';
+    if (activeCategory === 'expressions') return '🎭 Biểu Cảm Khuôn Mặt';
+    if (activeCategory === 'hairs') return '💇 Kiểu Tóc & Râu Tóc';
+    if (activeCategory === 'outfits') return '🥋 Trang Phục & Y Phục (128 Kiểu)';
+    if (activeCategory === 'bottoms') return '👖 Quần Giáp & Giày Ủng';
+    if (activeCategory === 'headgear') return '👑 Mũ, Tai Thú & Sừng';
+    if (activeCategory === 'accessories') return '🦊 Đuôi & Thắt Lưng';
+    if (activeCategory === 'weapons') return '⚔️ Vũ Khí & Pháp Cụ';
+    if (activeCategory === 'shadows') return '🌑 Bóng Đổ Mặt Đất';
+    // Standard pipoya / vehicles / soldiers:
+    if (activeCategory === 'bases') return '👤 Thân & Cơ Thể';
+    if (activeCategory === 'eyes') return '👁️ Mắt';
+    if (activeCategory === 'tops') return '👕 Trang Phục / Áo';
+    if (activeCategory === 'hats') return '🎩 Nón / Mũ';
+    if (activeCategory === 'glasses') return '🕶️ Kính';
+    if (activeCategory === 'ears') return '🐱 Tai Thú';
+    if (activeCategory === 'tails') return '🦊 Đuôi';
+    if (activeCategory === 'items') return '⚔️ Vật Phẩm';
+    if (activeCategory === 'cloaks') return '🦇 Áo Choàng';
+    if (activeCategory === 'beards') return '🧔 Râu';
+    if (activeCategory === 'hairadds') return '🎀 Phụ Kiện Tóc';
+    if (activeCategory === 'makeup') return '💄 Trang Điểm';
     return activeCategory;
   };
 
@@ -81,7 +119,7 @@ const CustomizerInspector = ({
         </span>
       </div>
 
-      {/* Danh sách Item Styles / Kiểu dáng (Lưới linh hoạt, tự cân đối không để trống ô) */}
+      {/* Danh sách Item Styles / Kiểu dáng */}
       <div className="flex-1 overflow-hidden flex flex-col my-2">
         {/* Quick category switch pills for props in state mode */}
         {activeCategory === 'state' && currentConfig?.prop_type && (
@@ -105,6 +143,33 @@ const CustomizerInspector = ({
             })}
           </div>
         )}
+
+        {/* Quick filter pills for sub-groups (e.g. Outfits, Hairs, Races in Fantasy Model) */}
+        {availableGroups && availableGroups.length > 0 && (
+          <div className="flex gap-1.5 overflow-x-auto pb-2 mb-1.5 custom-scrollbar shrink-0">
+            {availableGroups.map(grp => {
+              const isGrpActive = filterGroup === grp.id;
+              const count = grp.id === 'all'
+                ? allOptions.length
+                : allOptions.filter(o => o.group === grp.id).length;
+              return (
+                <button
+                  key={grp.id}
+                  type="button"
+                  onClick={() => setFilterGroup(grp.id)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+                    isGrpActive
+                      ? 'bg-red-600 text-white border-red-700 shadow-xs scale-105'
+                      : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200 hover:text-red-600'
+                  }`}
+                >
+                  {grp.name} {grp.id !== 'all' && `(${count})`}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 font-sans shrink-0">
           Chọn kiểu dáng (Xem trước phóng to):
         </label>

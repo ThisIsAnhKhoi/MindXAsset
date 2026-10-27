@@ -9,12 +9,33 @@ import { alienConfig, getAlienLayers } from './alien_config';
 import { vehicleConfig, getVehicleLayers, vehicleColorPalettes } from './vehicle_config';
 import { propConfig, getPropLayers, propColorPalettes } from './prop_config';
 import { soldierConfig, getSoldierLayers, soldierColorPalettes } from './soldier_config';
+import { fantasyConfig, getFantasyLayers, fantasyColorPalettes, fantasyGroups } from './fantasy_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
 import InlineSpritesheetStudio from '../../components/InlineSpritesheetStudio';
 import { preloadImages } from './assetCache';
 import { getApiBaseUrl } from '../../config/api';
 
 const CHARACTER_MODELS = [
+  {
+    id: 'fantasy',
+    name: '🧙 Nhân Vật Fantasy (Chibi RPG)',
+    frameSize: 48,
+    isSpritesheet: false,
+    config: fantasyConfig,
+    groups: fantasyGroups,
+    colorPalettes: fantasyColorPalettes,
+    categories: [
+      { id: 'races', label: 'Chủng Tộc & Gương Mặt', icon: '🧝' },
+      { id: 'expressions', label: 'Biểu Cảm (Expression)', icon: '🎭' },
+      { id: 'hairs', label: 'Kiểu Tóc & Râu Tóc', icon: '💇' },
+      { id: 'outfits', label: 'Trang Phục & Y Phục (128 Kiểu)', icon: '🥋' },
+      { id: 'bottoms', label: 'Quần & Giày Ủng', icon: '👖' },
+      { id: 'headgear', label: 'Mũ, Tai Thú & Sừng', icon: '👑' },
+      { id: 'accessories', label: 'Đuôi & Thắt Lưng', icon: '🦊' },
+      { id: 'weapons', label: 'Vũ Khí & Pháp Cụ', icon: '⚔️' },
+      { id: 'shadows', label: 'Bóng Đổ Mặt Đất', icon: '🌑' }
+    ]
+  },
   {
     id: 'pipoya',
     name: 'RPG Pixel (Chung)',
@@ -159,12 +180,24 @@ const CharacterBuilder = () => {
     setCurrentModelId(newModelId);
     const targetModel = CHARACTER_MODELS.find(m => m.id === newModelId) || CHARACTER_MODELS[0];
     const newSelections = { action: 'idle' };
-    targetModel.categories.forEach(cat => {
-      const options = targetModel.config[cat.id] || [];
-      if (options.length > 0) {
-        newSelections[cat.id] = options[0].id;
-      }
-    });
+    if (newModelId === 'fantasy') {
+      newSelections.races = 'race_human_fair';
+      newSelections.expressions = 'expr_neutral';
+      newSelections.hairs = 'hair_r8_c0';
+      newSelections.outfits = 'outfit_r19_c11';
+      newSelections.bottoms = 'bottom_r30_c0';
+      newSelections.headgear = 'headgear_none';
+      newSelections.accessories = 'acc_none';
+      newSelections.weapons = 'weapon_none';
+      newSelections.shadows = 'shadow_ground_pixel';
+    } else {
+      targetModel.categories.forEach(cat => {
+        const options = targetModel.config[cat.id] || [];
+        if (options.length > 0) {
+          newSelections[cat.id] = options[0].id;
+        }
+      });
+    }
     setSelections(newSelections);
     setActiveCategory(targetModel.categories[0].id);
   };
@@ -314,6 +347,10 @@ const CharacterBuilder = () => {
 
     if (currentModel.id === 'soldier') {
       return getSoldierLayers(selections, colors);
+    }
+
+    if (currentModel.id === 'fantasy') {
+      return getFantasyLayers(selections, colors);
     }
 
     let layers = [];
@@ -541,8 +578,8 @@ const CharacterBuilder = () => {
               <CanvasPreview
                 ref={canvasPreviewRef}
                 layers={activeLayers}
-                width={currentModel.isSpritesheet || currentModel.frameSize >= 100 ? 380 : 360}
-                height={currentModel.isSpritesheet || currentModel.frameSize >= 100 ? 380 : 640}
+                width={currentModel.isSpritesheet || currentModel.frameSize >= 48 ? 380 : 360}
+                height={currentModel.isSpritesheet || currentModel.frameSize >= 48 ? 380 : 640}
                 transparentBg={transparentBg}
                 frameSize={currentModel.frameSize}
                 isSpritesheet={currentModel.isSpritesheet}
@@ -637,6 +674,7 @@ const CharacterBuilder = () => {
               onSelectColor={handleSelectColor}
               currentConfig={currentModel.config}
               currentPalettes={currentModel.colorPalettes}
+              currentGroups={currentModel.groups}
               isSpritesheet={currentModel.isSpritesheet}
             />
           </div>
