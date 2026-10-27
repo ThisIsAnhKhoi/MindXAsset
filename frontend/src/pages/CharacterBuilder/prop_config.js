@@ -363,8 +363,8 @@ export const propConfig = {
     {
         "id": "potion_elixir",
         "name": "Tiên Dược Hoàng Kim Phục Sinh",
-        "src": "/assets/props/items/potion_elixir.png",
-        "thumbSrc": "/assets/props/thumbs/potion_elixir.png",
+        "src": "/assets/props/items/potion_elixir_big.png",
+        "thumbSrc": "/assets/props/thumbs/potion_elixir_big.png",
         "forType": "potions"
     },
     {

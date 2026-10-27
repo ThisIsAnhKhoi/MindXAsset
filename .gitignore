@@ -23,17 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Java Spring Boot
-springboot-backend/target/
-springboot-backend/!.mvn/wrapper/maven-wrapper.jar
-springboot-backend/!**/src/main/**/target/
-springboot-backend/!**/src/test/**/target/
-springboot-backend/logs/
-
-# Python FastAPI (Future)
-venv/
-__pycache__/
-*.pyc
 # Environment files
 .env
 .env*.local

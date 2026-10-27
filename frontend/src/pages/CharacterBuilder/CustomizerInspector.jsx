@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { colorPalettes } from './assets_config';
 
 /**
@@ -54,11 +54,13 @@ const CustomizerInspector = ({
   currentGroups
 }) => {
   const [filterGroup, setFilterGroup] = useState('all');
+  const [prevCategory, setPrevCategory] = useState(activeCategory);
 
-  // Reset filter when switching category
-  useEffect(() => {
+  // Reset filter when switching category (in-render state adjustment per React 19 best practices)
+  if (prevCategory !== activeCategory) {
+    setPrevCategory(activeCategory);
     setFilterGroup('all');
-  }, [activeCategory]);
+  }
 
   const allOptions = (currentConfig || {})[activeCategory] || [];
   const availableGroups = (currentGroups && currentGroups[activeCategory]) || null;
@@ -190,11 +192,10 @@ const CustomizerInspector = ({
                       <span className="text-2xl font-bold leading-none">∅</span>
                     </div>
                   ) : (opt.thumbSrc || opt.src) ? (
-                    /* Ảnh đơn PNG/SVG phóng to chuẩn pixel */
+                    /* Ảnh đơn PNG/SVG phóng to chuẩn pixel (Eager loading để hiển thị tức thì) */
                     <img
                       src={opt.thumbSrc || opt.src}
                       alt={opt.name}
-                      loading="lazy"
                       className="w-full h-full object-contain pointer-events-none drop-shadow-2xs"
                       style={{ imageRendering: 'pixelated' }}
                     />

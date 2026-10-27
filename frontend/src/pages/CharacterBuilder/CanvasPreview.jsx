@@ -361,7 +361,7 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
     return () => {
       isActive = false; // Cleanup to prevent race conditions
     };
-  }, [layers, width, height, frameSize, isSpritesheet]);
+  }, [layers, width, height, frameSize, isSpritesheet, transparentBg]);
 
   // Determine aspect ratio: spritesheet=square, portrait(64x96)=9:16, monster/topdown=square
   const isSquareContent = frameSize >= 100 || isSpritesheet;

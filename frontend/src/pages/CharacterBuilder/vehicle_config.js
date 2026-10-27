@@ -586,18 +586,14 @@ export const getVehicleLayers = (selections = {}, colors = {}) => {
   }
 
   // 2. Layer Thân Xe Top-Down (z_index: 2)
-  let vehicleSrc = '';
   const isDirectSprite = 
     chassisId.startsWith('us_') || 
     chassisId.startsWith('eu_') || 
     ['police', 'ambulance', 'taxi', 'wreckage', 'wreckage_police'].includes(chassisId);
 
-  if (isDirectSprite) {
-    vehicleSrc = `/assets/vehicles/topdown/${chassisId}/${directionId}.png`;
-  } else {
-    // MinZiin civilian vehicles with 6/8 factory paint subfolders
-    vehicleSrc = `/assets/vehicles/topdown/${chassisId}/${paintId}/${directionId}.png`;
-  }
+  const vehicleSrc = isDirectSprite
+    ? `/assets/vehicles/topdown/${chassisId}/${directionId}.png`
+    : `/assets/vehicles/topdown/${chassisId}/${paintId}/${directionId}.png`;
 
   const windowHexMap = {
     none: '#FFFFFF',
