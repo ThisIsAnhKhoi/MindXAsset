@@ -21,8 +21,10 @@ def defringe_white(crop, t_low=170.0, t_high=246.0):
     """
     Un-multiplies white background from anti-aliased sprites.
     Eliminates all white halos and creates smooth alpha blending.
+    Preserves existing transparent alpha if present!
     """
     arr = np.array(crop.convert('RGBA')).astype(np.float32)
+    orig_a = arr[:, :, 3]
     rgb = arr[:, :, :3]
     min_c = np.min(rgb, axis=2)
     
@@ -32,6 +34,9 @@ def defringe_white(crop, t_low=170.0, t_high=246.0):
     trans_mask = (min_c >= t_low) & (min_c < t_high)
     ratio = (min_c[trans_mask] - t_low) / (t_high - t_low)
     alpha[trans_mask] = 255.0 * (1.0 - ratio)
+    
+    # Strictly preserve existing transparency!
+    alpha[orig_a < 10] = 0.0
     
     a_norm = alpha / 255.0
     a_safe = np.maximum(a_norm, 0.01)[:, :, np.newaxis]
