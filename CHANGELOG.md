@@ -39,6 +39,49 @@ Tất cả các thay đổi đáng chú ý của dự án **MindXAsset** đượ
 
 ---
 
+## [1.3.0] - 2026-10-27
+
+### Đã thêm (Added)
+- **ModelDropdown Studio Cao Cấp**:
+  - Giao diện Card Popover hiện đại, hiệu ứng bo tròn kính mờ, hiển thị đầy đủ icon và badge phân loại (`CHIBI RPG`, `HIỆN ĐẠI`, `CHIẾN ĐẤU`, `TOP-DOWN`, `VẬT PHẨM`, `QUÁI VẬT`, `NGƯỜI NGOÀI HÀNH TINH`).
+  - Hoạt ảnh xoay chevron mượt mà, hỗ trợ đóng nhanh khi bấm phím Escape hoặc click bên ngoài.
+- **Eager Preloading Toàn Diện & Tối Ưu Độ Mượt 60 FPS**:
+  - Thay thế cơ chế nạp trễ (lazy load) và preloader theo đợt bằng cơ chế nạp trước đồng loạt (`Promise.allSettled`) toàn bộ asset của mô hình đang chọn.
+  - Loại bỏ hoàn toàn `loading="lazy"` khỏi các thẻ ảnh thumbnail trong bảng điều khiển tùy biến, chuyển đổi bộ phận tức thì không độ trễ.
+- **Pipeline Đồng Bộ Cloudinary CDN (`scripts/sync_to_cloudinary.py`)**:
+  - Cung cấp script tự động đồng bộ toàn bộ tài sản tĩnh (`frontend/public/assets`) hoặc thư viện sản phẩm (`backend/output`) lên Cloudinary CDN theo thư mục tùy chọn.
+
+### Đã thay đổi (Changed)
+- **Chuẩn Hóa Nhãn Danh Mục Bộ Phận (Category Labels)**:
+  - Tối ưu lại toàn bộ tên danh mục thành 10-12 ký tự trực quan, dễ nhớ (vd: `Tông Da`, `Kiểu Tóc`, `Áo Giáp`, `Vũ Khí`, `Bóng Sàn`, `Kính NVG`, `Khung Gầm`, `Đèn Pha`...).
+  - Triệt tiêu 100% tình trạng vỡ layout hoặc cắt cụt văn bản dấu `...` trên thanh điều hướng bên trái.
+- **Tinh Gọn Cấu Trúc Kho Mã**:
+  - Gom toàn bộ script debug/inspect nội bộ vào `scripts/_archive/` kèm tài liệu tra cứu.
+  - Dọn dẹp thư mục gốc chuẩn mã nguồn mở, loại bỏ hoàn toàn các tệp nén thừa thãi.
+
+### Đã sửa (Fixed)
+- **Khắc Phục Lỗi Phóng To Tràn Viền Canvas Quái Vật & Người Ngoài Hành Tinh**:
+  - Bổ sung hệ số co giãn động riêng biệt `scaleFactor = 0.35` cho 2 mô hình Kenney Vector, loại bỏ tình trạng nhân vật bị phóng to tràn viền canvas.
+  - Neo chân nhân vật xuống đáy sàn (`canvas.height - 40`) kèm vẽ bóng đổ tiếp đất tự nhiên (`ctx.ellipse`).
+- **Sửa Lỗi Đường Dẫn Tài Sản**:
+  - Khắc phục đường link hỏng `potion_elixir.png` thành `potion_elixir_big.png` trong `prop_config.js`.
+- **Đạt Chuẩn Xanh ESLint (0 Lỗi, 0 Cảnh Báo)**:
+  - Khắc phục cảnh báo `transparentBg` trong dependency array của `CanvasPreview.jsx`.
+  - Khắc phục cảnh báo `setFilterGroup` và gỡ bỏ `useEffect` thừa trong `CustomizerInspector.jsx`.
+  - Khắc phục lỗi `no-useless-assignment` biến `vehicleSrc` trong `vehicle_config.js`.
+- **Sửa Cấu Hình Backend Entrypoint**: Sửa `"main": "server.js"` trong `backend/package.json`.
+
+### Tối ưu hóa & Bảo mật (Security & Optimization)
+- **Triệt Tiêu 100% Lỗ Hổng Bảo Mật Backend**:
+  - Gỡ bỏ thư viện không sử dụng `jimp` (và 92 gói con liên đới) khỏi `backend/package.json`, xóa sạch 36 lỗ hổng bảo mật nghiêm trọng trong `npm audit`.
+  - Gỡ bỏ `framer-motion` thừa khỏi `frontend/package.json`.
+- **Giải Phóng ~281 MB Dung Lượng Bộ Nhớ**:
+  - Xóa 3 file nén ZIP khổng lồ ở thư mục gốc (267.67 MB).
+  - Xóa toàn bộ file nén ZIP/RAR đã xử lý xong trong `NewAsset/` (11.58 MB).
+  - Dọn sạch 136 tệp kết quả test cũ trong thư mục `output/` (1.5 MB).
+
+---
+
 ## [0.3.0] - 2026-09-30
 
 ### Đã thêm (Added)

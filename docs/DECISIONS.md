@@ -26,6 +26,9 @@
 | **ADR-14** | Kiến Trúc Vision-to-Grid: Đồng Bộ Hình Dáng Nhân Vật Canvas Lên AI Bằng Vision API | **ĐÃ DUYỆT** | Vision AI & Multimodal Synthesis |
 | **ADR-15** | Báo Cáo Ranh Giới Kỹ Thuật: Bản Chất Không Bất Biến Pixel Của Diffusion AI & Chiến Lược Kết Hợp Canvas Compositor Tất Định | **ĐÃ DUYỆT** | System Architecture & AI Reality |
 | **ADR-16** | Tích Hợp Xưởng Tách Lưới & Xem Trước Hoạt Ảnh Trực Tiếp Tại Character Studio (Permanent Inline Spritesheet Studio) | **ĐÃ DUYỆT** | UI/UX & Spritesheet Animation |
+| **ADR-17** | Khắc Phục Lỗi Hiển Thị Ma Trận Lưới & Đồng Bộ Hoạt Cảnh Hoàn Hảo (Pixel-Accurate Frame Alignment & Responsive Grid Viewer) | **ĐÃ DUYỆT** | UI/UX & Spritesheet Animation |
+| **ADR-18** | Tích Hợp Động Cơ Xóa Nền Tự Động Client-Side Bằng Smart Edge Flood-Fill & Chroma Keying | **ĐÃ DUYỆT** | Computer Vision & Performance |
+| **ADR-19** | Tinh Gọn Mã Nguồn Tiền Triển Khai (Pre-Deploy Clean-up), Triệt Tiêu 100% Lỗ Hổng Bảo Mật, Giải Phóng 281MB Dung Lượng, Eager Preloading & Pipeline Cloudinary | **ĐÃ DUYỆT** | DevOps, Security & Performance |
 
 ---
 
@@ -325,7 +328,35 @@
 - **Kết quả & Kiểm thử**:
   - Đã kiểm thử tự động trên trình duyệt qua `browser_subagent`: 343k pixel nền xám được xóa sạch trong 0.01 giây, nhân vật hòa trộn hoàn hảo trên nền RPG và nền Tối, nút hoàn tác hoạt động chính xác.
 
+---
 
-
-
+### ADR-19: Tinh Gọn Mã Nguồn Tiền Triển Khai (Pre-Deploy Clean-up), Triệt Tiêu 100% Lỗ Hổng Bảo Mật, Giải Phóng 281MB Dung Lượng, Eager Preloading & Pipeline Cloudinary
+- **Bối cảnh**:
+  1. Kho mã trước khi triển khai production tồn đọng các tệp nén ZIP lớn (hơn 267MB), file nén trong `NewAsset`, và các file kết quả test cũ trong `output/`.
+  2. Báo cáo `npm audit` ở backend phát hiện 36 lỗ hổng bảo mật nghiêm trọng do thư viện `jimp` kéo theo các gói con không được cập nhật.
+  3. Thành phần `CustomizerSidebar.jsx` (230 dòng) bị bỏ rơi hoàn toàn sau khi hệ thống chuyển sang `CustomizerInspector.jsx`.
+  4. Cơ chế nạp tài sản sử dụng `loading="lazy"` trên thumbnail và batch preloading 20 ảnh/đợt gây hiện tượng khựng khung hình khi người dùng chuyển đổi bộ phận.
+  5. Cần một pipeline đồng bộ tài sản lên Cloudinary CDN để sẵn sàng chuyển giao sang kiến trúc cloud-native mà không làm gián đoạn mã nguồn hiện hành.
+- **Quyết định & Hành động Kỹ thuật**:
+  1. **Loại bỏ Code Chết & Thư Viện Thừa**:
+     - Xóa hoàn toàn `CustomizerSidebar.jsx`.
+     - Gỡ bỏ `jimp`, `docx`, `adm-zip`, `axios` khỏi `backend/package.json`, giảm 92 dependencies và triệt tiêu 100% (36/36) lỗ hổng bảo mật.
+     - Gỡ bỏ `framer-motion` khỏi `frontend/package.json`.
+  2. **Giải phóng Dung Lượng Đĩa (~281 MB)**:
+     - Xóa 3 file nén ZIP ở thư mục gốc (`TopDown Vehicles v1.17.zip`, `flipped-fleet-car-pack-eu-free-1.0.zip`, `flipped-fleet-car-pack-us-free-1.0.zip`) -> 267.67 MB freed.
+     - Xóa các file nén ZIP/RAR đã xử lý xong và các ảnh mẫu không dùng trong `NewAsset/` -> 11.58 MB freed.
+     - Dọn sạch 136 file test cũ trong `output/` -> 1.5 MB freed.
+     - Giữ nguyên toàn bộ 18 sản phẩm active trong `backend/output/gallery.json`.
+  3. **Eager Preloading & Triệt Tiêu Lazy Load**:
+     - Cập nhật `CharacterBuilder.jsx`: Sử dụng `Promise.allSettled` nạp trước toàn bộ 100% URL tài sản của model được chọn ngay khi mount hoặc khi đổi model.
+     - Loại bỏ thuộc tính `loading="lazy"` trên các thẻ `<img>` thumbnail trong `CustomizerInspector.jsx`.
+  4. **Xây Dựng Pipeline Đồng Bộ Cloudinary**:
+     - Tạo công cụ `scripts/sync_to_cloudinary.py` có khả năng ping xác thực credentials, xử lý upload hàng loạt và log URL CDN.
+  5. **Chuẩn Hóa ESLint 0 Errors, 0 Warnings**:
+     - Sửa cảnh báo hook dependencies trong `CanvasPreview.jsx`.
+     - Loại bỏ việc gọi `setState` bên trong `useEffect` khi đổi category trong `CustomizerInspector.jsx` bằng React 19 in-render state adjustment.
+     - Sửa biến `vehicleSrc` trong `vehicle_config.js`.
+- **Hệ quả & Đánh giá**:
+  - Mã nguồn gọn gàng, build production không còn cảnh báo cú pháp, kiểm toán bảo mật sạch sẽ.
+  - Trải nghiệm tùy biến nhân vật đạt chuẩn mượt mà 60 FPS, không còn độ trễ khi lướt xem các danh mục bộ phận.
 

@@ -80,6 +80,10 @@ const saveToGallery = async (prompt, style, type, imageUrl) => {
   }
 };
 
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', service: 'MindXAsset Backend', timestamp: new Date().toISOString() });
+});
+
 app.get('/api/gallery', (req, res) => {
   try {
     if (!fs.existsSync(galleryFile)) return res.json([]);

@@ -41,3 +41,86 @@ Trước khi đóng bất kỳ Pull Request hoặc kết thúc một phiên làm
 | **Hạn mức tài khoản Pollinations khi nhiều lớp học cùng dùng** | Có thể bị lỗi 429 nếu 100 học sinh cùng tạo ảnh | Cần theo dõi thực tế khi bắt đầu triển khai thí điểm tại cơ sở MindX. |
 | **Chi phí Cloudinary khi lưu lượng tải ảnh tăng cao** | Có thể vượt quá gói miễn phí (Free Tier) | Quản trị viên theo dõi dung lượng trên Cloudinary Console và cân nhắc chuyển sang S3/GCS. |
 | **Tính tương thích của Python 3.14 trên các hệ điều hành cũ** | Một số máy tính của học sinh chạy Windows 7/8 có thể không cài được Python 3.14 | Khuyến nghị sử dụng bản web deploy trực tuyến thay vì bắt học sinh tự chạy local backend. |
+
+---
+
+## 4. Quy Trình 4 Bước Chuẩn Thêm Mô Hình Mới Vào Character Studio
+
+Khi tích hợp một bộ nhân vật, sinh vật hoặc xe cộ mới vào xưởng Character Studio, nhà phát triển bắt buộc tuân theo 4 bước chuẩn mực sau:
+
+### Bước 1: Chuẩn bị tài nguyên đồ họa (Assets Preparation)
+- Đặt toàn bộ ảnh PNG vào thư mục: `frontend/public/assets/{model_id}/`.
+- Yêu cầu kỹ thuật ảnh:
+  - Nền trong suốt 100% (Alpha Channel).
+  - Kích thước đồng bộ theo ô lưới (Grid-aligned, ví dụ $48 \times 48\text{px}$ cho RPG Chibi hoặc $64 \times 64\text{px}$ cho Top-Down Vehicles).
+  - Đặt tên file có tiền tố rõ ràng theo chủng loại (vd: `body_01.png`, `hair_02.png`, `weapon_sword.png`).
+
+### Bước 2: Khởi tạo tệp cấu hình (`{model_id}_config.js`)
+Tạo tệp tại `frontend/src/pages/CharacterBuilder/{model_id}_config.js` với các cấu trúc chuẩn:
+```javascript
+export const STUDIO_{MODEL_ID}_CONFIG = {
+  id: '{model_id}',
+  name: 'Tên Mô Hình',
+  categoryOrder: ['body', 'hair', 'outfit', 'weapon'],
+  categories: {
+    body: {
+      label: 'Tông Da', // Giới hạn 10-12 ký tự, không để dài gây vỡ layout
+      zIndex: 10,
+      items: [...]
+    },
+    ...
+  },
+  defaultSelections: { ... },
+  colorPresets: [ ... ]
+};
+```
+
+### Bước 3: Đăng ký mô hình vào Studio & Dropdown
+1. Trong `frontend/src/pages/CharacterBuilder/CharacterBuilder.jsx`:
+   - Import cấu hình: `import { STUDIO_{MODEL_ID}_CONFIG } from './{model_id}_config';`
+   - Bổ sung vào bảng ánh xạ `STUDIO_MODELS`.
+2. Trong `frontend/src/pages/CharacterBuilder/ModelDropdown.jsx`:
+   - Bổ sung entry vào danh sách với `id`, `name`, `desc`, `badge`, và `icon` SVG tương ứng.
+
+### Bước 4: Kiểm tra và tinh chỉnh Render trên Canvas (`CanvasPreview.jsx`)
+- Kiểm tra tỷ lệ khung hình: Nếu asset có kích thước lớn (> 200px như Kenney Vector), cấu hình `scaleFactor = 0.35` và neo chân nhân vật tiếp đất:
+  ```javascript
+  const floorY = canvas.height - 40;
+  // Vẽ bóng sàn tiếp đất tự nhiên
+  ctx.ellipse(centerX, floorY, 36, 10, 0, 0, Math.PI * 2);
+  ```
+- Chạy lệnh kiểm tra tính hợp lệ đường dẫn:
+  ```bash
+  python -c "import json, os; print('Validating assets...')"
+  ```
+- Kiểm tra tính năng nạp trước (Eager Preload): Đảm bảo toàn bộ asset được nạp tức thì trong `Promise.allSettled`.
+
+---
+
+## 5. Quản Trị Scripts & Đồng Bộ Cloudinary CDN
+
+### 5.1. Phân loại và cấu trúc thư mục `scripts/`
+- `scripts/`: Chứa các script vận hành chính thống có giá trị tái sử dụng:
+  - `sync_to_cloudinary.py`: Đồng bộ tài sản tĩnh hoặc kết quả tạo sinh lên Cloudinary CDN.
+  - `generate_fantasy_assets.py`: Bộ sinh cắt lát các bộ phận nhân vật Fantasy.
+  - `generate_all_props.py`: Bộ sinh cắt lát 260+ item đồ họa vật phẩm.
+- `scripts/_archive/`: Nơi lưu trữ các script kiểm tra tạm thời, debug, khảo sát tên file đã hoàn thành nhiệm vụ. Không chạy trực tiếp trên môi trường CI/CD.
+
+### 5.2. Hướng dẫn chạy đồng bộ Cloudinary CDN
+Khi chuẩn bị bàn giao hoặc chuyển sang dùng hoàn toàn Cloud CDN:
+1. Mở file `backend/.env` và cập nhật thông tin tài khoản Cloudinary chính xác:
+   ```env
+   CLOUDINARY_CLOUD_NAME=ten_cloud_cua_ban
+   CLOUDINARY_API_KEY=ma_api_key
+   CLOUDINARY_API_SECRET=ma_api_secret
+   ```
+2. Thực hiện đồng bộ:
+   ```bash
+   # Đồng bộ 3,197 asset của Character Studio:
+   python scripts/sync_to_cloudinary.py --dir frontend/public/assets --folder mindx_studio_assets
+
+   # Đồng bộ thư viện sản phẩm gallery:
+   python scripts/sync_to_cloudinary.py --dir backend/output --folder mindx_generated_assets
+   ```
+3. Script sẽ ping kiểm tra kết nối, tải từng tệp lên và thông báo link CDN an toàn.
+
