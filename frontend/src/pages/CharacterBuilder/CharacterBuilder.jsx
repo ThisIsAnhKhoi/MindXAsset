@@ -142,8 +142,8 @@ const CHARACTER_MODELS = [
 
 const CharacterBuilder = () => {
   // Lựa chọn Model
-  const [currentModelId, setCurrentModelId] = useState('pipoya');
-  const currentModel = CHARACTER_MODELS.find(m => m.id === currentModelId);
+  const [currentModelId, setCurrentModelId] = useState('fantasy');
+  const currentModel = CHARACTER_MODELS.find(m => m.id === currentModelId) || CHARACTER_MODELS[0];
 
   // Tên nhân vật
   const [characterName, setCharacterName] = useState('MindX Character');
@@ -159,19 +159,15 @@ const CharacterBuilder = () => {
 
   // Lựa chọn kiểu dáng (Variant ID)
   const [selections, setSelections] = useState({
-    bases: 'bases_001',
-    eyes: 'eyes_001',
-    hairs: 'hairs_001',
-    tops: 'tops_001',
-    hats: 'hats_none',
-    glasses: 'glasses_none',
-    ears: 'ears_none',
-    tails: 'tails_none',
-    items: 'items_none',
-    cloaks: 'cloaks_none',
-    beards: 'beards_none',
-    hairadds: 'hairadds_none',
-    makeup: 'makeup_none',
+    races: 'race_human_fair',
+    expressions: 'expr_neutral',
+    hairs: 'hair_r8_c0',
+    outfits: 'outfit_r19_c0',
+    bottoms: 'bottom_r30_c0',
+    headgear: 'headgear_none',
+    accessories: 'acc_none',
+    weapons: 'weapon_none',
+    shadows: 'shadow_ground_pixel',
     action: 'idle'
   });
 
@@ -184,7 +180,7 @@ const CharacterBuilder = () => {
       newSelections.races = 'race_human_fair';
       newSelections.expressions = 'expr_neutral';
       newSelections.hairs = 'hair_r8_c0';
-      newSelections.outfits = 'outfit_r19_c11';
+      newSelections.outfits = 'outfit_r19_c0';
       newSelections.bottoms = 'bottom_r30_c0';
       newSelections.headgear = 'headgear_none';
       newSelections.accessories = 'acc_none';

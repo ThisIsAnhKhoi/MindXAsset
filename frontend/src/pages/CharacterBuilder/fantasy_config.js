@@ -3939,6 +3939,214 @@ export const fantasyConfig = {
 ],
   bottoms: [
   {
+    "id": "bottom_r26_c0",
+    "name": "Chân Trần - Da Sáng",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c0.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c0.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c1",
+    "name": "Chân Trần - Da Hồng",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c1.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c1.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c2",
+    "name": "Chân Trần - Da Nâu Đồng",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c2.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c2.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c3",
+    "name": "Chân Trần - Da Ngăm",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c3.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c3.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c4",
+    "name": "Chân Trần - Nắng Gió",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c4.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c4.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c5",
+    "name": "Chân Trần - Orc Xanh",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c5.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c5.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c6",
+    "name": "Chân Trần - Hắc Tiên Tím",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c6.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c6.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c7",
+    "name": "Chân Trần - Thú Tộc",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c7.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c7.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c8",
+    "name": "Chân Trần - Thượng Tiên",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c8.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c8.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c9",
+    "name": "Chân Trần - Vampire Trắng",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c9.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c9.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c10",
+    "name": "Chân Trần - Zombie Xám",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c10.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c10.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c11",
+    "name": "Khung Xương Trần Mắt Đỏ",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c11.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c11.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c12",
+    "name": "Hoàng Kim Xương Trần",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c12.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c12.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c13",
+    "name": "Chân Đá Cổ Thạch",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c13.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c13.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c14",
+    "name": "Chân Trần Thằn Lằn",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c14.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c14.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
+    "id": "bottom_r26_c15",
+    "name": "Chân Dị Tộc Ngoại Giới",
+    "src": "/assets/fantasy/thumbs/bottom_r26_c15.png",
+    "type": "bottoms",
+    "layers": [
+      {
+        "src": "/assets/fantasy/bottoms/bottom_r26_c15.png",
+        "z_index": 20,
+        "category": "bottoms"
+      }
+    ]
+  },
+  {
     "id": "bottom_r30_c0",
     "name": "Ủng Hiệp Sĩ Xanh Thẫm Viền Vàng",
     "src": "/assets/fantasy/thumbs/bottom_r30_c0.png",
@@ -4952,7 +5160,7 @@ export const getFantasyLayers = (selections, activeColors = {}) => {
     }
   }
 
-  // 3. Bottoms / Legs
+  // 3. Bottoms / Legs (2 distinct legs, pants & boots)
   const bottomId = selections.bottoms || 'bottom_r30_c0';
   if (bottomId && !bottomId.endsWith('_none')) {
     const group = fantasyConfig.bottoms;
@@ -4963,7 +5171,7 @@ export const getFantasyLayers = (selections, activeColors = {}) => {
   }
 
   // 4. Outfits (Torso / Clothes / Armor)
-  const outfitId = selections.outfits || 'outfit_r19_c11';
+  const outfitId = selections.outfits || 'outfit_r19_c0';
   if (outfitId && !outfitId.endsWith('_none')) {
     const group = fantasyConfig.outfits;
     const item = group.find(i => i.id === outfitId);
@@ -4979,7 +5187,6 @@ export const getFantasyLayers = (selections, activeColors = {}) => {
   const raceItem = raceGroup.find(i => i.id === raceId) || raceGroup[0];
   
   if (raceItem) {
-    // Check if dynamic expression sprite exists
     let headSrc = raceItem.defaultSrc;
     if (raceItem.expressions && raceItem.expressions[exprId]) {
       headSrc = raceItem.expressions[exprId];

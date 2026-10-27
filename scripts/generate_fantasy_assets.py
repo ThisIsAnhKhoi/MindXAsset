@@ -12,11 +12,15 @@ CONFIG_JS = os.path.join(BASE_DIR, "frontend", "src", "pages", "CharacterBuilder
 for sub in ["races", "hairs", "outfits", "bottoms", "headgear", "accessories", "weapons", "shadows", "thumbs"]:
     os.makedirs(os.path.join(OUTPUT_DIR, sub), exist_ok=True)
 
+# =========================================================================
+# MATHEMATICAL ANATOMICAL ALIGNMENT CONSTANTS (48x48 Canvas)
+# =========================================================================
 FRAME_SIZE = 48
-CX = 16 # (48 - 16) // 2
-HY = 8  # Head Y in 48x48
-BY = 18 # Body Y in 48x48 (HY + 10)
-LY = 25 # Legs Y in 48x48 (BY + 7)
+CX = 16  # Centers 16px character horizontally: (48 - 16) // 2
+HY = 3   # Head placed at Y=3. Forehead at Y=7, Eyes at Y=12-13, Chin at Y=15
+BY = 14  # Body / Outfit placed at Y=14. Collar sits at Y=15 right beneath chin
+LY = 17  # Legs / Bottoms placed at Y=17. Waist starts at Y=17, Soles end at Y=32
+SY = 18  # Shadow placed at Y=18. Shadow line 14 sits at Y=32, hugging the soles
 
 def make_48_frame(crop, px, py):
     """Pastes 16x16 crop onto a 48x48 frame at (px, py)."""
@@ -25,7 +29,7 @@ def make_48_frame(crop, px, py):
     return frame
 
 def make_thumb(im_48, thumb_size=128):
-    """Generates a crisp 128x128 thumbnail with 100% transparent background."""
+    """Generates a crisp 128x128 thumbnail with 100% transparent background and integer scaling."""
     bbox = im_48.getbbox()
     if not bbox:
         return Image.new('RGBA', (thumb_size, thumb_size), (0, 0, 0, 0))
@@ -68,25 +72,152 @@ def get_cell(col, row):
     return im.crop((col * 16, row * 16, (col + 1) * 16, (row + 1) * 16))
 
 # =========================================================================
+# ANATOMICAL RE-ENGINEERING FUNCTIONS
+# =========================================================================
+def build_anatomy_legs(cell_raw):
+    """
+    Transforms raw 4-pixel column into TRUE 2-LEGGED PIXEL ART ANATOMY:
+    - Left Leg: x=4..6 (outer contour, fill highlight)
+    - Inseam Crease: x=7 (dark shadow separating left & right legs)
+    - Right Leg: x=8..10 (fill, outer contour)
+    - Flared boots with distinct left toe (x=3..6) and right toe (x=8..10)
+    - Solid dark soles at line 15 (y=15)
+    - Continuous fabric from y=0 down to y=15 guaranteeing zero gaps!
+    """
+    arr = np.array(cell_raw)
+    out = np.zeros((16, 16, 4), dtype=np.uint8)
+    
+    for y in range(16):
+        raw_row = arr[y, 6:10]
+        has_color = raw_row[:, 3] > 0
+        if not np.any(has_color):
+            src_row = arr[8, 6:10]
+        else:
+            src_row = raw_row
+            
+        c_left_out = src_row[0]  
+        c_left_mid = src_row[1]  
+        c_right_mid = src_row[2] 
+        c_right_out = src_row[3] 
+        
+        # Dark shadow crease down the center seam
+        c_crease = (c_left_out.astype(int) * 3 // 4).astype(np.uint8)
+        c_crease[3] = 255
+        
+        if y < 10: # Hips / Thighs (y=0..9)
+            out[y, 4] = c_left_out
+            out[y, 5] = c_left_mid
+            out[y, 6] = c_left_mid
+            out[y, 7] = c_crease
+            out[y, 8] = c_right_mid
+            out[y, 9] = c_right_mid
+            out[y, 10] = c_right_out
+        elif y < 12: # Knees / Upper Boot (y=10..11)
+            out[y, 4] = c_left_out
+            out[y, 5] = c_left_mid
+            out[y, 6] = c_left_mid
+            out[y, 7] = c_crease
+            out[y, 8] = c_right_mid
+            out[y, 9] = c_right_mid
+            out[y, 10] = c_right_out
+        elif y == 12: # Lower Boot Flare
+            out[y, 4] = c_left_out
+            out[y, 5] = c_left_mid
+            out[y, 6] = c_left_mid
+            out[y, 7] = c_crease
+            out[y, 8] = c_right_mid
+            out[y, 9] = c_right_mid
+            out[y, 10] = c_right_out
+        elif y == 13: # Flare outward left
+            out[y, 3] = c_left_out
+            out[y, 4] = c_left_mid
+            out[y, 5] = c_left_mid
+            out[y, 6] = c_crease
+            out[y, 7] = c_crease
+            out[y, 8] = c_right_mid
+            out[y, 9] = c_right_mid
+            out[y, 10] = c_right_out
+        elif y == 14: # Foot base / toes
+            out[y, 3] = c_left_out
+            out[y, 4] = c_left_mid
+            out[y, 5] = c_left_mid
+            out[y, 6] = c_left_out
+            out[y, 7] = c_crease
+            out[y, 8] = c_right_mid
+            out[y, 9] = c_right_mid
+            out[y, 10] = c_right_out
+        elif y == 15: # Solid soles / heels
+            sole_color = np.array([25, 20, 20, 255], dtype=np.uint8)
+            out[y, 4:7] = sole_color
+            out[y, 8:11] = sole_color
+
+    return Image.fromarray(out, 'RGBA')
+
+def shape_outfit(cell, is_long=False, skin_color=(235, 195, 175, 255)):
+    """
+    Shapes raw rectangular block into natural clothing:
+    1. Slopes shoulders by trimming blocky outer 90-degree corners
+    2. Adds skin hands / cuffs at sleeve ends
+    3. Trims hem at line 9 so pants and 2 legs are fully visible (or open front for robes)
+    """
+    arr = np.array(cell).copy()
+    
+    # 1. Slope shoulders (trim outer block corners)
+    corners = [(1, 1), (1, 2), (2, 1), (1, 14), (1, 13), (2, 14), (0, 0), (0, 1), (0, 14), (0, 15)]
+    for cy, cx in corners:
+        if cy < 16 and cx < 16:
+            arr[cy, cx] = [0, 0, 0, 0]
+            
+    # 2. Add skin hands at sleeve cuffs
+    skin = np.array(skin_color, dtype=np.uint8)
+    shadow_skin = (skin.astype(int) * 3 // 4).astype(np.uint8)
+    shadow_skin[3] = 255
+    
+    # Left hand at x=2..3
+    arr[7, 2] = skin
+    arr[7, 3] = skin
+    arr[8, 2] = shadow_skin
+    arr[8, 3] = shadow_skin
+    
+    # Right hand at x=12..13
+    arr[7, 12] = skin
+    arr[7, 13] = skin
+    arr[8, 12] = shadow_skin
+    arr[8, 13] = shadow_skin
+    
+    # 3. For standard shirts / jackets / tunics (not full-length robes):
+    if not is_long:
+        # Trim from line 9 down to 15 in the center (x=4..11) so pants show cleanly
+        arr[9:16, 4:12] = [0, 0, 0, 0]
+        # Trim sleeves below line 8
+        arr[9:16, 0:4] = [0, 0, 0, 0]
+        arr[9:16, 12:16] = [0, 0, 0, 0]
+    else:
+        # For long cloaks / robes, open front at bottom so 2 feet peek through
+        arr[12:16, 5:11] = [0, 0, 0, 0]
+        
+    return Image.fromarray(arr, 'RGBA')
+
+# =========================================================================
 # 1. RACES (Chủng tộc & Gương mặt)
 # =========================================================================
 HUMAN_RACES = [
-    ("race_human_fair", "Người - Da Sáng (Fair Human)", 0),
-    ("race_human_peach", "Người - Da Hồng Hào (Peach)", 1),
-    ("race_human_tan", "Người - Da Nâu Đồng (Tan)", 2),
-    ("race_human_dark", "Người - Da Ngăm Đen (Dark)", 3),
-    ("race_human_sunburnt", "Người - Nắng Gió (Sunburnt)", 4),
-    ("race_orc", "Đại Ma Tộc - Chiến Binh Orc (Green)", 5),
-    ("race_dark_elf", "Hắc Tiên Tộc - Dạ Thuật Drow", 6),
-    ("race_beastman", "Hoang Thú Tộc - Hổ Báo", 7),
-    ("race_high_elf", "Thượng Tiên Tộc - Tai Nhọn", 8),
-    ("race_vampire", "Huyết Tộc Dạ Thần - Vampire", 9),
-    ("race_undead", "Xác Sống Cổ Thành - Zombie", 10),
-    ("race_skeleton", "Khung Xương Ma Thuật - Mắt Đỏ", 11),
-    ("race_golden_lich", "Hoàng Kim Vu Yêu - Mắt Vàng", 12),
-    ("race_stone_golem", "Người Đá Cổ Thạch - Golem", 13),
-    ("race_reptilian", "Thằn Lằn Đầm Lầy - Bò Sát", 14),
-    ("race_alien", "Dị Tộc Không Gian - Ngoại Giới", 15),
+    ("race_human_fair", "Người - Da Sáng (Fair Human)", 0, (235, 195, 175, 255)),
+    ("race_human_peach", "Người - Da Hồng Hào (Peach)", 1, (245, 205, 185, 255)),
+    ("race_human_tan", "Người - Da Nâu Đồng (Tan)", 2, (195, 140, 105, 255)),
+    ("race_human_dark", "Người - Da Ngăm Đen (Dark)", 3, (120, 80, 60, 255)),
+    ("race_human_sunburnt", "Người - Nắng Gió (Sunburnt)", 4, (215, 135, 115, 255)),
+    ("race_orc", "Đại Ma Tộc - Chiến Binh Orc (Green)", 5, (70, 130, 50, 255)),
+    ("race_dark_elf", "Hắc Tiên Tộc - Dạ Thuật Drow", 6, (110, 95, 130, 255)),
+    ("race_beastman", "Hoang Thú Tộc - Hổ Báo", 7, (180, 120, 80, 255)),
+    ("race_high_elf", "Thượng Tiên Tộc - Tai Nhọn", 8, (245, 220, 200, 255)),
+    ("race_vampire", "Huyết Tộc Dạ Thần - Vampire", 9, (230, 225, 235, 255)),
+    ("race_undead", "Xác Sống Cổ Thành - Zombie", 10, (140, 160, 140, 255)),
+    ("race_skeleton", "Khung Xương Ma Thuật - Mắt Đỏ", 11, (220, 220, 220, 255)),
+    ("race_golden_lich", "Hoàng Kim Vu Yêu - Mắt Vàng", 12, (230, 210, 150, 255)),
+    ("race_stone_golem", "Người Đá Cổ Thạch - Golem", 13, (150, 150, 150, 255)),
+    ("race_reptilian", "Thằn Lằn Đầm Lầy - Bò Sát", 14, (90, 140, 90, 255)),
+    ("race_alien", "Dị Tộc Không Gian - Ngoại Giới", 15, (100, 180, 190, 255)),
 ]
 
 EXPRESSIONS = [
@@ -99,33 +230,30 @@ EXPRESSIONS = [
 ]
 
 BEAST_RACES = [
-    ("race_fox", "Linh Hồ Tộc - Cáo Lửa Kitsune", 1, 6),
-    ("race_wolf", "Lang Tộc - Sói Xám Hoang Dã", 2, 6),
-    ("race_raccoon", "Gấu Mèo Du Mục - Raccoon", 3, 6),
-    ("race_cat", "Miêu Tộc - Mèo Mun Huyền Bí", 4, 6),
-    ("race_bat", "Dạ Điệp Tộc - Dơi Ma Cà Rồng", 5, 6),
-    ("race_devil", "Tiểu Dạ Quỷ - Ác Ma Bé", 6, 6),
-    ("race_rabbit", "Ngọc Thố Tộc - Thỏ Trắng", 7, 6),
-    ("race_dog", "Khuyển Hiệp Sĩ - Chó Trung Thành", 8, 6),
-    ("race_minotaur", "Ngưu Ma Tộc - Trâu Rừng", 9, 6),
-    ("race_snake", "Bạch Xà Tộc - Rắn Ma Thuật", 10, 6),
-    ("race_goose", "Ngỗng Trời Tinh Nghịch - Duck", 11, 6),
-    ("race_dragon", "Long Tộc - Viêm Long Hỏa Diệm", 12, 6),
-    ("race_frog", "Cóc Tinh Ma Thuật - Frog Mage", 13, 6),
-    ("race_crocodile", "Cá Sấu Đầm Lầy - Swamp Croc", 14, 6),
+    ("race_fox", "Linh Hồ Tộc - Cáo Lửa Kitsune", 1, 6, (220, 120, 60, 255)),
+    ("race_wolf", "Lang Tộc - Sói Xám Hoang Dã", 2, 6, (140, 140, 150, 255)),
+    ("race_raccoon", "Gấu Mèo Du Mục - Raccoon", 3, 6, (160, 150, 140, 255)),
+    ("race_cat", "Miêu Tộc - Mèo Mun Huyền Bí", 4, 6, (50, 50, 50, 255)),
+    ("race_bat", "Dạ Điệp Tộc - Dơi Ma Cà Rồng", 5, 6, (80, 60, 90, 255)),
+    ("race_devil", "Tiểu Dạ Quỷ - Ác Ma Bé", 6, 6, (200, 60, 60, 255)),
+    ("race_rabbit", "Ngọc Thố Tộc - Thỏ Trắng", 7, 6, (240, 240, 240, 255)),
+    ("race_dog", "Khuyển Hiệp Sĩ - Chó Trung Thành", 8, 6, (190, 150, 110, 255)),
+    ("race_minotaur", "Ngưu Ma Tộc - Trâu Rừng", 9, 6, (130, 80, 60, 255)),
+    ("race_snake", "Bạch Xà Tộc - Rắn Ma Thuật", 10, 6, (120, 170, 120, 255)),
+    ("race_goose", "Ngỗng Trời Tinh Nghịch - Duck", 11, 6, (240, 240, 220, 255)),
+    ("race_dragon", "Long Tộc - Viêm Long Hỏa Diệm", 12, 6, (180, 50, 40, 255)),
+    ("race_frog", "Cóc Tinh Ma Thuật - Frog Mage", 13, 6, (80, 160, 70, 255)),
+    ("race_crocodile", "Cá Sấu Đầm Lầy - Swamp Croc", 14, 6, (60, 110, 70, 255)),
 ]
 
 RACES_CONFIG = []
 EXPRESSIONS_CONFIG = []
 
-# Generate all race heads and expressions
-for r_id, r_name, col in HUMAN_RACES:
-    # Save default neutral head
+for r_id, r_name, col, skin in HUMAN_RACES:
     neutral_cell = get_cell(col, 0)
     frame_48 = make_48_frame(neutral_cell, CX, HY)
     src, thumb = save_asset("races", r_id, frame_48)
     
-    # Save expression sub-variants for this race
     expr_map = {}
     for exp_id, exp_name, exp_row in EXPRESSIONS:
         exp_cell = get_cell(col, exp_row)
@@ -148,13 +276,11 @@ for r_id, r_name, col in HUMAN_RACES:
         ]
     })
 
-# Beast races
-for b_id, b_name, col, row in BEAST_RACES:
+for b_id, b_name, col, row, skin in BEAST_RACES:
     b_cell = get_cell(col, row)
     frame_48 = make_48_frame(b_cell, CX, HY)
     src, thumb = save_asset("races", b_id, frame_48)
     
-    # Beast open mouth is row+1
     mouth_cell = get_cell(col, row + 1)
     mouth_frame = make_48_frame(mouth_cell, CX, HY)
     m_src, _ = save_asset("races", f"{b_id}_expr_battle_cry", mouth_frame)
@@ -196,17 +322,6 @@ print(f"Generated {len(RACES_CONFIG)} Races and {len(EXPRESSIONS_CONFIG)} Expres
 # =========================================================================
 # 2. HAIRSTYLES (Kiểu tóc & Râu)
 # =========================================================================
-HAIR_PALETTES = [
-    ("brown", "Nâu Hạt Dẻ", 8),
-    ("orange", "Cam Lửa / Hung Đỏ", 9),
-    ("blonde", "Vàng Hoàng Kim", 10),
-    ("silver", "Bạc / Bạch Kim", 11),
-    ("black", "Đen Huyền Bí", 12),
-    ("blue", "Lam Ngọc Ma Pháp", 12),
-    ("green", "Lục Bảo Rừng Sâu", 12),
-    ("white", "Trắng Thuần Khiết", 13),
-]
-
 HAIR_STYLES = [
     (0, "Tóc Ngắn Chiến Binh"),
     (1, "Tóc Vuốt Kèm Râu Quai Nón"),
@@ -243,7 +358,6 @@ for r in range(8, 14):
             continue
         h_id = f"hair_r{r}_c{c}"
         
-        # Color group
         if r == 8: c_name = "Nâu"
         elif r == 9: c_name = "Hung Đỏ"
         elif r == 10: c_name = "Vàng"
@@ -274,7 +388,7 @@ for r in range(8, 14):
 print(f"Generated {hair_count} Hairstyles.")
 
 # =========================================================================
-# 3. OUTFITS (128 Trang phục & Y phục)
+# 3. OUTFITS (128 Trang phục & Y phục - Đã tạo hình vai và ống tay tự nhiên)
 # =========================================================================
 OUTFITS_CONFIG = []
 outfit_names_matrix = [
@@ -349,6 +463,7 @@ outfit_groups = {
 
 outfit_count = 0
 for r_idx, r in enumerate(range(16, 24)):
+    is_long_robe = r in [16, 20, 21]
     for c in range(16):
         cell = get_cell(c, r)
         if not cell.getbbox():
@@ -357,7 +472,8 @@ for r_idx, r in enumerate(range(16, 24)):
         o_name = outfit_names_matrix[r_idx][c]
         o_grp = outfit_groups.get(r, "quytoc")
         
-        frame_48 = make_48_frame(cell, CX, BY)
+        shaped_cell = shape_outfit(cell, is_long=is_long_robe)
+        frame_48 = make_48_frame(shaped_cell, CX, BY)
         src, thumb = save_asset("outfits", o_id, frame_48)
         
         OUTFITS_CONFIG.append({
@@ -375,9 +491,31 @@ for r_idx, r in enumerate(range(16, 24)):
 print(f"Generated {outfit_count} Outfits.")
 
 # =========================================================================
-# 4. BOTTOMS & LEGS (Quần & Giày Ủng)
+# 4. BOTTOMS & LEGS (Quần & Giày Ủng - 2 Chân Hoàn Chỉnh Chuẩn Pixel Art)
 # =========================================================================
 BOTTOMS_CONFIG = []
+
+# Bare legs from Row 26
+bare_leg_names = [
+    "Chân Trần - Da Sáng", "Chân Trần - Da Hồng", "Chân Trần - Da Nâu Đồng", "Chân Trần - Da Ngăm",
+    "Chân Trần - Nắng Gió", "Chân Trần - Orc Xanh", "Chân Trần - Hắc Tiên Tím", "Chân Trần - Thú Tộc",
+    "Chân Trần - Thượng Tiên", "Chân Trần - Vampire Trắng", "Chân Trần - Zombie Xám", "Khung Xương Trần Mắt Đỏ",
+    "Hoàng Kim Xương Trần", "Chân Đá Cổ Thạch", "Chân Trần Thằn Lằn", "Chân Dị Tộc Ngoại Giới"
+]
+
+for c in range(16):
+    cell = get_cell(c, 26)
+    if not cell.getbbox(): continue
+    b_id = f"bottom_r26_c{c}"
+    b_name = bare_leg_names[c]
+    cell_2leg = build_anatomy_legs(cell)
+    frame_48 = make_48_frame(cell_2leg, CX, LY)
+    src, thumb = save_asset("bottoms", b_id, frame_48)
+    BOTTOMS_CONFIG.append({
+        "id": b_id, "name": b_name, "src": thumb, "type": "bottoms",
+        "layers": [{ "src": src, "z_index": 20, "category": "bottoms" }]
+    })
+
 leg_names_row30 = [
     "Ủng Hiệp Sĩ Xanh Thẫm Viền Vàng", "Ủng Chiến Binh Xanh Phối Đỏ", "Ủng Hiệp Sĩ Hắc Ám Viền Đỏ", "Ủng Vàng Đen Hiệp Sĩ Hoàng Gia",
     "Quần Da Thợ Săn Rừng Xanh Thẫm", "Quần Vải Lụa Đen Sát Thủ", "Quần Lụa Đen Đế Thép Nổi Bật", "Quần Nâu Thợ Rèn Viền Vàng",
@@ -397,7 +535,8 @@ for c in range(16):
     if not cell.getbbox(): continue
     b_id = f"bottom_r30_c{c}"
     b_name = leg_names_row30[c] if c < len(leg_names_row30) else f"Quần Giáp #{c+1}"
-    frame_48 = make_48_frame(cell, CX, LY)
+    cell_2leg = build_anatomy_legs(cell)
+    frame_48 = make_48_frame(cell_2leg, CX, LY)
     src, thumb = save_asset("bottoms", b_id, frame_48)
     BOTTOMS_CONFIG.append({
         "id": b_id, "name": b_name, "src": thumb, "type": "bottoms",
@@ -409,14 +548,15 @@ for c in range(14):
     if not cell.getbbox(): continue
     b_id = f"bottom_r31_c{c}"
     b_name = leg_names_row31[c] if c < len(leg_names_row31) else f"Ủng Giày #{c+1}"
-    frame_48 = make_48_frame(cell, CX, LY)
+    cell_2leg = build_anatomy_legs(cell)
+    frame_48 = make_48_frame(cell_2leg, CX, LY)
     src, thumb = save_asset("bottoms", b_id, frame_48)
     BOTTOMS_CONFIG.append({
         "id": b_id, "name": b_name, "src": thumb, "type": "bottoms",
         "layers": [{ "src": src, "z_index": 20, "category": "bottoms" }]
     })
 
-print(f"Generated {len(BOTTOMS_CONFIG)} Bottoms/Legs.")
+print(f"Generated {len(BOTTOMS_CONFIG)} Bottoms/Legs with true 2-leg anatomy.")
 
 # =========================================================================
 # 5. HEADGEAR & EARS & MASKS (Mũ, Tai Thú, Sừng & Kính)
@@ -460,7 +600,7 @@ for c, r, name, cat in headgear_items:
 print(f"Generated {len(HEADGEAR_CONFIG)} Headgear items.")
 
 # =========================================================================
-# 6. ACCESSORIES & TAILS (Đuôi & Thắt Lưng)
+# 6. ACCESSORIES & TAILS & BELTS (Đuôi & Thắt Lưng)
 # =========================================================================
 ACCESSORIES_CONFIG = [
     {
@@ -472,20 +612,22 @@ ACCESSORIES_CONFIG = [
 ]
 
 tails_and_belts = [
-    (10, 14, "Đuôi Sói Xám Hoang Dã", "accessories", BY, 10),
-    (11, 14, "Đuôi Cáo Lửa Kitsune Nâu Đỏ", "accessories", BY, 10),
-    (12, 14, "Đuôi Chồn Đen Uốn Lượn", "accessories", BY, 10),
-    (13, 14, "Đuôi Ác Ma Mũi Tên Nhọn (Devil Tail)", "accessories", BY, 10),
-    (0, 24, "Thắt Lưng Chiến Binh Khóa Đồng Đỏ", "accessories", BY, 35),
-    (1, 24, "Khóa Thắt Lưng Vàng Da Sáng", "accessories", BY, 35),
-    (2, 24, "Thắt Lưng Da Nâu Đen Thợ Săn", "accessories", BY, 35),
-    (3, 24, "Khóa Lưng Lục Bảo Cổ Điển", "accessories", BY, 35),
-    (4, 24, "Đai Lưng Lam Ngọc Pháp Sư", "accessories", BY, 35),
-    (5, 24, "Thắt Lưng Da Bò Quý Phái", "accessories", BY, 35),
-    (6, 24, "Thắt Lưng Thép Titan Chiến Binh", "accessories", BY, 35),
-    (7, 24, "Đai Lụa Trắng Hoàng Tộc", "accessories", BY, 35),
-    (12, 24, "Thắt Lưng Vàng Kim Khảm Đá Đen", "accessories", BY, 35),
-    (13, 24, "Đai Lưng Lam Thạch Huyền Bí", "accessories", BY, 35),
+    # Tails (pasted at LY, z=10 behind body)
+    (10, 14, "Đuôi Sói Xám Hoang Dã", "accessories", LY, 10),
+    (11, 14, "Đuôi Cáo Lửa Kitsune Nâu Đỏ", "accessories", LY, 10),
+    (12, 14, "Đuôi Chồn Đen Uốn Lượn", "accessories", LY, 10),
+    (13, 14, "Đuôi Ác Ma Mũi Tên Nhọn (Devil Tail)", "accessories", LY, 10),
+    # Belts (pasted at LY, z=35 on top of waistline)
+    (0, 24, "Thắt Lưng Chiến Binh Khóa Đồng Đỏ", "accessories", LY, 35),
+    (1, 24, "Khóa Thắt Lưng Vàng Da Sáng", "accessories", LY, 35),
+    (2, 24, "Thắt Lưng Da Nâu Đen Thợ Săn", "accessories", LY, 35),
+    (3, 24, "Khóa Lưng Lục Bảo Cổ Điển", "accessories", LY, 35),
+    (4, 24, "Đai Lưng Lam Ngọc Pháp Sư", "accessories", LY, 35),
+    (5, 24, "Thắt Lưng Da Bò Quý Phái", "accessories", LY, 35),
+    (6, 24, "Thắt Lưng Thép Titan Chiến Binh", "accessories", LY, 35),
+    (7, 24, "Đai Lụa Trắng Hoàng Tộc", "accessories", LY, 35),
+    (12, 24, "Thắt Lưng Vàng Kim Khảm Đá Đen", "accessories", LY, 35),
+    (13, 24, "Đai Lưng Lam Thạch Huyền Bí", "accessories", LY, 35),
 ]
 
 for c, r, name, cat, py, z in tails_and_belts:
@@ -502,7 +644,7 @@ for c, r, name, cat, py, z in tails_and_belts:
 print(f"Generated {len(ACCESSORIES_CONFIG)} Accessories/Tails.")
 
 # =========================================================================
-# 7. SHADOWS & AURAS (Bóng Đổ Mặt Đất & Hào Quang)
+# 7. SHADOWS & AURAS (Bóng Đổ Mặt Đất - Ôm Khít Gót Giày)
 # =========================================================================
 SHADOWS_CONFIG = [
     {
@@ -513,11 +655,10 @@ SHADOWS_CONFIG = [
     }
 ]
 
-# Ground shadow from row 29
-sh_cell = get_cell(12, 29) # horizontal shadow
+# Ground shadow from row 29 pasted at SY=18 so line 14 sits directly at Y=32
+sh_cell = get_cell(12, 29)
 sh_frame = Image.new('RGBA', (FRAME_SIZE, FRAME_SIZE), (0, 0, 0, 0))
-# Center shadow below the feet (at y=41..43)
-sh_frame.paste(sh_cell, (CX, 27), sh_cell)
+sh_frame.paste(sh_cell, (CX, SY), sh_cell)
 src_sh, thumb_sh = save_asset("shadows", "shadow_ground_pixel", sh_frame)
 
 SHADOWS_CONFIG.append({
@@ -530,7 +671,7 @@ SHADOWS_CONFIG.append({
     ]
 })
 
-# Extra Magical Auras from prop library
+# Magical Auras
 for aura_id, aura_name in [
     ("aura_arcane_blue", "Hào Quang Lam Ngọc Ma Pháp"),
     ("aura_fire_red", "Hào Quang Hỏa Diệm Rực Lửa"),
@@ -563,21 +704,20 @@ WEAPONS_CONFIG = [
     }
 ]
 
-# We can position weapons elegantly in the character's hand at (22, 14) or left hand (8, 18)
 weapon_defs = [
-    ("sword_iron", "Thanh Kiếm Hiệp Sĩ Sắt", "sword_iron.png", 22, 14, 22, 80),
-    ("sword_gold", "Hoàng Kim Trảm Long Kiếm", "sword_gold.png", 22, 14, 22, 80),
-    ("sword_frost", "Băng Hàn Trảm Kiếm", "sword_frost.png", 22, 14, 22, 80),
-    ("sword_void", "Hư Không Đoạt Hồn Kiếm", "sword_void.png", 22, 14, 22, 80),
-    ("dagger_iron", "Dao Găm Sát Thủ Thép Đen", "dagger_iron.png", 24, 18, 18, 80),
-    ("bow_iron", "Cung Gỗ Săn Bắn Thợ Săn", "bow_iron.png", 8, 16, 20, 80),
-    ("wand_gold", "Trượng Phép Hoàng Kim Trí Tuệ", "wand_gold.png", 22, 12, 22, 80),
-    ("wand_frost", "Quyền Trượng Hàn Băng Cổ Đại", "wand_frost.png", 22, 12, 22, 80),
-    ("gear_wood_shield", "Khiên Gỗ Chiến Binh Viền Thép", "gear_wood_shield.png", 6, 18, 20, 75),
-    ("shield_kite_gold", "Khiên Hoàng Kim Vương Quốc", "shield_kite_gold.png", 6, 18, 20, 75),
-    ("shield_tower_iron", "Khiên Tháp Pháo Đài Vững Chắc", "shield_tower_iron.png", 6, 18, 20, 75),
-    ("potion_health", "Bình Thuốc Sinh Mệnh Đỏ", "potion_health.png", 24, 20, 16, 80),
-    ("potion_mana", "Bình Dược Năng Lượng Lam Ngọc", "potion_mana.png", 24, 20, 16, 80),
+    ("sword_iron", "Thanh Kiếm Hiệp Sĩ Sắt", "sword_iron.png", 26, 12, 20, 80),
+    ("sword_gold", "Hoàng Kim Trảm Long Kiếm", "sword_gold.png", 26, 12, 20, 80),
+    ("sword_frost", "Băng Hàn Trảm Kiếm", "sword_frost.png", 26, 12, 20, 80),
+    ("sword_void", "Hư Không Đoạt Hồn Kiếm", "sword_void.png", 26, 12, 20, 80),
+    ("dagger_iron", "Dao Găm Sát Thủ Thép Đen", "dagger_iron.png", 26, 16, 16, 80),
+    ("bow_iron", "Cung Gỗ Săn Bắn Thợ Săn", "bow_iron.png", 8, 14, 20, 80),
+    ("wand_gold", "Trượng Phép Hoàng Kim Trí Tuệ", "wand_gold.png", 26, 10, 20, 80),
+    ("wand_frost", "Quyền Trượng Hàn Băng Cổ Đại", "wand_frost.png", 26, 10, 20, 80),
+    ("gear_wood_shield", "Khiên Gỗ Chiến Binh Viền Thép", "gear_wood_shield.png", 8, 16, 18, 75),
+    ("shield_kite_gold", "Khiên Hoàng Kim Vương Quốc", "shield_kite_gold.png", 8, 16, 18, 75),
+    ("shield_tower_iron", "Khiên Tháp Pháo Đài Vững Chắc", "shield_tower_iron.png", 8, 16, 18, 75),
+    ("potion_health", "Bình Thuốc Sinh Mệnh Đỏ", "potion_health.png", 26, 18, 14, 80),
+    ("potion_mana", "Bình Dược Năng Lượng Lam Ngọc", "potion_mana.png", 26, 18, 14, 80),
 ]
 
 for w_id, w_name, prop_file, wx, wy, w_size, z in weapon_defs:
@@ -593,7 +733,7 @@ for w_id, w_name, prop_file, wx, wy, w_size, z in weapon_defs:
         WEAPONS_CONFIG.append({
             "id": w_id,
             "name": w_name,
-            "src": f"/assets/props/thumbs/{prop_file}", # use high-res prop thumb
+            "src": f"/assets/props/thumbs/{prop_file}",
             "type": "weapons",
             "layers": [
                 { "src": src_w, "z_index": z, "category": "weapons" }
@@ -696,7 +836,7 @@ export const getFantasyLayers = (selections, activeColors = {{}}) => {{
     }}
   }}
 
-  // 3. Bottoms / Legs
+  // 3. Bottoms / Legs (2 distinct legs, pants & boots)
   const bottomId = selections.bottoms || 'bottom_r30_c0';
   if (bottomId && !bottomId.endsWith('_none')) {{
     const group = fantasyConfig.bottoms;
@@ -707,7 +847,7 @@ export const getFantasyLayers = (selections, activeColors = {{}}) => {{
   }}
 
   // 4. Outfits (Torso / Clothes / Armor)
-  const outfitId = selections.outfits || 'outfit_r19_c11';
+  const outfitId = selections.outfits || 'outfit_r19_c0';
   if (outfitId && !outfitId.endsWith('_none')) {{
     const group = fantasyConfig.outfits;
     const item = group.find(i => i.id === outfitId);
@@ -723,7 +863,6 @@ export const getFantasyLayers = (selections, activeColors = {{}}) => {{
   const raceItem = raceGroup.find(i => i.id === raceId) || raceGroup[0];
   
   if (raceItem) {{
-    // Check if dynamic expression sprite exists
     let headSrc = raceItem.defaultSrc;
     if (raceItem.expressions && raceItem.expressions[exprId]) {{
       headSrc = raceItem.expressions[exprId];
