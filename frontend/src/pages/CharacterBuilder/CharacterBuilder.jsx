@@ -245,6 +245,9 @@ const CharacterBuilder = () => {
       }
       return next;
     });
+    if (category === 'prop_type' && currentModel.id === 'prop') {
+      setActiveCategory('state');
+    }
   };
 
   // Đổi Màu sắc

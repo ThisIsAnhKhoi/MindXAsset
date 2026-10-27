@@ -57,20 +57,54 @@ const CustomizerInspector = ({
   const currentColor = colors[activeCategory] || '#ffffff';
   const presets = (currentPalettes && currentPalettes[activeCategory]) || colorPalettes[activeCategory] || [];
 
+  const getCategoryTitle = () => {
+    if (activeCategory === 'prop_type') return 'Nhóm Danh Mục Vật Phẩm';
+    if (activeCategory === 'state') {
+      const activeTypeObj = (currentConfig?.prop_type || []).find(t => t.id === selections.prop_type);
+      return activeTypeObj ? activeTypeObj.name : 'Vật Phẩm & Biến Thể';
+    }
+    if (activeCategory === 'pedestal') return '🏛️ Bệ Đỡ Trưng Bày';
+    if (activeCategory === 'aura') return '✨ Hào Quang Phép Thuật';
+    if (activeCategory === 'effects') return '🌟 Bụi Sao & Tia Sáng';
+    return activeCategory;
+  };
+
   return (
     <div className="bg-white rounded-2xl border border-gray-200 p-4 flex flex-col justify-between shadow-sm h-full overflow-hidden">
       {/* Tiêu đề mục đang tùy biến */}
       <div className="flex items-center justify-between border-b border-gray-100 pb-2.5 shrink-0">
-        <h3 className="text-base font-bold uppercase tracking-wider text-gray-800 font-sans">
-          {activeCategory}
+        <h3 className="text-base font-bold uppercase tracking-wider text-gray-800 font-sans truncate pr-2">
+          {getCategoryTitle()}
         </h3>
-        <span className="text-xs px-2.5 py-0.5 bg-red-50 text-red-700 font-bold rounded-full font-sans border border-red-200">
+        <span className="text-xs px-2.5 py-0.5 bg-red-50 text-red-700 font-bold rounded-full font-sans border border-red-200 shrink-0">
           {currentOptions.length} Kiểu
         </span>
       </div>
 
       {/* Danh sách Item Styles / Kiểu dáng (Lưới linh hoạt, tự cân đối không để trống ô) */}
       <div className="flex-1 overflow-hidden flex flex-col my-2">
+        {/* Quick category switch pills for props in state mode */}
+        {activeCategory === 'state' && currentConfig?.prop_type && (
+          <div className="flex gap-1.5 overflow-x-auto pb-2 mb-1.5 custom-scrollbar shrink-0">
+            {currentConfig.prop_type.map(type => {
+              const isTypeActive = selections.prop_type === type.id;
+              return (
+                <button
+                  key={type.id}
+                  type="button"
+                  onClick={() => onSelectOption('prop_type', type.id)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+                    isTypeActive
+                      ? 'bg-red-600 text-white border-red-700 shadow-xs scale-105'
+                      : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200 hover:text-red-600'
+                  }`}
+                >
+                  {type.name}
+                </button>
+              );
+            })}
+          </div>
+        )}
         <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 font-sans shrink-0">
           Chọn kiểu dáng (Xem trước phóng to):
         </label>
