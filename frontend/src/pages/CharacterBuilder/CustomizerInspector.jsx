@@ -50,7 +50,10 @@ const CustomizerInspector = ({
   currentConfig,
   currentPalettes
 }) => {
-  const currentOptions = (currentConfig || {})[activeCategory] || [];
+  const allOptions = (currentConfig || {})[activeCategory] || [];
+  const currentOptions = (activeCategory === 'state' && selections.prop_type)
+    ? allOptions.filter(o => !o.forType || o.forType === selections.prop_type)
+    : allOptions;
   const currentColor = colors[activeCategory] || '#ffffff';
   const presets = (currentPalettes && currentPalettes[activeCategory]) || colorPalettes[activeCategory] || [];
 

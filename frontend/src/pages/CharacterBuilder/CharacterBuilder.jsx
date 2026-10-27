@@ -7,7 +7,7 @@ import { assetConfig, getLayerSource } from './assets_config';
 import { monsterConfig, getMonsterLayers } from './monster_config';
 import { alienConfig, getAlienLayers } from './alien_config';
 import { vehicleConfig, getVehicleLayers, vehicleColorPalettes } from './vehicle_config';
-import { propConfig, getPropLayers } from './prop_config';
+import { propConfig, getPropLayers, propColorPalettes } from './prop_config';
 import { soldierConfig, getSoldierLayers, soldierColorPalettes } from './soldier_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
 import InlineSpritesheetStudio from '../../components/InlineSpritesheetStudio';
@@ -104,13 +104,17 @@ const CHARACTER_MODELS = [
   },
   {
     id: 'prop',
-    name: 'Vật Phẩm In-Game (Props)',
-    frameSize: 256,
+    name: 'Vật Phẩm In-Game (Props & Items)',
+    frameSize: 48,
     isSpritesheet: false,
     config: propConfig,
+    colorPalettes: propColorPalettes,
     categories: [
-      { id: 'prop_type', label: 'Loại Đồ Vật', icon: '📦' },
-      { id: 'state', label: 'Trạng Thái Tương Tác', icon: '✨' }
+      { id: 'prop_type', label: 'Nhóm Vật Phẩm', icon: '📦' },
+      { id: 'state', label: 'Vật Phẩm & Biến Thể', icon: '💎' },
+      { id: 'pedestal', label: 'Bệ Đỡ / Bục Trưng Bày', icon: '🏛️' },
+      { id: 'aura', label: 'Hào Quang Phép Thuật', icon: '✨' },
+      { id: 'effects', label: 'Bụi Sao & Tia Sáng', icon: '🌟' }
     ]
   }
 ];
@@ -231,7 +235,16 @@ const CharacterBuilder = () => {
 
   // Đổi Option kiểu dáng
   const handleSelectOption = (category, id) => {
-    setSelections(prev => ({ ...prev, [category]: id }));
+    setSelections(prev => {
+      const next = { ...prev, [category]: id };
+      if (category === 'prop_type' && currentModel.id === 'prop') {
+        const typeOpt = (currentModel.config.prop_type || []).find(t => t.id === id);
+        if (typeOpt && typeOpt.defaultState) {
+          next.state = typeOpt.defaultState;
+        }
+      }
+      return next;
+    });
   };
 
   // Đổi Màu sắc
@@ -293,12 +306,7 @@ const CharacterBuilder = () => {
     }
 
     if (currentModel.id === 'prop') {
-      return getPropLayers(selections).map(l => {
-        return {
-          ...l,
-          color: colors[l.category] || '#ffffff'
-        };
-      }).sort((a, b) => (a.z_index || 0) - (b.z_index || 0));
+      return getPropLayers(selections, colors);
     }
 
     if (currentModel.id === 'soldier') {
