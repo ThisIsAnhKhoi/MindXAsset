@@ -242,43 +242,20 @@ const CharacterBuilder = () => {
     }
   }, [activeCategory, currentModel]);
 
-  // 2. Nạp trước ngầm toàn bộ tài sản của model khi rảnh rỗi (Idle Background Preloader)
+  // 2. Nạp trước toàn bộ tài sản của model ngay lập tức (Eager Full Preloader)
   useEffect(() => {
-    const runIdlePreload = () => {
-      const allUrls = [];
-      Object.values(currentModel.config || {}).forEach(opts => {
-        if (Array.isArray(opts)) {
-          opts.forEach(opt => {
-            const src = opt.src || opt.thumbSrc || opt.layers?.[0]?.src;
-            if (src) allUrls.push(src);
-          });
-        }
-      });
-
-      // Chia nhỏ thành từng batch 20 ảnh để không làm nghẽn băng thông
-      let index = 0;
-      const batchSize = 20;
-      const loadNextBatch = () => {
-        if (index >= allUrls.length) return;
-        const batch = allUrls.slice(index, index + batchSize);
-        index += batchSize;
-        preloadImages(batch).then(() => {
-          if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-            window.requestIdleCallback(loadNextBatch);
-          } else {
-            setTimeout(loadNextBatch, 80);
-          }
+    const allUrls = [];
+    Object.values(currentModel.config || {}).forEach(opts => {
+      if (Array.isArray(opts)) {
+        opts.forEach(opt => {
+          const src = opt.src || opt.thumbSrc || opt.layers?.[0]?.src;
+          if (src) allUrls.push(src);
         });
-      };
-      loadNextBatch();
-    };
-
-    if (typeof window !== 'undefined') {
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(runIdlePreload);
-      } else {
-        setTimeout(runIdlePreload, 250);
       }
+    });
+
+    if (allUrls.length > 0) {
+      preloadImages(allUrls);
     }
   }, [currentModelId, currentModel.config]);
 
