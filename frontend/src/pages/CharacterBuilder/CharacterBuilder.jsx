@@ -5,6 +5,10 @@ import CategoryMenu from './CategoryMenu';
 import CustomizerInspector from './CustomizerInspector';
 import { assetConfig, getLayerSource } from './assets_config';
 import { monsterConfig, getMonsterLayers } from './monster_config';
+import { alienConfig, getAlienLayers } from './alien_config';
+import { vehicleConfig, getVehicleLayers, vehicleColorPalettes } from './vehicle_config';
+import { propConfig, getPropLayers } from './prop_config';
+import { soldierConfig, getSoldierLayers, soldierColorPalettes } from './soldier_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
 import InlineSpritesheetStudio from '../../components/InlineSpritesheetStudio';
 import { preloadImages } from './assetCache';
@@ -34,8 +38,24 @@ const CHARACTER_MODELS = [
     ]
   },
   {
+    id: 'soldier',
+    name: '🪖 Chiến Binh Quân Sự (Spec-Ops)',
+    frameSize: 32,
+    isSpritesheet: true,
+    config: soldierConfig,
+    colorPalettes: soldierColorPalettes,
+    categories: [
+      { id: 'bases', label: 'Body (Thân Lính)', icon: '👤' },
+      { id: 'helmets', label: 'Mũ Sắt / NVG / Mặt Nạ', icon: '🪖' },
+      { id: 'vests', label: 'Áo Giáp Chống Đạn', icon: '🦺' },
+      { id: 'bottoms', label: 'Quần & Giày Tác Chiến', icon: '👖' },
+      { id: 'weapons', label: 'Vũ Khí Tác Chiến', icon: '🔫' },
+      { id: 'gear', label: 'Ba Lô & Đai Đạn', icon: '🎒' }
+    ]
+  },
+  {
     id: 'monster',
-    name: 'Monster (Quái Vật)',
+    name: 'Monster (Quái Vật CC0)',
     frameSize: 256,
     isSpritesheet: false,
     config: monsterConfig,
@@ -48,6 +68,47 @@ const CHARACTER_MODELS = [
       { id: 'eyebrow', label: 'Eyebrow (Lông mày)', icon: '🤨' },
       { id: 'mouth', label: 'Mouth (Miệng)', icon: '👄' },
       { id: 'nose', label: 'Nose (Mũi)', icon: '👃' }
+    ]
+  },
+  {
+    id: 'alien',
+    name: 'Người Ngoài Hành Tinh (Alien)',
+    frameSize: 256,
+    isSpritesheet: false,
+    config: alienConfig,
+    categories: [
+      { id: 'body', label: 'Thân Ngoài Hành Tinh', icon: '👽' },
+      { id: 'antenna', label: 'Ăng-Ten Sóng Não', icon: '📡' },
+      { id: 'eye', label: 'Mắt Vũ Trụ / Bọ', icon: '👁️' },
+      { id: 'mouth', label: 'Hàm Răng Nanh', icon: '👄' },
+      { id: 'arm', label: 'Tay Xúc Tu / Càng', icon: '💪' },
+      { id: 'leg', label: 'Chân Xúc Tu / Đệm', icon: '🦵' }
+    ]
+  },
+  {
+    id: 'vehicle',
+    name: 'Xe Cộ & Phương Tiện (Top-Down)',
+    frameSize: 160,
+    isSpritesheet: false,
+    config: vehicleConfig,
+    colorPalettes: vehicleColorPalettes,
+    categories: [
+      { id: 'chassis', label: 'Dòng Phương Tiện (57 Xe)', icon: '🏎️' },
+      { id: 'direction', label: 'Hướng Nhìn (Góc Chiếu)', icon: '🧭' },
+      { id: 'paint', label: 'Màu Sơn Ngoại Thất', icon: '🎨' },
+      { id: 'accessories', label: 'Phụ Kiện & Hiệu Ứng', icon: '⚡' },
+      { id: 'ground', label: 'Mặt Đường & Bóng Đổ', icon: '🛣️' }
+    ]
+  },
+  {
+    id: 'prop',
+    name: 'Vật Phẩm In-Game (Props)',
+    frameSize: 256,
+    isSpritesheet: false,
+    config: propConfig,
+    categories: [
+      { id: 'prop_type', label: 'Loại Đồ Vật', icon: '📦' },
+      { id: 'state', label: 'Trạng Thái Tương Tác', icon: '✨' }
     ]
   }
 ];
@@ -107,6 +168,7 @@ const CharacterBuilder = () => {
     const options = (currentModel.config || {})[activeCategory] || [];
     const urls = options.map(opt => {
       if (opt.src) return opt.src;
+      if (opt.thumbSrc) return opt.thumbSrc;
       if (opt.layers && opt.layers[0]?.src) return opt.layers[0].src;
       return null;
     }).filter(Boolean);
@@ -123,7 +185,7 @@ const CharacterBuilder = () => {
       Object.values(currentModel.config || {}).forEach(opts => {
         if (Array.isArray(opts)) {
           opts.forEach(opt => {
-            const src = opt.src || opt.layers?.[0]?.src;
+            const src = opt.src || opt.thumbSrc || opt.layers?.[0]?.src;
             if (src) allUrls.push(src);
           });
         }
@@ -212,6 +274,33 @@ const CharacterBuilder = () => {
           color: colors[baseCat] || colors[l.category] || '#ffffff'
         };
       }).sort((a, b) => (a.z_index || 0) - (b.z_index || 0));
+    }
+
+    if (currentModel.id === 'alien') {
+      return getAlienLayers(selections).map(l => {
+        const baseCat = l.category.split('_')[0];
+        return {
+          ...l,
+          color: colors[baseCat] || colors[l.category] || '#ffffff'
+        };
+      }).sort((a, b) => (a.z_index || 0) - (b.z_index || 0));
+    }
+
+    if (currentModel.id === 'vehicle') {
+      return getVehicleLayers(selections, colors);
+    }
+
+    if (currentModel.id === 'prop') {
+      return getPropLayers(selections).map(l => {
+        return {
+          ...l,
+          color: colors[l.category] || '#ffffff'
+        };
+      }).sort((a, b) => (a.z_index || 0) - (b.z_index || 0));
+    }
+
+    if (currentModel.id === 'soldier') {
+      return getSoldierLayers(selections, colors);
     }
 
     let layers = [];
@@ -439,8 +528,8 @@ const CharacterBuilder = () => {
               <CanvasPreview
                 ref={canvasPreviewRef}
                 layers={activeLayers}
-                width={currentModel.isSpritesheet ? 380 : 360}
-                height={currentModel.isSpritesheet ? 380 : 640}
+                width={currentModel.isSpritesheet || currentModel.frameSize >= 100 ? 380 : 360}
+                height={currentModel.isSpritesheet || currentModel.frameSize >= 100 ? 380 : 640}
                 transparentBg={transparentBg}
                 frameSize={currentModel.frameSize}
                 isSpritesheet={currentModel.isSpritesheet}
@@ -534,6 +623,7 @@ const CharacterBuilder = () => {
               onSelectOption={handleSelectOption}
               onSelectColor={handleSelectColor}
               currentConfig={currentModel.config}
+              currentPalettes={currentModel.colorPalettes}
               isSpritesheet={currentModel.isSpritesheet}
             />
           </div>

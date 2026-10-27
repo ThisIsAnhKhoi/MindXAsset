@@ -46,6 +46,19 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
         ctx.clearRect(0, 0, width, height);
         ctx.imageSmoothingEnabled = false; // Đảm bảo pixelated
 
+        // Check if rendering legacy side-view vehicles (frameSize !== 100 && frameSize !== 160)
+        const isLegacyVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'wheels')) && frameSize !== 100 && frameSize !== 160;
+        const isTopDownVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'ground' || l.category === 'accessories')) && (frameSize === 100 || frameSize === 160);
+        const floorY = Math.round(height * (1 - 56 / 330)); // Top surface of the pedestal (h-14)
+        if (isLegacyVehicle) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.ellipse(width / 2, floorY, Math.round(width * 0.36), 10, 0, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.28)';
+          ctx.fill();
+          ctx.restore();
+        }
+
         let extractedSkinColor = null;
         for (let i = 0; i < loadedImages.length; i++) {
           const img = loadedImages[i];
@@ -55,19 +68,39 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
 
           const hasColor = layerInfo.color && layerInfo.color !== '#ffffff' && layerInfo.color.toLowerCase() !== '#fff';
           let finalColor = layerInfo.color;
-          const sX = isSpritesheet ? frameSize : 0;
+          const sX = isSpritesheet ? (img.width > frameSize ? frameSize : 0) : 0;
           const sY = 0;
-          const sW = isSpritesheet ? frameSize : img.width;
-          const sH = isSpritesheet ? frameSize : img.height;
+          const sW = isSpritesheet ? Math.min(frameSize, img.width) : img.width;
+          const sH = isSpritesheet ? Math.min(frameSize, img.height) : img.height;
 
-          // Scale to fit BOTH width AND height (whichever is smaller)
-          const scaleByW = (width * 0.85) / sW;
-          const scaleByH = (height * 0.85) / sH;
-          const layerScale = Math.min(scaleByW, scaleByH);
-          const dw = sW * layerScale;
-          const dh = sH * layerScale;
-          const dx = (width - dw) / 2;
-          const dy = (height - dh) / 2;
+          let layerScale;
+          let dw, dh, dx, dy;
+
+          if (isTopDownVehicle) {
+            // Integer 3x scale centered in canvas for 100x100 TopDown pixel art
+            const scale = Math.max(1, Math.floor((Math.min(width, height) * 0.85) / sW));
+            dw = sW * scale;
+            dh = sH * scale;
+            dx = Math.round((width - dw) / 2);
+            dy = Math.round((height - dh) / 2);
+          } else if (isLegacyVehicle && !layerInfo.position) {
+            layerScale = (width * 0.85) / 256;
+            dw = 256 * layerScale;
+            dh = 256 * layerScale;
+            dx = Math.round((width - dw) / 2);
+            dy = Math.round(floorY - 217 * layerScale);
+          } else {
+            // Scale to fit BOTH width AND height (whichever is smaller)
+            const scaleByW = (width * 0.85) / sW;
+            const scaleByH = (height * 0.85) / sH;
+            const rawScale = Math.min(scaleByW, scaleByH);
+            // Integer scale for pixel art sprites so every pixel is crisp and razor sharp
+            layerScale = (isSpritesheet || sW <= 64) ? Math.max(1, Math.floor(rawScale)) : rawScale;
+            dw = sW * layerScale;
+            dh = sH * layerScale;
+            dx = Math.round((width - dw) / 2);
+            dy = Math.round((height - dh) / 2);
+          }
 
           // Skin Color Extraction for Arms
           if (!isSpritesheet && layerInfo.category === 'base' && !extractedSkinColor) {
@@ -179,14 +212,15 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
     };
   }, [layers, width, height, frameSize, isSpritesheet]);
 
-  // Determine aspect ratio: spritesheet=square, portrait(64x96)=9:16, monster(256x256)=square
-  const isSquareContent = frameSize >= 128 || isSpritesheet;
+  // Determine aspect ratio: spritesheet=square, portrait(64x96)=9:16, monster/topdown=square
+  const isSquareContent = frameSize >= 100 || isSpritesheet;
+  const isTopDown = frameSize === 100 || frameSize === 160;
   const aspectClass = isSquareContent ? 'aspect-square max-w-[330px] max-h-[330px]' : 'aspect-[9/16] max-w-[240px] max-h-[370px]';
 
   return (
     <div className={`relative border-4 border-gray-200 rounded-xl shadow-lg flex flex-col items-center justify-center overflow-hidden w-full transition-colors duration-300 ${aspectClass} ${transparentBg ? 'bg-transparent' : 'bg-gray-50'}`}>
-      {/* Nền bục đứng nhân vật Retro Pixel Art - Chỉ hiện khi KHÔNG bật nền trong suốt */}
-      {!transparentBg && (
+      {/* Nền bục đứng nhân vật Retro Pixel Art - Chỉ hiện khi KHÔNG bật nền trong suốt và KHÔNG phải TopDown */}
+      {!transparentBg && !isTopDown && (
         <div className="absolute inset-0 z-0 flex flex-col justify-end">
           {/* Bầu trời / background phía trên */}
           <div className="flex-1 bg-gray-100"></div>
@@ -194,6 +228,16 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
           <div className="h-10 bg-gray-200 border-t border-gray-300"></div>
           {/* Sàn đất / bục đứng */}
           <div className="h-14 bg-gray-300 border-t border-gray-400"></div>
+        </div>
+      )}
+
+      {/* Nền Studio Top-Down phẳng chuyên nghiệp */}
+      {!transparentBg && isTopDown && (
+        <div className="absolute inset-0 z-0 bg-gray-100 flex items-center justify-center">
+          <div className="w-full h-full opacity-25" style={{
+            backgroundImage: 'radial-gradient(#64748b 1px, transparent 1px)',
+            backgroundSize: '16px 16px'
+          }}></div>
         </div>
       )}
 

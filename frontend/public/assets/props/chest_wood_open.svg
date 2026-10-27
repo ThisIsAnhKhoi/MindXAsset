@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Open Treasure Chest Overflowing with Gold & Gems -->
+  <defs>
+    <linearGradient id="woodPlank2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9C5B23"/>
+      <stop offset="100%" stop-color="#5C310B"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFEE55"/>
+      <stop offset="100%" stop-color="#DD9900"/>
+    </linearGradient>
+    <linearGradient id="ironBand2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#707A8A"/>
+      <stop offset="100%" stop-color="#3A3E47"/>
+    </linearGradient>
+  </defs>
+  <!-- Open Chest Lid Tilted Back -->
+  <path d="M 52,90 C 52,40 204,40 204,90 L 195,115 L 61,115 Z" fill="url(#woodPlank2)" stroke="#221100" stroke-width="4"/>
+  <!-- Gold Coins & Glowing Gems Inside -->
+  <ellipse cx="128" cy="130" rx="65" ry="25" fill="url(#goldGlow)" stroke="#AA7700" stroke-width="3"/>
+  <!-- Individual Coins -->
+  <circle cx="110" cy="125" r="7" fill="#FFE600" stroke="#996600" stroke-width="1.5"/>
+  <circle cx="126" cy="122" r="7" fill="#FFE600" stroke="#996600" stroke-width="1.5"/>
+  <circle cx="142" cy="126" r="7" fill="#FFE600" stroke="#996600" stroke-width="1.5"/>
+  <circle cx="95" cy="130" r="6" fill="#FFD700" stroke="#996600" stroke-width="1.5"/>
+  <circle cx="160" cy="130" r="6" fill="#FFD700" stroke="#996600" stroke-width="1.5"/>
+  <!-- Sparkling Red Ruby & Blue Sapphire Gems -->
+  <polygon points="120,110 128,118 120,126 112,118" fill="#FF0044" stroke="#880022" stroke-width="2"/>
+  <polygon points="145,112 153,120 145,128 137,120" fill="#00AAFF" stroke="#004488" stroke-width="2"/>
+  <!-- Shiny Light Beams -->
+  <line x1="120" y1="102" x2="120" y2="85" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <line x1="145" y1="104" x2="145" y2="87" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <!-- Lower Chest Box -->
+  <rect x="58" y="130" width="140" height="75" rx="6" fill="url(#woodPlank2)" stroke="#221100" stroke-width="5"/>
+  <!-- Iron Straps -->
+  <rect x="80" y="130" width="16" height="75" fill="url(#ironBand2)" stroke="#1A1C20" stroke-width="3"/>
+  <rect x="160" y="130" width="16" height="75" fill="url(#ironBand2)" stroke="#1A1C20" stroke-width="3"/>
+  <!-- Open Golden Lock -->
+  <rect x="116" y="130" width="24" height="20" rx="3" fill="#E6A100" stroke="#805900" stroke-width="3"/>
+</svg>

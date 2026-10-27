@@ -50,4 +50,9 @@ backend/ai_module/__pycache__/
 backend/ai_module/output/
 backend/uploads/
 backend/output/**/*.png
-/output/
+/output/
+
+# Raw zip packages and raw assets
+*.zip
+NewAsset/
+

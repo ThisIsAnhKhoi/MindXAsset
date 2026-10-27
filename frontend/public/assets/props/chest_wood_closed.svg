@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Closed Medieval Dungeon Treasure Chest -->
+  <defs>
+    <linearGradient id="woodPlank" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9C5B23"/>
+      <stop offset="100%" stop-color="#5C310B"/>
+    </linearGradient>
+    <linearGradient id="ironBand" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#707A8A"/>
+      <stop offset="100%" stop-color="#3A3E47"/>
+    </linearGradient>
+  </defs>
+  <!-- Chest Lower Box -->
+  <rect x="58" y="130" width="140" height="75" rx="6" fill="url(#woodPlank)" stroke="#221100" stroke-width="5"/>
+  <!-- Curved Chest Lid (Closed) -->
+  <path d="M 54,130 C 54,85 202,85 202,130 Z" fill="url(#woodPlank)" stroke="#221100" stroke-width="5"/>
+  <!-- Iron Straps (Left & Right) -->
+  <rect x="80" y="93" width="16" height="112" rx="2" fill="url(#ironBand)" stroke="#1A1C20" stroke-width="3"/>
+  <rect x="160" y="93" width="16" height="112" rx="2" fill="url(#ironBand)" stroke="#1A1C20" stroke-width="3"/>
+  <!-- Golden Lock Plate & Keyhole -->
+  <rect x="116" y="122" width="24" height="26" rx="4" fill="#E6A100" stroke="#805900" stroke-width="3"/>
+  <circle cx="128" cy="132" r="3.5" fill="#331A00"/>
+  <polygon points="126,134 130,134 131,142 125,142" fill="#331A00"/>
+  <!-- Rivets -->
+  <circle cx="88" cy="105" r="2" fill="#DDE"/>
+  <circle cx="168" cy="105" r="2" fill="#DDE"/>
+  <circle cx="88" cy="190" r="2" fill="#DDE"/>
+  <circle cx="168" cy="190" r="2" fill="#DDE"/>
+</svg>

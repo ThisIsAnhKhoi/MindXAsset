@@ -121,7 +121,7 @@ export async function removeBackgroundSmart(imageSource, options = {}) {
     const tempImg = new Image();
     tempImg.crossOrigin = 'anonymous';
     tempImg.onload = () => resolve(tempImg);
-    tempImg.onerror = (err) => reject(new Error('Không thể tải dữ liệu ảnh để xóa nền.'));
+    tempImg.onerror = () => reject(new Error('Không thể tải dữ liệu ảnh để xóa nền.'));
     tempImg.src = typeof imageSource === 'string' ? imageSource : imageSource.src;
   });
 
@@ -148,12 +148,9 @@ export async function removeBackgroundSmart(imageSource, options = {}) {
   const totalPixels = width * height;
 
   // Xác định danh sách màu nền mục tiêu
-  let targetColors = [];
-  if (targetColor && Array.isArray(targetColor) && targetColor.length >= 3) {
-    targetColors = [targetColor.slice(0, 3)];
-  } else {
-    targetColors = detectBackgroundColors(data, width, height);
-  }
+  const targetColors = (targetColor && Array.isArray(targetColor) && targetColor.length >= 3)
+    ? [targetColor.slice(0, 3)]
+    : detectBackgroundColors(data, width, height);
 
   let removedCount = 0;
 

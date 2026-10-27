@@ -75,17 +75,16 @@ export default function InlineSpritesheetStudio({
   const activeCellRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
-  // Đồng bộ ảnh mới từ props ngoài (khi AI vừa sinh xong ảnh)
-  useEffect(() => {
-    if (initialImageUrl) {
-      setImageUrl(initialImageUrl);
-      setOriginalImageUrl(null);
-      setFileName('ai_generated_spritesheet.png');
-      setColumns(5);
-      setRows(3);
-      setZoomMode('fit');
-    }
-  }, [initialImageUrl]);
+  const [prevInitial, setPrevInitial] = useState(initialImageUrl);
+  if (initialImageUrl && initialImageUrl !== prevInitial) {
+    setPrevInitial(initialImageUrl);
+    setImageUrl(initialImageUrl);
+    setOriginalImageUrl(null);
+    setFileName('ai_generated_spritesheet.png');
+    setColumns(5);
+    setRows(3);
+    setZoomMode('fit');
+  }
 
   // Đo đạc khổ ảnh thực tế khi ảnh thay đổi
   useEffect(() => {
@@ -269,11 +268,13 @@ export default function InlineSpritesheetStudio({
   }, [columns, rows]);
 
   // Hành động hiện tại
-  const currentAction = actions.find((a) => a.id === selectedActionId) || actions[0] || {
-    id: 'all',
-    start_frame: 0,
-    end_frame: Math.max(0, columns * rows - 1)
-  };
+  const currentAction = useMemo(() => {
+    return actions.find((a) => a.id === selectedActionId) || actions[0] || {
+      id: 'all',
+      start_frame: 0,
+      end_frame: Math.max(0, columns * rows - 1)
+    };
+  }, [actions, selectedActionId, columns, rows]);
 
   // Vòng lặp tua hoạt ảnh
   useEffect(() => {

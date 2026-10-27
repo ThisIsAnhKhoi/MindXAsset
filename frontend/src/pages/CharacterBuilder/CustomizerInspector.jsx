@@ -47,11 +47,12 @@ const CustomizerInspector = ({
   colors,
   onSelectOption,
   onSelectColor,
-  currentConfig
+  currentConfig,
+  currentPalettes
 }) => {
   const currentOptions = (currentConfig || {})[activeCategory] || [];
   const currentColor = colors[activeCategory] || '#ffffff';
-  const presets = colorPalettes[activeCategory] || [];
+  const presets = (currentPalettes && currentPalettes[activeCategory]) || colorPalettes[activeCategory] || [];
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 p-4 flex flex-col justify-between shadow-sm h-full overflow-hidden">
@@ -65,12 +66,12 @@ const CustomizerInspector = ({
         </span>
       </div>
 
-      {/* Danh sách Item Styles / Kiểu dáng (Lưới 3 cột rộng rãi, Zoom tiêu cự tự động) */}
+      {/* Danh sách Item Styles / Kiểu dáng (Lưới linh hoạt, tự cân đối không để trống ô) */}
       <div className="flex-1 overflow-hidden flex flex-col my-2">
         <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 font-sans shrink-0">
           Chọn kiểu dáng (Xem trước phóng to):
         </label>
-        <div className="grid grid-cols-3 gap-2.5 overflow-y-auto pr-1 custom-scrollbar flex-1">
+        <div className={`grid ${currentOptions.length <= 4 ? 'grid-cols-2' : 'grid-cols-3'} gap-2.5 overflow-y-auto pr-1 custom-scrollbar flex-1 content-start`}>
           {currentOptions.map((opt) => {
             const isSelected = selections[activeCategory] === opt.id;
             const isNone = opt.id.endsWith('_none');
@@ -82,7 +83,7 @@ const CustomizerInspector = ({
                 type="button"
                 onClick={() => onSelectOption(activeCategory, opt.id)}
                 className={`
-                  relative rounded-xl border-2 flex flex-col items-center justify-between p-1.5 transition-all duration-150 group cursor-pointer aspect-square
+                  relative rounded-xl border-2 flex flex-col items-center justify-between p-2 transition-all duration-150 group cursor-pointer aspect-square min-h-[94px]
                   ${
                     isSelected
                       ? 'border-red-500 bg-red-50 shadow-md ring-2 ring-red-200 scale-[1.02]'
@@ -91,7 +92,7 @@ const CustomizerInspector = ({
                 `}
                 title={opt.name}
               >
-                {/* Checkmark badge góc trên bên phải - không đè lên hình */}
+                {/* Checkmark badge góc trên bên phải */}
                 {isSelected && (
                   <div className="absolute top-1 right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center shadow-xs z-10 pointer-events-none">
                     <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,29 +101,29 @@ const CustomizerInspector = ({
                   </div>
                 )}
 
-                {/* Khung ảnh Thumbnail Preview (Kích thước 48x48px) */}
-                <div className="w-12 h-12 rounded-lg bg-gray-50/90 border border-gray-100 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 shrink-0">
+                {/* Khung ảnh Thumbnail Preview (Phóng to sắc nét) */}
+                <div className="w-14 h-14 rounded-lg bg-gray-50/90 border border-gray-100 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 shrink-0 p-0.5">
                   {isNone ? (
                     <div className="flex flex-col items-center justify-center text-gray-400">
-                      <span className="text-xl font-bold leading-none">∅</span>
+                      <span className="text-2xl font-bold leading-none">∅</span>
                     </div>
-                  ) : opt.src ? (
-                    /* Dành cho Monster Builder (Ảnh đơn PNG) */
+                  ) : (opt.thumbSrc || opt.src) ? (
+                    /* Ảnh đơn PNG/SVG phóng to chuẩn pixel */
                     <img
-                      src={opt.src}
+                      src={opt.thumbSrc || opt.src}
                       alt={opt.name}
                       loading="lazy"
-                      className="w-full h-full object-contain pointer-events-none p-0.5"
+                      className="w-full h-full object-contain pointer-events-none drop-shadow-2xs"
                       style={{ imageRendering: 'pixelated' }}
                     />
                   ) : spriteSrc ? (
                     /* Dành cho RPG Pipoya (Auto-Zoom tiêu cự vào mũ, kính, mắt) */
                     <div
-                      className="w-12 h-12 pointer-events-none"
+                      className="w-14 h-14 pointer-events-none"
                       style={getCategorySpriteStyle(activeCategory, spriteSrc)}
                     />
                   ) : (
-                    <div className={`w-6 h-6 rounded flex items-center justify-center font-bold text-xs ${isSelected ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-600'}`}>
+                    <div className={`w-7 h-7 rounded flex items-center justify-center font-bold text-xs ${isSelected ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-600'}`}>
                       ✦
                     </div>
                   )}
@@ -165,14 +166,16 @@ const CustomizerInspector = ({
         {/* Các chấm màu gợi ý sẵn (Chỉ hiện khi có preset) */}
         {presets.length > 0 && (
           <div className="flex flex-wrap gap-1.5 justify-start">
-            {presets.map((colorObj) => {
-              const isActiveColor = currentColor.toLowerCase() === colorObj.hex.toLowerCase();
+            {presets.map((colorItem) => {
+              const hex = typeof colorItem === 'string' ? colorItem : (colorItem?.hex || '#ffffff');
+              const name = typeof colorItem === 'string' ? colorItem : (colorItem?.name || hex);
+              const isActiveColor = (currentColor || '').toLowerCase() === hex.toLowerCase();
               return (
                 <button
-                  key={colorObj.hex}
+                  key={hex}
                   type="button"
-                  onClick={() => onSelectColor(activeCategory, colorObj.hex)}
-                  title={colorObj.name}
+                  onClick={() => onSelectColor(activeCategory, hex)}
+                  title={name}
                   className={`
                     w-6 h-6 rounded-full border-2 transition-transform shadow-2xs cursor-pointer
                     ${
@@ -181,7 +184,7 @@ const CustomizerInspector = ({
                         : 'border-white hover:scale-110 hover:ring-1 hover:ring-gray-300'
                     }
                   `}
-                  style={{ backgroundColor: colorObj.hex }}
+                  style={{ backgroundColor: hex }}
                 />
               );
             })}

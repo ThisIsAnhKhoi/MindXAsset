@@ -236,17 +236,48 @@ app.post('/api/generate-background', (req, res) => {
   runPythonCLI(res, args);
 });
 
+const enrichSubjectWithThemeAndType = (subject, theme, subType) => {
+  if (!subject) return subject;
+  let enriched = subject.trim();
+  const themeKeywords = {
+    military: 'military tactical army gear, combat equipment, camo pattern',
+    fantasy: 'mythical fantasy enchanted arcane aesthetic, medieval magical runes',
+    daily: 'modern daily life contemporary urban streetwear style',
+    scifi: 'sci-fi futuristic space tech cybernetic, high-tech planetary explorer',
+    items: 'isolated RPG game item loot asset, clean inventory collectible icon'
+  };
+  const typeKeywords = {
+    vehicle: 'game exploration vehicle machine rover, mechanical wheels tracks chassis',
+    alien: 'extraterrestrial alien creature, sci-fi cosmic organism, tentacles extraterrestrial biology',
+    prop: 'in-game interactive prop object, game mechanics element'
+  };
+
+  const additions = [];
+  if (subType && typeKeywords[subType] && !enriched.toLowerCase().includes(subType)) {
+    additions.push(typeKeywords[subType]);
+  }
+  if (theme && themeKeywords[theme] && !enriched.toLowerCase().includes(theme)) {
+    additions.push(themeKeywords[theme]);
+  }
+
+  if (additions.length > 0) {
+    enriched = `${enriched}, ${additions.join(', ')}`;
+  }
+  return enriched;
+};
+
 app.post('/api/generate-sprite', (req, res) => {
-  const { subject, size_key, style, perspective, seed } = req.body;
+  const { subject, size_key, style, perspective, seed, theme, sub_type } = req.body;
   if (!subject) return res.status(400).json({ error: 'Missing subject field' });
 
   const safeSizeKey = size_key || 'sprite_medium';
   const safeSeed = (seed ?? -1).toString();
+  const finalSubject = enrichSubjectWithThemeAndType(subject, theme, sub_type);
 
   let command = 'sprite';
   if (style === 'Pixel Art' || subject.includes('block size')) command = 'pixel';
 
-  const args = [command, subject, '--size', safeSizeKey, '--seed', safeSeed, '--out', baseOutputDir];
+  const args = [command, finalSubject, '--size', safeSizeKey, '--seed', safeSeed, '--out', baseOutputDir];
   if (command === 'sprite') {
     args.push('--style', getStyleMap(style));
     args.push('--facing', perspective === 'Front' ? 'front' : (perspective === 'Side' ? 'side' : (perspective === 'Back' ? 'back' : 'three-quarter')));
@@ -255,15 +286,16 @@ app.post('/api/generate-sprite', (req, res) => {
 });
 
 app.post('/api/generate-tilesheet', (req, res) => {
-  const { subject, action, frames, style, seed } = req.body;
+  const { subject, action, frames, style, seed, theme, sub_type } = req.body;
   if (!subject) return res.status(400).json({ error: 'Missing subject field' });
 
   const safeFrames = (frames ?? 10).toString();
   const safeAction = action || 'running';
   const safeSeed = (seed ?? -1).toString();
+  const finalSubject = enrichSubjectWithThemeAndType(subject, theme, sub_type);
 
   const args = [
-    'tilesheet', subject,
+    'tilesheet', finalSubject,
     '--frames', safeFrames,
     '--action', safeAction,
     '--style', getStyleMap(style),

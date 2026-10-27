@@ -19,7 +19,151 @@ const IMAGE_UPLOAD_TYPES = ['sprite-from-image', 'pixel-from-image'];
 /* ── Asset types where Style & Perspective are irrelevant ── */
 const HIDE_STYLE_PERSPECTIVE_TYPES = ['pixel', 'pixel-from-image', 'sprite-from-image'];
 
+/* ── Bộ Chủ Đề Chuyên Sâu cho Game MindX ── */
+const THEMES = [
+  { id: 'all', label: 'Tất cả (All)', icon: '🌟' },
+  { id: 'military', label: 'Quân Đội (Military)', icon: '🎖️' },
+  { id: 'fantasy', label: 'Thần Thoại (Fantasy)', icon: '🧙' },
+  { id: 'daily', label: 'Đời Thường (Daily)', icon: '🎒' },
+  { id: 'scifi', label: 'Xe Thám Hiểm & Sci-Fi', icon: '🚀' },
+  { id: 'items', label: 'Vật Phẩm & Tương Tác', icon: '💎' }
+];
+
+/* ── Thư Viện Mẫu Gợi Ý 1-Click (Smart Presets) ── */
+const SMART_PRESETS = [
+  // Quân đội (Military)
+  {
+    theme: 'military',
+    title: 'Lính Đặc Nhiệm Rừng',
+    type: 'character',
+    prompt: 'elite special forces commando soldier wearing jungle camouflage tactical gear, night vision goggles and combat helmet',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+  {
+    theme: 'military',
+    title: 'Xe Tăng Chiến Thuật Bánh Xích',
+    type: 'vehicle',
+    prompt: 'mini tactical armored battle tank with heavy rotating turret and dual caterpillar tracks',
+    style: 'Pixel Art',
+    ratio: '16:9'
+  },
+  {
+    theme: 'military',
+    title: 'Hòm Tiếp Tế Đạn Dược Quân Đội',
+    type: 'prop',
+    prompt: 'military green heavy metal ammo supply crate with steel latch and yellow stencil hazard markings',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+
+  // Xe thám hiểm & Sci-Fi / Người ngoài hành tinh
+  {
+    theme: 'scifi',
+    title: 'Xe Thám Hiểm Sao Hỏa (Rover)',
+    type: 'vehicle',
+    prompt: 'Mars planetary exploration rover machine with large rugged off-road wheels, rotating radar dish, robotic sample arm and solar panels',
+    style: 'Pixel Art',
+    ratio: '16:9'
+  },
+  {
+    theme: 'scifi',
+    title: 'Người Ngoài Hành Tinh 3 Mắt',
+    type: 'alien',
+    prompt: 'green extraterrestrial alien creature with 3 glowing purple eyes, sensory antennae, tentacle limbs and high-tech bio-suit',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+  {
+    theme: 'scifi',
+    title: 'Tàu Bay Đệm Từ (Hover Speeder)',
+    type: 'vehicle',
+    prompt: 'futuristic aerodynamic hover speeder bike with blue glowing anti-gravity thrusters and sleek cockpit',
+    style: 'Pixel Art',
+    ratio: '16:9'
+  },
+
+  // Thần thoại & Fantasy
+  {
+    theme: 'fantasy',
+    title: 'Hiệp Sĩ Hoàng Gia Giáp Sắt',
+    type: 'character',
+    prompt: 'noble paladin knight wearing shining steel plate armor with golden trim engravings and royal blue flowing cape',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+  {
+    theme: 'fantasy',
+    title: 'Pháp Sư Áo Choàng Tím',
+    type: 'character',
+    prompt: 'arcane wizard wearing deep purple hooded robe holding glowing magical crystal orb staff',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+  {
+    theme: 'fantasy',
+    title: 'Cổng Dịch Chuyển Ma Thuật (Portal)',
+    type: 'prop',
+    prompt: 'ancient stone arch portal with glowing purple swirling dimensional energy vortex and mystical runes',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+
+  // Đời thường (Daily / Modern)
+  {
+    theme: 'daily',
+    title: 'Học Sinh Đeo Balo Đồng Phục',
+    type: 'character',
+    prompt: 'anime high school student wearing classic school uniform carrying a backpack and sneakers',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+  {
+    theme: 'daily',
+    title: 'Xe Buýt Học Sinh Retro',
+    type: 'vehicle',
+    prompt: 'cute yellow classic retro school bus in pixel art style with black bumper',
+    style: 'Pixel Art',
+    ratio: '16:9'
+  },
+  {
+    theme: 'daily',
+    title: 'Máy Bán Nước Tự Động Phố Phường',
+    type: 'prop',
+    prompt: 'Japanese street glowing beverage vending machine with illuminated drinks display and coin slot',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+
+  // Vật phẩm & Đồ tương tác (Items & Props)
+  {
+    theme: 'items',
+    title: 'Rương Kho Báu Vàng Khảm Ngọc',
+    type: 'prop',
+    prompt: 'ornate royal golden treasure chest filled with glowing colorful gems and ancient gold coins',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+  {
+    theme: 'items',
+    title: 'Bình Máu Hồi Phục (Health Potion)',
+    type: 'prop',
+    prompt: 'glass flask potion bottle filled with glowing red bubbling elixir liquid with wooden cork stopper',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  },
+  {
+    theme: 'items',
+    title: 'Cần Gạt Cơ Quan Mở Cửa Hầm',
+    type: 'prop',
+    prompt: 'dungeon wall switch heavy iron lever with stone base plate and red crystal indicator light',
+    style: 'Pixel Art',
+    ratio: '1:1'
+  }
+];
+
 const Generator = () => {
+  const [selectedTheme, setSelectedTheme] = useState('all');
   const [prompt, setPrompt] = useState('');
   const [assetType, setAssetType] = useState('character');
   const [artStyle, setArtStyle] = useState('Pixel Art');
@@ -101,6 +245,16 @@ const Generator = () => {
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
+  /* ── Áp dụng mẫu gợi ý thông minh 1-Click ── */
+  const applySmartPreset = (preset) => {
+    setPrompt(preset.prompt);
+    setAssetType(preset.type);
+    if (preset.style) setArtStyle(preset.style);
+    if (preset.ratio) setRatio(preset.ratio);
+    if (preset.theme && preset.theme !== 'all') setSelectedTheme(preset.theme);
+    toast.success(`Đã áp dụng mẫu: "${preset.title}"! 🚀`);
+  };
+
   /* ── Generate handler ── */
   const handleGenerate = async () => {
     if (!IMAGE_UPLOAD_TYPES.includes(assetType) && !prompt.trim() && !tiles.trim()) {
@@ -133,12 +287,15 @@ const Generator = () => {
         size_key = `${customWidth}x${customHeight}`;
       }
 
+      const activeTheme = selectedTheme !== 'all' ? selectedTheme : undefined;
+      const activeSubType = ['vehicle', 'alien', 'prop'].includes(assetType) ? assetType : undefined;
+
       if (assetType === 'background') {
         endpoint = `${baseUrl}/api/generate-background`;
-        bodyData = { subject: prompt, size_key, style: artStyle, time_of_day: timeOfDay, seed: -1 };
+        bodyData = { subject: prompt, size_key, style: artStyle, time_of_day: timeOfDay, seed: -1, theme: activeTheme };
       } else if (assetType === 'tilesheet') {
         endpoint = `${baseUrl}/api/generate-tilesheet`;
-        bodyData = { subject: prompt, action, frames, style: artStyle, perspective, seed: -1 };
+        bodyData = { subject: prompt, action, frames, style: artStyle, perspective, seed: -1, theme: activeTheme, sub_type: activeSubType };
       } else if (assetType === 'tileset') {
         endpoint = `${baseUrl}/api/generate-tileset`;
         bodyData = { subject: prompt || tiles, size_key: cellSize, columns, style: artStyle, perspective, seed: -1 };
@@ -163,7 +320,15 @@ const Generator = () => {
           styleToSend = 'Pixel Art';
           finalPrompt += `, color palette: ${colors} colors limited, block size ${blockSize}`;
         }
-        bodyData = { subject: finalPrompt, size_key, style: styleToSend, perspective, seed: -1 };
+        bodyData = { 
+          subject: finalPrompt, 
+          size_key, 
+          style: styleToSend, 
+          perspective, 
+          seed: -1,
+          theme: activeTheme,
+          sub_type: activeSubType
+        };
       }
 
       let response;
@@ -210,17 +375,37 @@ const Generator = () => {
         </div>
 
         <div className="flex flex-col gap-4">
+          {/* Chủ đề Game (Theme) */}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-semibold text-gray-700 flex items-center justify-between">
+              <span>Chủ đề Game (Theme)</span>
+              <span className="text-xs bg-red-50 text-red-600 font-semibold px-2 py-0.5 rounded-full">Mới ✦</span>
+            </label>
+            <select 
+              className="w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition font-medium"
+              value={selectedTheme} 
+              onChange={(e) => setSelectedTheme(e.target.value)}
+            >
+              {THEMES.map(t => (
+                <option key={t.id} value={t.id}>{t.icon} {t.label}</option>
+              ))}
+            </select>
+          </div>
+
           {/* Loại Asset */}
           <div className="flex flex-col gap-2">
             <label className="text-sm font-semibold text-gray-700">Loại Asset</label>
             <select className="w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition" value={assetType} onChange={(e) => handleAssetTypeChange(e.target.value)}>
-              <option value="character">Nhân vật / Sprite</option>
-              <option value="background">Cảnh quan / Background</option>
-              <option value="tilesheet">Hoạt ảnh / Tilesheet</option>
-              <option value="tileset">Gạch môi trường / Tileset</option>
-              <option value="pixel">Ép chữ thành Pixel</option>
-              <option value="sprite-from-image">Từ ảnh {'→'} Sprite</option>
-              <option value="pixel-from-image">Từ ảnh {'→'} Pixel Art</option>
+              <option value="character">👤 Nhân vật / Chiến binh</option>
+              <option value="vehicle">🚙 Xe thám hiểm / Phương tiện</option>
+              <option value="alien">👽 Người ngoài hành tinh / Quái vật</option>
+              <option value="prop">💎 Vật phẩm & Đồ tương tác</option>
+              <option value="background">🏞️ Cảnh quan / Background</option>
+              <option value="tilesheet">🎞️ Hoạt ảnh / Tilesheet</option>
+              <option value="tileset">🧱 Gạch môi trường / Tileset</option>
+              <option value="pixel">👾 Ép chữ thành Pixel</option>
+              <option value="sprite-from-image">🖼️ Từ ảnh {'→'} Sprite</option>
+              <option value="pixel-from-image">🖼️ Từ ảnh {'→'} Pixel Art</option>
             </select>
           </div>
 
@@ -416,9 +601,34 @@ const Generator = () => {
       <div className="lg:col-span-8 flex flex-col gap-6">
         {/* ── Prompt area ── */}
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-3">
             <h2 className="text-xl font-bold text-gray-900">Mô tả Asset</h2>
-            <span className="text-xs font-medium bg-red-100 text-red-700 px-3 py-1 rounded-full">AI Team Pipeline</span>
+            <span className="text-xs font-semibold bg-red-100 text-red-700 px-3 py-1 rounded-full">AI Team Pipeline</span>
+          </div>
+
+          {/* ── Khay Gợi Ý Ý Tưởng 1-Click Theo Chủ Đề ── */}
+          <div className="mb-4 bg-gray-50/70 p-3.5 rounded-xl border border-gray-200">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold text-gray-600 uppercase tracking-wider flex items-center gap-1.5">
+                💡 Ý Tưởng Gợi Ý 1-Click ({selectedTheme === 'all' ? 'Tất cả' : THEMES.find(t => t.id === selectedTheme)?.label})
+              </span>
+              <span className="text-[11px] text-gray-400">Bấm để tự động điền thông số</span>
+            </div>
+            <div className="flex flex-wrap gap-2 max-h-24 overflow-y-auto pr-1">
+              {SMART_PRESETS
+                .filter(p => selectedTheme === 'all' || p.theme === selectedTheme)
+                .map((preset, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => applySmartPreset(preset)}
+                    className="text-xs bg-white hover:bg-red-50 hover:text-red-700 hover:border-red-300 border border-gray-200 text-gray-700 font-medium px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shadow-2xs hover:shadow-xs active:scale-95 cursor-pointer"
+                  >
+                    <span>{preset.theme === 'military' ? '🎖️' : preset.theme === 'scifi' ? '🚀' : preset.theme === 'fantasy' ? '🧙' : preset.theme === 'daily' ? '🎒' : '💎'}</span>
+                    <span>{preset.title}</span>
+                  </button>
+                ))}
+            </div>
           </div>
           
           {/* Textarea — nút "Tạo Asset" đã được tách ra ngoài */}

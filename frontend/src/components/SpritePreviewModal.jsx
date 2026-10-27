@@ -77,20 +77,24 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     return list;
   }, [metadata, columns, rows]);
 
-  // Set default action when actions list updates
-  useEffect(() => {
+  // Set default action when actions list updates during render
+  const [prevActions, setPrevActions] = useState(actions);
+  if (actions !== prevActions) {
+    setPrevActions(actions);
     if (actions.length > 0) {
       const preferred = actions.find(a => a.id !== 'all') || actions[0];
       setSelectedActionId(preferred.id);
       setCurrentFrame(preferred.start_frame);
     }
-  }, [actions]);
+  }
 
-  const currentAction = actions.find(a => a.id === selectedActionId) || actions[0] || {
-    id: 'all',
-    start_frame: 0,
-    end_frame: Math.max(0, columns * rows - 1)
-  };
+  const currentAction = useMemo(() => {
+    return actions.find(a => a.id === selectedActionId) || actions[0] || {
+      id: 'all',
+      start_frame: 0,
+      end_frame: Math.max(0, columns * rows - 1)
+    };
+  }, [actions, selectedActionId, columns, rows]);
 
   // Animation playback loop bounded to current action
   useEffect(() => {

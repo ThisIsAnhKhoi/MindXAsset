@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Dungeon Wall Lever Switch (ON State - Lever Pulled Down) -->
+  <defs>
+    <linearGradient id="stonePlate2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#555E68"/>
+      <stop offset="100%" stop-color="#33383F"/>
+    </linearGradient>
+  </defs>
+  <!-- Stone Wall Mount Plate -->
+  <rect x="75" y="110" width="106" height="110" rx="8" fill="url(#stonePlate2)" stroke="#1A1C20" stroke-width="5"/>
+  <!-- Mounting Screws -->
+  <circle cx="90" cy="125" r="4" fill="#88929E"/>
+  <circle cx="166" cy="125" r="4" fill="#88929E"/>
+  <circle cx="90" cy="205" r="4" fill="#88929E"/>
+  <circle cx="166" cy="205" r="4" fill="#88929E"/>
+  <!-- Status Indicator Light (Green = Active/Unlocked) -->
+  <circle cx="128" cy="132" r="7" fill="#00FF66" stroke="#008833" stroke-width="2"/>
+  <circle cx="126" cy="130" r="2" fill="#FFFFFF"/>
+  <!-- Lever Pivot Base Box -->
+  <rect x="108" y="155" width="40" height="35" rx="4" fill="#222" stroke="#111" stroke-width="3"/>
+  <!-- Lever Shaft Pointing Down-Right (Pulled Down) -->
+  <line x1="128" y1="172" x2="165" y2="215" stroke="#CBD5E0" stroke-width="10" stroke-linecap="round"/>
+  <line x1="128" y1="172" x2="165" y2="215" stroke="#718096" stroke-width="4" stroke-linecap="round"/>
+  <!-- Red Grip Knob at Bottom -->
+  <circle cx="168" cy="218" r="14" fill="#00CC55" stroke="#007733" stroke-width="3"/>
+  <circle cx="164" cy="214" r="4" fill="#AAFFAA"/>
+</svg>
