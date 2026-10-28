@@ -4,6 +4,38 @@ Tất cả các thay đổi đáng chú ý của dự án **MindXAsset** đượ
 
 ---
 
+## [1.4.0] - 2026-10-28
+
+### Đã thêm (Added)
+- **Kiến Trúc Giao Diện Responsive Đa Khung Hình (`280px` ➔ `1440px+`)**:
+  - Thiết kế lại toàn bộ trải nghiệm Mobile & Tablet cho `CharacterBuilder`, `InlineSpritesheetStudio`, `Generator`, `Home`, `Gallery`, `Header` và `SpritePreviewModal`.
+  - Bổ sung thanh điều hướng đáy `Mobile Bottom Navigation Bar` cố định trên điện thoại và bộ chuyển đổi chế độ nhanh `🎨 Thiết Kế Nhân Vật` / `🎞️ Xưởng Spritesheet`.
+  - Hỗ trợ chế độ `Mobile Split-Stage`: tự động xếp ngang Canvas + cụm nút điều khiển trên điện thoại chuẩn (`350px - 639px`) và tự động chuyển sang xếp dọc kèm lưới 2 cột ở màn hình siêu hẹp (`< 340px`, kiểm thử thực tế tại `283px`).
+- **Đại Tu Xưởng Xe Cộ & Phương Tiện (`Vehicle Studio 2.0`)**:
+  - Bổ sung script pipeline chuẩn hóa [`scripts/process_topdown_vehicles.py`](scripts/process_topdown_vehicles.py).
+  - Sinh bộ mặt đường định hướng 6 góc nhìn (`SOUTH`, `NORTH`, `EAST`, `WEST`, `SOUTHEAST`, `SOUTHWEST`) cho `asphalt_road`, `race_track`, `parking_lot`, `dirt_offroad` và `shadow_soft` để mặt đường luôn xoay khớp với chiều xe chạy.
+  - Tách biệt tầng `💡 Đèn Pha` (`lights`, `z_index: 3`) và `⚡ Họa Tiết` (`accessories`, `z_index: 4`), cho phép bật đèn pha đôi định hướng (`Xenon Trắng`, `Vàng Phá Sương`, `Xanh Băng Laser`, `Đỏ Devil Red`, `Xanh Toxic Lime`) đồng thời với `Sọc Đua Thể Thao GT`, `Còi Đèn Cảnh Báo`, `Luồng Lửa Đuôi Nitro` hoặc `Khói Phanh Drift`.
+  - Vẽ bóng đổ tiếp đất theo đúng silhouette xe (`contact shadow`) trực tiếp dưới gầm xe trên Canvas.
+- **Hoạt Ảnh Hành Động Trực Tiếp Trên Canvas (`Live Action Preview`)**:
+  - Khi chọn `🧍 Đứng im`, `🏃 Chạy`, hoặc `⚔️ Tấn công` trên các mô hình Spritesheet (`RPG Pixel Cổ Điển`, `Chiến Binh Đặc Nhiệm`), nhân vật chuyển động trực tiếp trên bàn thiết kế Canvas.
+- **Bảng Màu Nhuộm Động Cho Quái Vật & Người Ngoài Hành Tinh**:
+  - Bổ sung `monsterColorPalettes`, `alienColorPalettes` và tùy chọn `Không có` (`none`) cho các bộ phận phụ (`Sừng & Vảy`, `Lông Mày`, `Chiếc Mũi`, `Ăng-Ten`).
+
+### Đã sửa (Fixed)
+- **Khắc Phục Lỗi Mất Viền (Clipped Ring) Tại Bảng Chọn Màu & Thẻ Bộ Phận**:
+  - Mở rộng khoảng đệm container bảng màu (`py-1.5 px-1.5`) và lưới thẻ chọn đồ (`p-1 pr-1.5`) trong `CustomizerInspector.jsx`, giúp viền đỏ `ring-2 ring-red-500` hiển thị tròn trịa 100% không bị cắt ở mép trên/dưới/trái.
+- **Khắc Phục Lỗi Lệch Tâm Xe, Lỗ Xám Mặt Đường & Lệch Phụ Kiện Xe**:
+  - Căn chỉnh lại toàn bộ 53/57 xe bị lệch tâm (như `ambulance`, `camper` bị lệch `+20px, +16px`) về đúng chính giữa `(80, 80)` và cân chỉnh tỷ lệ `bus`/`limo` để đèn pha và lửa nitro không bị cắt ở biên ảnh `160x160`.
+  - Loại bỏ hoàn toàn lỗ bầu dục bán trong suốt (`alpha=110`) ở giữa các tấm mặt đường gây hiện tượng vệt xám kỳ dị sau đuôi xe.
+  - Tính toán lại tọa độ `roof_beacon`, `headlights`, `nitro`, `drift_smoke`, `racing_stripes` bám sát khung gầm thực tế của từng xe ở cả 6 góc nhìn.
+  - Loại bỏ ký tự cờ `🇺🇸` / `🇪🇺` bị lỗi hiển thị thành chữ `us` / `eu` trên trình duyệt Windows và hỗ trợ đổi màu sơn cho toàn bộ 32 xe US/EU Fleet.
+- **Chống Spam Thông Báo Toast**:
+  - Cố định `toastId: 'randomize-toast'` và giới hạn `limit={2}` trên `ToastContainer` để không bị chồng xếp nhiều thông báo khi bấm `🎲 Ngẫu nhiên` liên tiếp.
+- **Dọn Dẹp File Thừa**:
+  - Xóa 57 file thumbnail trùng lặp trong `frontend/public/assets/vehicles/thumbs/` và gỡ bỏ các script tạo xe SVG cũ không còn sử dụng (`generate_vehicle_assets.py`, `generate_vehicle_thumbs.py`).
+
+---
+
 ## [Chưa phát hành - Unreleased]
 
 ### Đã hoàn thành (Completed)

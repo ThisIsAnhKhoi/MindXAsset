@@ -2,8 +2,8 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)
-![Progress](https://img.shields.io/badge/verified--progress-85.0%25-green.svg)
+![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)
+![Progress](https://img.shields.io/badge/verified--progress-92.0%25-green.svg)
 ![React](https://img.shields.io/badge/React-19.2-61dafb.svg?logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg?logo=node.js)
 ![Python](https://img.shields.io/badge/Python-3.14-yellow.svg?logo=python)
@@ -19,17 +19,17 @@
 ---
 
 > [!IMPORTANT]
-> **CALLOUT TRẠNG THÁI HIỆN TẠI CỦA DỰ ÁN (AS-BUILT STATUS v1.3.0)**
-> - **Giai đoạn**: Production Ready / Studio Polish (Phiên bản `v1.3.0`).
+> **CALLOUT TRẠNG THÁI HIỆN TẠI CỦA DỰ ÁN (AS-BUILT STATUS v1.4.0)**
+> - **Giai đoạn**: Production Ready / Responsive Multi-Device Studio (Phiên bản `v1.4.0`).
 > - **7 Mô hình Character Studio**:
 >   - 🧙 **Nhân Vật Fantasy**: Chibi RPG 48x48 với 30 chủng tộc, tóc, giáp, vũ khí, bóng đổ.
->   - 👤 **RPG Pixel Pipoya**: Trang phục, mũ nón, cánh dơi, kính mắt, tai thú, đuôi.
->   - 🪖 **Chiến Binh Quân Sự**: Áo giáp đặc nhiệm, súng tác chiến, kính ban đêm NVG.
->   - 🏎️ **Xe Cộ & Phương Tiện**: 57 mẫu xe Top-Down, góc nhìn 8 hướng, đổi màu xe & đèn pha.
->   - 💎 **Vật Phẩm In-Game**: 260+ trang bị, bình thuốc, rương báu, bục đỡ & hào quang.
->   - 👾 **Quái Vật Dị Biến**: Khung xương skeleton A-F, sừng, càng, nanh vuốt Kenney CC0.
->   - 👽 **Người Ngoài Hành Tinh**: Sinh vật vũ trụ, ăng-ten sóng não, xúc tu miệng.
-> - **Tối ưu hóa hiệu năng**: Nạp trước tài sản Eager Preloading tức thì (không còn giật lag khi chuyển đổi), loại bỏ 100% (36/36) lỗ hổng bảo mật backend, ESLint đạt chuẩn xanh 0 lỗi.
+>   - 🧝 **RPG Pixel Cổ Điển**: Nhân vật JRPG 32x32 4 hướng với hoạt ảnh động trực tiếp (`Đứng im`, `Chạy`, `Tấn công`), trang phục, mũ nón, cánh, tai thú, đuôi.
+>   - 🪖 **Chiến Binh Đặc Nhiệm**: Lính Spec-Ops 32x32 với áo giáp đặc nhiệm, súng tác chiến, kính ban đêm NVG và hoạt ảnh hành động trực tiếp.
+>   - 🏎️ **Xe Cộ & Phương Tiện**: 57 mẫu xe Top-Down đồng bộ tâm `(80, 80)`, 6 góc nhìn, mặt đường xoay tự động theo hướng xe (`Asphalt Road`, `Race Track`, `Parking Stall`, `Off-Road Dirt`), đèn pha đôi định hướng (`Xenon`, `Amber Fog`, `Ice Blue`, `Devil Red`, `Toxic Lime`), sọc đua GT, còi đèn cảnh báo, lửa Nitro và khói Drift.
+>   - 💎 **Vật Phẩm In-Game**: 260+ trang bị, bình thuốc, rương báu, bục đỡ & hào quang ma pháp.
+>   - 👾 **Quái Vật Dị Biến**: Khung xương skeleton A-F, sừng, càng, nanh vuốt Kenney CC0 kèm bảng màu nhuộm động.
+>   - 👽 **Người Ngoài Hành Tinh**: Sinh vật vũ trụ, ăng-ten sóng não, xúc tu miệng kèm bảng màu sinh học.
+> - **Kiến trúc Responsive Đa Khung Hình (280px ➔ 1440px+)**: Hỗ trợ liền mạch từ màn hình siêu nhỏ/Split-View (`280px`), Điện thoại chuẩn (`393px`), Phablet (`458px`), Tablet 2 cột (`768px`) đến Desktop Studio 3 cột (`1440px+`), kèm Mobile Bottom Navigation Bar chuẩn ứng dụng gốc.
 
 ---
 
@@ -46,21 +46,22 @@
 
 | Phân hệ / Tính năng | Mô tả chi tiết | Trạng thái kỹ thuật |
 | :--- | :--- | :---: |
-| **1. Character Studio (7 Models)** | Lắp ghép nhân vật Fantasy, Xe Top-Down, Props, Lính đặc nhiệm, Quái vật, Alien. Tự do đổi màu HSL động, căn chỉnh scale chống tràn viền. | **Hoạt động xuất sắc** `[ĐÃ XÁC MINH]` |
-| **2. Sinh Background AI** | Tạo ảnh phong cảnh 2D không chứa nhân vật, chuẩn tỉ lệ màn hình game (16:9 HD, 4:3 cổ điển, 9:16 dọc) kèm hiệu ứng thời gian ngày/đêm/hoàng hôn. | **Hoạt động tốt** `[ĐÃ XÁC MINH]` |
-| **3. Sinh Sprite Độc Lập** | Sinh nhân vật, quái vật, vật phẩm (items) độc lập với góc nhìn Front, Side, Back, 3/4. Tự động xử lý viền sắc nét, nền trong suốt. | **Hoạt động tốt** `[ĐÃ XÁC MINH]` |
-| **4. Sinh Animation Tilesheet** | Sinh dải ảnh chuyển động liên hoàn 10-15 frame cho các hành động (running, idle, attack...), tự động tính toán metadata tọa độ cắt khung. | **Hoạt động** `[ĐÃ XÁC MINH]` |
-| **5. Sinh Environment Tileset** | Sinh lưới ô địa hình (đất, đá, cỏ, nước...) kích thước 16x16, 32x32, 64x64 px khớp viền cho GameMaker và Tiled Map Editor. | **Hoạt động tốt** `[ĐÃ XÁC MINH]` |
-| **6. Image to Pixel Sprite** | Tải ảnh vẽ tay hoặc ảnh chụp bất kỳ (<= 10MB) -> Tách nền thông minh -> Pixelate retro theo kích thước block tùy chỉnh. | **Hoạt động** `[ĐÃ XÁC MINH]` |
-| **7. Inline Spritesheet Studio** | Xưởng cắt lưới sprite sheet tích hợp trực tiếp: tua hoạt ảnh chuyển động, xem từng khung hình và tải file ZIP frames. | **Hoạt động xuất sắc** `[ĐÃ XÁC MINH]` |
-| **8. Thư Viện Tài Nguyên (Gallery)** | Lưu trữ lịch sử toàn bộ asset đã sinh, hỗ trợ lọc theo loại, xem lại modal và tải file PNG trực tiếp. | **Hoạt động** `[ĐÃ XÁC MINH]` |
+| **1. Character Studio (7 Models)** | Lắp ghép nhân vật Fantasy, RPG Pipoya, Lính đặc nhiệm, Xe Top-Down, Props, Quái vật, Alien. Tự do đổi màu HSL động, hoạt ảnh hành động trực tiếp trên Canvas. | **Hoạt động xuất sắc** `[ĐÃ XÁC MINH]` |
+| **2. Responsive Studio UI** | Tự động thích ứng bố cục từ màn hình siêu hẹp `280px`, Mobile Split-Stage `393px`, Tablet 2 cột `768px` đến Desktop 3 cột `1440px+` không tràn viền ngang. | **Hoạt động xuất sắc** `[ĐÃ XÁC MINH]` |
+| **3. Sinh Background AI** | Tạo ảnh phong cảnh 2D không chứa nhân vật, chuẩn tỉ lệ màn hình game (16:9 HD, 4:3 cổ điển, 9:16 dọc) kèm hiệu ứng thời gian ngày/đêm/hoàng hôn. | **Hoạt động tốt** `[ĐÃ XÁC MINH]` |
+| **4. Sinh Sprite Độc Lập** | Sinh nhân vật, quái vật, vật phẩm (items) độc lập với góc nhìn Front, Side, Back, 3/4. Tự động xử lý viền sắc nét, nền trong suốt. | **Hoạt động tốt** `[ĐÃ XÁC MINH]` |
+| **5. Sinh Animation Tilesheet** | Sinh dải ảnh chuyển động liên hoàn 10-15 frame cho các hành động (running, idle, attack...), tự động tính toán metadata tọa độ cắt khung. | **Hoạt động** `[ĐÃ XÁC MINH]` |
+| **6. Sinh Environment Tileset** | Sinh lưới ô địa hình (đất, đá, cỏ, nước...) kích thước 16x16, 32x32, 64x64 px khớp viền cho GameMaker và Tiled Map Editor. | **Hoạt động tốt** `[ĐÃ XÁC MINH]` |
+| **7. Image to Pixel Sprite** | Tải ảnh vẽ tay hoặc ảnh chụp bất kỳ (<= 10MB) -> Tách nền thông minh -> Pixelate retro theo kích thước block tùy chỉnh. | **Hoạt động** `[ĐÃ XÁC MINH]` |
+| **8. Inline Spritesheet Studio** | Xưởng cắt lưới sprite sheet tích hợp trực tiếp: tách nền Flood-Fill, tua hoạt ảnh chuyển động, xem từng khung hình và tải file ZIP frames. | **Hoạt động xuất sắc** `[ĐÃ XÁC MINH]` |
+| **9. Thư Viện Tài Nguyên (Gallery)** | Lưu trữ lịch sử toàn bộ asset đã sinh, hỗ trợ lọc theo loại, xem lại modal và tải file PNG trực tiếp. | **Hoạt động** `[ĐÃ XÁC MINH]` |
 
 ---
 
 ## 🏗 Kiến Trúc Hệ Thống (Architecture)
 
 MindXAsset được tổ chức theo mô hình **Monorepo 3 khối (Hybrid Architecture)**, hỗ trợ triển khai độc lập theo mô hình **Dual-Host**:
-- **Frontend SPA**: Triển khai trên **Vercel** với CDN Edge Caching vĩnh viễn cho 3,197 sprite assets trong `public/assets/`.
+- **Frontend SPA**: Triển khai trên **Vercel** với CDN Edge Caching vĩnh viễn cho hơn 3,300 sprite assets trong `public/assets/`.
 - **Backend Orchestrator**: Triển khai trên **Render** container (Node.js Express + Python 3.10+ venv với Pillow & Rembg).
 
 ```mermaid
@@ -87,13 +88,14 @@ MindXAsset/
 │   ├── server.js             # Máy chủ API trung tâm (Port 5000)
 │   └── setup-python.js       # Script tự động tạo virtualenv khi deploy
 ├── frontend/                 # Giao diện người dùng React 19 SPA
-│   ├── public/assets/        # 3,197 sprite assets: fantasy, pipoya, soldier, vehicles, props, monster
+│   ├── public/assets/        # 3,300+ sprite assets: fantasy, pipoya, soldier, vehicles, props, monster
 │   ├── src/
 │   │   ├── components/       # InlineSpritesheetStudio, Header, Modals...
 │   │   ├── pages/            # Home, Generator, CharacterBuilder, Gallery
 │   │   └── App.jsx           # Bộ định tuyến React-Router
 │   └── package.json
-├── scripts/                  # Bộ công cụ bảo trì, kiểm toán & đồng bộ Cloudinary
+├── scripts/                  # Bộ công cụ bảo trì, xử lý asset & đồng bộ Cloudinary
+│   ├── process_topdown_vehicles.py # Pipeline căn tâm 57 xe, sinh mặt đường & phụ kiện 6 hướng
 │   ├── sync_to_cloudinary.py # Pipeline đồng bộ asset và output lên Cloudinary CDN
 │   └── _archive/             # Lưu trữ các script debug và inspect nội bộ
 └── docs/                     # Toàn bộ hồ sơ kỹ thuật, kiểm toán & quyết định
@@ -185,7 +187,7 @@ Dự án được hệ thống hóa toàn diện theo tiêu chuẩn kiểm toán
 - 🛡 **[Báo Cáo Kiểm Toán (docs/QA_REPORT.md)](docs/QA_REPORT.md)**: Báo cáo chất lượng toàn diện, kiểm toán bảo mật npm và phân tích rủi ro.
 - 🧪 **[Kế Hoạch Kiểm Thử (docs/TEST_PLAN.md)](docs/TEST_PLAN.md)**: Kim tự tháp kiểm thử và 40 test case ưu tiên cao.
 - 🗺 **[Lộ Trình Phát Triển (docs/DEVELOPMENT_PLAN.md)](docs/DEVELOPMENT_PLAN.md)**: Kế hoạch nâng cấp và tích hợp.
-- ⚖️ **[Hồ Sơ Quyết Định Kiến Trúc (docs/DECISIONS.md)](docs/DECISIONS.md)**: 19 bản ghi quyết định kiến trúc (ADR-01 đến ADR-19).
+- ⚖️ **[Hồ Sơ Quyết Định Kiến Trúc (docs/DECISIONS.md)](docs/DECISIONS.md)**: Các bản ghi quyết định kiến trúc (ADR).
 - 📝 **[Bản Giao Việc (docs/TASK_BRIEFS.md)](docs/TASK_BRIEFS.md)**: Danh sách nhiệm vụ chi tiết cho các phiên làm việc tiếp theo.
 - 🏗 **[Sổ Tay Kiến Trúc Chi Tiết (docs/ARCHITECTURE.md)](docs/ARCHITECTURE.md)**.
 - 🔍 **[Từ Điển Thuật Ngữ Nghiệp Vụ (docs/GLOSSARY.md)](docs/GLOSSARY.md)**.

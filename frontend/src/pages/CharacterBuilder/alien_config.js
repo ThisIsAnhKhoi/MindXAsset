@@ -7,7 +7,6 @@ import { monsterSkeletons } from './monster_config';
 
 export const alienConfig = {
   body: [
-    // Ưu tiên các dạng thân Alien: Xanh ngoài hành tinh (green), Tím/Đen vũ trụ (dark), Đỏ sao Hỏa (red)
     { id: 'body_greenA', name: 'Alien Green Slime', src: '/assets/monster/body_greenA.png' },
     { id: 'body_greenB', name: 'Alien Green Biped', src: '/assets/monster/body_greenB.png' },
     { id: 'body_greenC', name: 'Alien Green Oval', src: '/assets/monster/body_greenC.png' },
@@ -23,6 +22,7 @@ export const alienConfig = {
     { id: 'body_yellowD', name: 'Plasma Bio D', src: '/assets/monster/body_yellowD.png' }
   ],
   antenna: [
+    { id: 'antenna_none', name: 'Không có', src: null },
     { id: 'detail_green_antenna_large', name: 'Ăng-Ten Sóng Não Lớn', src: '/assets/monster/detail_green_antenna_large.png' },
     { id: 'detail_green_antenna_small', name: 'Ăng-Ten Vệ Tinh Nhỏ', src: '/assets/monster/detail_green_antenna_small.png' },
     { id: 'detail_dark_antenna_large', name: 'Ăng-Ten Hư Không Lớn', src: '/assets/monster/detail_dark_antenna_large.png' },
@@ -67,6 +67,26 @@ export const alienConfig = {
   ]
 };
 
+const commonAlienPalette = [
+  { name: 'Nguyên Bản', hex: '#FFFFFF' },
+  { name: 'Xanh Sinh Học', hex: '#4ADE80' },
+  { name: 'Xanh Plasma', hex: '#22D3EE' },
+  { name: 'Tím Tinh Vân', hex: '#C084FC' },
+  { name: 'Đỏ Sao Hỏa', hex: '#F87171' },
+  { name: 'Vàng Bức Xạ', hex: '#FACC15' },
+  { name: 'Hồng Lượng Tử', hex: '#F472B6' },
+  { name: 'Xanh Hư Không', hex: '#6366F1' }
+];
+
+export const alienColorPalettes = {
+  body: commonAlienPalette,
+  antenna: commonAlienPalette,
+  eye: commonAlienPalette,
+  mouth: commonAlienPalette,
+  arm: commonAlienPalette,
+  leg: commonAlienPalette
+};
+
 const getArmPivot = (armId) => {
   if (armId && (armId.endsWith('C') || armId.endsWith('D') || armId.endsWith('E'))) {
     return { x: 0.5, y: 0.9 };
@@ -81,21 +101,21 @@ export const getAlienLayers = (selections) => {
   const skeleton = monsterSkeletons[shape] || monsterSkeletons['A'];
   const bodyCenter = skeleton.center;
 
-  // Thân
   const bodyOpt = alienConfig.body.find(b => b.id === bodyId) || alienConfig.body[0];
-  layers.push({
-    id: bodyOpt.id,
-    category: 'body',
-    src: bodyOpt.src,
-    z_index: 0,
-    position: { x: 0, y: 0 },
-    pivot: { x: 0, y: 0 },
-    bodyCenter: bodyCenter
-  });
+  if (bodyOpt && bodyOpt.src) {
+    layers.push({
+      id: bodyOpt.id,
+      category: 'body',
+      src: bodyOpt.src,
+      z_index: 0,
+      position: { x: 0, y: 0 },
+      pivot: { x: 0, y: 0 },
+      bodyCenter: bodyCenter
+    });
+  }
 
-  // Chân
   const legOpt = alienConfig.leg.find(l => l.id === selections.leg) || alienConfig.leg[0];
-  if (legOpt) {
+  if (legOpt && legOpt.src) {
     layers.push({
       id: legOpt.id + '_L',
       category: 'leg_L',
@@ -118,9 +138,8 @@ export const getAlienLayers = (selections) => {
     });
   }
 
-  // Tay
   const armOpt = alienConfig.arm.find(a => a.id === selections.arm) || alienConfig.arm[0];
-  if (armOpt) {
+  if (armOpt && armOpt.src) {
     const armPivot = getArmPivot(armOpt.id);
     layers.push({
       id: armOpt.id + '_L',
@@ -144,9 +163,8 @@ export const getAlienLayers = (selections) => {
     });
   }
 
-  // Ăng-ten thu phát
-  const antennaOpt = alienConfig.antenna.find(d => d.id === selections.antenna) || alienConfig.antenna[0];
-  if (antennaOpt) {
+  const antennaOpt = alienConfig.antenna.find(d => d.id === selections.antenna);
+  if (antennaOpt && antennaOpt.src) {
     layers.push({
       id: antennaOpt.id + '_L',
       category: 'antenna_L',
@@ -169,9 +187,8 @@ export const getAlienLayers = (selections) => {
     });
   }
 
-  // Mắt Alien
   const eyeOpt = alienConfig.eye.find(e => e.id === selections.eye) || alienConfig.eye[0];
-  if (eyeOpt) {
+  if (eyeOpt && eyeOpt.src) {
     layers.push({
       id: eyeOpt.id,
       category: 'eye',
@@ -183,9 +200,8 @@ export const getAlienLayers = (selections) => {
     });
   }
 
-  // Miệng Alien
   const mouthOpt = alienConfig.mouth.find(m => m.id === selections.mouth) || alienConfig.mouth[0];
-  if (mouthOpt) {
+  if (mouthOpt && mouthOpt.src) {
     layers.push({
       id: mouthOpt.id,
       category: 'mouth',

@@ -23,14 +23,12 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
   const imgRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // Sync state if metadata changes
   if (metadata !== prevMetadata) {
     setPrevMetadata(metadata);
     if (metadata?.columns) setColumns(metadata.columns);
     if (metadata?.rows) setRows(metadata.rows);
   }
 
-  // Measure natural dimensions of loaded spritesheet
   useEffect(() => {
     if (imageUrl) {
       const img = new Image();
@@ -41,7 +39,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     }
   }, [imageUrl]);
 
-  // Derive available animation action groups
   const actions = useMemo(() => {
     if (metadata?.actions && Array.isArray(metadata.actions) && metadata.actions.length > 0) {
       return metadata.actions;
@@ -77,7 +74,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     return list;
   }, [metadata, columns, rows]);
 
-  // Set default action when actions list updates during render
   const [prevActions, setPrevActions] = useState(actions);
   if (actions !== prevActions) {
     setPrevActions(actions);
@@ -96,7 +92,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     };
   }, [actions, selectedActionId, columns, rows]);
 
-  // Animation playback loop bounded to current action
   useEffect(() => {
     let interval;
     const start = currentAction.start_frame;
@@ -117,7 +112,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
   const frameWidth = imgSize.width / columns || 0;
   const frameHeight = imgSize.height / rows || 0;
 
-  // Render current frame to canvas cleanly without any CSS clipping or offset drift
   useEffect(() => {
     const canvas = canvasRef.current;
     const img = imgRef.current;
@@ -155,7 +149,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
   }, [currentFrame, columns, rows, imgSize]);
 
-  // Stepping controls
   const handlePrevFrame = () => {
     const start = currentAction.start_frame;
     const end = currentAction.end_frame;
@@ -168,7 +161,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     setCurrentFrame(prev => (prev >= end ? start : prev + 1));
   };
 
-  // Download whole spritesheet PNG
   const handleDownloadFullSheet = () => {
     if (!imageUrl) return;
     const a = document.createElement('a');
@@ -179,7 +171,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     document.body.removeChild(a);
   };
 
-  // Download sliced single frame PNG
   const handleDownloadCurrentFrame = () => {
     if (!imageUrl || !imgRef.current) return;
     const canvas = document.createElement('canvas');
@@ -205,7 +196,6 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
     document.body.removeChild(link);
   };
 
-  // Build grid overlay cells with interactive click-to-preview
   const gridCells = [];
   const start = currentAction.start_frame;
   const end = currentAction.end_frame;
@@ -232,7 +222,7 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
           style={{ width: `${100 / columns}%`, height: `${100 / rows}%` }}
           title={`Khung #${idx + 1} - Click để xem`}
         >
-          <span className={`px-1 py-0.2 rounded text-[9px] font-mono leading-tight ${isCurrent ? 'bg-amber-500 text-white font-bold' : 'text-gray-700 bg-white/85'}`}>
+          <span className={`px-1 py-0.2 rounded text-[8px] sm:text-[9px] font-mono leading-tight ${isCurrent ? 'bg-amber-500 text-white font-bold' : 'text-gray-700 bg-white/85'}`}>
             {idx + 1}
           </span>
         </div>
@@ -243,27 +233,27 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-xs p-3 sm:p-5">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-xs p-2.5 sm:p-5">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[92dvh] flex flex-col overflow-hidden animate-fade-in">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 bg-gray-50/80 shrink-0">
-          <div className="flex items-center gap-2.5">
-            <span className="w-8 h-8 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-base font-bold shadow-2xs">
+        <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-gray-200 bg-gray-50/80 shrink-0 gap-2">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="w-8 h-8 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-base font-bold shadow-2xs shrink-0">
               ⚡
             </span>
-            <div>
-              <h2 className="text-base sm:text-lg font-bold text-gray-900 leading-tight">
+            <div className="min-w-0">
+              <h2 className="text-sm sm:text-lg font-bold text-gray-900 leading-tight truncate">
                 Preview Hoạt Ảnh & Tách Lưới Sprite Sheet
               </h2>
-              <p className="text-xs text-gray-500">
-                {columns} cột x {rows} hàng ({columns * rows} khung hình) {actionName ? `• Động tác: ${actionName}` : ''}
+              <p className="text-[11px] sm:text-xs text-gray-500 truncate">
+                {columns} cột × {rows} hàng ({columns * rows} khung hình) {actionName ? `• Động tác: ${actionName}` : ''}
               </p>
             </div>
           </div>
           <button 
             onClick={onClose} 
-            className="text-gray-400 hover:text-red-600 transition-colors p-2 rounded-xl hover:bg-red-50 cursor-pointer"
+            className="text-gray-400 hover:text-red-600 transition-colors p-2 rounded-xl hover:bg-red-50 cursor-pointer shrink-0"
             title="Đóng cửa sổ"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -272,17 +262,17 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
           </button>
         </div>
 
-        {/* Content Body: Side-by-side on md screens (768px+) */}
-        <div className="flex-1 overflow-auto flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-200">
+        {/* Content Body */}
+        <div className="flex-1 overflow-y-auto flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-200">
           
           {/* Left Panel: Slicing Grid */}
-          <div className="w-full md:w-1/2 p-4 flex flex-col gap-3 overflow-y-auto">
+          <div className="w-full md:w-1/2 p-3.5 sm:p-4 flex flex-col gap-3 md:overflow-y-auto">
             <div className="flex items-center justify-between shrink-0">
-              <h3 className="font-bold text-sm text-gray-800 flex items-center gap-2">
+              <h3 className="font-bold text-xs sm:text-sm text-gray-800 flex items-center gap-2">
                 <span className="w-5 h-5 rounded-md bg-red-100 text-red-600 flex items-center justify-center text-xs font-bold">1</span>
                 Lưới khung hình (Spritesheet Matrix)
               </h3>
-              <span className="text-[11px] text-gray-500">Click vào ô để chọn khung</span>
+              <span className="text-[11px] text-gray-500">Chạm vào ô để chọn</span>
             </div>
             
             {/* Grid Dimensions Inputs */}
@@ -306,31 +296,30 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
             </div>
 
             {/* Spritesheet Image with Overlay Grid */}
-            <div className="flex-1 bg-gray-100 rounded-xl border border-gray-200 p-2.5 flex flex-col items-center justify-center min-h-[260px] overflow-auto">
+            <div className="flex-1 bg-gray-100 rounded-xl border border-gray-200 p-2.5 flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px] overflow-auto">
               <div className="relative inline-block" ref={containerRef}>
                 <img 
                   ref={imgRef}
                   src={imageUrl} 
                   alt="Spritesheet Original" 
-                  className="max-w-full max-h-[340px] object-contain block shadow-xs" 
+                  className="max-w-full max-h-[260px] sm:max-h-[340px] object-contain block shadow-xs" 
                   style={{ imageRendering: 'pixelated' }} 
                 />
-                {/* Grid Overlay */}
                 <div className="absolute inset-0 flex flex-wrap pointer-events-auto">
                   {gridCells}
                 </div>
               </div>
               <div className="flex items-center justify-between w-full mt-2 px-1 text-[11px] text-gray-500 shrink-0">
-                <span>Khổ ảnh: {imgSize.width} x {imgSize.height} px</span>
-                <span>Khung đơn: {Math.round(frameWidth)} x {Math.round(frameHeight)} px</span>
+                <span>Khổ ảnh: {imgSize.width} × {imgSize.height} px</span>
+                <span>Khung đơn: {Math.round(frameWidth)} × {Math.round(frameHeight)} px</span>
               </div>
             </div>
           </div>
 
           {/* Right Panel: Multi-Action Animation Preview */}
-          <div className="w-full md:w-1/2 p-4 flex flex-col gap-3 overflow-y-auto">
+          <div className="w-full md:w-1/2 p-3.5 sm:p-4 flex flex-col gap-3 md:overflow-y-auto">
             <div className="flex items-center justify-between shrink-0">
-              <h3 className="font-bold text-sm text-gray-800 flex items-center gap-2">
+              <h3 className="font-bold text-xs sm:text-sm text-gray-800 flex items-center gap-2">
                 <span className="w-5 h-5 rounded-md bg-red-100 text-red-600 flex items-center justify-center text-xs font-bold">2</span>
                 Xem trước hoạt ảnh động tác
               </h3>
@@ -342,7 +331,7 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
             {/* Action Group Filter Selector Tabs */}
             <div className="flex flex-col gap-1 shrink-0">
               <label className="text-[11px] font-bold text-gray-600">Chọn nhóm hành động để phát:</label>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex sm:flex-wrap gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
                 {actions.map(act => {
                   const isActive = act.id === selectedActionId;
                   return (
@@ -352,7 +341,7 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
                         setSelectedActionId(act.id);
                         setCurrentFrame(act.start_frame);
                       }}
-                      className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                      className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                         isActive
                           ? 'bg-red-600 text-white shadow-xs'
                           : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-200'
@@ -366,7 +355,7 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
             </div>
 
             {/* Background Environment Selector */}
-            <div className="flex gap-1.5 overflow-x-auto pb-0.5 items-center text-xs shrink-0">
+            <div className="flex gap-1.5 overflow-x-auto no-scrollbar pb-0.5 items-center text-xs shrink-0">
               <span className="text-[11px] font-medium text-gray-500 whitespace-nowrap">Nền thử:</span>
               {BACKGROUNDS.map(bg => (
                 <button
@@ -385,7 +374,7 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
 
             {/* Animation Canvas Viewport */}
             <div 
-              className={`flex-1 rounded-xl border-2 border-gray-300 p-3 flex flex-col items-center justify-center min-h-[220px] max-h-[260px] shadow-inner overflow-hidden relative ${previewBg.className}`}
+              className={`flex-1 rounded-xl border-2 border-gray-300 p-3 flex flex-col items-center justify-center min-h-[190px] sm:min-h-[220px] max-h-[260px] shadow-inner overflow-hidden relative ${previewBg.className}`}
               style={{ backgroundImage: previewBg.value }}
             >
               <canvas 
@@ -437,26 +426,26 @@ const SpritePreviewModal = ({ isOpen, imageUrl, metadata, onClose, actionName })
           </div>
         </div>
 
-        {/* Footer Actions */}
-        <div className="p-3 border-t border-gray-200 bg-gray-50 flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-2">
+        {/* Footer Actions — Responsive stack on mobile, row on sm+ */}
+        <div className="p-3 border-t border-gray-200 bg-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shrink-0">
+          <div className="grid grid-cols-2 sm:flex items-center gap-2">
             <button
               onClick={handleDownloadCurrentFrame}
-              className="py-1.5 px-3 bg-white hover:bg-gray-100 border border-gray-300 text-gray-800 rounded-xl font-bold text-xs transition-colors cursor-pointer flex items-center gap-1.5 shadow-2xs"
+              className="py-2 sm:py-1.5 px-3 bg-white hover:bg-gray-100 border border-gray-300 text-gray-800 rounded-xl font-bold text-xs transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-2xs truncate"
             >
-              <span>✂️</span> Tải Khung Này (Frame {currentFrame + 1})
+              <span>✂️</span> <span className="truncate">Tải Khung #{currentFrame + 1}</span>
             </button>
             <button
               onClick={handleDownloadFullSheet}
-              className="py-1.5 px-3.5 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold text-xs transition-colors cursor-pointer flex items-center gap-1.5 shadow-2xs"
+              className="py-2 sm:py-1.5 px-3.5 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold text-xs transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-2xs truncate"
             >
-              <span>📥</span> Tải Sprite Sheet PNG
+              <span>📥</span> <span className="truncate">Tải Sprite Sheet</span>
             </button>
           </div>
 
           <button 
             onClick={onClose} 
-            className="px-5 py-1.5 bg-gray-800 hover:bg-gray-900 text-white rounded-xl font-bold text-xs transition-colors cursor-pointer"
+            className="w-full sm:w-auto px-5 py-2 sm:py-1.5 bg-gray-800 hover:bg-gray-900 text-white rounded-xl font-bold text-xs transition-colors cursor-pointer text-center"
           >
             Đóng cửa sổ
           </button>

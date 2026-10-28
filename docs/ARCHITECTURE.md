@@ -27,20 +27,21 @@ Hệ thống được chia thành 3 khối mạch lạc:
 
 1. **Frontend (`frontend/`)**:
    - Sử dụng React 19 chạy trên nền build siêu tốc của Vite 8 kết hợp TailwindCSS v4.
+   - Thiết kế **Responsive Đa Khung Hình (`280px` ➔ `1440px+`)**: hỗ trợ Mobile Bottom Navigation Bar, Split-Stage Studio trên điện thoại, 2 cột trên Tablet và 3 cột trên Desktop.
    - Gồm 4 màn hình chính:
      - `/`: Trang chủ giới thiệu tính năng và điều hướng nhanh.
      - `/generator`: Bảng điều khiển sinh ảnh bằng AI (Background, Sprite, Tilesheet, Tileset, Image-to-Sprite).
      - `/character-builder`: Bàn làm việc **Character Studio** thời gian thực hỗ trợ **7 dòng mô hình**:
        - 🧙 **Nhân Vật Fantasy**: Chibi RPG 48x48 với 30 chủng tộc, tóc, giáp, vũ khí, bóng đổ (1,480 asset).
-       - 👤 **RPG Pixel Pipoya**: Trang phục, mũ nón, cánh, kính mắt, tai thú, đuôi (629 asset).
-       - 🪖 **Chiến Binh Quân Sự**: Áo giáp đặc nhiệm, súng tác chiến, kính ban đêm NVG (184 asset).
-       - 🏎️ **Xe Cộ & Phương Tiện**: 57 mẫu xe Top-Down, góc nhìn 8 hướng, đổi màu xe & đèn pha (236 asset).
+       - 🧝 **RPG Pixel Cổ Điển**: Trang phục, mũ nón, cánh, kính mắt, tai thú, đuôi kèm hoạt ảnh `Đứng/Chạy/Đánh` trực tiếp (629 asset).
+       - 🪖 **Chiến Binh Đặc Nhiệm**: Áo giáp đặc nhiệm, súng tác chiến, kính ban đêm NVG kèm hoạt ảnh trực tiếp (184 asset).
+       - 🏎️ **Xe Cộ & Phương Tiện**: 57 mẫu xe Top-Down đồng bộ tâm `(80, 80)`, 6 góc nhìn, mặt đường xoay theo hướng xe, đèn pha đôi định hướng & 5 loại phụ kiện/họa tiết.
        - 💎 **Vật Phẩm In-Game**: 260+ trang bị, bình thuốc, rương báu, bục đỡ & hào quang (520 asset).
-       - 👾 **Quái Vật Dị Biến**: Khung xương skeleton A-F, sừng, càng, nanh vuốt Kenney CC0 (148 asset).
-       - 👽 **Người Ngoài Hành Tinh**: Sinh vật vũ trụ, ăng-ten sóng não, xúc tu miệng (Kenney CC0).
+       - 👾 **Quái Vật Dị Biến**: Khung xương skeleton A-F, sừng, càng, nanh vuốt Kenney CC0 kèm bảng màu động (148 asset).
+       - 👽 **Người Ngoài Hành Tinh**: Sinh vật vũ trụ, ăng-ten sóng não, xúc tu miệng kèm bảng màu sinh học (Kenney CC0).
      - `/gallery`: Kho lưu trữ và bộ lọc xem lại các sản phẩm đã tạo.
    - Thành phần đặc sắc:
-     - `CanvasPreview.jsx`: Sắp xếp layer theo `z_index`, tính toán pivot, đảo hướng `scaleX`, nhuộm màu HSL động và render ra `<canvas>` 380x380 px ở tốc độ 60 FPS.
+     - `CanvasPreview.jsx`: Sắp xếp layer theo `z_index`, tính toán pivot, đảo hướng `scaleX`, nhuộm màu HSL động, vẽ bóng đổ silhouette tiếp đất và render ra `<canvas>` ở tốc độ 60 FPS.
      - `InlineSpritesheetStudio.jsx`: Xưởng cắt lưới sprite sheet tích hợp trực tiếp, hỗ trợ tách nền client-side (Smart Flood-Fill), tua hoạt ảnh chuyển động và tải ZIP frame.
      - **Eager Asset Preloader**: Nạp trước đồng loạt toàn bộ tài sản của model đang chọn, loại bỏ lazy load để chuyển đổi mượt mà tức thì.
 
@@ -75,13 +76,14 @@ MindXAsset/
 │   ├── server.js             # Entry point API Express (Port 5000)
 │   └── setup-python.js       # Script tự động dựng venv khi deploy
 ├── frontend/                 # Client React 19 SPA
-│   ├── public/assets/        # 3,197 sprite assets phân theo 7 model
+│   ├── public/assets/        # 3,300+ sprite assets phân theo 7 model
 │   ├── src/
 │   │   ├── components/       # InlineSpritesheetStudio, Header, Modals...
 │   │   ├── pages/            # Home, Generator, CharacterBuilder, Gallery
 │   │   └── App.jsx           # Routing
 │   └── package.json
-├── scripts/                  # Công cụ bảo trì & đồng bộ
+├── scripts/                  # Công cụ bảo trì, xử lý asset & đồng bộ
+│   ├── process_topdown_vehicles.py # Căn tâm 57 xe, sinh mặt đường & phụ kiện 6 hướng
 │   ├── sync_to_cloudinary.py # Pipeline đồng bộ asset và output lên Cloudinary
 │   └── _archive/             # Lưu trữ script debug và inspect nội bộ
 └── docs/                     # Toàn bộ hồ sơ kiến trúc, kiểm toán & bảo trì

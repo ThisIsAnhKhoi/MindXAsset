@@ -32,27 +32,27 @@ export const vehicleConfig = {
     },
     {
       id: 'us_gt_coupe',
-      name: '🇺🇸 Siêu Xe GT Coupe Grand Tourer Mỹ',
+      name: 'Siêu Xe GT Coupe Grand Tourer Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_gt_coupe.png'
     },
     {
       id: 'us_sports_yellow',
-      name: '🇺🇸 Xe Thể Thao Bumblebee Vàng Mỹ',
+      name: 'Xe Thể Thao Bumblebee Vàng Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_sports_yellow.png'
     },
     {
       id: 'us_coupe',
-      name: '🇺🇸 Xe Coupe Cổ Điển Đường Phố Mỹ',
+      name: 'Xe Coupe Cổ Điển Đường Phố Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_coupe.png'
     },
     {
       id: 'eu_sports',
-      name: '🇪🇺 Xe Thể Thao Mui Kính Châu Âu',
+      name: 'Xe Thể Thao Mui Kính Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_sports.png'
     },
     {
       id: 'eu_hot_hatch',
-      name: '🇪🇺 Xe Hot Hatch Thể Thao Tốc Độ EU',
+      name: 'Xe Hot Hatch Thể Thao Tốc Độ EU',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_hot_hatch.png'
     },
 
@@ -74,22 +74,22 @@ export const vehicleConfig = {
     },
     {
       id: 'eu_sedan',
-      name: '🇪🇺 Xe Sedan Doanh Nhân Châu Âu',
+      name: 'Xe Sedan Doanh Nhân Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_sedan.png'
     },
     {
       id: 'eu_hatchback',
-      name: '🇪🇺 Xe Hatchback Đô Thị Châu Âu',
+      name: 'Xe Hatchback Đô Thị Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_hatchback.png'
     },
     {
       id: 'eu_liftback',
-      name: '🇪🇺 Xe Liftback Khí Động Học EU',
+      name: 'Xe Liftback Khí Động Học EU',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_liftback.png'
     },
     {
       id: 'eu_city_car',
-      name: '🇪🇺 Xe Đô Thị Mini Siêu Nhỏ EU',
+      name: 'Xe Đô Thị Mini Siêu Nhỏ EU',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_city_car.png'
     },
     {
@@ -111,7 +111,7 @@ export const vehicleConfig = {
     },
     {
       id: 'us_limo',
-      name: '🇺🇸 Xe Limousine VIP Siêu Dài Mỹ',
+      name: 'Xe Limousine VIP Siêu Dài Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_limo.png'
     },
     {
@@ -121,7 +121,7 @@ export const vehicleConfig = {
     },
     {
       id: 'eu_estate',
-      name: '🇪🇺 Xe Du Lịch Wagon Estate Châu Âu',
+      name: 'Xe Du Lịch Wagon Estate Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_estate.png'
     },
     {
@@ -131,7 +131,7 @@ export const vehicleConfig = {
     },
     {
       id: 'us_mpv',
-      name: '🇺🇸 Xe Gia Đình MPV Đa Dụng Mỹ',
+      name: 'Xe Gia Đình MPV Đa Dụng Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_mpv.png'
     },
 
@@ -143,12 +143,12 @@ export const vehicleConfig = {
     },
     {
       id: 'us_crossover',
-      name: '🇺🇸 Xe Crossover Đô Thị Hiện Đại Mỹ',
+      name: 'Xe Crossover Đô Thị Hiện Đại Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_crossover.png'
     },
     {
       id: 'us_suv',
-      name: '🇺🇸 Xe SUV Cỡ Lớn Hầm Hố Mỹ',
+      name: 'Xe SUV Cỡ Lớn Hầm Hố Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_suv.png'
     },
     {
@@ -158,22 +158,22 @@ export const vehicleConfig = {
     },
     {
       id: 'us_crew_cab',
-      name: '🇺🇸 Xe Bán Tải Cabin Đôi Hạng Nặng Mỹ',
+      name: 'Xe Bán Tải Cabin Đôi Hạng Nặng Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_crew_cab.png'
     },
     {
       id: 'us_pickup',
-      name: '🇺🇸 Xe Bán Tải Cổ Điển Thùng Dài Mỹ',
+      name: 'Xe Bán Tải Cổ Điển Thùng Dài Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_pickup.png'
     },
     {
       id: 'us_utility_pickup',
-      name: '🇺🇸 Xe Bán Tải Công Trình Kỹ Thuật Mỹ',
+      name: 'Xe Bán Tải Công Trình Kỹ Thuật Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_utility_pickup.png'
     },
     {
       id: 'us_ute',
-      name: '🇺🇸 Xe Bán Tải Thể Thao Ute Độc Lạ',
+      name: 'Xe Bán Tải Thể Thao Ute Độc Lạ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_ute.png'
     },
     {
@@ -183,7 +183,7 @@ export const vehicleConfig = {
     },
     {
       id: 'eu_off_roader',
-      name: '🇪🇺 Xe Địa Hình Off-Roader Châu Âu',
+      name: 'Xe Địa Hình Off-Roader Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_off_roader.png'
     },
     {
@@ -193,7 +193,7 @@ export const vehicleConfig = {
     },
     {
       id: 'us_offroad_van',
-      name: '🇺🇸 Xe Van Dã Ngoại Offroad 4x4 Mỹ',
+      name: 'Xe Van Dã Ngoại Offroad 4x4 Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_offroad_van.png'
     },
 
@@ -205,12 +205,12 @@ export const vehicleConfig = {
     },
     {
       id: 'us_police',
-      name: '🇺🇸 Xe Cảnh Sát Mỹ Tuần Tra Đô Thị',
+      name: 'Xe Cảnh Sát Mỹ Tuần Tra Đô Thị',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_police.png'
     },
     {
       id: 'eu_police',
-      name: '🇪🇺 Xe Cảnh Sát Tuần Tra Châu Âu',
+      name: 'Xe Cảnh Sát Tuần Tra Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_police.png'
     },
     {
@@ -220,17 +220,17 @@ export const vehicleConfig = {
     },
     {
       id: 'us_ambulance',
-      name: '🇺🇸 Xe Cấp Cứu Paramedic Chuyên Dụng Mỹ',
+      name: 'Xe Cấp Cứu Paramedic Chuyên Dụng Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_ambulance.png'
     },
     {
       id: 'eu_ambulance',
-      name: '🇪🇺 Xe Cấp Cứu Battenburg Châu Âu',
+      name: 'Xe Cấp Cứu Battenburg Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_ambulance.png'
     },
     {
       id: 'eu_fire_suv',
-      name: '🇪🇺 Xe SUV Chỉ Huy Cứu Hỏa Châu Âu',
+      name: 'Xe SUV Chỉ Huy Cứu Hỏa Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_fire_suv.png'
     },
     {
@@ -240,7 +240,7 @@ export const vehicleConfig = {
     },
     {
       id: 'us_taxi',
-      name: '🇺🇸 Xe Taxi Vàng Biểu Tượng New York',
+      name: 'Xe Taxi Vàng Biểu Tượng New York',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_taxi.png'
     },
 
@@ -252,22 +252,22 @@ export const vehicleConfig = {
     },
     {
       id: 'eu_van',
-      name: '🇪🇺 Xe Van Vận Chuyển Hàng Châu Âu',
+      name: 'Xe Van Vận Chuyển Hàng Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_van.png'
     },
     {
       id: 'eu_premium_van',
-      name: '🇪🇺 Xe Van VIP Thương Gia Châu Âu',
+      name: 'Xe Van VIP Thương Gia Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_premium_van.png'
     },
     {
       id: 'eu_utility_van',
-      name: '🇪🇺 Xe Van Tiện Ích Kỹ Thuật Châu Âu',
+      name: 'Xe Van Tiện Ích Kỹ Thuật Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_utility_van.png'
     },
     {
       id: 'eu_microvan',
-      name: '🇪🇺 Xe Microvan Cổ Điển 2 Tông Màu',
+      name: 'Xe Microvan Cổ Điển 2 Tông Màu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_microvan.png'
     },
     {
@@ -277,12 +277,12 @@ export const vehicleConfig = {
     },
     {
       id: 'us_minibus',
-      name: '🇺🇸 Xe Buýt Mini Đô Thị Mỹ',
+      name: 'Xe Buýt Mini Đô Thị Mỹ',
       thumbSrc: '/assets/vehicles/thumbs/chassis_us_minibus.png'
     },
     {
       id: 'eu_minibus',
-      name: '🇪🇺 Xe Minibus Du Lịch Châu Âu',
+      name: 'Xe Minibus Du Lịch Châu Âu',
       thumbSrc: '/assets/vehicles/thumbs/chassis_eu_minibus.png'
     },
     {
@@ -382,9 +382,9 @@ export const vehicleConfig = {
       thumbSrc: '/assets/vehicles/thumbs/acc_none.png'
     },
     {
-      id: 'headlights',
-      name: 'Dàn Đèn Pha Xenon (Dual Beams)',
-      thumbSrc: '/assets/vehicles/thumbs/acc_headlights.png'
+      id: 'racing_stripes',
+      name: 'Sọc Đua Thể Thao GT (Racing Stripes)',
+      thumbSrc: '/assets/vehicles/thumbs/acc_racing_stripes.png'
     },
     {
       id: 'nitro',
@@ -396,11 +396,15 @@ export const vehicleConfig = {
       name: 'Còi Đèn Cảnh Báo (Beacon Strobe)',
       thumbSrc: '/assets/vehicles/thumbs/acc_roof_beacon.png'
     },
-
     {
       id: 'drift_smoke',
-      name: 'Vệt Phanh Drift & Bụi (Skidmarks)',
+      name: 'Khói Phanh Drift & Bụi (Drift Smoke)',
       thumbSrc: '/assets/vehicles/thumbs/acc_drift_smoke.png'
+    },
+    {
+      id: 'headlights',
+      name: 'Đèn Pha Tăng Cường (Dual Beams)',
+      thumbSrc: '/assets/vehicles/thumbs/acc_headlights.png'
     }
   ],
 
@@ -473,6 +477,11 @@ export const vehicleConfig = {
   lights: [
     {
       id: 'none',
+      name: 'Tắt Đèn Pha (Daylight Off)',
+      thumbSrc: '/assets/vehicles/thumbs/acc_none.png'
+    },
+    {
+      id: 'light_xenon',
       name: 'Đèn Pha Xenon Trắng (Xenon White)',
       thumbSrc: '/assets/vehicles/thumbs/light_none.png'
     },
@@ -571,24 +580,25 @@ export const getVehicleLayers = (selections = {}, colors = {}) => {
   const directionId = selections.direction || 'SOUTHEAST';
   const paintId = selections.paint || 'Red';
   const groundId = selections.ground || 'asphalt_road';
+  const lightId = selections.lights || 'none';
   const accId = selections.accessories || 'none';
 
-  // 1. Layer Mặt Đường / Bóng Đổ (z_index: 1)
+  // 1. Layer Mặt Đường / Bóng Đổ Theo Hướng Xe (z_index: 1)
   if (groundId && groundId !== 'none') {
     layers.push({
-      id: `ground_${groundId}`,
+      id: `ground_${groundId}_${directionId}`,
       category: 'ground',
       name: 'Mặt Đường & Bóng Đổ',
-      src: `/assets/vehicles/ground/${groundId}.png`,
+      src: `/assets/vehicles/ground/${groundId}_${directionId}.png`,
       color: colors.ground || '#ffffff',
       z_index: 1
     });
   }
 
   // 2. Layer Thân Xe Top-Down (z_index: 2)
-  const isDirectSprite = 
-    chassisId.startsWith('us_') || 
-    chassisId.startsWith('eu_') || 
+  const isDirectSprite =
+    chassisId.startsWith('us_') ||
+    chassisId.startsWith('eu_') ||
     ['police', 'ambulance', 'taxi', 'wreckage', 'wreckage_police'].includes(chassisId);
 
   const vehicleSrc = isDirectSprite
@@ -606,15 +616,39 @@ export const getVehicleLayers = (selections = {}, colors = {}) => {
 
   const lightHexMap = {
     none: '#FFFFFF',
+    light_xenon: '#FFFFFF',
     light_amber: '#FACC15',
     light_ice: '#38BDF8',
     light_red: '#EF4444',
     light_lime: '#84CC16'
   };
 
-  const selectedWindowColor = colors.windows || windowHexMap[selections.windows] || null;
-  const selectedLightColor = colors.lights || lightHexMap[selections.lights] || null;
-  const selectedBodyColor = colors.paint || colors.chassis || null;
+  const directPaintHexMap = {
+    Red: '#FFFFFF',
+    Blue: '#3B82F6',
+    Black: '#27272A',
+    White: '#F8FAFC',
+    Yellow: '#EAB308',
+    Green: '#10B981'
+  };
+
+  const hasCustomWindowHex = colors.windows && colors.windows.toLowerCase() !== '#ffffff';
+  const selectedWindowColor = hasCustomWindowHex
+    ? colors.windows
+    : (windowHexMap[selections.windows] || '#FFFFFF');
+
+  const hasCustomLightHex = colors.lights && colors.lights.toLowerCase() !== '#ffffff';
+  const selectedLightColor = hasCustomLightHex
+    ? colors.lights
+    : (lightHexMap[lightId] || '#FFFFFF');
+
+  const hasCustomPaintHex = colors.paint && colors.paint.toLowerCase() !== '#ffffff';
+  const hasCustomChassisHex = colors.chassis && colors.chassis.toLowerCase() !== '#ffffff';
+  const selectedBodyColor = hasCustomPaintHex
+    ? colors.paint
+    : hasCustomChassisHex
+      ? colors.chassis
+      : (isDirectSprite ? (directPaintHexMap[paintId] || '#FFFFFF') : '#FFFFFF');
 
   layers.push({
     id: `vehicle_${chassisId}_${directionId}`,
@@ -622,16 +656,27 @@ export const getVehicleLayers = (selections = {}, colors = {}) => {
     name: 'Thân Xe Top-Down',
     src: vehicleSrc,
     color: selectedBodyColor || '#ffffff',
+    hasGround: Boolean(groundId && groundId !== 'none'),
     customColors: {
       chassis: selectedBodyColor,
-      windows: selectedWindowColor,
-      lights: selectedLightColor
+      windows: selectedWindowColor
     },
     z_index: 2
   });
 
+  // 3. Layer Đèn Pha Định Hướng (z_index: 3)
+  if (lightId && lightId !== 'none') {
+    layers.push({
+      id: `lights_${lightId}_${directionId}`,
+      category: 'lights',
+      name: 'Đèn Pha Chiếu Sáng',
+      src: `/assets/vehicles/accessories/${chassisId}/headlights_${directionId}.png`,
+      color: selectedLightColor || '#ffffff',
+      z_index: 3
+    });
+  }
 
-  // 3. Layer Phụ Kiện / Hiệu Ứng (Đèn Pha, Nitro, Còi Đèn, Sọc Đua, Khói Drift) (z_index: 3)
+  // 4. Layer Phụ Kiện / Họa Tiết (Sọc Đua GT, Nitro, Còi Đèn, Khói Drift) (z_index: 4)
   if (accId && accId !== 'none') {
     layers.push({
       id: `acc_${accId}_${directionId}`,
@@ -639,7 +684,7 @@ export const getVehicleLayers = (selections = {}, colors = {}) => {
       name: 'Phụ Kiện & Hiệu Ứng',
       src: `/assets/vehicles/accessories/${chassisId}/${accId}_${directionId}.png`,
       color: colors.accessories || '#ffffff',
-      z_index: 3
+      z_index: 4
     });
   }
 

@@ -1,4 +1,4 @@
-import { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
+import { useRef, useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import { preloadImage } from './assetCache';
 
 // === Color Ramp Helpers (RGB <-> HSL) ===
@@ -50,7 +50,7 @@ function hslToRgb(h, s, l) {
 }
 
 function hexToHsl(hex) {
-  if (!hex || hex === '#ffffff' || hex === '#fff') return null;
+  if (!hex || hex.toLowerCase() === '#ffffff' || hex.toLowerCase() === '#fff') return null;
   const cleanHex = hex.replace('#', '');
   if (cleanHex.length !== 6 && cleanHex.length !== 3) return null;
   const num = parseInt(cleanHex.length === 3 ? cleanHex.split('').map(c => c + c).join('') : cleanHex, 16);
@@ -61,8 +61,33 @@ function hexToHsl(hex) {
   return rgbToHsl(r, g, b);
 }
 
-const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transparentBg = false, frameSize = 32, isSpritesheet = true }, ref) => {
+const WALK_FRAMES = [0, 1, 2, 1];
+
+const CanvasPreview = forwardRef(({
+  layers,
+  width = 512,
+  height = 512,
+  transparentBg = false,
+  frameSize = 32,
+  isSpritesheet = true,
+  compactMobile = false,
+  action = 'idle'
+}, ref) => {
   const canvasRef = useRef(null);
+  const [animStep, setAnimStep] = useState(0);
+
+  useEffect(() => {
+    if (!isSpritesheet || !action || action === 'idle') {
+      return undefined;
+    }
+    const intervalMs = action === 'attack' ? 125 : 170;
+    const timer = setInterval(() => {
+      setAnimStep(prev => (prev + 1) % 4);
+    }, intervalMs);
+    return () => clearInterval(timer);
+  }, [isSpritesheet, action]);
+
+  const effectiveStep = (!isSpritesheet || !action || action === 'idle') ? 0 : animStep;
 
   useImperativeHandle(ref, () => ({
     download: (filename = 'mindx-character.png') => {
@@ -86,31 +111,26 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    // Sort layers by z_index
     const sortedLayers = [...layers].sort((a, b) => (a.z_index || 0) - (b.z_index || 0));
 
-    // Load all images first before clearing canvas to avoid flickering
     const drawLayers = async () => {
       try {
-        // Load all images in parallel for maximum speed
         const imagePromises = sortedLayers.map(layer => {
           if (!layer || !layer.src) return Promise.resolve(null);
           return preloadImage(layer.src);
         });
-        
+
         const loadedImages = await Promise.all(imagePromises);
 
         if (!isActive) return;
 
-        // Clear and draw once all images are ready
         ctx.clearRect(0, 0, width, height);
-        ctx.imageSmoothingEnabled = false; // Đảm bảo pixelated
+        ctx.imageSmoothingEnabled = false;
 
-        // Check if rendering legacy side-view vehicles (frameSize !== 100 && frameSize !== 160)
         const isLegacyVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'wheels')) && frameSize !== 100 && frameSize !== 160;
-        const isTopDownVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'ground' || l.category === 'accessories')) && (frameSize === 100 || frameSize === 160);
+        const isTopDownVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'ground' || l.category === 'accessories' || l.category === 'lights')) && (frameSize === 100 || frameSize === 160);
         const isMonsterOrAlien = sortedLayers.some(l => l && (l.bodyCenter || (l.position && !isLegacyVehicle && !isTopDownVehicle)));
-        const floorY = Math.round(height * (1 - 56 / 330)); // Top surface of the pedestal (h-14)
+        const floorY = Math.round(height * (1 - 56 / 330));
         if (isLegacyVehicle) {
           ctx.save();
           ctx.beginPath();
@@ -131,12 +151,13 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
         for (let i = 0; i < loadedImages.length; i++) {
           const img = loadedImages[i];
           const layerInfo = sortedLayers[i];
-          
-          if (!img) continue; // Bỏ qua nếu không tải được ảnh
 
-          const hasColor = layerInfo.color && layerInfo.color !== '#ffffff' && layerInfo.color.toLowerCase() !== '#fff';
+          if (!img) continue;
+
+          const hasColor = layerInfo.color && layerInfo.color.toLowerCase() !== '#ffffff' && layerInfo.color.toLowerCase() !== '#fff';
           let finalColor = layerInfo.color;
-          const sX = isSpritesheet ? (img.width > frameSize ? frameSize : 0) : 0;
+          const activeFrameIdx = (isSpritesheet && action && action !== 'idle') ? WALK_FRAMES[effectiveStep] : 1;
+          const sX = isSpritesheet ? (img.width > frameSize ? activeFrameIdx * frameSize : 0) : 0;
           const sY = 0;
           const sW = isSpritesheet ? Math.min(frameSize, img.width) : img.width;
           const sH = isSpritesheet ? Math.min(frameSize, img.height) : img.height;
@@ -145,7 +166,6 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
           let dw, dh, dx, dy;
 
           if (isTopDownVehicle) {
-            // Integer 3x scale centered in canvas for 100x100 TopDown pixel art
             const scale = Math.max(1, Math.floor((Math.min(width, height) * 0.85) / sW));
             dw = sW * scale;
             dh = sH * scale;
@@ -158,26 +178,25 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
             dx = Math.round((width - dw) / 2);
             dy = Math.round(floorY - 217 * layerScale);
           } else {
-            // Scale to fit BOTH width AND height (whichever is smaller)
             const scaleByW = (width * 0.85) / sW;
             const scaleByH = (height * 0.85) / sH;
             const rawScale = Math.min(scaleByW, scaleByH);
-            // Integer scale for pixel art sprites so every pixel is crisp and razor sharp
             layerScale = (isSpritesheet || sW <= 64) ? Math.max(1, Math.floor(rawScale)) : rawScale;
             dw = sW * layerScale;
             dh = sH * layerScale;
             dx = Math.round((width - dw) / 2);
             dy = Math.round((height - dh) / 2);
+            if (isSpritesheet && action === 'attack' && effectiveStep % 2 === 1) {
+              dy -= 4;
+            }
           }
 
-          // Skin Color Extraction for Arms
           if (!isSpritesheet && layerInfo.category === 'base' && !extractedSkinColor) {
             const tempCanvas = document.createElement('canvas');
             tempCanvas.width = sW;
             tempCanvas.height = sH;
             const tctx = tempCanvas.getContext('2d');
             tctx.drawImage(img, 0, 0, sW, sH);
-            // Read pixel from the face (x=32, y=45)
             const pData = tctx.getImageData(32, 45, 1, 1).data;
             if (pData[3] > 0) {
               extractedSkinColor = `rgb(${pData[0]}, ${pData[1]}, ${pData[2]})`;
@@ -197,14 +216,12 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
             const custom = layerInfo.customColors || {};
             const bodyColor = custom.chassis || (hasColor ? finalColor : null);
             const glassColor = custom.windows || null;
-            const lightColor = custom.lights || null;
             const wheelColor = custom.wheels || null;
 
             const hasCustomRecolor =
-              (bodyColor && bodyColor !== '#ffffff' && bodyColor.toLowerCase() !== '#fff') ||
-              (glassColor && glassColor !== '#ffffff' && glassColor.toLowerCase() !== '#fff') ||
-              (lightColor && lightColor !== '#ffffff' && lightColor.toLowerCase() !== '#fff') ||
-              (wheelColor && wheelColor !== '#ffffff' && wheelColor.toLowerCase() !== '#fff');
+              (bodyColor && bodyColor.toLowerCase() !== '#ffffff' && bodyColor.toLowerCase() !== '#fff') ||
+              (glassColor && glassColor.toLowerCase() !== '#ffffff' && glassColor.toLowerCase() !== '#fff') ||
+              (wheelColor && wheelColor.toLowerCase() !== '#ffffff' && wheelColor.toLowerCase() !== '#fff');
 
             if (hasCustomRecolor) {
               const off = document.createElement('canvas');
@@ -219,7 +236,6 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
 
               const bodyHsl = hexToHsl(bodyColor);
               const glassHsl = hexToHsl(glassColor);
-              const lightHsl = hexToHsl(lightColor);
               const wheelHsl = hexToHsl(wheelColor);
 
               for (let idx = 0; idx < data.length; idx += 4) {
@@ -230,43 +246,41 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
                 const g = data[idx + 1];
                 const b = data[idx + 2];
 
-                // 1. Black/Dark pixels (tires, rims, dark shadows, black decals)
-                if (r < 40 && g < 40 && b < 40) {
+                // Dark tires & outlines
+                if (r < 42 && g < 42 && b < 42) {
                   if (wheelHsl) {
                     const [, , origL] = rgbToHsl(r, g, b);
                     const [nr, ng, nb] = hslToRgb(wheelHsl[0], Math.max(0.35, wheelHsl[1]), origL);
                     data[idx] = nr; data[idx + 1] = ng; data[idx + 2] = nb;
                   }
-                  continue; // Preserve natural black rubber / dark trim
+                  continue;
                 }
 
-                // 2. Glass / Windows (cyan/blue or neutral gray-blue glass)
-                const isGlass = (b > r + 20 && g > r + 5) || (Math.abs(r - g) < 12 && Math.abs(g - b) < 12 && r >= 65 && r <= 130);
+                // Windshield & side windows
+                const isGlass = (b > r + 18 && g > r + 4 && r < 140) || (Math.abs(r - g) < 12 && Math.abs(g - b) < 12 && r >= 55 && r <= 125);
                 if (isGlass) {
                   if (glassHsl) {
                     const [, , origL] = rgbToHsl(r, g, b);
                     const [nr, ng, nb] = hslToRgb(glassHsl[0], Math.max(0.45, glassHsl[1]), origL);
                     data[idx] = nr; data[idx + 1] = ng; data[idx + 2] = nb;
                   }
-                  continue; // Preserve natural glass if no custom glass tint
+                  continue;
                 }
 
-                // 3. Headlights (Bright Xenon/white)
-                const isHeadlight = (r > 230 && g > 220 && b > 160);
-                if (isHeadlight) {
-                  if (lightHsl) {
-                    const [, , origL] = rgbToHsl(r, g, b);
-                    const [nr, ng, nb] = hslToRgb(lightHsl[0], Math.max(0.65, lightHsl[1]), origL);
-                    data[idx] = nr; data[idx + 1] = ng; data[idx + 2] = nb;
-                  }
-                  continue; // Preserve headlights
+                // Preserve bright white headlamp lenses (r>240, g>240, b>230)
+                if (r > 242 && g > 242 && b > 232) {
+                  continue;
                 }
 
-                // 4. Body Paint - Smooth Lightness Ramp Remap (preserve shadows & highlights)
                 if (bodyHsl) {
-                  const [, origS, origL] = rgbToHsl(r, g, b);
-                  const targetS = Math.min(1.0, Math.max(0.35, origS * (bodyHsl[1] / 0.8 || 1.0)));
-                  const [nr, ng, nb] = hslToRgb(bodyHsl[0], targetS, origL);
+                  const [, , origL] = rgbToHsl(r, g, b);
+                  const targetS = bodyHsl[1] < 0.12 ? bodyHsl[1] : Math.min(1.0, Math.max(0.50, bodyHsl[1]));
+                  const targetL = bodyHsl[2] < 0.25
+                    ? Math.max(0.08, origL * 0.45)
+                    : bodyHsl[2] > 0.85
+                      ? Math.min(0.94, origL * 1.18)
+                      : origL;
+                  const [nr, ng, nb] = hslToRgb(bodyHsl[0], targetS, targetL);
                   data[idx] = nr; data[idx + 1] = ng; data[idx + 2] = nb;
                 }
               }
@@ -298,46 +312,31 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
             drawSy = 0;
           }
 
-          // ===== Advanced Transform Logic =====
           ctx.save();
 
           if (layerInfo.position) {
-            // Quái vật & Alien Kenney CC0 Modular: Bounding box chuẩn tổng thể sau khi ghép là ~360px rộng và ~430px cao
-            // Thu phóng theo tỷ lệ 70% canvas để quái vật có độ thở hoàn hảo, không chạm trần, không bị cắt tay chân
             const monsterScale = isSpritesheet ? layerScale : Math.min((width * 0.70) / 360, (height * 0.70) / 430);
-
-            // Điểm bắt đầu vẽ (căn giữa)
             const offsetX = (width - 360 * monsterScale) / 2;
             const offsetY = (height - 430 * monsterScale) / 2;
-
-            // Tính toán Pivot thực tế (mặc định 0,0 là góc trên trái)
             const pX = layerInfo.pivot ? layerInfo.pivot.x * sW : 0;
             const pY = layerInfo.pivot ? layerInfo.pivot.y * sH : 0;
 
-            // Tính toán vị trí dịch chuyển để vẽ
             let tX = offsetX + layerInfo.position.x * monsterScale;
             let tY = offsetY + layerInfo.position.y * monsterScale;
 
-            // Nếu có bodyCenter, neo trung tâm quái vật chuẩn mực vào giữa Canvas
             if (layerInfo.bodyCenter) {
-              const dx = layerInfo.position.x - layerInfo.bodyCenter.x;
-              const dy = layerInfo.position.y - layerInfo.bodyCenter.y;
-
-              // Trục X căn giữa (width / 2)
-              // Trục Y đặt tại 46% height để chân chạm sát mặt sàn bục đứng, sừng và tai không chạm nóc
-              tX = width / 2 + dx * monsterScale;
-              tY = height * 0.46 + dy * monsterScale;
+              const dxPos = layerInfo.position.x - layerInfo.bodyCenter.x;
+              const dyPos = layerInfo.position.y - layerInfo.bodyCenter.y;
+              tX = width / 2 + dxPos * monsterScale;
+              tY = height * 0.46 + dyPos * monsterScale;
             }
 
-            // Di chuyển trục tọa độ tới điểm Neo trên màn hình
             ctx.translate(tX, tY);
 
-            // Nếu có ScaleX (ví dụ lật tay trái)
             if (layerInfo.scaleX === -1) {
               ctx.scale(-1, 1);
             }
 
-            // Vẽ ảnh sao cho điểm Neo (pX, pY) trùng với điểm hiện tại
             ctx.drawImage(
               imgToDraw,
               drawSx, drawSy, sW, sH,
@@ -345,7 +344,13 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
               sW * monsterScale, sH * monsterScale
             );
           } else {
-            // Logic mặc định cho Pixel character (căn giữa hoàn toàn)
+            // Draw directional contact shadow under Top-Down Vehicle chassis
+            if (isTopDownVehicle && layerInfo.category === 'chassis' && !transparentBg) {
+              ctx.save();
+              ctx.filter = 'brightness(0) opacity(0.32)';
+              ctx.drawImage(imgToDraw, drawSx, drawSy, sW, sH, dx + 4, dy + 5, dw, dh);
+              ctx.restore();
+            }
             ctx.drawImage(imgToDraw, drawSx, drawSy, sW, sH, dx, dy, dw, dh);
           }
 
@@ -359,26 +364,27 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
     drawLayers();
 
     return () => {
-      isActive = false; // Cleanup to prevent race conditions
+      isActive = false;
     };
-  }, [layers, width, height, frameSize, isSpritesheet, transparentBg]);
+  }, [layers, width, height, frameSize, isSpritesheet, transparentBg, action, effectiveStep]);
 
-  // Determine aspect ratio: spritesheet=square, portrait(64x96)=9:16, monster/topdown=square
   const isSquareContent = frameSize >= 100 || isSpritesheet;
   const isTopDown = frameSize === 100 || frameSize === 160;
-  const aspectClass = isSquareContent ? 'aspect-square max-w-[330px] max-h-[330px]' : 'aspect-[9/16] max-w-[240px] max-h-[370px]';
+
+  const aspectClass = compactMobile
+    ? 'aspect-square w-[100px] h-[100px] min-[360px]:w-[126px] min-[360px]:h-[126px] sm:w-[240px] sm:h-[240px] md:w-full md:h-auto md:max-w-[260px] md:max-h-[260px] lg:max-w-[320px] lg:max-h-[320px] shrink-0'
+    : isSquareContent
+      ? 'aspect-square max-w-[230px] max-h-[230px] sm:max-w-[270px] sm:max-h-[270px] lg:max-w-[330px] lg:max-h-[330px] w-full'
+      : 'aspect-[9/16] max-w-[180px] max-h-[270px] sm:max-w-[210px] sm:max-h-[320px] lg:max-w-[240px] lg:max-h-[370px] w-full';
 
   return (
-    <div className={`relative border-4 border-gray-200 rounded-xl shadow-lg flex flex-col items-center justify-center overflow-hidden w-full transition-colors duration-300 ${aspectClass} ${transparentBg ? 'bg-transparent' : 'bg-gray-50'}`}>
-      {/* Nền bục đứng nhân vật Retro Pixel Art - Chỉ hiện khi KHÔNG bật nền trong suốt và KHÔNG phải TopDown */}
+    <div className={`relative border-3 sm:border-4 border-gray-200 rounded-xl shadow-sm flex flex-col items-center justify-center overflow-hidden transition-colors duration-300 ${aspectClass} ${transparentBg ? 'bg-transparent' : 'bg-gray-50'}`}>
+      {/* Nền bục đứng nhân vật Retro Pixel Art */}
       {!transparentBg && !isTopDown && (
         <div className="absolute inset-0 z-0 flex flex-col justify-end">
-          {/* Bầu trời / background phía trên */}
           <div className="flex-1 bg-gray-100"></div>
-          {/* Bờ tường và vạch phân cách */}
-          <div className="h-10 bg-gray-200 border-t border-gray-300"></div>
-          {/* Sàn đất / bục đứng */}
-          <div className="h-14 bg-gray-300 border-t border-gray-400"></div>
+          <div className="h-[14%] bg-gray-200 border-t border-gray-300"></div>
+          <div className="h-[18%] bg-gray-300 border-t border-gray-400"></div>
         </div>
       )}
 
@@ -396,7 +402,7 @@ const CanvasPreview = forwardRef(({ layers, width = 512, height = 512, transpare
       {transparentBg && (
         <div className="absolute inset-0 z-0 opacity-20" style={{
           backgroundImage: 'conic-gradient(#aaa 25%, white 25%, white 50%, #aaa 50%, #aaa 75%, white 75%, white)',
-          backgroundSize: '24px 24px'
+          backgroundSize: '20px 20px'
         }}></div>
       )}
 

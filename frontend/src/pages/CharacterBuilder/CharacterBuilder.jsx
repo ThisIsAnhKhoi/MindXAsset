@@ -4,8 +4,8 @@ import CanvasPreview from './CanvasPreview';
 import CategoryMenu from './CategoryMenu';
 import CustomizerInspector from './CustomizerInspector';
 import { assetConfig, getLayerSource } from './assets_config';
-import { monsterConfig, getMonsterLayers } from './monster_config';
-import { alienConfig, getAlienLayers } from './alien_config';
+import { monsterConfig, getMonsterLayers, monsterColorPalettes } from './monster_config';
+import { alienConfig, getAlienLayers, alienColorPalettes } from './alien_config';
 import { vehicleConfig, getVehicleLayers, vehicleColorPalettes } from './vehicle_config';
 import { propConfig, getPropLayers, propColorPalettes } from './prop_config';
 import { soldierConfig, getSoldierLayers, soldierColorPalettes } from './soldier_config';
@@ -137,6 +137,7 @@ const CHARACTER_MODELS = [
     frameSize: 256,
     isSpritesheet: false,
     config: monsterConfig,
+    colorPalettes: monsterColorPalettes,
     categories: [
       { id: 'body', label: 'Thân Quái', icon: '👾' },
       { id: 'leg', label: 'Đôi Chân', icon: '🦵' },
@@ -158,6 +159,7 @@ const CHARACTER_MODELS = [
     frameSize: 256,
     isSpritesheet: false,
     config: alienConfig,
+    colorPalettes: alienColorPalettes,
     categories: [
       { id: 'body', label: 'Thân Quái', icon: '👽' },
       { id: 'antenna', label: 'Ăng-Ten', icon: '📡' },
@@ -170,23 +172,18 @@ const CHARACTER_MODELS = [
 ];
 
 const CharacterBuilder = () => {
-  // Lựa chọn Model
   const [currentModelId, setCurrentModelId] = useState('fantasy');
   const currentModel = CHARACTER_MODELS.find(m => m.id === currentModelId) || CHARACTER_MODELS[0];
 
-  // Tên nhân vật
   const [characterName, setCharacterName] = useState('MindX Character');
-
-  // Tab danh mục đang chọn ở cột trái
   const [activeCategory, setActiveCategory] = useState(currentModel.categories[0].id);
-
-  // Trạng thái nền trong suốt
   const [transparentBg, setTransparentBg] = useState(false);
 
-  // Tham chiếu tới CanvasPreview để gọi hàm download
+  // Mobile Workspace Tab: 'customizer' (Thiết kế nhân vật) | 'spritesheet' (Xưởng cắt lưới)
+  const [mobileTab, setMobileTab] = useState('customizer');
+
   const canvasPreviewRef = useRef(null);
 
-  // Lựa chọn kiểu dáng (Variant ID)
   const [selections, setSelections] = useState({
     races: 'race_human_fair',
     expressions: 'expr_neutral',
@@ -200,7 +197,6 @@ const CharacterBuilder = () => {
     action: 'idle'
   });
 
-  // Chuyển đổi Model trực tiếp trong handler tránh cascading render
   const handleModelChange = (newModelId) => {
     setCurrentModelId(newModelId);
     const targetModel = CHARACTER_MODELS.find(m => m.id === newModelId) || CHARACTER_MODELS[0];
@@ -227,7 +223,6 @@ const CharacterBuilder = () => {
     setActiveCategory(targetModel.categories[0].id);
   };
 
-  // 1. Tải trước toàn bộ ảnh trong danh mục đang chọn (Category Preloading)
   useEffect(() => {
     const options = (currentModel.config || {})[activeCategory] || [];
     const urls = options.map(opt => {
@@ -242,7 +237,6 @@ const CharacterBuilder = () => {
     }
   }, [activeCategory, currentModel]);
 
-  // 2. Nạp trước toàn bộ tài sản của model ngay lập tức (Eager Full Preloader)
   useEffect(() => {
     const allUrls = [];
     Object.values(currentModel.config || {}).forEach(opts => {
@@ -259,16 +253,13 @@ const CharacterBuilder = () => {
     }
   }, [currentModelId, currentModel.config]);
 
-  // Bảng màu cho từng bộ phận (Color Modulation)
   const [colors, setColors] = useState({});
-
   const [isGenerating, setIsGenerating] = useState(false);
   const [isGeneratingSheet, setIsGeneratingSheet] = useState(false);
   const [previewMetadata, setPreviewMetadata] = useState(null);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [imageResult, setImageResult] = useState(null);
 
-  // Đổi Option kiểu dáng
   const handleSelectOption = (category, id) => {
     setSelections(prev => {
       const next = { ...prev, [category]: id };
@@ -285,12 +276,10 @@ const CharacterBuilder = () => {
     }
   };
 
-  // Đổi Màu sắc
   const handleSelectColor = (category, hexColor) => {
     setColors(prev => ({ ...prev, [category]: hexColor }));
   };
 
-  // Nút RANDOMIZE: Phối ngẫu nhiên toàn bộ nhân vật
   const handleRandomize = () => {
     const randomNames = ['MindX Hero', 'Pixel Dev', 'Code Master', 'Data Wizard', 'Design Guru'];
     setCharacterName(randomNames[Math.floor(Math.random() * randomNames.length)]);
@@ -300,16 +289,19 @@ const CharacterBuilder = () => {
     currentModel.categories.forEach(cat => {
       const options = currentModel.config[cat.id] || [];
       if (options.length > 0) {
-        const randOpt = options[Math.floor(Math.random() * options.length)];
+        // Keep a road/ground visible when randomizing vehicles instead of picking 'none'
+        const pool = (currentModel.id === 'vehicle' && cat.id === 'ground')
+          ? options.filter(o => o.id !== 'none')
+          : options;
+        const randOpt = pool[Math.floor(Math.random() * pool.length)] || options[0];
         newSelections[cat.id] = randOpt.id;
       }
     });
 
     setSelections(newSelections);
-    toast.info("Đã tạo nhân vật ngẫu nhiên! 🎲");
+    toast.info("Đã tạo ngẫu nhiên! 🎲", { toastId: 'randomize-toast', autoClose: 1200 });
   };
 
-  // Tải ảnh PNG trực tiếp
   const handleDownloadPNG = () => {
     if (canvasPreviewRef.current) {
       canvasPreviewRef.current.download(`${characterName.replace(/\s+/g, '_')}_sprite.png`);
@@ -317,7 +309,6 @@ const CharacterBuilder = () => {
     }
   };
 
-  // Tổng hợp layers kèm xử lý Exclusion Rules
   const activeLayers = useMemo(() => {
     if (currentModel.id === 'monster') {
       return getMonsterLayers(selections).map(l => {
@@ -364,7 +355,6 @@ const CharacterBuilder = () => {
       if (option) selectedOptions[cat.id] = option;
     });
 
-    // Xác định layer bị ẩn do Exclusion Rules (VD: mũ trùm đầu thì ẩn tóc)
     const hiddenCategories = new Set();
     Object.values(selectedOptions).forEach(option => {
       if (option?.rules?.hides) {
@@ -372,16 +362,13 @@ const CharacterBuilder = () => {
       }
     });
 
-    // Render layers
     currentModel.categories.forEach(cat => {
       if (!hiddenCategories.has(cat.id) && selectedOptions[cat.id]) {
         const opt = selectedOptions[cat.id];
-        // Lấy danh sách layers (trả về mảng {src, z_index})
         const layerArr = getLayerSource(cat.id, opt.id, currentModel.config);
         if (layerArr && layerArr.length > 0) {
           layerArr.forEach(l => {
             let layerColor = colors[cat.id] || '#ffffff';
-            // Arms should inherit skin color from 'base' or 'bases'
             if (cat.id === 'arms') {
               layerColor = colors['base'] || colors['bases'] || '#ffffff';
             }
@@ -399,16 +386,12 @@ const CharacterBuilder = () => {
       }
     });
 
-    // Sắp xếp theo z_index từ nhỏ đến lớn (để vẽ từ sau ra trước)
     layers.sort((a, b) => (a.z_index || 0) - (b.z_index || 0));
-
     return layers;
   }, [selections, colors, currentModel]);
 
-  // Gửi thông tin sang AI / Backend
   const handleGenerate = async () => {
     setIsGenerating(true);
-
     const base64Image = canvasPreviewRef.current?.getBase64Image();
 
     const formOutput = {
@@ -433,7 +416,7 @@ const CharacterBuilder = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Lỗi server');
 
-      setImageResult(data.image); // data.image returns the Base64 generated image
+      setImageResult(data.image);
       setPreviewMetadata(data.metadata || null);
       setShowPreviewModal(true);
       toast.success("Tạo hoạt ảnh AI thành công!");
@@ -445,10 +428,8 @@ const CharacterBuilder = () => {
     }
   };
 
-  // Tạo trọn bộ Sprite Sheet 5x3 (15 Khung hình đa hành động từ Canvas & Vision AI)
   const handleGenerateFullSpritesheet = async () => {
     setIsGeneratingSheet(true);
-
     const base64Image = canvasPreviewRef.current?.getBase64Image();
 
     try {
@@ -481,27 +462,62 @@ const CharacterBuilder = () => {
   };
 
   return (
-    <div className="flex-1 bg-[#F8F9FA] py-3 px-4 sm:px-6 font-sans border-t border-gray-200">
-      <div className="max-w-6xl mx-auto flex flex-col gap-3">
+    <div className="flex-1 bg-[#F8F9FA] py-1.5 sm:py-3 px-2 sm:px-5 lg:px-6 font-sans border-t border-gray-200 min-w-0">
+      <div className="max-w-6xl mx-auto flex flex-col gap-1.5 sm:gap-3.5 min-w-0">
 
-        {/* Banner Tiêu đề thu gọn thanh lịch */}
-        <div className="flex items-center justify-between pb-2 border-b border-gray-200 shrink-0">
-          <div>
-            <h1 className="text-xl sm:text-2xl font-black text-gray-900 font-sans tracking-tight flex items-center gap-2">
-              <span className="text-red-600">⚡</span> CHARACTER STUDIO
-            </h1>
-            <p className="text-xs text-gray-500 font-sans mt-0.5">
-              Xây dựng nhân vật Pixel Art hoàn chỉnh với Custom Layering & Nhuộm màu động
-            </p>
+        {/* Top Studio Bar: Tiêu đề + Chuyển chế độ nhanh trên Mobile/Tablet */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 pb-1.5 sm:pb-2 border-b border-gray-200 shrink-0 min-w-0">
+          <div className="flex items-center justify-between min-w-0">
+            <div className="min-w-0">
+              <h1 className="text-sm min-[360px]:text-base sm:text-xl lg:text-2xl font-black text-gray-900 font-sans tracking-tight flex items-center gap-1.5 truncate">
+                <span className="text-red-600 shrink-0">⚡</span>
+                <span className="truncate">CHARACTER STUDIO</span>
+              </h1>
+              <p className="hidden md:block text-xs text-gray-500 font-sans mt-0.5 truncate">
+                Xây dựng nhân vật Pixel Art hoàn chỉnh với Custom Layering & Nhuộm màu động
+              </p>
+            </div>
+          </div>
+
+          {/* Mobile & Tablet Workspace Switcher: Tùy biến Nhân vật vs Xưởng Spritesheet */}
+          <div className="grid grid-cols-2 sm:flex lg:hidden bg-gray-200/80 p-1 rounded-xl border border-gray-200 self-stretch sm:self-auto shrink-0 min-w-0 gap-1">
+            <button
+              type="button"
+              onClick={() => setMobileTab('customizer')}
+              className={`px-2 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer min-w-0 ${
+                mobileTab === 'customizer'
+                  ? 'bg-white text-red-600 shadow-xs'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <span className="shrink-0">🎨</span>
+              <span className="truncate">Thiết Kế Nhân Vật</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileTab('spritesheet')}
+              className={`px-2 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer min-w-0 ${
+                mobileTab === 'spritesheet'
+                  ? 'bg-white text-red-600 shadow-xs'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <span className="shrink-0">🎞️</span>
+              <span className="truncate">Xưởng Spritesheet</span>
+            </button>
           </div>
         </div>
 
-        {/* Bố cục 3 CỘT chuẩn Studio - Đồng bộ chiều cao 560px, triệt tiêu đè lấn */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
+        {/*
+          PHẦN 1: BÀN THIẾT KẾ NHÂN VẬT (CHARACTER CUSTOMIZER)
+          - Mobile (< md): Split-Screen siêu gọn (Stage Ngang ở trên + Dải Bộ phận + Bảng chọn đồ ngay bên dưới — vừa khít 1 màn hình 393x852 và tương thích cả 280px!)
+          - Tablet (md: 768px - 1023px): 2 Cột cân đối (Cột trái 5 phần: Model + Canvas; Cột phải 7 phần: Dải Bộ phận + Lưới chọn đồ)
+          - Desktop (lg: >= 1024px): 3 Cột chuẩn Studio (3 : 5 : 4) cao đồng bộ 560px
+        */}
+        <div className={`${mobileTab === 'customizer' ? 'grid' : 'hidden lg:grid'} grid-cols-1 md:grid-cols-12 gap-2 sm:gap-4 lg:gap-5 items-stretch min-w-0`}>
 
-          {/* CỘT 1: Sidebar Danh mục Điều Hướng (Hợp nhất 1 Card duy nhất, overflow-visible cho Dropdown) */}
-          <div className="md:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[560px] relative z-20">
-            {/* Header Thẻ: Chọn Model với Custom Dropdown */}
+          {/* CỘT 1 (Desktop lg: 3 cột | Mobile & Tablet: Gộp ModelDropdown vào cột Trái) */}
+          <div className="hidden lg:flex lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-xs flex-col h-[560px] relative z-20">
             <div className="p-3 border-b border-gray-100 bg-gray-50/70 shrink-0 rounded-t-2xl">
               <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1.5 font-sans">
                 Loại Nhân Vật
@@ -513,7 +529,6 @@ const CharacterBuilder = () => {
               />
             </div>
 
-            {/* Thân Thẻ: Danh sách Bộ phận (Cuộn nội bộ bên trong) */}
             <div className="flex-1 p-3 overflow-y-auto custom-scrollbar flex flex-col min-h-0">
               <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 block font-sans shrink-0">
                 Bộ Phận ({currentModel.categories.length})
@@ -522,10 +537,10 @@ const CharacterBuilder = () => {
                 categories={currentModel.categories}
                 activeCategory={activeCategory}
                 onSelectCategory={setActiveCategory}
+                mode="vertical"
               />
             </div>
 
-            {/* Đáy Thẻ: Động tác Action (Segmented Pills đẹp mắt) */}
             {currentModel.isSpritesheet && (
               <div className="p-2.5 border-t border-gray-100 bg-gray-50/80 shrink-0 rounded-b-2xl">
                 <label className="text-[10px] font-bold uppercase tracking-wider block mb-1 text-gray-400 font-sans">
@@ -561,35 +576,48 @@ const CharacterBuilder = () => {
             )}
           </div>
 
-          {/* CỘT 2: Khung Xem Trước Canvas Studio (Hợp nhất 1 Card duy nhất có Toolbar) */}
-          <div className="md:col-span-5 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between p-4 h-[560px] overflow-hidden">
-            {/* Top Bar: Đặt tên nhân vật & Toggle Xóa nền */}
-            <div className="flex items-center justify-between pb-2.5 border-b border-gray-100 shrink-0">
-              <div className="flex items-center gap-1.5 flex-1 mr-2 overflow-hidden">
+          {/* CỘT 2: Khung Xem Trước Canvas Studio (Mobile: Stage Ngang siêu gọn | Tablet: 5 cột | Desktop: 5 cột) */}
+          <div className="md:col-span-5 lg:col-span-5 bg-white rounded-2xl border border-gray-200 shadow-xs flex flex-col justify-between p-2.5 sm:p-4 h-auto md:h-[530px] lg:h-[560px] relative z-20 min-w-0">
+            
+            {/* Chọn Model tích hợp ngay đầu Card trên Mobile & Tablet (< lg) để tiết kiệm 1 Card riêng */}
+            <div className="lg:hidden pb-2 mb-1.5 border-b border-gray-100 shrink-0">
+              <ModelDropdown
+                models={CHARACTER_MODELS}
+                selectedModelId={currentModelId}
+                onSelectModel={handleModelChange}
+              />
+            </div>
+
+            {/* Thanh Tên Nhân Vật & Xóa Nền rộng toàn khung (Hiển thị rõ ràng từ 280px đến Desktop) */}
+            <div className="flex items-center justify-between pb-2 mb-1.5 sm:mb-0 border-b border-gray-100 shrink-0 gap-2 min-w-0">
+              <div className="flex items-center gap-1.5 flex-1 min-w-0">
                 <span className="text-gray-400 text-xs shrink-0">✏️</span>
                 <input
                   type="text"
                   value={characterName}
                   onChange={(e) => setCharacterName(e.target.value)}
-                  className="text-base font-bold font-sans text-gray-800 border-b border-transparent hover:border-gray-300 focus:border-red-500 focus:outline-none py-0.5 px-1 bg-transparent truncate w-full"
+                  className="text-xs sm:text-base font-bold font-sans text-gray-800 border-b border-transparent hover:border-gray-300 focus:border-red-500 focus:outline-none py-0.5 px-1 bg-transparent truncate w-full min-w-0"
                   placeholder="Nhập tên nhân vật..."
                 />
               </div>
 
-              {/* Checkbox Xóa nền được đặt gọn gàng ở góc */}
-              <label className="flex items-center gap-1.5 cursor-pointer text-xs font-medium text-gray-600 hover:text-gray-900 shrink-0 select-none">
+              <label className="flex items-center gap-1.5 cursor-pointer text-[11px] sm:text-xs font-semibold text-gray-600 hover:text-gray-900 shrink-0 select-none bg-gray-50 px-2 py-1 rounded-lg border border-gray-200/80">
                 <input
                   type="checkbox"
                   checked={transparentBg}
                   onChange={(e) => setTransparentBg(e.target.checked)}
                   className="w-3.5 h-3.5 text-red-600 rounded border-gray-300 focus:ring-red-500"
                 />
-                Xóa nền
+                <span>Xóa nền</span>
               </label>
             </div>
 
-            {/* Vùng Canvas Preview trung tâm */}
-            <div className="flex-1 flex items-center justify-center my-1.5 overflow-hidden">
+            {/*
+              MOBILE SPLIT-STAGE (< sm):
+              - Màn hình siêu hẹp (< 350px, ví dụ 283px): Xếp dọc tự nhiên (Canvas ở trên, 4 nút bấm trải rộng 100% ở dưới, không bao giờ cắt chữ!)
+              - Điện thoại chuẩn (350px - 639px, ví dụ 393px): Xếp ngang (Canvas bên trái, 4 nút bấm bên phải) tiết kiệm chiều dọc!
+            */}
+            <div className="flex flex-col min-[350px]:flex-row sm:flex-col items-center gap-2 min-[360px]:gap-3 sm:flex-1 sm:justify-center sm:my-1.5 min-w-0">
               <CanvasPreview
                 ref={canvasPreviewRef}
                 layers={activeLayers}
@@ -598,16 +626,89 @@ const CharacterBuilder = () => {
                 transparentBg={transparentBg}
                 frameSize={currentModel.frameSize}
                 isSpritesheet={currentModel.isSpritesheet}
+                compactMobile={true}
+                action={selections.action}
               />
+
+              {/* Bảng điều khiển nhanh bên cạnh/dưới Canvas (Chỉ hiện trên Mobile < sm) */}
+              <div className="flex sm:hidden flex-col gap-1.5 w-full min-[350px]:flex-1 min-w-0 justify-center self-stretch">
+                {/* Chọn động tác nếu là Spritesheet */}
+                {currentModel.isSpritesheet && (
+                  <div className="grid grid-cols-3 gap-1 p-0.5 bg-gray-100 rounded-lg border border-gray-200">
+                    {[
+                      { id: 'idle', label: 'Đứng', icon: '🧍' },
+                      { id: 'run', label: 'Chạy', icon: '🏃' },
+                      { id: 'attack', label: 'Đánh', icon: '⚔️' },
+                    ].map(act => {
+                      const isActive = selections.action === act.id;
+                      return (
+                        <button
+                          key={act.id}
+                          type="button"
+                          onClick={() => handleSelectOption('action', act.id)}
+                          className={`py-0.5 px-1 rounded-md text-[10px] font-bold flex items-center justify-center gap-0.5 min-w-0 ${
+                            isActive ? 'bg-white text-red-600 shadow-2xs' : 'text-gray-600'
+                          }`}
+                        >
+                          <span className="shrink-0">{act.icon}</span>
+                          <span className="truncate">{act.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Hàng nút Ngẫu nhiên & Lưu PNG */}
+                <div className="grid grid-cols-2 gap-1.5 min-w-0">
+                  <button
+                    type="button"
+                    onClick={handleRandomize}
+                    className="py-2 px-1.5 min-[360px]:px-2 bg-gray-100 active:bg-gray-200 text-gray-800 font-bold text-[11px] rounded-lg border border-gray-200 flex items-center justify-center gap-1 min-w-0"
+                  >
+                    <span className="shrink-0">🎲</span>
+                    <span className="truncate">Ngẫu nhiên</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleDownloadPNG}
+                    className="py-2 px-1.5 min-[360px]:px-2 bg-gray-900 active:bg-black text-white font-bold text-[11px] rounded-lg flex items-center justify-center gap-1 min-w-0"
+                  >
+                    <span className="shrink-0">⬇️</span>
+                    <span className="truncate">Lưu PNG</span>
+                  </button>
+                </div>
+
+                {/* Hàng nút AI Xuất Sprite Sheet & Hoạt ảnh */}
+                <div className="grid grid-cols-2 gap-1.5 min-w-0">
+                  <button
+                    type="button"
+                    onClick={handleGenerateFullSpritesheet}
+                    disabled={isGeneratingSheet || isGenerating}
+                    className="py-2 px-1.5 min-[360px]:px-2 bg-gradient-to-r from-amber-500 to-red-500 text-white font-bold text-[10px] min-[360px]:text-[11px] rounded-lg flex items-center justify-center gap-1 shadow-2xs disabled:opacity-50 min-w-0"
+                  >
+                    <span className="shrink-0">✨</span>
+                    <span className="truncate">{isGeneratingSheet ? 'Đang tạo...' : 'Sheet 15F'}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleGenerate}
+                    disabled={isGenerating || isGeneratingSheet}
+                    className="py-2 px-1.5 min-[360px]:px-2 bg-white text-gray-700 border border-gray-300 font-bold text-[10px] min-[360px]:text-[11px] rounded-lg flex items-center justify-center gap-1 disabled:opacity-50 min-w-0"
+                  >
+                    <span className="shrink-0">⚡</span>
+                    <span className="truncate">{isGenerating ? 'Đang tạo...' : '10 Frames'}</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Bottom Toolbar: Gộp toàn bộ nút hành động vào chân Card liền mạch */}
-            <div className="pt-2.5 border-t border-gray-100 flex flex-col gap-2 shrink-0">
+            {/* Bottom Toolbar cho Tablet & Desktop (sm+) */}
+            <div className="hidden sm:flex pt-2.5 border-t border-gray-100 flex-col gap-2 shrink-0">
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={handleRandomize}
-                  className="py-2 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-sans font-bold text-xs uppercase tracking-wider rounded-xl border border-gray-200 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
+                  className="py-2 px-2.5 bg-gray-100 hover:bg-gray-200 active:scale-[0.98] text-gray-800 font-sans font-bold text-xs uppercase tracking-wider rounded-xl border border-gray-200 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs whitespace-nowrap"
                 >
                   <span className="text-sm">🎲</span> Ngẫu nhiên
                 </button>
@@ -615,19 +716,18 @@ const CharacterBuilder = () => {
                 <button
                   type="button"
                   onClick={handleDownloadPNG}
-                  className="py-2 px-3 bg-gray-800 hover:bg-gray-900 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="py-2 px-2.5 bg-gray-800 hover:bg-gray-900 active:scale-[0.98] text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
                 >
                   <span className="text-sm">⬇️</span> Lưu ảnh PNG
                 </button>
               </div>
 
-              {/* Nút Tạo Trọn Bộ Sprite Sheet 5x3 (15 Khung AI Grid Matrix) */}
               <button
                 type="button"
                 onClick={handleGenerateFullSpritesheet}
                 disabled={isGeneratingSheet || isGenerating}
                 className={`
-                  w-full py-2.5 px-3 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer
+                  w-full py-2.5 px-3 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer active:scale-[0.99]
                   ${isGeneratingSheet
                     ? 'bg-amber-300 text-white cursor-not-allowed'
                     : 'bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white hover:shadow-md'
@@ -636,26 +736,26 @@ const CharacterBuilder = () => {
               >
                 {isGeneratingSheet ? (
                   <>
-                    <svg className="animate-spin h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-3.5 w-3.5 text-white shrink-0" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    Đang tạo Trọn Bộ Sprite Sheet (Grid AI)...
+                    <span className="truncate">Đang tạo Sprite Sheet (Grid AI)...</span>
                   </>
                 ) : (
                   <>
-                    <span className="text-sm">✨</span> Tạo Trọn Bộ Sprite Sheet (Grid AI)
+                    <span className="text-sm shrink-0">✨</span>
+                    <span className="truncate">Tạo Trọn Bộ Sprite Sheet (Grid AI)</span>
                   </>
                 )}
               </button>
 
-              {/* Nút Xuất Hoạt Ảnh Đơn (AI Generator) */}
               <button
                 type="button"
                 onClick={handleGenerate}
                 disabled={isGenerating || isGeneratingSheet}
                 className={`
-                  w-full py-2 px-3 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-2xs cursor-pointer border
+                  w-full py-2 px-3 font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-2xs cursor-pointer border active:scale-[0.99]
                   ${isGenerating
                     ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
                     : 'bg-white hover:bg-gray-50 text-gray-700 border-gray-300 hover:border-gray-400'
@@ -664,44 +764,70 @@ const CharacterBuilder = () => {
               >
                 {isGenerating ? (
                   <>
-                    <svg className="animate-spin h-3.5 w-3.5 text-gray-600" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-3.5 w-3.5 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    Đang xuất hoạt ảnh 1 động tác...
+                    <span className="truncate">Đang xuất hoạt ảnh 1 động tác...</span>
                   </>
                 ) : (
                   <>
-                    <span>⚡</span> Xuất Hoạt Ảnh 1 Động Tác (10 Frames)
+                    <span className="shrink-0">⚡</span>
+                    <span className="truncate">Xuất Hoạt Ảnh 1 Động Tác (10 Frames)</span>
                   </>
                 )}
               </button>
             </div>
           </div>
 
-          {/* CỘT 3: Tùy biến chi tiết Kiểu dáng & Màu sắc (Phải) */}
-          <div className="md:col-span-4 h-[560px]">
-            <CustomizerInspector
-              activeCategory={activeCategory}
-              selections={selections}
-              colors={colors}
-              onSelectOption={handleSelectOption}
-              onSelectColor={handleSelectColor}
-              currentConfig={currentModel.config}
-              currentPalettes={currentModel.colorPalettes}
-              currentGroups={currentModel.groups}
-              isSpritesheet={currentModel.isSpritesheet}
-              currentModel={currentModel}
-            />
+          {/* CỘT 3: Thanh Bộ Phận Ngang (Mobile/Tablet) + Tùy biến Kiểu dáng & Màu sắc (Tablet: 7 cột | Desktop: 4 cột) */}
+          <div className="md:col-span-7 lg:col-span-4 flex flex-col gap-2 md:h-[530px] lg:h-[560px] min-w-0">
+            {/* Thanh cuộn ngang chọn Bộ phận dành cho Mobile & Tablet (< lg) */}
+            <div className="lg:hidden bg-white rounded-2xl border border-gray-200 px-2.5 py-2 shadow-2xs shrink-0">
+              <div className="flex items-center justify-between mb-1 px-0.5">
+                <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider font-sans">
+                  Bộ Phận ({currentModel.categories.length})
+                </span>
+                <span className="text-[10px] text-gray-400 font-medium">Vuốt ngang ➔</span>
+              </div>
+              <CategoryMenu
+                categories={currentModel.categories}
+                activeCategory={activeCategory}
+                onSelectCategory={setActiveCategory}
+                mode="horizontal"
+              />
+            </div>
+
+            {/* Bảng chọn Kiểu dáng & Nhuộm màu */}
+            <div className="h-[304px] sm:h-[420px] md:h-full md:flex-1 min-h-0">
+              <CustomizerInspector
+                activeCategory={activeCategory}
+                selections={selections}
+                colors={colors}
+                onSelectOption={handleSelectOption}
+                onSelectColor={handleSelectColor}
+                currentConfig={currentModel.config}
+                currentPalettes={currentModel.colorPalettes}
+                currentGroups={currentModel.groups}
+                isSpritesheet={currentModel.isSpritesheet}
+                currentModel={currentModel}
+              />
+            </div>
           </div>
 
         </div>
 
-        {/* Xưởng Xem Trước Hoạt Ảnh & Tách Lưới Sprite Sheet Tích Hợp Trực Tiếp (Always Visible) */}
-        <InlineSpritesheetStudio
-          initialImageUrl={imageResult}
-          onCaptureFromCanvas={() => canvasPreviewRef.current?.getBase64Image()}
-        />
+        {/*
+          PHẦN 2: XƯỞNG XEM TRƯỚC HOẠT ẢNH & TÁCH LƯỚI SPRITE SHEET
+          - Desktop (lg+): Luôn hiển thị bên dưới
+          - Mobile & Tablet (< lg): Hiển thị khi chọn tab "🎞️ Xưởng Spritesheet"
+        */}
+        <div className={`${mobileTab === 'spritesheet' ? 'block' : 'hidden lg:block'}`}>
+          <InlineSpritesheetStudio
+            initialImageUrl={imageResult}
+            onCaptureFromCanvas={() => canvasPreviewRef.current?.getBase64Image()}
+          />
+        </div>
 
       </div>
 

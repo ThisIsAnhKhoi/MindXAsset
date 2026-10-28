@@ -1,46 +1,46 @@
 export const monsterSkeletons = {
-  A: { 
-    center: {x: 82, y: 82},
-    arm_L: {x: 10, y: 80}, arm_R: {x: 155, y: 80}, 
-    leg_L: {x: 40, y: 140}, leg_R: {x: 125, y: 140}, 
-    face: {x: 82, y: 70}, 
-    detail_L: {x: 30, y: 10}, detail_R: {x: 135, y: 10} 
+  A: {
+    center: { x: 82, y: 82 },
+    arm_L: { x: 10, y: 80 }, arm_R: { x: 155, y: 80 },
+    leg_L: { x: 40, y: 140 }, leg_R: { x: 125, y: 140 },
+    face: { x: 82, y: 70 },
+    detail_L: { x: 30, y: 10 }, detail_R: { x: 135, y: 10 }
   },
-  B: { 
-    center: {x: 96, y: 96},
-    arm_L: {x: 10, y: 96}, arm_R: {x: 182, y: 96}, 
-    leg_L: {x: 50, y: 165}, leg_R: {x: 142, y: 165}, 
-    face: {x: 96, y: 80}, 
-    detail_L: {x: 40, y: 10}, detail_R: {x: 152, y: 10} 
+  B: {
+    center: { x: 96, y: 96 },
+    arm_L: { x: 10, y: 96 }, arm_R: { x: 182, y: 96 },
+    leg_L: { x: 50, y: 165 }, leg_R: { x: 142, y: 165 },
+    face: { x: 96, y: 80 },
+    detail_L: { x: 40, y: 10 }, detail_R: { x: 152, y: 10 }
   },
-  C: { 
-    center: {x: 70, y: 97},
-    arm_L: {x: 10, y: 90}, arm_R: {x: 131, y: 90}, 
-    leg_L: {x: 30, y: 165}, leg_R: {x: 111, y: 165}, 
-    face: {x: 70, y: 70}, 
-    detail_L: {x: 20, y: 10}, detail_R: {x: 121, y: 10} 
+  C: {
+    center: { x: 70, y: 97 },
+    arm_L: { x: 10, y: 90 }, arm_R: { x: 131, y: 90 },
+    leg_L: { x: 30, y: 165 }, leg_R: { x: 111, y: 165 },
+    face: { x: 70, y: 70 },
+    detail_L: { x: 20, y: 10 }, detail_R: { x: 121, y: 10 }
   },
-  D: { 
-    center: {x: 87, y: 91},
-    arm_L: {x: 10, y: 90}, arm_R: {x: 164, y: 90}, 
-    leg_L: {x: 40, y: 155}, leg_R: {x: 134, y: 155}, 
-    face: {x: 87, y: 80}, 
-    detail_L: {x: 30, y: 10}, detail_R: {x: 144, y: 10} 
+  D: {
+    center: { x: 87, y: 91 },
+    arm_L: { x: 10, y: 90 }, arm_R: { x: 164, y: 90 },
+    leg_L: { x: 40, y: 155 }, leg_R: { x: 134, y: 155 },
+    face: { x: 87, y: 80 },
+    detail_L: { x: 30, y: 10 }, detail_R: { x: 144, y: 10 }
   },
-  E: { 
-    center: {x: 66, y: 125},
-    arm_L: {x: 10, y: 100}, arm_R: {x: 122, y: 100}, 
-    leg_L: {x: 30, y: 220}, leg_R: {x: 102, y: 220}, 
-    face: {x: 66, y: 80}, 
-    detail_L: {x: 20, y: 10}, detail_R: {x: 112, y: 10} 
+  E: {
+    center: { x: 66, y: 125 },
+    arm_L: { x: 10, y: 100 }, arm_R: { x: 122, y: 100 },
+    leg_L: { x: 30, y: 220 }, leg_R: { x: 102, y: 220 },
+    face: { x: 66, y: 80 },
+    detail_L: { x: 20, y: 10 }, detail_R: { x: 112, y: 10 }
   },
-  F: { 
-    center: {x: 85, y: 118},
-    arm_L: {x: 15, y: 120}, arm_R: {x: 155, y: 120}, 
-    leg_L: {x: 40, y: 210}, leg_R: {x: 130, y: 210}, 
-    face: {x: 85, y: 80}, 
-    detail_L: {x: 30, y: 10}, detail_R: {x: 140, y: 10} 
-  },
+  F: {
+    center: { x: 85, y: 118 },
+    arm_L: { x: 15, y: 120 }, arm_R: { x: 155, y: 120 },
+    leg_L: { x: 40, y: 210 }, leg_R: { x: 130, y: 210 },
+    face: { x: 85, y: 80 },
+    detail_L: { x: 30, y: 10 }, detail_R: { x: 140, y: 10 }
+  }
 };
 
 const createOptions = (prefix, types) => {
@@ -57,7 +57,7 @@ const createNoUnderscoreOptions = (prefix, types) => {
     name: `${prefix} ${t}`.toUpperCase(),
     src: `/assets/monster/${prefix}${t}.png`
   }));
-}
+};
 
 export const monsterConfig = {
   body: createOptions('body', [
@@ -98,46 +98,72 @@ export const monsterConfig = {
     { id: 'eye_psycho_dark', name: 'Psycho Dark', src: '/assets/monster/eye_psycho_dark.png' },
     { id: 'eye_psycho_light', name: 'Psycho Light', src: '/assets/monster/eye_psycho_light.png' },
     { id: 'eye_closed_feminine', name: 'Closed Fem', src: '/assets/monster/eye_closed_feminine.png' },
-    { id: 'eye_closed_happy', name: 'Closed Happy', src: '/assets/monster/eye_closed_happy.png' },
+    { id: 'eye_closed_happy', name: 'Closed Happy', src: '/assets/monster/eye_closed_happy.png' }
   ],
   mouth: [
     ...createNoUnderscoreOptions('mouth', ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']),
     { id: 'mouth_closed_fangs', name: 'Closed Fangs', src: '/assets/monster/mouth_closed_fangs.png' },
     { id: 'mouth_closed_happy', name: 'Closed Happy', src: '/assets/monster/mouth_closed_happy.png' },
     { id: 'mouth_closed_sad', name: 'Closed Sad', src: '/assets/monster/mouth_closed_sad.png' },
-    { id: 'mouth_closed_teeth', name: 'Closed Teeth', src: '/assets/monster/mouth_closed_teeth.png' },
+    { id: 'mouth_closed_teeth', name: 'Closed Teeth', src: '/assets/monster/mouth_closed_teeth.png' }
   ],
   nose: [
+    { id: 'nose_none', name: 'Không có', src: null },
     ...createOptions('nose', ['brown', 'green', 'red', 'yellow']),
     { id: 'snot_large', name: 'Snot Large', src: '/assets/monster/snot_large.png' },
-    { id: 'snot_small', name: 'Snot Small', src: '/assets/monster/snot_small.png' },
+    { id: 'snot_small', name: 'Snot Small', src: '/assets/monster/snot_small.png' }
   ],
-  eyebrow: createNoUnderscoreOptions('eyebrow', ['A', 'B', 'C']),
+  eyebrow: [
+    { id: 'eyebrow_none', name: 'Không có', src: null },
+    ...createNoUnderscoreOptions('eyebrow', ['A', 'B', 'C'])
+  ],
   detail: [
+    { id: 'detail_none', name: 'Không có', src: null },
     { id: 'detail_blue_horn_large', name: 'Horn Large', src: '/assets/monster/detail_blue_horn_large.png' },
     { id: 'detail_blue_horn_small', name: 'Horn Small', src: '/assets/monster/detail_blue_horn_small.png' },
     { id: 'detail_blue_ear', name: 'Ear', src: '/assets/monster/detail_blue_ear.png' },
     { id: 'detail_blue_ear_round', name: 'Ear Round', src: '/assets/monster/detail_blue_ear_round.png' },
     { id: 'detail_blue_antenna_large', name: 'Antenna L', src: '/assets/monster/detail_blue_antenna_large.png' },
-    { id: 'detail_blue_antenna_small', name: 'Antenna S', src: '/assets/monster/detail_blue_antenna_small.png' },
+    { id: 'detail_blue_antenna_small', name: 'Antenna S', src: '/assets/monster/detail_blue_antenna_small.png' }
   ]
 };
 
-// Helper to determine pivot based on asset name pattern
+const commonMonsterPalette = [
+  { name: 'Nguyên Bản', hex: '#FFFFFF' },
+  { name: 'Đỏ Huyết Quỷ', hex: '#EF4444' },
+  { name: 'Xanh Băng Giá', hex: '#3B82F6' },
+  { name: 'Xanh Độc Dược', hex: '#10B981' },
+  { name: 'Vàng Hoàng Kim', hex: '#F59E0B' },
+  { name: 'Tím Hư Không', hex: '#A855F7' },
+  { name: 'Hồng Dị Biến', hex: '#EC4899' },
+  { name: 'Xanh Điện Quang', hex: '#06B6D4' }
+];
+
+export const monsterColorPalettes = {
+  body: commonMonsterPalette,
+  leg: commonMonsterPalette,
+  arm: commonMonsterPalette,
+  detail: commonMonsterPalette,
+  eye: commonMonsterPalette,
+  eyebrow: commonMonsterPalette,
+  mouth: commonMonsterPalette,
+  nose: commonMonsterPalette
+};
+
 const getArmPivot = (armId) => {
   if (armId.endsWith('C') || armId.endsWith('D') || armId.endsWith('E')) {
-    return { x: 0.5, y: 0.9 }; // Khớp vai ở phía dưới của ảnh
+    return { x: 0.5, y: 0.9 };
   }
-  return { x: 0.5, y: 0.1 }; // Khớp vai ở phía trên
+  return { x: 0.5, y: 0.1 };
 };
 
 export const getMonsterLayers = (selections) => {
   const layers = [];
-  
+
   const bodyId = selections.body || 'body_blueA';
   const shape = bodyId.slice(-1);
   const skeleton = monsterSkeletons[shape] || monsterSkeletons['A'];
-  
+
   const getOpt = (cat) => {
     if (!selections[cat]) return null;
     return monsterConfig[cat].find(o => o.id === selections[cat]);
@@ -154,8 +180,7 @@ export const getMonsterLayers = (selections) => {
 
   const bodyCenter = skeleton.center;
 
-  // Body layer (gốc)
-  if (bodyOpt) {
+  if (bodyOpt && bodyOpt.src) {
     layers.push({
       id: bodyOpt.id,
       category: 'body',
@@ -167,8 +192,7 @@ export const getMonsterLayers = (selections) => {
     });
   }
 
-  // Chân
-  if (legOpt) {
+  if (legOpt && legOpt.src) {
     layers.push({
       id: legOpt.id + '_L',
       category: 'leg_L',
@@ -191,8 +215,7 @@ export const getMonsterLayers = (selections) => {
     });
   }
 
-  // Tay
-  if (armOpt) {
+  if (armOpt && armOpt.src) {
     const armPivot = getArmPivot(armOpt.id);
     layers.push({
       id: armOpt.id + '_L',
@@ -200,7 +223,7 @@ export const getMonsterLayers = (selections) => {
       src: armOpt.src,
       z_index: -3,
       position: skeleton.arm_L,
-      pivot: armPivot, 
+      pivot: armPivot,
       scaleX: -1,
       bodyCenter: bodyCenter
     });
@@ -216,8 +239,7 @@ export const getMonsterLayers = (selections) => {
     });
   }
 
-  // Mặt
-  if (mouthOpt) {
+  if (mouthOpt && mouthOpt.src) {
     layers.push({
       id: mouthOpt.id,
       category: 'mouth',
@@ -229,20 +251,20 @@ export const getMonsterLayers = (selections) => {
     });
   }
 
-  if (noseOpt) {
+  if (noseOpt && noseOpt.src) {
     const isSnot = noseOpt.id.includes('snot');
     layers.push({
       id: noseOpt.id,
       category: 'nose',
       src: noseOpt.src,
-      z_index: 2, // Đặt dưới mắt để không che mắt
+      z_index: 2,
       position: { x: skeleton.face.x, y: skeleton.face.y + 15 },
       pivot: isSnot ? { x: 0.5, y: 0.1 } : { x: 0.5, y: 0.5 },
       bodyCenter: bodyCenter
     });
   }
 
-  if (eyeOpt) {
+  if (eyeOpt && eyeOpt.src) {
     layers.push({
       id: eyeOpt.id,
       category: 'eye',
@@ -253,8 +275,8 @@ export const getMonsterLayers = (selections) => {
       bodyCenter: bodyCenter
     });
   }
-  
-  if (eyebrowOpt) {
+
+  if (eyebrowOpt && eyebrowOpt.src) {
     layers.push({
       id: eyebrowOpt.id,
       category: 'eyebrow',
@@ -266,11 +288,10 @@ export const getMonsterLayers = (selections) => {
     });
   }
 
-  // Sừng/Tai
-  if (detailOpt) {
+  if (detailOpt && detailOpt.src) {
     const isEar = detailOpt.id.includes('ear');
     const detailPivot = isEar ? { x: 0.9, y: 0.5 } : { x: 0.5, y: 0.9 };
-    
+
     layers.push({
       id: detailOpt.id + '_L',
       category: 'detail_L',

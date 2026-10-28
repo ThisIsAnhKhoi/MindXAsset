@@ -7,14 +7,12 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
   const imageRef = useRef(null);
   const bgInputRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [speed, setSpeed] = useState(100); // ms per frame
+  const [speed, setSpeed] = useState(100);
   const [currentFrame, setCurrentFrame] = useState(0);
   
-  // Custom Manual Slicer State
   const [manualCols, setManualCols] = useState(1);
   const [manualRows, setManualRows] = useState(1);
 
-  // ── Built-in safe backgrounds (no external Freepik URLs) ──
   const BACKGROUNDS = [
     { id: 'transparent', name: 'Trong suốt (Caro)', style: {}, className: 'bg-gray-200 bg-[length:16px_16px] bg-[linear-gradient(45deg,#ccc_25%,transparent_25%,transparent_75%,#ccc_75%,#ccc),linear-gradient(45deg,#ccc_25%,transparent_25%,transparent_75%,#ccc_75%,#ccc)] bg-[position:0_0,8px_8px]' },
     { id: 'black', name: 'Nền đen', style: {}, className: 'bg-black' },
@@ -26,7 +24,6 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
   const [customBgUrl, setCustomBgUrl] = useState(null);
   const [useCustomBg, setUseCustomBg] = useState(false);
 
-  // If AI provided frames, use them. Otherwise, let user slice manually.
   const isAutoSlice = Array.isArray(frames) && frames.length > 0;
 
   const autoCols = useMemo(() => {
@@ -57,7 +54,6 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
     };
   }, [imageUrl]);
 
-  // Animation Loop
   useEffect(() => {
     if (!isPlaying || !imageRef.current) return;
     
@@ -71,7 +67,6 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
     return () => clearInterval(interval);
   }, [isPlaying, speed, cols, rows, frames, isAutoSlice]);
 
-  // Render Frame to Canvas
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
@@ -111,15 +106,10 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
 
     canvas.width = frameW;
     canvas.height = frameH;
-    
-    // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Draw the specific frame
     ctx.drawImage(img, frameX, frameY, frameW, frameH, 0, 0, frameW, frameH);
   }, [currentFrame, cols, rows, frames, isAutoSlice, imageUrl]);
 
-  // ── User uploads their own background ──
   const handleBgUpload = (e) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
@@ -150,7 +140,6 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
     if (bgInputRef.current) bgInputRef.current.value = '';
   };
 
-  // ── Compute background className + style for the preview container ──
   const bgClassName = useCustomBg ? 'bg-cover bg-center bg-no-repeat' : (previewBg?.className || '');
   const bgStyle = useCustomBg && customBgUrl ? { backgroundImage: `url("${customBgUrl}")` } : {};
 
@@ -161,7 +150,6 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
     const zip = new JSZip();
     const totalFrames = isAutoSlice ? frames.length : (cols * rows);
     
-    // Create a temporary canvas for slicing
     const tempCanvas = document.createElement('canvas');
     const tempCtx = tempCanvas.getContext('2d');
 
@@ -216,31 +204,29 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
   };
 
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col gap-4 mt-4">
-      <div className="flex items-center justify-between border-b pb-2 border-gray-200">
-        <h3 className="font-semibold text-gray-700 text-sm">
+    <div className="bg-gray-50 border border-gray-200 rounded-xl p-3.5 sm:p-4 flex flex-col gap-3.5 sm:gap-4 mt-4">
+      <div className="flex items-center justify-between border-b pb-2 border-gray-200 gap-2">
+        <h3 className="font-semibold text-gray-700 text-xs sm:text-sm truncate">
           Animation Preview & Slicer ({layoutFormat === 'grid' ? 'Lưới Grid' : 'Dải Ngang'})
         </h3>
-        <div className="flex gap-2">
-          <button 
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="text-xs bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded-md transition font-semibold"
-          >
-            {isPlaying ? 'Pause' : 'Play'}
-          </button>
-        </div>
+        <button 
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="text-xs bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded-md transition font-semibold shrink-0 cursor-pointer"
+        >
+          {isPlaying ? 'Pause' : 'Play'}
+        </button>
       </div>
 
       {/* ── Background Selector ── */}
-      <div className="flex gap-2 overflow-x-auto pb-1 items-center flex-wrap">
-        <span className="text-sm font-medium text-gray-700 whitespace-nowrap mr-1">Nền:</span>
+      <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 items-center">
+        <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap mr-1">Nền:</span>
         {BACKGROUNDS.map(bg => (
           <button
             key={bg.id}
             onClick={() => selectBuiltinBg(bg)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all whitespace-nowrap ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all whitespace-nowrap shrink-0 cursor-pointer ${
               !useCustomBg && previewBg?.id === bg.id 
-                ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                ? 'border-red-500 bg-red-50 text-red-700 font-bold' 
                 : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
@@ -248,13 +234,12 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
           </button>
         ))}
         
-        {/* ── Upload custom background ── */}
         <button
           onClick={() => bgInputRef.current?.click()}
-          className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all whitespace-nowrap flex items-center gap-1 ${
+          className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all whitespace-nowrap flex items-center gap-1 shrink-0 cursor-pointer ${
             useCustomBg 
-              ? 'border-blue-500 bg-blue-50 text-blue-700' 
-              : 'border-dashed border-gray-300 bg-white text-gray-500 hover:border-blue-400 hover:text-blue-600'
+              ? 'border-red-500 bg-red-50 text-red-700 font-bold' 
+              : 'border-dashed border-gray-300 bg-white text-gray-500 hover:border-red-400 hover:text-red-600'
           }`}
         >
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -273,7 +258,7 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
         {useCustomBg && (
           <button
             onClick={clearCustomBg}
-            className="px-2 py-1.5 rounded-lg text-xs font-medium border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 transition-all whitespace-nowrap"
+            className="px-2 py-1.5 rounded-lg text-xs font-medium border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 transition-all whitespace-nowrap shrink-0"
             title="Xóa nền tùy chỉnh"
           >
             ✕
@@ -283,15 +268,15 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
 
       {/* ── Canvas preview ── */}
       <div 
-        className={`flex justify-center items-center rounded-lg border border-gray-300 overflow-hidden relative min-h-[128px] ${bgClassName}`}
+        className={`flex justify-center items-center rounded-lg border border-gray-300 overflow-hidden relative min-h-[128px] p-2 ${bgClassName}`}
         style={bgStyle}
       >
         <canvas ref={canvasRef} className="max-w-full max-h-48 object-contain relative z-10" style={{ imageRendering: 'pixelated' }} />
       </div>
 
-      <div className="flex flex-col gap-3 text-sm text-gray-700">
+      <div className="flex flex-col gap-3 text-xs sm:text-sm text-gray-700">
         <div className="flex items-center gap-3">
-          <label className="w-20 font-medium">Tốc độ:</label>
+          <label className="w-16 sm:w-20 font-medium shrink-0">Tốc độ:</label>
           <input 
             type="range" 
             min="20" 
@@ -300,29 +285,29 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
             onChange={(e) => setSpeed(parseInt(e.target.value))} 
             className="flex-1 accent-red-600"
           />
-          <span className="w-16 text-right text-xs font-semibold">{speed}ms</span>
+          <span className="w-14 text-right text-xs font-semibold shrink-0">{speed}ms</span>
         </div>
 
         {!isAutoSlice && (
-          <div className="grid grid-cols-2 gap-4">
-            <div className="flex items-center gap-2">
-              <label className="font-medium">Số cột:</label>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+              <label className="font-medium text-xs sm:text-sm">Số cột:</label>
               <input 
                 type="number" 
                 min="1" 
                 value={manualCols} 
                 onChange={(e) => setManualCols(Math.max(1, parseInt(e.target.value) || 1))} 
-                className="w-full bg-white border border-gray-300 rounded-md px-2 py-1 outline-none focus:border-blue-500 transition"
+                className="w-full bg-white border border-gray-300 rounded-md px-2 py-1 outline-none focus:border-red-500 transition"
               />
             </div>
-            <div className="flex items-center gap-2">
-              <label className="font-medium">Số dòng:</label>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+              <label className="font-medium text-xs sm:text-sm">Số dòng:</label>
               <input 
                 type="number" 
                 min="1" 
                 value={manualRows} 
                 onChange={(e) => setManualRows(Math.max(1, parseInt(e.target.value) || 1))} 
-                className="w-full bg-white border border-gray-300 rounded-md px-2 py-1 outline-none focus:border-blue-500 transition"
+                className="w-full bg-white border border-gray-300 rounded-md px-2 py-1 outline-none focus:border-red-500 transition"
               />
             </div>
           </div>
@@ -330,10 +315,10 @@ export default function AnimationPreview({ imageUrl, frames = [], layoutFormat =
 
         <button 
           onClick={handleDownloadZip}
-          className="w-full mt-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
+          className="w-full mt-1 bg-red-600 hover:bg-red-700 active:scale-[0.99] text-white font-semibold py-2.5 sm:py-2 rounded-xl transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          Cắt & Tải File ZIP ({isAutoSlice ? frames.length : (cols * rows)} frames)
+          <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          <span>Cắt & Tải File ZIP ({isAutoSlice ? frames.length : (cols * rows)} frames)</span>
         </button>
       </div>
     </div>
