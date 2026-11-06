@@ -2,15 +2,15 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)
-![Progress](https://img.shields.io/badge/verified--progress-92.0%25-green.svg)
+![Version](https://img.shields.io/badge/version-1.6.0-blue.svg)
+![Progress](https://img.shields.io/badge/verified--progress-98.0%25-green.svg)
 ![React](https://img.shields.io/badge/React-19.2-61dafb.svg?logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg?logo=node.js)
 ![Python](https://img.shields.io/badge/Python-3.14-yellow.svg?logo=python)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Brand](https://img.shields.io/badge/MindX-Technology%20School-red.svg)
 
-**Studio trực quan tạo tài nguyên đồ họa game 2D (Background, Sprite, Animation Tilesheet, Tileset) và lắp ghép 7 dòng nhân vật/vật phẩm/xe cộ tùy biến dành cho học sinh MindX làm game trên Scratch, GameMaker, Godot và Unity.**
+**Studio trực quan tạo tài nguyên đồ họa game 2D (Background, Sprite, Animation Tilesheet, Tileset) và lắp ghép 12 dòng nhân vật/chiến hạm/robot/quái thú/phi thuyền module/shmup arcade/vật phẩm/xe cộ tùy biến dành cho học sinh MindX làm game trên Scratch, GameMaker, Godot và Unity.**
 
 [Khám Phá Tính Năng](#-tính-năng-cốt-lõi) • [Kiến Trúc](#-kiến-trúc-hệ-thống) • [Cài Đặt Nhanh](#-hướng-dẫn-cài-đặt--chạy-nhanh) • [Báo Cáo Kỹ Thuật](#-tài-liệu-kỹ-thuật--kiểm-toán) • [Ghi Công](#-ghi-công--bản-quyền-tài-sản)
 
@@ -19,17 +19,22 @@
 ---
 
 > [!IMPORTANT]
-> **CALLOUT TRẠNG THÁI HIỆN TẠI CỦA DỰ ÁN (AS-BUILT STATUS v1.4.0)**
-> - **Giai đoạn**: Production Ready / Responsive Multi-Device Studio (Phiên bản `v1.4.0`).
-> - **7 Mô hình Character Studio**:
+> **CALLOUT TRẠNG THÁI HIỆN TẠI CỦA DỰ ÁN (AS-BUILT STATUS v1.6.0)**
+> - **Giai đoạn**: Production Ready / Responsive Multi-Device Studio (Phiên bản `v1.6.0`).
+> - **12 Mô hình Character Studio**:
 >   - 🧙 **Nhân Vật Fantasy**: Chibi RPG 48x48 với 30 chủng tộc, tóc, giáp, vũ khí, bóng đổ.
 >   - 🧝 **RPG Pixel Cổ Điển**: Nhân vật JRPG 32x32 4 hướng với hoạt ảnh động trực tiếp (`Đứng im`, `Chạy`, `Tấn công`), trang phục, mũ nón, cánh, tai thú, đuôi.
 >   - 🪖 **Chiến Binh Đặc Nhiệm**: Lính Spec-Ops 32x32 với áo giáp đặc nhiệm, súng tác chiến, kính ban đêm NVG và hoạt ảnh hành động trực tiếp.
 >   - 🏎️ **Xe Cộ & Phương Tiện**: 57 mẫu xe Top-Down đồng bộ tâm `(80, 80)`, 6 góc nhìn, mặt đường xoay tự động theo hướng xe (`Asphalt Road`, `Race Track`, `Parking Stall`, `Off-Road Dirt`), đèn pha đôi định hướng (`Xenon`, `Amber Fog`, `Ice Blue`, `Devil Red`, `Toxic Lime`), sọc đua GT, còi đèn cảnh báo, lửa Nitro và khói Drift.
->   - 💎 **Vật Phẩm In-Game**: 260+ trang bị, bình thuốc, rương báu, bục đỡ & hào quang ma pháp.
+>   - 💎 **Vật Phẩm In-Game**: 1,007 trang bị Trung Cổ, Sinh Tồn, bình thuốc, rương báu, bục đỡ & hào quang ma pháp.
 >   - 👾 **Quái Vật Dị Biến**: Khung xương skeleton A-F, sừng, càng, nanh vuốt Kenney CC0 kèm bảng màu nhuộm động.
 >   - 👽 **Người Ngoài Hành Tinh**: Sinh vật vũ trụ, ăng-ten sóng não, xúc tu miệng kèm bảng màu sinh học.
-> - **Kiến trúc Responsive Đa Khung Hình (280px ➔ 1440px+)**: Hỗ trợ liền mạch từ màn hình siêu nhỏ/Split-View (`280px`), Điện thoại chuẩn (`393px`), Phablet (`458px`), Tablet 2 cột (`768px`) đến Desktop Studio 3 cột (`1440px+`), kèm Mobile Bottom Navigation Bar chuẩn ứng dụng gốc.
+>   - 🚀 **Chiến Hạm Vũ Trụ (`512×512 HD`)**: 50 mẫu tàu không gian (`Do Thám`, `Tiêm Kích`, `Đánh Chặn`, `Oanh Tạc Cơ`, `Thiết Giáp Hạm`) với tọa độ neo động cơ/vũ khí riêng từng thân tàu (`HULL_ANCHORS`), 8 luồng lửa phản lực, 6 bộ vũ khí cánh đối xứng, 5 vòm khiên năng lượng trong suốt viền sáng và 4 nền vũ trụ.
+>   - 🤖 **Robot & Mecha Chiến Đấu (`512×512 HD`)**: 6 dòng Robot & Chiến Xa độc lập (55 mẫu: `Hoverbot Chiến Đấu`, `Cyber Watcher`, `Robot Công Nghiệp & Tháp Pháo`, `Chiến Cơ Mecha`, `Mecha Gundam & Giáp Bộ Binh`, `Chiến Xa & Mecha Biến Hình`), chân đẩy phản lực 2 bên, đại pháo laser vàng và Drone hộ vệ.
+>   - 🦂 **Quái Thú Vũ Trụ Tiến Hóa (`512×512 HD`)**: 75 cấp tiến hóa qua 9 chủng loài riêng biệt (`Mantismorph`, `Locustmorph`, `Lobstermorph`, `Squidmorph`, `Rhinomorph`, `Eaglemorph`, `Bio-Drone`, `Space Whale`, `Centipedemorph`), đôi cánh Chitin hoàng kim, cánh Thiên Sứ, cánh Seraphim, cánh Quỷ Dơi, vòng Hào Quang Thánh Tích và cặp trứng ký sinh hộ vệ.
+>   - 🛸 **Xưởng Lắp Ráp Phi Thuyền Module (`512×512 HD`)**: Lắp ghép tự do 9 lớp bộ phận đối xứng (`Thân Chính`, `Giáp Sườn Trong`, `Giáp Sườn Ngoài`, `Buồng Lái`, `Cánh Chính`, `Cánh Phụ`, `Động Cơ Đuôi`, `Lửa Phản Lực`, `Pháo Cánh`, `Tên Lửa/Đạn/Thủy Lôi`) hoặc chọn nhanh 16 mẫu tàu nguyên bản nhà máy.
+>   - 🕹️ **Chiến Cơ Retro Shmup Arcade (`512×512 HD`)**: 15 mẫu tiêm kích `SpaceRage` (`64×64`) & phi thuyền/đại trùm `Pico-8 Space Eaters` (`8-Bit`), hỗ trợ **5 góc lượn nghiêng cánh (`bank_angle`: `l2`, `l1`, `m`, `r1`, `r2`)** đi kèm bóng đổ động nghiêng đồng bộ, lửa đuôi Ion, đạn Plasma/Vulcan/Mega Beam và thủy lôi không gian.
+> - **Kiến trúc Responsive Đa Khung Hình (280px ➔ 1440px+)**: Hỗ trợ liền mạch từ màn hình siêu nhỏ/Split-View (`280px`), Điện thoại chuẩn (`393px`), Phablet (`458px`), Tablet 2 cột (`768px`) đến Desktop Studio 3 cột (`1440px+`), kèm Mobile Bottom Navigation Bar và **Sticky Floating Mini-Preview** tự động nổi lên khi người dùng cuộn xuống chọn trang bị trên điện thoại.
 
 ---
 

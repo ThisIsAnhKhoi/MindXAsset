@@ -10,6 +10,11 @@ import { vehicleConfig, getVehicleLayers, vehicleColorPalettes } from './vehicle
 import { propConfig, getPropLayers, propColorPalettes } from './prop_config';
 import { soldierConfig, getSoldierLayers, soldierColorPalettes } from './soldier_config';
 import { fantasyConfig, getFantasyLayers, fantasyColorPalettes, fantasyGroups } from './fantasy_config';
+import { spaceshipConfig, getSpaceshipLayers, spaceshipColorPalettes, spaceshipGroups } from './spaceship_config';
+import { robotConfig, getRobotLayers, robotColorPalettes, robotGroups } from './robot_config';
+import { alienBehemothConfig, getAlienBehemothLayers, alienBehemothColorPalettes, alienBehemothGroups } from './alien_behemoth_config';
+import { modularStarshipConfig, getModularStarshipLayers, modularStarshipColorPalettes } from './modular_starship_config';
+import { arcadeStarfighterConfig, getArcadeStarfighterLayers, arcadeStarfighterColorPalettes } from './arcade_starfighter_config';
 import SpritePreviewModal from '../../components/SpritePreviewModal';
 import InlineSpritesheetStudio from '../../components/InlineSpritesheetStudio';
 import ModelDropdown from './ModelDropdown';
@@ -168,6 +173,114 @@ const CHARACTER_MODELS = [
       { id: 'arm', label: 'Xúc Tu Tay', icon: '💪' },
       { id: 'leg', label: 'Chân Đệm', icon: '🦵' }
     ]
+  },
+  {
+    id: 'spaceship',
+    name: 'Chiến Hạm Vũ Trụ',
+    subtitle: '50 mẫu tàu không gian • Động cơ, vũ khí & khiên',
+    icon: '🚀',
+    badge: 'Mới • 50 Tàu',
+    tagColor: 'bg-sky-50 text-sky-700 border-sky-200',
+    frameSize: 512,
+    isSpritesheet: false,
+    config: spaceshipConfig,
+    groups: spaceshipGroups,
+    colorPalettes: spaceshipColorPalettes,
+    categories: [
+      { id: 'hull', label: 'Thân Chiến Hạm', icon: '🚀' },
+      { id: 'thrusters', label: 'Động Cơ Phản Lực', icon: '🔥' },
+      { id: 'weapons', label: 'Vũ Khí Cánh', icon: '🔫' },
+      { id: 'shield', label: 'Khiên Năng Lượng', icon: '🛡️' },
+      { id: 'space_bg', label: 'Không Gian', icon: '🌌' }
+    ]
+  },
+  {
+    id: 'robot',
+    name: 'Robot & Mecha Chiến Đấu',
+    subtitle: '6 dòng Mecha & Chiến Xa (55 mẫu) • Gundam, Laser & Drone',
+    icon: '🤖',
+    badge: 'Mới • 55 Mecha',
+    tagColor: 'bg-teal-50 text-teal-700 border-teal-200',
+    frameSize: 512,
+    isSpritesheet: false,
+    config: robotConfig,
+    groups: robotGroups,
+    colorPalettes: robotColorPalettes,
+    categories: [
+      { id: 'robot_class', label: 'Dòng Robot', icon: '⚙️' },
+      { id: 'chassis', label: 'Khung Giáp & Tư Thế', icon: '🤖' },
+      { id: 'thrusters', label: 'Chân Đẩy Phản Lực', icon: '🌀' },
+      { id: 'weapons', label: 'Pháo & Tia Laser', icon: '⚡' },
+      { id: 'companion', label: 'Drone Hộ Vệ', icon: '🛸' },
+      { id: 'space_bg', label: 'Không Gian', icon: '🌌' }
+    ]
+  },
+  {
+    id: 'alien_behemoth',
+    name: 'Quái Thú Vũ Trụ Tiến Hóa',
+    subtitle: '9 chủng loài riêng biệt • 75 cấp tiến hóa & cánh thần/quỷ',
+    icon: '🦂',
+    badge: 'Mới • 9 Loài',
+    tagColor: 'bg-lime-50 text-lime-700 border-lime-200',
+    frameSize: 512,
+    isSpritesheet: false,
+    config: alienBehemothConfig,
+    groups: alienBehemothGroups,
+    colorPalettes: alienBehemothColorPalettes,
+    categories: [
+      { id: 'species', label: 'Chủng Loài', icon: '🧬' },
+      { id: 'stage', label: 'Cấp Tiến Hóa', icon: '🦂' },
+      { id: 'mutation', label: 'Đột Biến Lưng', icon: '🦋' },
+      { id: 'symbiont', label: 'Kén & Ấu Trùng', icon: '🥚' },
+      { id: 'space_bg', label: 'Không Gian', icon: '🪐' }
+    ]
+  },
+  {
+    id: 'modular_starship',
+    name: 'Xưởng Lắp Ráp Phi Thuyền Module',
+    subtitle: 'Lắp ghép 9 lớp Module đối xứng & 16 Mẫu tàu nhà máy',
+    icon: '🛸',
+    badge: 'Mới • Module',
+    tagColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+    frameSize: 512,
+    isSpritesheet: false,
+    config: modularStarshipConfig,
+    colorPalettes: modularStarshipColorPalettes,
+    categories: [
+      { id: 'preset_mode', label: 'Chế Độ & Mẫu Tàu', icon: '🛸' },
+      { id: 'core_body', label: 'Thân Chính (Core)', icon: '🛡️' },
+      { id: 'flank_a', label: 'Giáp Sườn Trong', icon: '🔩' },
+      { id: 'flank_b', label: 'Giáp Sườn Ngoài', icon: '⚙️' },
+      { id: 'cabin', label: 'Buồng Lái (Cockpit)', icon: '🪟' },
+      { id: 'wings_a', label: 'Cánh Chính Đối Xứng', icon: '🪽' },
+      { id: 'wings_b', label: 'Cánh Phụ Đối Xứng', icon: '✈️' },
+      { id: 'engine', label: 'Động Cơ Đuôi', icon: '🚀' },
+      { id: 'flame', label: 'Lửa Phản Lực', icon: '🔥' },
+      { id: 'guns', label: 'Pháo Cánh Đối Xứng', icon: '🔫' },
+      { id: 'ordnance', label: 'Tên Lửa & Đạn', icon: '🚀' },
+      { id: 'space_bg', label: 'Không Gian', icon: '🌌' }
+    ]
+  },
+  {
+    id: 'arcade_starfighter',
+    name: 'Chiến Cơ Retro Shmup Arcade',
+    subtitle: 'SpaceRage 5 góc lượn nghiêng + Bóng đổ động & Pico-8 8-Bit',
+    icon: '🕹️',
+    badge: 'Mới • Shmup',
+    tagColor: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200',
+    frameSize: 512,
+    isSpritesheet: false,
+    config: arcadeStarfighterConfig,
+    colorPalettes: arcadeStarfighterColorPalettes,
+    categories: [
+      { id: 'ship_hull', label: 'Chiến Cơ & Trùm', icon: '🕹️' },
+      { id: 'bank_angle', label: 'Góc Lượn Nghiêng (5 Góc)', icon: '🔄' },
+      { id: 'shadow_mode', label: 'Bóng Đổ Đồng Bộ', icon: '🌑' },
+      { id: 'exhaust', label: 'Lửa Phản Lực Đuôi', icon: '🔥' },
+      { id: 'weapon_fx', label: 'Đạn & Laser', icon: '⚡' },
+      { id: 'hazards', label: 'Thủy Lôi & Hiệu Ứng', icon: '💥' },
+      { id: 'space_bg', label: 'Chiến Trường', icon: '🌌' }
+    ]
   }
 ];
 
@@ -181,8 +294,23 @@ const CharacterBuilder = () => {
 
   // Mobile Workspace Tab: 'customizer' (Thiết kế nhân vật) | 'spritesheet' (Xưởng cắt lưới)
   const [mobileTab, setMobileTab] = useState('customizer');
+  const [showFloatingMiniPreview, setShowFloatingMiniPreview] = useState(false);
 
   const canvasPreviewRef = useRef(null);
+  const canvasStageCardRef = useRef(null);
+
+  useEffect(() => {
+    const el = canvasStageCardRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowFloatingMiniPreview(!entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const [selections, setSelections] = useState({
     races: 'race_human_fair',
@@ -211,6 +339,46 @@ const CharacterBuilder = () => {
       newSelections.accessories = 'acc_none';
       newSelections.weapons = 'weapon_none';
       newSelections.shadows = 'shadow_ground_pixel';
+    } else if (newModelId === 'spaceship') {
+      newSelections.hull = 'ship_scout_01';
+      newSelections.thrusters = 'thruster_fire_wide';
+      newSelections.weapons = 'weapon_dual_missiles';
+      newSelections.shield = 'shield_cyan_plasma';
+      newSelections.space_bg = 'bg_deep_space';
+    } else if (newModelId === 'robot') {
+      newSelections.robot_class = 'cls_hoverbot';
+      newSelections.chassis = 'chassis_hover_combat';
+      newSelections.thrusters = 'thruster_propellers_mid';
+      newSelections.weapons = 'weapon_laser_focus';
+      newSelections.companion = 'companion_drone_twin';
+      newSelections.space_bg = 'space_bg_none';
+    } else if (newModelId === 'alien_behemoth') {
+      newSelections.species = 'sp_mantismorph';
+      newSelections.stage = 'mantismorph_stage_01';
+      newSelections.mutation = 'mutation_chitin_wings';
+      newSelections.symbiont = 'mutation_incubator_egg';
+      newSelections.space_bg = 'bg_nebula_violet';
+    } else if (newModelId === 'modular_starship') {
+      newSelections.preset_mode = 'preset_custom';
+      newSelections.core_body = 'body_c_01';
+      newSelections.flank_a = 'body_a_01';
+      newSelections.flank_b = 'body_b_01';
+      newSelections.cabin = 'cabin_01';
+      newSelections.wings_a = 'wing_a_01';
+      newSelections.wings_b = 'wing_b_01';
+      newSelections.engine = 'engine_01';
+      newSelections.flame = 'flame_01';
+      newSelections.guns = 'gun_a_01';
+      newSelections.ordnance = 'missile_01';
+      newSelections.space_bg = 'bg_spaceshooter_grid';
+    } else if (newModelId === 'arcade_starfighter') {
+      newSelections.ship_hull = 'player_b';
+      newSelections.bank_angle = 'm';
+      newSelections.shadow_mode = 'shadow_dynamic';
+      newSelections.exhaust = 'exhaust_03';
+      newSelections.weapon_fx = 'plasma_1';
+      newSelections.hazards = 'mine_teal_spike';
+      newSelections.space_bg = 'bg_spacerage_nebula';
     } else {
       targetModel.categories.forEach(cat => {
         const options = targetModel.config[cat.id] || [];
@@ -268,11 +436,35 @@ const CharacterBuilder = () => {
         if (typeOpt && typeOpt.defaultState) {
           next.state = typeOpt.defaultState;
         }
+      } else if (category === 'species' && currentModel.id === 'alien_behemoth') {
+        const speciesOpt = (currentModel.config.species || []).find(s => s.id === id);
+        if (speciesOpt && speciesOpt.defaultStage) {
+          next.stage = speciesOpt.defaultStage;
+        }
+        if (speciesOpt && !speciesOpt.supportsMutations) {
+          next.mutation = 'mutation_none';
+          next.symbiont = 'symbiont_none';
+        }
+      } else if (category === 'robot_class' && currentModel.id === 'robot') {
+        const classOpt = (currentModel.config.robot_class || []).find(c => c.id === id);
+        if (classOpt && classOpt.defaultChassis) {
+          next.chassis = classOpt.defaultChassis;
+        }
+        if (id !== 'cls_hoverbot') {
+          next.thrusters = 'thrusters_none';
+          next.weapons = 'weapons_none';
+        }
+      } else if (category !== 'preset_mode' && category !== 'flame' && category !== 'ordnance' && category !== 'space_bg' && currentModel.id === 'modular_starship') {
+        next.preset_mode = 'preset_custom';
       }
       return next;
     });
     if (category === 'prop_type' && currentModel.id === 'prop') {
       setActiveCategory('state');
+    } else if (category === 'species' && currentModel.id === 'alien_behemoth') {
+      setActiveCategory('stage');
+    } else if (category === 'robot_class' && currentModel.id === 'robot') {
+      setActiveCategory('chassis');
     }
   };
 
@@ -281,24 +473,46 @@ const CharacterBuilder = () => {
   };
 
   const handleRandomize = () => {
-    const randomNames = ['MindX Hero', 'Pixel Dev', 'Code Master', 'Data Wizard', 'Design Guru'];
+    const randomNames = ['MindX Hero', 'Pixel Dev', 'Code Master', 'Data Wizard', 'Design Guru', 'Star Commander', 'Mecha Prime', 'Xeno Overlord'];
     setCharacterName(randomNames[Math.floor(Math.random() * randomNames.length)]);
 
     const newSelections = { ...selections };
 
     currentModel.categories.forEach(cat => {
-      const options = currentModel.config[cat.id] || [];
+      let options = currentModel.config[cat.id] || [];
       if (options.length > 0) {
-        // Keep a road/ground visible when randomizing vehicles instead of picking 'none'
-        const pool = (currentModel.id === 'vehicle' && cat.id === 'ground')
-          ? options.filter(o => o.id !== 'none')
-          : options;
+        if (currentModel.id === 'prop' && cat.id === 'state' && newSelections.prop_type) {
+          options = options.filter(o => o.forType === newSelections.prop_type);
+        } else if (currentModel.id === 'alien_behemoth' && cat.id === 'stage' && newSelections.species) {
+          options = options.filter(o => o.forSpecies === newSelections.species);
+        } else if (currentModel.id === 'alien_behemoth' && (cat.id === 'mutation' || cat.id === 'symbiont')) {
+          options = options.filter(o => !o.allowedSpecies || o.allowedSpecies.includes(newSelections.species));
+        } else if (currentModel.id === 'robot' && cat.id === 'chassis' && newSelections.robot_class) {
+          options = options.filter(o => o.forClass === newSelections.robot_class);
+        } else if (currentModel.id === 'robot' && (cat.id === 'thrusters' || cat.id === 'weapons')) {
+          options = options.filter(o => !o.allowedClasses || o.allowedClasses.includes(newSelections.robot_class));
+        } else if (currentModel.id === 'modular_starship' && cat.id === 'preset_mode') {
+          options = [{ id: 'preset_custom', name: 'Custom' }];
+        }
+
+        const preferActive =
+          (currentModel.id === 'vehicle' && cat.id === 'ground') ||
+          (currentModel.id === 'spaceship' && ['thrusters', 'weapons', 'space_bg'].includes(cat.id)) ||
+          (currentModel.id === 'robot' && ['thrusters', 'weapons', 'companion'].includes(cat.id)) ||
+          (currentModel.id === 'alien_behemoth' && ['mutation', 'symbiont', 'space_bg'].includes(cat.id)) ||
+          (currentModel.id === 'modular_starship' && ['flank_a', 'flank_b', 'wings_a', 'wings_b', 'engine', 'flame', 'guns', 'ordnance', 'space_bg'].includes(cat.id)) ||
+          (currentModel.id === 'arcade_starfighter' && ['shadow_mode', 'exhaust', 'weapon_fx', 'hazards', 'space_bg'].includes(cat.id));
+        const activeOpts = options.filter(o => o.id !== 'none' && !o.id.endsWith('_none'));
+        const pool = preferActive && activeOpts.length > 0 ? activeOpts : options;
         const randOpt = pool[Math.floor(Math.random() * pool.length)] || options[0];
-        newSelections[cat.id] = randOpt.id;
+        if (randOpt) {
+          newSelections[cat.id] = randOpt.id;
+        }
       }
     });
 
     setSelections(newSelections);
+    toast.dismiss();
     toast.info("Đã tạo ngẫu nhiên! 🎲", { toastId: 'randomize-toast', autoClose: 1200 });
   };
 
@@ -344,6 +558,26 @@ const CharacterBuilder = () => {
 
     if (currentModel.id === 'fantasy') {
       return getFantasyLayers(selections, colors);
+    }
+
+    if (currentModel.id === 'spaceship') {
+      return getSpaceshipLayers(selections, colors);
+    }
+
+    if (currentModel.id === 'robot') {
+      return getRobotLayers(selections, colors);
+    }
+
+    if (currentModel.id === 'alien_behemoth') {
+      return getAlienBehemothLayers(selections, colors);
+    }
+
+    if (currentModel.id === 'modular_starship') {
+      return getModularStarshipLayers(selections, colors);
+    }
+
+    if (currentModel.id === 'arcade_starfighter') {
+      return getArcadeStarfighterLayers(selections, colors);
     }
 
     let layers = [];
@@ -577,7 +811,10 @@ const CharacterBuilder = () => {
           </div>
 
           {/* CỘT 2: Khung Xem Trước Canvas Studio (Mobile: Stage Ngang siêu gọn | Tablet: 5 cột | Desktop: 5 cột) */}
-          <div className="md:col-span-5 lg:col-span-5 bg-white rounded-2xl border border-gray-200 shadow-xs flex flex-col justify-between p-2.5 sm:p-4 h-auto md:h-[530px] lg:h-[560px] relative z-20 min-w-0">
+          <div
+            ref={canvasStageCardRef}
+            className="md:col-span-5 lg:col-span-5 bg-white rounded-2xl border border-gray-200 shadow-xs flex flex-col justify-between p-2.5 sm:p-4 h-auto md:h-[530px] lg:h-[560px] relative z-20 min-w-0"
+          >
             
             {/* Chọn Model tích hợp ngay đầu Card trên Mobile & Tablet (< lg) để tiết kiệm 1 Card riêng */}
             <div className="lg:hidden pb-2 mb-1.5 border-b border-gray-100 shrink-0">
@@ -621,8 +858,8 @@ const CharacterBuilder = () => {
               <CanvasPreview
                 ref={canvasPreviewRef}
                 layers={activeLayers}
-                width={currentModel.isSpritesheet || currentModel.frameSize >= 48 ? 380 : 360}
-                height={currentModel.isSpritesheet || currentModel.frameSize >= 48 ? 380 : 640}
+                width={currentModel.frameSize === 512 ? 512 : currentModel.isSpritesheet || currentModel.frameSize >= 48 ? 380 : 360}
+                height={currentModel.frameSize === 512 ? 512 : currentModel.isSpritesheet || currentModel.frameSize >= 48 ? 380 : 640}
                 transparentBg={transparentBg}
                 frameSize={currentModel.frameSize}
                 isSpritesheet={currentModel.isSpritesheet}
@@ -830,6 +1067,49 @@ const CharacterBuilder = () => {
         </div>
 
       </div>
+
+      {/* Sticky Floating Mini-Preview trên Mobile (< md) khi người dùng cuộn xuống chọn trang bị */}
+      {showFloatingMiniPreview && mobileTab === 'customizer' && (
+        <div className="md:hidden fixed bottom-3 right-3 z-40 flex items-center gap-2 bg-white/95 backdrop-blur-md border-2 border-red-200 rounded-2xl p-1.5 pr-2.5 shadow-xl animate-fade-in">
+          <div
+            onClick={() => canvasStageCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            className="w-12 h-12 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex items-center justify-center cursor-pointer shrink-0"
+            title="Chạm để cuộn lên khung nhân vật"
+          >
+            <CanvasPreview
+              layers={activeLayers}
+              width={160}
+              height={160}
+              transparentBg={transparentBg}
+              frameSize={currentModel.frameSize}
+              isSpritesheet={currentModel.isSpritesheet}
+              compactMobile={true}
+              action={selections.action}
+            />
+          </div>
+          <div className="flex flex-col gap-1 min-w-0">
+            <span className="text-[10px] font-extrabold text-gray-800 truncate max-w-[92px]">
+              {characterName}
+            </span>
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={handleRandomize}
+                className="px-2 py-0.5 bg-gray-100 active:bg-gray-200 text-gray-800 rounded-md text-[10px] font-bold border border-gray-200 cursor-pointer"
+              >
+                🎲
+              </button>
+              <button
+                type="button"
+                onClick={() => canvasStageCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                className="px-2 py-0.5 bg-red-600 active:bg-red-700 text-white rounded-md text-[10px] font-bold cursor-pointer"
+              >
+                Lên ⬆
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal hiển thị Spritesheet AI */}
       <SpritePreviewModal

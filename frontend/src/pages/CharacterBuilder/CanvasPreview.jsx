@@ -125,9 +125,13 @@ const CanvasPreview = forwardRef(({
         if (!isActive) return;
 
         ctx.clearRect(0, 0, width, height);
-        ctx.imageSmoothingEnabled = false;
+        const isHighRes = frameSize >= 256 && !isSpritesheet;
+        ctx.imageSmoothingEnabled = isHighRes;
+        if (isHighRes) {
+          ctx.imageSmoothingQuality = 'high';
+        }
 
-        const isLegacyVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'wheels')) && frameSize !== 100 && frameSize !== 160;
+        const isLegacyVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'wheels')) && frameSize !== 100 && frameSize !== 160 && frameSize !== 512;
         const isTopDownVehicle = sortedLayers.some(l => l && (l.category === 'chassis' || l.category === 'ground' || l.category === 'accessories' || l.category === 'lights')) && (frameSize === 100 || frameSize === 160);
         const isMonsterOrAlien = sortedLayers.some(l => l && (l.bodyCenter || (l.position && !isLegacyVehicle && !isTopDownVehicle)));
         const floorY = Math.round(height * (1 - 56 / 330));
@@ -165,7 +169,12 @@ const CanvasPreview = forwardRef(({
           let layerScale;
           let dw, dh, dx, dy;
 
-          if (isTopDownVehicle) {
+          if (layerInfo.category === 'space_bg' || frameSize === 512) {
+            dx = 0;
+            dy = 0;
+            dw = width;
+            dh = height;
+          } else if (isTopDownVehicle) {
             const scale = Math.max(1, Math.floor((Math.min(width, height) * 0.85) / sW));
             dw = sW * scale;
             dh = sH * scale;
@@ -351,7 +360,19 @@ const CanvasPreview = forwardRef(({
               ctx.drawImage(imgToDraw, drawSx, drawSy, sW, sH, dx + 4, dy + 5, dw, dh);
               ctx.restore();
             }
-            ctx.drawImage(imgToDraw, drawSx, drawSy, sW, sH, dx, dy, dw, dh);
+
+            const ratioX = width / 512;
+            const ratioY = height / 512;
+            const shiftX = layerInfo.offsetPx ? Math.round(layerInfo.offsetPx.x * ratioX) : 0;
+            const shiftY = layerInfo.offsetPx ? Math.round(layerInfo.offsetPx.y * ratioY) : 0;
+
+            if (layerInfo.flipX) {
+              ctx.translate(dx + shiftX + dw / 2, dy + shiftY + dh / 2);
+              ctx.scale(-1, 1);
+              ctx.drawImage(imgToDraw, drawSx, drawSy, sW, sH, -dw / 2, -dh / 2, dw, dh);
+            } else {
+              ctx.drawImage(imgToDraw, drawSx, drawSy, sW, sH, dx + shiftX, dy + shiftY, dw, dh);
+            }
           }
 
           ctx.restore();
@@ -369,7 +390,11 @@ const CanvasPreview = forwardRef(({
   }, [layers, width, height, frameSize, isSpritesheet, transparentBg, action, effectiveStep]);
 
   const isSquareContent = frameSize >= 100 || isSpritesheet;
-  const isTopDown = frameSize === 100 || frameSize === 160;
+  const isSciFiOrTopDown =
+    frameSize === 100 ||
+    frameSize === 160 ||
+    frameSize === 512 ||
+    layers.some(l => l && ['hull', 'thrusters', 'space_bg', 'stage', 'companion'].includes(l.category));
 
   const aspectClass = compactMobile
     ? 'aspect-square w-[100px] h-[100px] min-[360px]:w-[126px] min-[360px]:h-[126px] sm:w-[240px] sm:h-[240px] md:w-full md:h-auto md:max-w-[260px] md:max-h-[260px] lg:max-w-[320px] lg:max-h-[320px] shrink-0'
@@ -380,7 +405,7 @@ const CanvasPreview = forwardRef(({
   return (
     <div className={`relative border-3 sm:border-4 border-gray-200 rounded-xl shadow-sm flex flex-col items-center justify-center overflow-hidden transition-colors duration-300 ${aspectClass} ${transparentBg ? 'bg-transparent' : 'bg-gray-50'}`}>
       {/* Nền bục đứng nhân vật Retro Pixel Art */}
-      {!transparentBg && !isTopDown && (
+      {!transparentBg && !isSciFiOrTopDown && (
         <div className="absolute inset-0 z-0 flex flex-col justify-end">
           <div className="flex-1 bg-gray-100"></div>
           <div className="h-[14%] bg-gray-200 border-t border-gray-300"></div>
@@ -388,8 +413,8 @@ const CanvasPreview = forwardRef(({
         </div>
       )}
 
-      {/* Nền Studio Top-Down phẳng chuyên nghiệp */}
-      {!transparentBg && isTopDown && (
+      {/* Nền Studio Top-Down / Sci-Fi phẳng chuyên nghiệp */}
+      {!transparentBg && isSciFiOrTopDown && (
         <div className="absolute inset-0 z-0 bg-gray-100 flex items-center justify-center">
           <div className="w-full h-full opacity-25" style={{
             backgroundImage: 'radial-gradient(#64748b 1px, transparent 1px)',
@@ -411,7 +436,7 @@ const CanvasPreview = forwardRef(({
         width={width}
         height={height}
         className="relative z-10 w-full h-full object-contain drop-shadow-md"
-        style={{ imageRendering: 'pixelated' }}
+        style={{ imageRendering: (frameSize >= 256 && !isSpritesheet) ? 'auto' : 'pixelated' }}
       />
     </div>
   );

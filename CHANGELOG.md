@@ -4,6 +4,43 @@ Tất cả các thay đổi đáng chú ý của dự án **MindXAsset** đượ
 
 ---
 
+## [1.6.0] - 2026-11-06
+
+### Đã thêm (Added)
+- **Nâng Cấp Character Studio Lên 12 Mô Hình Với Chuẩn `512×512 HD` & 2 Danh Mục Mới**:
+  - 🛸 **Xưởng Lắp Ráp Phi Thuyền Module (`modular_starship_config.js`)**: Tích hợp bộ `SpaceShooterShipConstructor` trên khung `512×512` với 9 lớp bộ phận lắp ghép đối xứng Trái/Phải (`Thân Chính`, `Giáp Sườn Trong`, `Giáp Sườn Ngoài`, `Buồng Lái`, `Cánh Chính`, `Cánh Phụ`, `Động Cơ Đuôi`, `Lửa Phản Lực`, `Pháo Cánh`, `Tên Lửa/Đạn/Thủy Lôi`) cùng 16 mẫu tàu nguyên bản nhà máy (`Example 01..16`).
+  - 🕹️ **Chiến Cơ Retro Shmup Arcade (`arcade_starfighter_config.js`)**: Tích hợp 15 mẫu chiến cơ & đại trùm từ `SpaceRage` (`64×64`) và `Pico-8 Space Eaters` (`8-Bit`), hỗ trợ **5 góc lượn nghiêng cánh (`bank_angle`: `l2`, `l1`, `m`, `r1`, `r2`)** đi kèm bóng đổ động nghiêng đồng bộ theo góc lượn, lửa đuôi Ion, đạn chùm Plasma/Vulcan/Mega Beam và thủy lôi không gian.
+  - 🤖 **Mở Rộng Robot & Mecha Chiến Đấu Lên 6 Dòng (55 Mẫu `512×512`)**: Bổ sung dòng `Mecha Gundam & Giáp Bộ Binh (14 mẫu)` và `Chiến Xa & Mecha Biến Hình (12 mẫu)` từ `Mecha Maker Sheet 2025 Vol 1 & Vol 2`, gỡ bỏ hoàn toàn lớp Kính HUD giả lập theo yêu cầu và giới hạn phụ kiện Chân Đẩy/Laser đúng dòng Hoverbot.
+  - 🦂 **Mở Rộng Quái Thú Vũ Trụ Tiến Hóa Lên 9 Chủng Loài (75 Cấp `512×512`)**: Tách biệt hoàn toàn 9 loài (Kình Ngư Tinh Hà, Bạch Tuộc Hư Không, Nhãn Quỷ Vũ Trụ không bị gắn nhầm cánh/trứng của loài côn trùng), bổ sung loài thứ 9 `Sâu Gai Cơ Khí (6 cấp)` và 4 đột biến lưng đối xứng (`Cánh Thiên Sứ Hoàng Kim`, `Cánh Seraphim Huyết Tinh`, `Cánh Quỷ Dơi Hắc Ám`, `Vòng Hào Quang Thánh Tích`).
+  - 🚀 **Đại Tu Chiến Hạm Vũ Trụ (`512×512 HD` + `HULL_ANCHORS`)**: Căn chỉnh tọa độ neo động cơ và vũ khí cánh riêng biệt cho từng mẫu trong 50 thân tàu `Naves.png`, làm trong suốt tâm khiên năng lượng (`rim-alpha shield`) để không làm mờ thân tàu.
+
+### Tối ưu hóa & Dọn dẹp (Optimization & Cleanup)
+- **Tối Ưu Đóng Gói Vite/Rolldown (`vite.config.js`)**: Tách riêng gói `vendor` và `character-configs`, triệt tiêu hoàn toàn cảnh báo chunk size `> 500 kB` khi chạy `npm run build`.
+- **Dọn Dẹp Tài Nguyên Thừa & Giải Phóng Dung Lượng**:
+  - Xóa 101 tệp ảnh nháp/trùng lặp không tham chiếu trong `frontend/public/assets/`.
+  - Xóa toàn bộ thư mục gói nén gốc `NewAsset/` sau khi xử lý xong (~140 MB) và các script xử lý 1 lần.
+  - Nén tối ưu hóa không mất dữ liệu (lossless PNG `optimize=True, compress_level=9`) cho toàn bộ **876 tệp PNG** thuộc 5 danh mục Sci-Fi.
+
+---
+
+## [1.5.0] - 2026-11-06
+
+### Đã thêm (Added)
+- **Mở Rộng Character Studio Lên 10 Mô Hình Với 3 Danh Mục Sci-Fi Mới (`256x256` RGBA)**:
+  - 🚀 **Chiến Hạm Vũ Trụ (`spaceship_config.js`)**: Tích hợp 61 thân tàu vũ trụ (50 tàu tách chuẩn từng chiếc từ `Naves.png` qua thuật toán cắt khe alpha tối thiểu + 11 Soái Hạm từ `RobotsVsAliens.zip`), 8 hiệu ứng lửa động cơ phản lực đơn/kép, 6 cặp vũ khí gắn cánh đối xứng, 5 vòm khiên năng lượng bán trong suốt và 4 phông nền không gian.
+  - 🤖 **Robot & Mecha Chiến Đấu (`robot_config.js`)**: Tích hợp 14 khung giáp Robot (4 thế Hoverbot, 4 Robot Công Nghiệp xoay chuẩn chiều đứng 180°, 5 Cyber Watcher, 1 Drone Cầu trinh sát), 3 bộ cánh quạt phản lực đối xứng, 5 bộ pháo vai đôi & tia siêu tân tinh, 5 kính HUD điện tử và 3 cấu hình Drone vệ tinh hộ vệ.
+  - 🦂 **Quái Thú Vũ Trụ Tiến Hóa (`alien_behemoth_config.js`)**: Tích hợp 60 cấp độ tiến hóa thuộc 7 chủng loài ngoài hành tinh, đôi cánh Chitin hoàng kim đối xứng trái-phải, vòng xúc tu gai sinh học và cặp trứng ký sinh hộ vệ.
+- **Sticky Floating Mini-Preview Trên Mobile (`< md`)**:
+  - Tự động hiển thị khung xem trước nhân vật thu nhỏ kèm nút `🎲` và `Lên ⬆` ở góc dưới bên phải khi người dùng cuộn xuống danh sách bộ phận trên điện thoại.
+- **Pipeline Tách & Kiểm Toán Asset Chính Xác (`scripts/process_new_categories.py`)**:
+  - Tự động tách các cặp tàu dính biên trong `Naves.png`, xoay chuẩn hướng Robot, lật gương tạo cặp cánh/trứng/vũ khí đối xứng hoàn hảo và tạo bộ thumbnail `64x64`.
+
+### Đã sửa (Fixed)
+- **Hiển Thị Rõ Viền & Dấu Tích `✓` Cho Ô Màu Trắng (`#FFFFFF`)**:
+  - Bổ sung viền xám mảnh (`border-gray-300`) và dấu tích `✓` tương phản bên trong chấm màu đang chọn tại `CustomizerInspector.jsx` để màu trắng không bị tiệp vào nền thẻ trắng.
+
+---
+
 ## [1.4.0] - 2026-10-28
 
 ### Đã thêm (Added)

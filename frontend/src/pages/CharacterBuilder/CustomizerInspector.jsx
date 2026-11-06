@@ -67,6 +67,14 @@ const CustomizerInspector = ({
   let currentOptions = allOptions;
   if (activeCategory === 'state' && selections.prop_type) {
     currentOptions = allOptions.filter(o => !o.forType || o.forType === selections.prop_type);
+  } else if (activeCategory === 'stage' && selections.species) {
+    currentOptions = allOptions.filter(o => !o.forSpecies || o.forSpecies === selections.species);
+  } else if ((activeCategory === 'mutation' || activeCategory === 'symbiont') && selections.species) {
+    currentOptions = allOptions.filter(o => !o.allowedSpecies || o.allowedSpecies.includes(selections.species));
+  } else if (activeCategory === 'chassis' && selections.robot_class) {
+    currentOptions = allOptions.filter(o => !o.forClass || o.forClass === selections.robot_class);
+  } else if ((activeCategory === 'thrusters' || activeCategory === 'weapons') && selections.robot_class) {
+    currentOptions = allOptions.filter(o => !o.allowedClasses || o.allowedClasses.includes(selections.robot_class));
   } else if (availableGroups && filterGroup && filterGroup !== 'all') {
     currentOptions = allOptions.filter(o => o.group === filterGroup || o.id?.endsWith('_none'));
   }
@@ -79,6 +87,14 @@ const CustomizerInspector = ({
     if (activeCategory === 'state') {
       const activeTypeObj = (currentConfig?.prop_type || []).find(t => t.id === selections.prop_type);
       return activeTypeObj ? activeTypeObj.name : '💎 Vật Phẩm & Biến Thể';
+    }
+    if (activeCategory === 'stage') {
+      const activeSpObj = (currentConfig?.species || []).find(s => s.id === selections.species);
+      return activeSpObj ? activeSpObj.name : '🔥 Cấp Tiến Hóa';
+    }
+    if (activeCategory === 'chassis' && currentConfig?.robot_class) {
+      const activeClsObj = (currentConfig?.robot_class || []).find(c => c.id === selections.robot_class);
+      return activeClsObj ? activeClsObj.name : '🛡️ Khung Giáp Robot';
     }
     const catObj = (currentModel?.categories || []).find(c => c.id === activeCategory);
     if (catObj) {
@@ -111,13 +127,59 @@ const CustomizerInspector = ({
                   key={type.id}
                   type="button"
                   onClick={() => onSelectOption('prop_type', type.id)}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all border shrink-0 ${
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all border shrink-0 cursor-pointer ${
                     isTypeActive
                       ? 'bg-red-600 text-white border-red-700 shadow-xs'
                       : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200 hover:text-red-600'
                   }`}
                 >
                   {type.name}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Quick species switch pills when browsing evolution stages */}
+        {activeCategory === 'stage' && currentConfig?.species && (
+          <div className="flex gap-1.5 overflow-x-auto pb-1.5 mb-1.5 no-scrollbar sm:custom-scrollbar shrink-0">
+            {currentConfig.species.map(sp => {
+              const isSpActive = selections.species === sp.id;
+              return (
+                <button
+                  key={sp.id}
+                  type="button"
+                  onClick={() => onSelectOption('species', sp.id)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all border shrink-0 cursor-pointer ${
+                    isSpActive
+                      ? 'bg-red-600 text-white border-red-700 shadow-xs'
+                      : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200 hover:text-red-600'
+                  }`}
+                >
+                  {sp.shortName || sp.name}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Quick robot_class switch pills when browsing robot chassis */}
+        {activeCategory === 'chassis' && currentConfig?.robot_class && (
+          <div className="flex gap-1.5 overflow-x-auto pb-1.5 mb-1.5 no-scrollbar sm:custom-scrollbar shrink-0">
+            {currentConfig.robot_class.map(cls => {
+              const isClsActive = selections.robot_class === cls.id;
+              return (
+                <button
+                  key={cls.id}
+                  type="button"
+                  onClick={() => onSelectOption('robot_class', cls.id)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all border shrink-0 cursor-pointer ${
+                    isClsActive
+                      ? 'bg-red-600 text-white border-red-700 shadow-xs'
+                      : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200 hover:text-red-600'
+                  }`}
+                >
+                  {cls.shortName || cls.name}
                 </button>
               );
             })}
@@ -147,6 +209,17 @@ const CustomizerInspector = ({
                 </button>
               );
             })}
+          </div>
+        )}
+
+        {/* Thông báo khi dòng Robot hoặc Chủng loài hiện tại có cấu trúc cơ thể riêng biệt không dùng chung phụ kiện này */}
+        {allOptions.length > 1 && currentOptions.length === 1 && (
+          <div className="mb-2 p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-[11px] flex flex-col gap-1.5 shrink-0">
+            <p className="font-medium leading-snug">
+              {currentModel?.id === 'robot'
+                ? '💡 Dòng Robot hiện tại có cấu trúc cơ khí độc lập nên không gắn Chân Đẩy / Pháo Laser của dòng Hoverbot (tránh chồng chéo bộ phận).'
+                : '💡 Chủng loài hiện tại (Kình Ngư / Bạch Tuộc / Nhãn Quỷ) có hình thái cơ thể riêng biệt nên không gắn Cánh Chitin hay Kén Ấu Trùng của loài Côn Trùng.'}
+            </p>
           </div>
         )}
 
@@ -198,7 +271,7 @@ const CustomizerInspector = ({
                       src={opt.thumbSrc || opt.src}
                       alt={opt.name}
                       className="w-full h-full object-contain pointer-events-none drop-shadow-2xs"
-                      style={{ imageRendering: 'pixelated' }}
+                      style={{ imageRendering: (currentModel?.frameSize >= 160 && !currentModel?.isSpritesheet) ? 'auto' : 'pixelated' }}
                     />
                   ) : spriteSrc ? (
                     <div
@@ -254,6 +327,7 @@ const CustomizerInspector = ({
               const hex = typeof colorItem === 'string' ? colorItem : (colorItem?.hex || '#ffffff');
               const name = typeof colorItem === 'string' ? colorItem : (colorItem?.name || hex);
               const isActiveColor = (currentColor || '').toLowerCase() === hex.toLowerCase();
+              const isLightColor = ['#ffffff', '#fff', '#f8fafc', '#e2e8f0', '#fef08a', '#fde047', '#facc15'].includes(hex.toLowerCase());
               return (
                 <button
                   key={hex}
@@ -261,15 +335,21 @@ const CustomizerInspector = ({
                   onClick={() => onSelectColor(activeCategory, hex)}
                   title={name}
                   className={`
-                    w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 transition-transform shadow-2xs cursor-pointer shrink-0
+                    w-5 h-5 sm:w-6 sm:h-6 rounded-full border transition-transform shadow-2xs cursor-pointer shrink-0 flex items-center justify-center
                     ${
                       isActiveColor
-                        ? 'border-white scale-110 ring-2 ring-red-500'
-                        : 'border-gray-200 hover:scale-105 hover:ring-1 hover:ring-gray-300'
+                        ? `${isLightColor ? 'border-gray-300' : 'border-white'} scale-110 ring-2 ring-red-500`
+                        : `${isLightColor ? 'border-gray-300' : 'border-gray-200'} hover:scale-105 hover:ring-1 hover:ring-gray-300`
                     }
                   `}
                   style={{ backgroundColor: hex }}
-                />
+                >
+                  {isActiveColor && (
+                    <span className={`text-[9px] sm:text-[10px] font-black leading-none select-none ${isLightColor ? 'text-red-600' : 'text-white drop-shadow-2xs'}`}>
+                      ✓
+                    </span>
+                  )}
+                </button>
               );
             })}
           </div>
